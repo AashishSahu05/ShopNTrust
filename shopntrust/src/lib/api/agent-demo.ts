@@ -1,0 +1,364 @@
+// ============================================================
+// ShopNTrust — Phase 4 Demo Agent Service
+// ============================================================
+// Simulates an intelligent shopping agent by extracting structured intent,
+// deriving query constraints, matching against the canonical 54-product catalog,
+// and generating transparent reasoning bullets.
+//
+// NOTE: In Phase 5, this will be replaced by the real n8n webhook service
+// via the same NormalizedAIResponse signature.
+// ============================================================
+
+import { getAllProducts, getProductById } from '@/lib/catalog';
+import type {
+  NormalizedAIResponse,
+  AgentExtractedIntent,
+  AgentProductMatch,
+  AgentContextPayload,
+} from '@/types';
+import { formatPrice } from '@/lib/format';
+
+/**
+ * Parses user input for explicit constraints without hallucinating.
+ */
+function extractQueryIntent(query: string): AgentExtractedIntent {
+  const lower = query.toLowerCase();
+  const intent: AgentExtractedIntent = {};
+  const constraints: string[] = [];
+
+  // 1. Category Detection
+  if (lower.includes('phone') || lower.includes('smartphone') || lower.includes('mobile') || lower.includes('galaxy') || lower.includes('iphone') || lower.includes('oneplus')) {
+    intent.category = 'phones';
+    constraints.push('Category: Smartphones');
+  } else if (lower.includes('headphone') || lower.includes('earbud') || lower.includes('earphone') || lower.includes('audio') || lower.includes('sound') || lower.includes('anc') || lower.includes('noise cancel')) {
+    intent.category = 'headphones';
+    constraints.push('Category: Headphones & Audio');
+  } else if (lower.includes('watch') || lower.includes('smartwatch') || lower.includes('wearable') || lower.includes('fitness tracker') || lower.includes('band')) {
+    intent.category = 'wearables';
+    constraints.push('Category: Smartwatches & Wearables');
+  } else if (lower.includes('shoe') || lower.includes('running') || lower.includes('sneaker') || lower.includes('pegasus') || lower.includes('ultraboost') || lower.includes('fitness')) {
+    intent.category = 'fitness';
+    constraints.push('Category: Athletic & Running Gear');
+  } else if (lower.includes('skin') || lower.includes('serum') || lower.includes('gel') || lower.includes('face') || lower.includes('acne') || lower.includes('skincare')) {
+    intent.category = 'skincare';
+    constraints.push('Category: Skincare & Wellness');
+  } else if (lower.includes('laptop') || lower.includes('macbook') || lower.includes('computer')) {
+    intent.category = 'laptops';
+    constraints.push('Category: Laptops & Computing');
+  }
+
+  // 2. Budget Extraction (Strictly from current query, not stored in profile)
+  const budgetMatch = query.match(/(?:under|below|budget|within|less than|<=?)\s*(?:₹|rs\.?|inr)?\s*([\d,]+)(?:\s*(?:k|thousand|lakh|lac|l))?/i);
+  if (budgetMatch) {
+    const rawAmount = budgetMatch[1].replace(/,/g, '');
+    let numAmount = parseInt(rawAmount, 10);
+    const suffix = (budgetMatch[0] || '').toLowerCase();
+
+    if (suffix.includes('k') || suffix.includes('thousand')) {
+      numAmount = numAmount * 1000;
+    } else if (suffix.includes('lakh') || suffix.includes('lac') || suffix.includes('l')) {
+      numAmount = numAmount * 100000;
+    }
+
+    if (!isNaN(numAmount) && numAmount > 0) {
+      intent.budget = numAmount;
+      constraints.push(`Budget: ≤ ${formatPrice(numAmount)}`);
+    }
+  }
+
+  // 3. Priorities & Feature Signals
+  if (lower.includes('zoom') || lower.includes('camera') || lower.includes('photo') || lower.includes('video')) {
+    intent.priority = 'Pro Photography & Optical Zoom';
+    constraints.push('Priority: Camera & Zoom Optics');
+  } else if (lower.includes('battery') || lower.includes('all-day') || lower.includes('long lasting')) {
+    intent.priority = 'Extended All-Day Battery';
+    constraints.push('Priority: High Battery Capacity');
+  } else if (lower.includes('noise cancel') || lower.includes('anc') || lower.includes('quiet')) {
+    intent.priority = 'Active Noise Cancellation (ANC)';
+    constraints.push('Priority: Premium Noise Cancellation');
+  } else if (lower.includes('cushion') || lower.includes('marathon') || lower.includes('comfort')) {
+    intent.priority = 'High Impact Cushioning';
+    constraints.push('Priority: Running Comfort & Cushioning');
+  } else if (lower.includes('acne') || lower.includes('salicylic') || lower.includes('gentle')) {
+    intent.priority = 'Targeted Blemish & Gentle Formulation';
+    constraints.push('Priority: Gentle Acne Care');
+  }
+
+  // 4. Use Case
+  if (lower.includes('flight') || lower.includes('travel') || lower.includes('commute')) {
+    intent.useCase = 'Frequent Travel & Commuting';
+  } else if (lower.includes('marathon') || lower.includes('workout') || lower.includes('training')) {
+    intent.useCase = 'Daily Fitness & Long-Distance Training';
+  } else if (lower.includes('work') || lower.includes('office') || lower.includes('coding')) {
+    intent.useCase = 'Productivity & Work';
+  }
+
+  intent.keyConstraints = constraints;
+  return intent;
+}
+
+/**
+ * Execute demo agent matching logic against the canonical catalog.
+ */
+export async function queryDemoAgent(
+  userQuery: string,
+  context?: AgentContextPayload
+): Promise<NormalizedAIResponse> {
+  // Use context if provided for session tracking
+  void context;
+  // Simulate rapid, realistic response time (250ms)
+  await new Promise((resolve) => setTimeout(resolve, 250));
+
+  const trimmed = userQuery.trim();
+  const lower = trimmed.toLowerCase();
+  const intent = extractQueryIntent(trimmed);
+
+  // Check for out-of-catalog items (e.g. DSLR camera, refrigerator, car, furniture)
+  const outOfCatalogKeywords = ['dslr', 'camera body', 'refrigerator', 'fridge', 'washing machine', 'couch', 'sofa', 'car', 'tire', 'drone', 'television', 'tv'];
+  const isOutOfCatalog = outOfCatalogKeywords.some((k) => lower.includes(k)) && !lower.includes('phone') && !lower.includes('mobile');
+
+  if (isOutOfCatalog) {
+    return {
+      message: `I searched our 54-product canonical catalog, but ShopNTrust currently specializes in Smartphones, Wearables, Personal Audio, Laptops, Athletic Footwear, and Skincare. We don't have this product category in stock.`,
+      extractedIntent: intent,
+      recommendedProductIds: [],
+      matches: [],
+      suggestedPrompts: [
+        'Find flagship smartphones',
+        'Noise-cancelling headphones for travel',
+        'Smartwatches for daily fitness',
+        'Explore all 54 catalog items',
+      ],
+    };
+  }
+
+  // Matching Logic based on detected intent
+  const allProducts = getAllProducts();
+  const matches: AgentProductMatch[] = [];
+  const recommendedIds: string[] = [];
+  const reasons: Record<string, string> = {};
+
+  // Case 1: Flagship phone with zoom / camera / battery (e.g. P106, P114, P101)
+  if (intent.category === 'phones' || lower.includes('phone') || lower.includes('camera') || lower.includes('zoom')) {
+    // Top match: P106 Samsung S24 Ultra
+    const p106 = getProductById('P106');
+    if (p106 && (!intent.budget || p106.price <= intent.budget)) {
+      recommendedIds.push('P106');
+      matches.push({
+        productId: 'P106',
+        matchLabel: 'Strong Match',
+        reasoning: [
+          '200MP Quad Telephoto Camera with 5x Optical Zoom for crystal-clear long-range shots',
+          '5,000 mAh all-day battery optimized for sustained performance',
+          `Direct retail price of ${formatPrice(p106.price)} fits within your budget`,
+        ],
+        keyAttributes: ['200MP Zoom Camera', '5,000 mAh Battery', 'Snapdragon 8 Gen 3', 'Titanium Frame'],
+      });
+      reasons['P106'] = 'Best flagship optical zoom system paired with high-capacity battery life.';
+    }
+
+    // Alternative: P114 OnePlus 12
+    const p114 = getProductById('P114');
+    if (p114 && (!intent.budget || p114.price <= intent.budget)) {
+      recommendedIds.push('P114');
+      matches.push({
+        productId: 'P114',
+        matchLabel: 'Good Match',
+        reasoning: [
+          'Hasselblad 4th Gen Camera system with 64MP 3x Periscope Zoom',
+          '5,400 mAh high-capacity battery with ultra-fast 100W SUPERVOOC charging',
+          `Exceptional value flagship at ${formatPrice(p114.price)}`,
+        ],
+        keyAttributes: ['64MP Periscope', '5,400 mAh Battery', '100W SuperVOOC', 'Hasselblad Optics'],
+      });
+      reasons['P114'] = 'Superior battery capacity (5,400 mAh) and 100W fast charging at a lower price point.';
+    }
+
+    // Value Tier: P101 OnePlus Nord CE4 / CE6
+    const p101 = getProductById('P101');
+    if (p101 && (lower.includes('budget') || lower.includes('under 30000') || lower.includes('value') || (!intent.budget || p101.price <= intent.budget))) {
+      if (recommendedIds.length < 3) {
+        recommendedIds.push('P101');
+        matches.push({
+          productId: 'P101',
+          matchLabel: 'Alternative Option',
+          reasoning: [
+            'Sony LYT-600 50MP OIS main camera with 4K recording',
+            'Massive 5,500 mAh battery with 100W charging',
+            `Accessible retail pricing at ${formatPrice(p101.price)}`,
+          ],
+          keyAttributes: ['50MP Sony OIS', '5,500 mAh Battery', '100W Charging', 'Sub-₹25k Value'],
+        });
+        reasons['P101'] = 'Outstanding battery capacity and Sony OIS sensor at an accessible mid-range price.';
+      }
+    }
+  }
+
+  // Case 2: Headphones & Audio (P117 Sony XM5, P143 Bose QC, P137 boAt)
+  else if (intent.category === 'headphones' || lower.includes('flight') || lower.includes('anc') || lower.includes('headphone') || lower.includes('earbud')) {
+    const p117 = getProductById('P117'); // Sony XM5
+    if (p117) {
+      recommendedIds.push('P117');
+      matches.push({
+        productId: 'P117',
+        matchLabel: 'Strong Match',
+        reasoning: [
+          'Industry-leading Auto NC Optimizer with dual processors for near-silent flight travel',
+          '30-hour battery life with quick charging (3 min charge = 3 hours playback)',
+          'Ultra-comfortable lightweight fit designed for extended listening',
+        ],
+        keyAttributes: ['Industry Top ANC', '30-Hour Battery', 'Dual V1/QN1 Processors', 'Hi-Res Audio'],
+      });
+      reasons['P117'] = 'Benchmark active noise cancellation and comfort for long flights and commuting.';
+    }
+
+    const p137 = getProductById('P137'); // boAt Airdopes
+    if (p137) {
+      recommendedIds.push('P137');
+      matches.push({
+        productId: 'P137',
+        matchLabel: 'Alternative Option',
+        reasoning: [
+          'Compact true-wireless form factor for daily mobility',
+          'ENx environmental noise cancellation for clear voice calls',
+          `High-value entry price at ${formatPrice(p137.price)}`,
+        ],
+        keyAttributes: ['True Wireless', 'ENx Call Clarity', 'IPX4 Water Resistant', 'Pocketable Form'],
+      });
+      reasons['P137'] = 'Compact everyday wireless earbuds with low latency and punchy sound.';
+    }
+  }
+
+  // Case 3: Wearables & Smartwatches (P107 Apple Watch, P119 Galaxy Watch)
+  else if (intent.category === 'wearables' || lower.includes('watch') || lower.includes('fitness tracker')) {
+    const p107 = getProductById('P107'); // Apple Watch
+    if (p107) {
+      recommendedIds.push('P107');
+      matches.push({
+        productId: 'P107',
+        matchLabel: 'Strong Match',
+        reasoning: [
+          'Advanced fitness tracking, ECG sensor, and precision blood oxygen monitoring',
+          'Double-tap gesture navigation for seamless one-handed operation',
+          'Seamless daily health analytics with automatic workout detection',
+        ],
+        keyAttributes: ['ECG & SpO2', 'Double Tap Gesture', 'Always-On Retina Display', 'Crash Detection'],
+      });
+      reasons['P107'] = 'Comprehensive health metrics and ecosystem integration for active lifestyles.';
+    }
+
+    const p119 = getProductById('P119'); // Galaxy Watch 6
+    if (p119) {
+      recommendedIds.push('P119');
+      matches.push({
+        productId: 'P119',
+        matchLabel: 'Good Match',
+        reasoning: [
+          'BioActive sensor for Body Composition (BIA) and personalized heart rate zones',
+          'Comprehensive sleep coaching with detailed sleep stage tracking',
+          `Competitive price at ${formatPrice(p119.price)}`,
+        ],
+        keyAttributes: ['BIA Body Composition', 'Sleep Coaching', 'Sapphire Crystal', 'Wear OS'],
+      });
+      reasons['P119'] = 'In-depth body composition and personalized sleep coaching.';
+    }
+  }
+
+  // Case 4: Fitness & Athletic Gear (P133 Nike Pegasus, P141 Adidas Ultraboost)
+  else if (intent.category === 'fitness' || lower.includes('shoe') || lower.includes('running') || lower.includes('marathon')) {
+    const p133 = getProductById('P133'); // Nike Pegasus 40
+    if (p133) {
+      recommendedIds.push('P133');
+      matches.push({
+        productId: 'P133',
+        matchLabel: 'Strong Match',
+        reasoning: [
+          'Dual Nike Zoom Air units (forefoot and heel) providing responsive, springy energy return',
+          'Engineered mesh upper for high breathability on long-distance runs',
+          'Durable waffle-inspired outsole for superior multi-surface traction',
+        ],
+        keyAttributes: ['Dual Zoom Air', 'Engineered Mesh', 'Springy Cushioning', 'Daily Trainer Workhorse'],
+      });
+      reasons['P133'] = 'Reliable workhorse running shoe engineered for daily training and long distances.';
+    }
+  }
+
+  // Case 5: Skincare & Wellness (P124 Minimalist, P135 Dot & Key)
+  else if (intent.category === 'skincare' || lower.includes('skin') || lower.includes('serum') || lower.includes('acne')) {
+    const p124 = getProductById('P124'); // Minimalist Salicylic Acid
+    if (p124) {
+      recommendedIds.push('P124');
+      matches.push({
+        productId: 'P124',
+        matchLabel: 'Strong Match',
+        reasoning: [
+          '2% Salicylic Acid formulation with pure Aloe Vera extract for gentle pore unclogging',
+          'Effective reduction of blackheads, excess sebum, and active blemishes',
+          `Budget-friendly price of ${formatPrice(p124.price)}`,
+        ],
+        keyAttributes: ['2% Salicylic Acid', 'Aloe Base', 'Sebum Control', 'Fragrance Free'],
+      });
+      reasons['P124'] = 'Clinically proven, non-comedogenic serum formulated for acne-prone skin.';
+    }
+  }
+
+  // Generic Fallback: Search all products by keyword if no explicit category branch was triggered
+  if (recommendedIds.length === 0) {
+    const matchingProducts = allProducts.filter((p) => {
+      const matchName = p.name.toLowerCase().includes(lower);
+      const matchDesc = p.description.toLowerCase().includes(lower);
+      const matchBrand = p.brand.toLowerCase().includes(lower);
+      const matchBudget = !intent.budget || p.price <= intent.budget;
+      return (matchName || matchDesc || matchBrand) && matchBudget;
+    }).slice(0, 3);
+
+    for (const p of matchingProducts) {
+      recommendedIds.push(p.product_id);
+      matches.push({
+        productId: p.product_id,
+        matchLabel: 'Good Match',
+        reasoning: [
+          `Matches your keyword query for "${p.name}"`,
+          `Authentic retail price: ${formatPrice(p.price)}`,
+          `Verified official catalog item under ${p.categoryDisplay || p.category}`,
+        ],
+        keyAttributes: [p.brand, p.categoryDisplay || p.category, formatPrice(p.price)],
+      });
+      reasons[p.product_id] = `Matched based on keyword criteria and verified catalog specifications.`;
+    }
+  }
+
+  // If still empty, return polite no-match
+  if (recommendedIds.length === 0) {
+    return {
+      message: `I couldn't find a direct match for your request in our current 54-product catalog. Try adjusting your criteria or search by popular categories.`,
+      extractedIntent: intent,
+      recommendedProductIds: [],
+      matches: [],
+      suggestedPrompts: [
+        'Find flagship smartphones',
+        'Show travel headphones with ANC',
+        'Find running shoes for daily training',
+        'Browse full catalog',
+      ],
+    };
+  }
+
+  const primaryMatch = matches[0];
+  const primaryProduct = getProductById(primaryMatch.productId);
+  const message = `Based on your request, I matched **${primaryProduct?.name || 'verified products'}** from our canonical catalog. Here is a breakdown of why these options fit your stated requirements:`;
+
+  return {
+    message,
+    extractedIntent: intent,
+    recommendedProductIds: recommendedIds,
+    matches,
+    recommendationReasons: reasons,
+    suggestedPrompts: [
+      'Compare these recommendations',
+      'What are the charging specs?',
+      'Show more budget-friendly alternatives',
+      'Look for matching accessories',
+    ],
+  };
+}

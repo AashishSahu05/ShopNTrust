@@ -1,0 +1,2884 @@
+[
+  {
+    "product_id": "P101",
+    "name": "OnePlus Nord CE6",
+    "brand": "OnePlus",
+    "category": "phones",
+    "categoryDisplay": "Electronics",
+    "subCategory": "Android SmartPhones",
+    "productType": "Mobile Phones",
+    "description": "2.5+ days of battery life",
+    "price": 37999,
+    "mrp": 40999,
+    "currency": "INR",
+    "image": "https://www.oneplus.in/nord-ce6/specs",
+    "images": [
+      "https://www.oneplus.in/nord-ce6/specs",
+      "https://gadgets.beebom.com/mobile/oneplus-nord-ce-6"
+    ],
+    "rating": 4.7,
+    "reviewCount": 621,
+    "stockStatus": "in_stock",
+    "stockQuantity": 16,
+    "deliveryEstimate": "4 days",
+    "deliveryDays": 4,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "OnePlus",
+      "Category": "Electronics",
+      "Sub-Category": "Android SmartPhones",
+      "Product Type": "Mobile Phones"
+    },
+    "rawSpecs": "",
+    "featuresList": [
+      "IP66 / IP68 / IP69 / IP69K dust & water resistance",
+      "MIL-STD-810H durability",
+      "3200Hz instantaneous touch response",
+      "Dual Stereo Speakers with 300% Super Audio Mode",
+      "X-axis haptic motor",
+      "IR Blaster",
+      "In-display fingerprint sensor",
+      "Dual AI suite (OnePlus & Google)"
+    ],
+    "benefits": [
+      "2.5+ days of battery life",
+      "Power bank capability for other devices",
+      "Extreme drop and liquid ingress protection",
+      "Long-term smooth performance"
+    ],
+    "useCases": [
+      "Gaming",
+      "Photography",
+      "Videography",
+      "Content creation",
+      "Daily use",
+      "Multitasking",
+      "Productivity",
+      "Entertainment"
+    ],
+    "targetCustomer": [
+      "General",
+      "Gaming",
+      "Photography",
+      "Videography"
+    ],
+    "occasion": [
+      "Everyday high-performance computing",
+      "Long-haul travel without charger access",
+      "Extended outdoor adventures",
+      "Intense gaming sessions"
+    ],
+    "variants": [
+      {
+        "variant_id": "8gb-128gb",
+        "name": "8 GB + 128 GB",
+        "type": "ram_storage",
+        "price": 37999,
+        "attributes": {
+          "ram": "8 GB",
+          "storage": "128 GB"
+        }
+      },
+      {
+        "variant_id": "8gb-256gb",
+        "name": "8 GB + 256 GB",
+        "type": "ram_storage",
+        "price": 41999,
+        "attributes": {
+          "ram": "8 GB",
+          "storage": "256 GB"
+        }
+      }
+    ],
+    "crossSellIds": [
+      "P102",
+      "P103",
+      "P104",
+      "P105"
+    ],
+    "featured": true,
+    "trending": true,
+    "tags": [
+      "phones",
+      "oneplus",
+      "android smartphones",
+      "mobile phones"
+    ]
+  },
+  {
+    "product_id": "P102",
+    "name": "OnePlus Nord CE6 Sandstone Magnetic Case",
+    "brand": "OnePlus",
+    "category": "phones",
+    "categoryDisplay": "Store / Accessories",
+    "subCategory": "Cases & Protection",
+    "productType": "Magnetic Protective Phone Case (Back Cover)",
+    "description": "Enhanced non-slip grip",
+    "price": 499,
+    "mrp": 1399,
+    "currency": "INR",
+    "image": "https://www.oneplus.in/product/oneplus-nord-ce6-sandstone-magnetic-case",
+    "images": [
+      "https://www.oneplus.in/product/oneplus-nord-ce6-sandstone-magnetic-case"
+    ],
+    "rating": 4,
+    "reviewCount": 991,
+    "stockStatus": "in_stock",
+    "stockQuantity": 18,
+    "deliveryEstimate": "3 days",
+    "deliveryDays": 3,
+    "shippingCharge": "₹99",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "OnePlus",
+      "Category": "Store / Accessories",
+      "Sub-Category": "Cases & Protection",
+      "Product Type": "Magnetic Protective Phone Case (Back Cover)"
+    },
+    "rawSpecs": "",
+    "featuresList": [
+      "Variants / Colors: Sandstone Black, Sandstone Grey",
+      "Material & Texture: Polycarbonate (PC) + Thermoplastic Polyurethane (TPU) hybrid build with OnePlus’ signature textured sandstone finish",
+      "Compatibility: OnePlus Nord CE6 5G",
+      "Magnetic Capabilities: Built-in magnetic ring for secure attachment to magnetic cardholders, car mounts, and magnetic lifestyle accessories",
+      "Design & Fit: Tailored full-coverage design with tactile button covers and precision cutouts for ports, speakers, and microphones",
+      "Protection:",
+      "Raised camera bezels to prevent lens scratches on flat surfaces",
+      "Raised front lip for screen protection",
+      "Shock-absorbent TPU bumper edges against everyday drops and bumps"
+    ],
+    "benefits": [
+      "Enhanced non-slip grip",
+      "Fingerprint and smudge resistance",
+      "Snap-on magnetic accessory support without adding significant bulk"
+    ],
+    "targetCustomer": [
+      "OnePlus Nord CE6 owners seeking reliable protection",
+      "Tactile grip to prevent accidental drops",
+      "Magnetic convenience for cardholders or mounts"
+    ],
+    "occasion": [
+      "Daily commutes, one-handed outdoor usage, hands-free GPS navigation in vehicles, and active lifestyle settings."
+    ],
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "phones",
+      "oneplus",
+      "cases & protection",
+      "magnetic protective phone case (back cover)"
+    ]
+  },
+  {
+    "product_id": "P103",
+    "name": "OnePlus SUPERVOOC 80W Power Adapter",
+    "brand": "OnePlus",
+    "category": "accessories",
+    "categoryDisplay": "Store / Power & Cables",
+    "subCategory": "Power Adapters & Wall Chargers",
+    "productType": "Fast Wall Charger / Flash Charging Power Adapter",
+    "description": "50% battery top-up in as fast as 12–15 minutes",
+    "price": 1799,
+    "mrp": 2499,
+    "currency": "INR",
+    "image": "https://www.oneplus.in/product/oneplus-supervooc-80w-power-adapter",
+    "images": [
+      "https://www.oneplus.in/product/oneplus-supervooc-80w-power-adapter"
+    ],
+    "rating": 4.8,
+    "reviewCount": 908,
+    "stockStatus": "in_stock",
+    "stockQuantity": 15,
+    "deliveryEstimate": "6 days",
+    "deliveryDays": 6,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "OnePlus",
+      "Category": "Store / Power & Cables",
+      "Sub-Category": "Power Adapters & Wall Chargers",
+      "Product Type": "Fast Wall Charger / Flash Charging Power Adapter"
+    },
+    "rawSpecs": "",
+    "featuresList": [
+      "Intelligent Temperature Control: Dedicated chip monitors temperature up to 25 times per second and dynamically adjusts power output to prevent overheating.",
+      "10-Layer Safety Protection: Over-voltage, over-temperature, over-current, short-circuit, electromagnetic field, lightning, static, under-voltage, impedance protection, and cable detection.",
+      "Fire-Resistant Build: Casing made from UL95-V0 high-grade fireproof material."
+    ],
+    "benefits": [
+      "50% battery top-up in as fast as 12–15 minutes",
+      "Robust device longevity",
+      "Compact everyday portability"
+    ],
+    "useCases": [
+      "Rapid device recharging at home",
+      "Recharging in the office",
+      "Recharging while traveling abroad"
+    ],
+    "targetCustomer": [
+      "Heavy device users",
+      "Multi-device commuters",
+      "Frequent travelers who require ultra-fast top-ups and reliable multi-layer thermal safety."
+    ],
+    "occasion": [
+      "Fast morning top-ups before heading out, rapid charging stops between meetings, and domestic or international travel."
+    ],
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "accessories",
+      "oneplus",
+      "power adapters & wall chargers",
+      "fast wall charger / flash charging power adapter"
+    ]
+  },
+  {
+    "product_id": "P104",
+    "name": "OnePlus SUPERVOOC 100W Dual Ports GaN Power Adapter Lite",
+    "brand": "OnePlus",
+    "category": "accessories",
+    "categoryDisplay": "Store / Power & Cables",
+    "subCategory": "GaN Multi-Port Wall Adapters",
+    "productType": "Dual-Port Fast GaN Charger",
+    "description": "Eliminates the need to carry separate phone and laptop bricks.",
+    "price": 2799,
+    "mrp": 3999,
+    "currency": "INR",
+    "image": "https://www.oneplus.in/product/product/oneplus-supervooc-100w-dual-ports-gan-power-adapter-lite",
+    "images": [
+      "https://www.oneplus.in/product/product/oneplus-supervooc-100w-dual-ports-gan-power-adapter-lite"
+    ],
+    "rating": 4.4,
+    "reviewCount": 778,
+    "stockStatus": "in_stock",
+    "stockQuantity": 18,
+    "deliveryEstimate": "3 days",
+    "deliveryDays": 3,
+    "shippingCharge": "₹99",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "OnePlus",
+      "Category": "Store / Power & Cables",
+      "Sub-Category": "GaN Multi-Port Wall Adapters",
+      "Product Type": "Dual-Port Fast GaN Charger"
+    },
+    "rawSpecs": "Variants / Color: White\n\nPorts: 1× USB Type-C + 1× USB Type-A\n\nPower & Output Specifications\n\nInput: AC 100–240V ~ 50/60Hz, 2.5A\n\nSingle-Port Output: Up to 100W Max (SUPERVOOC / PD / PPS / QC)\n\nUSB-C: 5V/3A, 9V/3A, 11V/9.1A, 12V/3A, 15V/3A, 20V/3.25A (65W PD / 100W SUPERVOOC)\n\nUSB-A: 5V/3A, 9V/3A, 11V/9.1A, 12V/2.5A (100W SUPERVOOC Max)\n\nDual-Port Simultaneous Output: Dynamic power distribution (e.g., 50W + 50W or 65W PD + 33W SUPERVOOC)",
+    "featuresList": [
+      "Gallium Nitride (GaN) Technology: High thermal efficiency, cooler operation, and a compact lightweight body.",
+      "Dual-Transformer Circuit: Optimizes power conversion efficiency and minimizes energy loss.",
+      "Multi-Protocol Support: SUPERVOOC, VOOC, USB-PD 3.0, PPS, and Quick Charge (QC).",
+      "Comprehensive Safety Suite: Protection against over-voltage, short circuit, over-current, and extreme temperatures."
+    ],
+    "benefits": [
+      "Eliminates the need to carry separate phone and laptop bricks.",
+      "Fast-charges high-capacity laptops up to 65W PD while powering a smartphone at the same time."
+    ],
+    "targetCustomer": [
+      "Power users",
+      "Professionals",
+      "Students carrying multiple gadgets (smartphones, laptops, tablets, smartwatches, and earbuds) who want a single compact"
+    ],
+    "occasion": [
+      "Workstation desk setups, business travel, coffee shop work sessions, and bedside multi-device charging."
+    ],
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "accessories",
+      "oneplus",
+      "gan multi-port wall adapters",
+      "dual-port fast gan charger"
+    ]
+  },
+  {
+    "product_id": "P105",
+    "name": "OnePlus Nord CE6 Lite",
+    "brand": "OnePlus",
+    "category": "phones",
+    "categoryDisplay": "Phones",
+    "subCategory": "Mid Range 5G SmartPhones",
+    "productType": "Mobile Phones",
+    "description": "Massive battery capacity that eliminates battery anxiety, fluid everyday software navigation, and solid drop/splash protection",
+    "price": 28999,
+    "mrp": 31999,
+    "currency": "INR",
+    "image": "https://www.oneplus.in/oneplus-nord-ce6-lite",
+    "images": [
+      "https://www.oneplus.in/oneplus-nord-ce6-lite",
+      "https://www.amazon.in/OnePlus-Segments-Dimensity-Processor-Recording/dp/B0GVYGLNH7"
+    ],
+    "rating": 4.6,
+    "reviewCount": 725,
+    "stockStatus": "in_stock",
+    "stockQuantity": 21,
+    "deliveryEstimate": "3 days",
+    "deliveryDays": 3,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "OnePlus",
+      "Category": "Phones",
+      "Sub-Category": "Mid Range 5G SmartPhones",
+      "Product Type": "Mobile Phones"
+    },
+    "rawSpecs": "",
+    "benefits": [
+      "Massive battery capacity that eliminates battery anxiety, fluid everyday software navigation, and solid drop/splash protection"
+    ],
+    "useCases": [
+      "High-frame-rate mobile gaming (up to 144 FPS supported), uninterrupted multi-day travel, media streaming, and continuous daily multitasking."
+    ],
+    "variants": [
+      {
+        "variant_id": "6gb-128gb",
+        "name": "6 GB + 128 GB",
+        "type": "ram_storage",
+        "price": 28999,
+        "attributes": {
+          "ram": "6 GB",
+          "storage": "128 GB"
+        }
+      },
+      {
+        "variant_id": "8gb-128gb",
+        "name": "8 GB + 128 GB",
+        "type": "ram_storage",
+        "price": 30999,
+        "attributes": {
+          "ram": "8 GB",
+          "storage": "128 GB"
+        }
+      },
+      {
+        "variant_id": "8gb-256gb",
+        "name": "8 GB + 256 GB",
+        "type": "ram_storage",
+        "price": 34999,
+        "attributes": {
+          "ram": "8 GB",
+          "storage": "256 GB"
+        }
+      }
+    ],
+    "crossSellIds": [
+      "P102",
+      "P103",
+      "P104"
+    ],
+    "upsellIds": [
+      "P101"
+    ],
+    "featured": false,
+    "trending": true,
+    "tags": [
+      "phones",
+      "oneplus",
+      "mid range 5g smartphones",
+      "mobile phones"
+    ]
+  },
+  {
+    "product_id": "P106",
+    "name": "Samsung Galaxy S24 Ultra 5G",
+    "brand": "Samsung",
+    "category": "phones",
+    "categoryDisplay": "Electronics",
+    "subCategory": "Smartphones",
+    "productType": "Mobile Phones",
+    "description": "Mobile Phones",
+    "price": 119999,
+    "mrp": 134999,
+    "currency": "INR",
+    "image": "https://www.google.com/search?q=Samsung+Galaxy+S24+Ultra+5G+Images&sca_esv=66b01b7d6a9f6fd9&sxsrf=APpeQnvq9g_nFBd__etQj_JEqFxWCZI2QA%3A1787764683489&ei=yx-Pau67HaGrhvcPhbzd2Ag&biw=1280&bih=665&ved=0ahUKEwiuzZq35r6WAxWhleEIHQVeF4sQ4dUDCBA&uact=5&oq=Samsung+Galaxy+S24+Ultra+5G+Images&gs_lp=Egxnd3Mtd2l6LXNlcnAiIlNhbXN1bmcgR2FsYXh5IFMyNCBVbHRyYSA1RyBJbWFnZXMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyGhAuGNwGGLgGGNoGGNgCGOUEGMgDGLAD2AEBMhoQLhjcBhi4BhjaBhjYAhjlBBjIAxiwA9gBATIaEC4Y3AYYuAYY2gYY2AIY5QQYyAMYsAPYAQEyFxAuGNwGGLgGGNoGGNgCGMgDGLAD2AEBMhoQLhjcBhi4BhjaBhjYAhjlBBjIAxiwA9gBATIaEC4Y3AYYuAYY2gYY2AIY5QQYyAMYsAPYAQFIzgJQAFgAcAF4AZABAJgBAKABAKoBALgBA8gBAJgCAaACCZgDAIgGAZAGDroGBggBEAEYGZIHATGgBwCyBwC4BwDCBwMyLTHIBweACAE&sclient=gws-wiz-serp#sv=CAMSZhowKg5Ld2lMek03WGJrQUJVTTIOS3dpTHpNN1hia0FCVU06DkxRdzNGV0NmaU8zemFNIAQqLgoaXzNCLVBhcTRVdDZHRzl3LTA5cVBJQmdfNjASDkt3aUx6TTdYYmtBQlVNGAAwARgHIP__zOYPSggQARgBIAEoAQ",
+    "images": [
+      "https://www.google.com/search?q=Samsung+Galaxy+S24+Ultra+5G+Images&sca_esv=66b01b7d6a9f6fd9&sxsrf=APpeQnvq9g_nFBd__etQj_JEqFxWCZI2QA%3A1787764683489&ei=yx-Pau67HaGrhvcPhbzd2Ag&biw=1280&bih=665&ved=0ahUKEwiuzZq35r6WAxWhleEIHQVeF4sQ4dUDCBA&uact=5&oq=Samsung+Galaxy+S24+Ultra+5G+Images&gs_lp=Egxnd3Mtd2l6LXNlcnAiIlNhbXN1bmcgR2FsYXh5IFMyNCBVbHRyYSA1RyBJbWFnZXMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyGhAuGNwGGLgGGNoGGNgCGOUEGMgDGLAD2AEBMhoQLhjcBhi4BhjaBhjYAhjlBBjIAxiwA9gBATIaEC4Y3AYYuAYY2gYY2AIY5QQYyAMYsAPYAQEyFxAuGNwGGLgGGNoGGNgCGMgDGLAD2AEBMhoQLhjcBhi4BhjaBhjYAhjlBBjIAxiwA9gBATIaEC4Y3AYYuAYY2gYY2AIY5QQYyAMYsAPYAQFIzgJQAFgAcAF4AZABAJgBAKABAKoBALgBA8gBAJgCAaACCZgDAIgGAZAGDroGBggBEAEYGZIHATGgBwCyBwC4BwDCBwMyLTHIBweACAE&sclient=gws-wiz-serp#sv=CAMSZhowKg5Ld2lMek03WGJrQUJVTTIOS3dpTHpNN1hia0FCVU06DkxRdzNGV0NmaU8zemFNIAQqLgoaXzNCLVBhcTRVdDZHRzl3LTA5cVBJQmdfNjASDkt3aUx6TTdYYmtBQlVNGAAwARgHIP__zOYPSggQARgBIAEoAQ",
+      "https://www.gsmarena.com/samsung_galaxy_s24_ultra-12771.php"
+    ],
+    "rating": 5,
+    "reviewCount": 956,
+    "stockStatus": "in_stock",
+    "stockQuantity": 22,
+    "deliveryEstimate": "3 days",
+    "deliveryDays": 3,
+    "shippingCharge": "₹99",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Samsung",
+      "Category": "Electronics",
+      "Sub-Category": "Smartphones",
+      "Product Type": "Mobile Phones"
+    },
+    "rawSpecs": "",
+    "useCases": [
+      "Maximum sustained performance, professional-grade zoom photography, pen-based note taking and sketch drafting with the integrated S Pen."
+    ],
+    "targetCustomer": [
+      "Power users",
+      "Creative professionals",
+      "Digital artists",
+      "Corporate executives",
+      "Mobile photographers who demand zero-compromise multitasking and maximum zoom capabilities."
+    ],
+    "occasion": [
+      "Professional client meetings, creative field shoots, international business travel, high-intensity gaming sessions, and live concert events."
+    ],
+    "crossSellIds": [
+      "P108",
+      "P109",
+      "P110"
+    ],
+    "featured": true,
+    "trending": false,
+    "tags": [
+      "phones",
+      "samsung",
+      "smartphones",
+      "mobile phones"
+    ]
+  },
+  {
+    "product_id": "P107",
+    "name": "Samsung Galaxy S24 5G",
+    "brand": "Samsung",
+    "category": "phones",
+    "categoryDisplay": "Electronics",
+    "subCategory": "Smartphones",
+    "productType": "Mobile Phones",
+    "description": "Mobile Phones",
+    "price": 49999,
+    "mrp": 74999,
+    "currency": "INR",
+    "image": "https://sell.gameloot.in/shop/samsung-galaxy-s24-ultra-5g-12gb-ram-256gb-storage-any-color/",
+    "images": [
+      "https://sell.gameloot.in/shop/samsung-galaxy-s24-ultra-5g-12gb-ram-256gb-storage-any-color/",
+      "https://www.flipkart.com/samsung-galaxy-s24-exynos-5g-marble-gray-128-gb/p/itme9ce56159db66?pid=MOBHYJ6QZP2UA4X9&lid=LSTMOBHYJ6QZP2UA4X9WSTBPZ&marketplace=FLIPKART&cmpid=content_mobile_8965229628_gmc"
+    ],
+    "rating": 5,
+    "reviewCount": 942,
+    "stockStatus": "in_stock",
+    "stockQuantity": 20,
+    "deliveryEstimate": "5 days",
+    "deliveryDays": 5,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Samsung",
+      "Category": "Electronics",
+      "Sub-Category": "Smartphones",
+      "Product Type": "Mobile Phones"
+    },
+    "rawSpecs": "",
+    "useCases": [
+      "Ideal pocket-friendly flagship offering smooth performance, lightweight design (167g), and flagship-grade display quality without the bulk."
+    ],
+    "targetCustomer": [
+      "Commuters, students, everyday mobile users, and enthusiasts who prefer a lightweight, compact flagship that fits easily in one hand."
+    ],
+    "occasion": [
+      "Daily work/college commuting, casual weekend outings, quick social media posting, and on-the-go media streaming."
+    ],
+    "crossSellIds": [
+      "P111",
+      "P112",
+      "P113"
+    ],
+    "upsellIds": [
+      "P106"
+    ],
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "phones",
+      "samsung",
+      "smartphones",
+      "mobile phones"
+    ]
+  },
+  {
+    "product_id": "P108",
+    "name": "Samsung 45W Power Adapter",
+    "brand": "Samsung",
+    "category": "accessories",
+    "categoryDisplay": "Store / Power & Cables",
+    "subCategory": "Power Adapters & Wall Chargers",
+    "productType": "Fast Wall Charger / Flash Charging Power Adapter",
+    "description": "Delivers up to 65-70% charge in ~30 minutes on supported devices, reducing downtime significantly.",
+    "price": 2199,
+    "currency": "INR",
+    "image": "https://www.croma.com/samsung-45w-type-c-super-fast-charger-adapter-only-smart-ic-technology-black-/p/313722?utm_source=google&utm_medium=ps&utm_campaign=crtl-ol_sok_roas-omni_google_shopping_accessories_na_ind_all_omni&gad_source=1&gad_campaignid=23934978902&gbraid=0AAAAADv7K35gnUTZwj1AqFiDMv-0s7qxU&gclid=Cj0KCQjwnbrUBhDOARIsAKKhPpc1Ow7Ti_bBIf15A7UMv1uSF3SoZ96Wr0BamRQKmL7m5Sb90tEXeREaAmGGEALw_wcB",
+    "images": [
+      "https://www.croma.com/samsung-45w-type-c-super-fast-charger-adapter-only-smart-ic-technology-black-/p/313722?utm_source=google&utm_medium=ps&utm_campaign=crtl-ol_sok_roas-omni_google_shopping_accessories_na_ind_all_omni&gad_source=1&gad_campaignid=23934978902&gbraid=0AAAAADv7K35gnUTZwj1AqFiDMv-0s7qxU&gclid=Cj0KCQjwnbrUBhDOARIsAKKhPpc1Ow7Ti_bBIf15A7UMv1uSF3SoZ96Wr0BamRQKmL7m5Sb90tEXeREaAmGGEALw_wcB"
+    ],
+    "rating": 4.5,
+    "reviewCount": 705,
+    "stockStatus": "in_stock",
+    "stockQuantity": 16,
+    "deliveryEstimate": "6 days",
+    "deliveryDays": 6,
+    "shippingCharge": "₹99",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Samsung",
+      "Category": "Store / Power & Cables",
+      "Sub-Category": "Power Adapters & Wall Chargers",
+      "Product Type": "Fast Wall Charger / Flash Charging Power Adapter"
+    },
+    "rawSpecs": "Variants / Colors: Black, White\n\nCharging Standard: Super Fast Charging 2.0, USB Power Delivery (PD 3.0), Programmable Power Supply (PPS) up to 45W\n\nInput / Output: 100-240V AC; Output: (PDO) 5V/3A, 9V/3A, 15V/3A, 20V/2.25A | (PPS) 3.3-20.0V/2.25A\n\nSafety Features: Smart IC multi-protection against over-current, short circuits, high temperatures, and leakage",
+    "benefits": [
+      "Delivers up to 65-70% charge in ~30 minutes on supported devices, reducing downtime significantly."
+    ],
+    "useCases": [
+      "Fast charging high-capacity flagship phones and laptops with a single adapter."
+    ],
+    "targetCustomer": [
+      "Power users, Galaxy S24 Ultra / S24+ owners, Galaxy Tab S9/S10 users, and Galaxy Book laptop users."
+    ],
+    "occasion": [
+      "Quick morning top-ups before heading out, dedicated workstation desk setups."
+    ],
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "accessories",
+      "samsung",
+      "power adapters & wall chargers",
+      "fast wall charger / flash charging power adapter"
+    ]
+  },
+  {
+    "product_id": "P109",
+    "name": "Galaxy Buds 3 Pro",
+    "brand": "Samsung",
+    "category": "headphones",
+    "categoryDisplay": "Electronics",
+    "subCategory": "Earbuds",
+    "productType": "Samsung Earbuds",
+    "description": "Premium studio-grade sound reproduction, hands-free Galaxy AI translation, and improved microphone clarity during calls.",
+    "price": 16150,
+    "currency": "INR",
+    "image": "https://www.google.com/search?sca_esv=66b01b7d6a9f6fd9&sxsrf=APpeQntnLQihQ9rJpn72zPyQ9mIJvVmFbA:1787765067088&udm=2&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cqCQj_06QnZs315LoFmPf5bBLHMJ0vMQmTbuI72DM7jkCMzF6tiD-p-0w1wJ8QXOpatx0Vkldwpt1Xs0WJvV6McNCs3xUNN11_Omeek_RUNzreH3hK2lQciiOiOr8gNZJuz_FZY4yvDywlmGSh_apJs0D0gJwCzXuc4dhebau5wRzyrFfGs7m8WDu0tRfiUQ1WvtCsQ&q=Galaxy+Buds+3+Pro+ima&sa=X&ved=2ahUKEwjw14_u576WAxVUjuEIHZKMBIkQtKgLegQIGBAB&biw=1280&bih=665&dpr=1.5#sv=CAMSURoyKhBlLWJwYnc1N1hOckxDR0RNMg5icGJ3NTdYTnJMQ0dETToOSEZ6N0RfdzAzYjNIMk0gBCoXCgFzEhBlLWJwYnc1N1hOckxDR0RNGAEwARgHIL2TjocCSggQARgBIAEoAQ",
+    "images": [
+      "https://www.google.com/search?sca_esv=66b01b7d6a9f6fd9&sxsrf=APpeQntnLQihQ9rJpn72zPyQ9mIJvVmFbA:1787765067088&udm=2&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cqCQj_06QnZs315LoFmPf5bBLHMJ0vMQmTbuI72DM7jkCMzF6tiD-p-0w1wJ8QXOpatx0Vkldwpt1Xs0WJvV6McNCs3xUNN11_Omeek_RUNzreH3hK2lQciiOiOr8gNZJuz_FZY4yvDywlmGSh_apJs0D0gJwCzXuc4dhebau5wRzyrFfGs7m8WDu0tRfiUQ1WvtCsQ&q=Galaxy+Buds+3+Pro+ima&sa=X&ved=2ahUKEwjw14_u576WAxVUjuEIHZKMBIkQtKgLegQIGBAB&biw=1280&bih=665&dpr=1.5#sv=CAMSURoyKhBlLWJwYnc1N1hOckxDR0RNMg5icGJ3NTdYTnJMQ0dETToOSEZ6N0RfdzAzYjNIMk0gBCoXCgFzEhBlLWJwYnc1N1hOckxDR0RNGAEwARgHIL2TjocCSggQARgBIAEoAQ"
+    ],
+    "rating": 4.5,
+    "reviewCount": 530,
+    "stockStatus": "in_stock",
+    "stockQuantity": 17,
+    "deliveryEstimate": "4 days",
+    "deliveryDays": 4,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Samsung",
+      "Category": "Electronics",
+      "Sub-Category": "Earbuds",
+      "Product Type": "Samsung Earbuds"
+    },
+    "rawSpecs": "Variants / Colors: Silver, WhiteAudio & Hardware: Dual amplifiers, enhanced 2-way speaker (Planar Tweeter + Dynamic Driver), 3 microphones + VPUBattery & Charging: 53 mAh per bud, 515 mAh case; up to 30 hours total playback; USB Type-C wired & Qi wireless chargingConnectivity: Bluetooth 5.4, LE Audio, Auracast, Auto Switc",
+    "featuresList": [
+      "Galaxy AI Real-Time Interpreter, Adaptive ANC, Ambient Sound / Conversation Mode, Interactive Blade Lights, IP57 water/dust resistance"
+    ],
+    "benefits": [
+      "Premium studio-grade sound reproduction, hands-free Galaxy AI translation, and improved microphone clarity during calls."
+    ],
+    "useCases": [
+      "Instant voice translation during international calls, noise cancellation in loud open offices, high-fidelity music streaming."
+    ],
+    "targetCustomer": [
+      "Audiophiles, frequent international business travelers, and Galaxy power users wanting cutting-edge AI features."
+    ],
+    "occasion": [
+      "Cross-border business travel, virtual conference calls, focused work sessions, and workouts."
+    ],
+    "featured": true,
+    "trending": false,
+    "tags": [
+      "headphones",
+      "samsung",
+      "earbuds",
+      "samsung earbuds"
+    ]
+  },
+  {
+    "product_id": "P110",
+    "name": "Galaxy Watch Ultra",
+    "brand": "Samsung",
+    "category": "wearables",
+    "categoryDisplay": "Electronics",
+    "subCategory": "Watch",
+    "productType": "Smart Watches",
+    "description": "Extreme structural durability, reliable dual-band GPS accuracy under dense canopy/tall buildings, and extended multi-day battery endurance.",
+    "price": 48999,
+    "currency": "INR",
+    "image": "https://www.samsungmobilepress.com/media-assets/galaxy-watch-ultra",
+    "images": [
+      "https://www.samsungmobilepress.com/media-assets/galaxy-watch-ultra"
+    ],
+    "rating": 4.7,
+    "reviewCount": 899,
+    "stockStatus": "in_stock",
+    "stockQuantity": 23,
+    "deliveryEstimate": "7 days",
+    "deliveryDays": 7,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Samsung",
+      "Category": "Electronics",
+      "Sub-Category": "Watch",
+      "Product Type": "Smart Watches"
+    },
+    "rawSpecs": "Variants / Colors: 47mm (LTE + Bluetooth) | Titanium Gray, Titanium Silver, Titanium White, Titanium Blue\n\nDisplay & Build: 1.5-inch Super AMOLED (480x480), 3,000 nits peak brightness, Sapphire Crystal, Grade 4 Titanium cushion case\n\nProcessor, RAM & Storage: 3nm Exynos W1000 (Penta-core), 2 GB RAM, 32GB / 64GB storage\n\nBattery & Charging: 590 mAh, up to 100 hours in Power Saving Mode, WPC wireless fast charging\n\nOS & Connectivity: Wear OS Powered by Samsung (One UI 6 Watch), 4G LTE (eSIM), Dual-Frequency GPS (L1+L5), Bluetooth 5.3, Wi-Fi, NFC\n\nDurability: 10 ATM + IP68, MIL-STD-810H certified, withstands -20°C to 55°C and 9,000m altitude",
+    "featuresList": [
+      "Customizable Quick Action button, 86dB Emergency Siren, Multi-sport triathlon tracking, Functional Threshold Power (FTP) metric"
+    ],
+    "benefits": [
+      "Extreme structural durability, reliable dual-band GPS accuracy under dense canopy/tall buildings, and extended multi-day battery endurance."
+    ],
+    "useCases": [
+      "Multi-day GPS waypoint navigation, turn-by-turn route tracking via GPX, emergency signaling in remote areas."
+    ],
+    "targetCustomer": [
+      "Endurance athletes, trail runners, open-water swimmers, and extreme sports enthusiasts."
+    ],
+    "occasion": [
+      "Marathons, backcountry hiking, high-altitude trekking, and water sports."
+    ],
+    "featured": false,
+    "trending": true,
+    "tags": [
+      "wearables",
+      "samsung",
+      "watch",
+      "smart watches"
+    ]
+  },
+  {
+    "product_id": "P111",
+    "name": "Samsung 25W Charger",
+    "brand": "Samsung",
+    "category": "accessories",
+    "categoryDisplay": "Store / Power & Cables",
+    "subCategory": "Power Adapters & Wall Chargers",
+    "productType": "Fast Wall Charger / Flash Charging Power Adapter",
+    "description": "Compact, highly portable form factor that does not block adjacent wall outlets while delivering maximum supported charging speed for base Galaxy devices.",
+    "price": 949,
+    "currency": "INR",
+    "image": "https://www.amazon.in/Samsung-Original-Type-C-Adaptor-without/dp/B0D2R2MXXJ",
+    "images": [
+      "https://www.amazon.in/Samsung-Original-Type-C-Adaptor-without/dp/B0D2R2MXXJ"
+    ],
+    "rating": 4.4,
+    "reviewCount": 625,
+    "stockStatus": "in_stock",
+    "stockQuantity": 17,
+    "deliveryEstimate": "3 days",
+    "deliveryDays": 3,
+    "shippingCharge": "₹99",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Samsung",
+      "Category": "Store / Power & Cables",
+      "Sub-Category": "Power Adapters & Wall Chargers",
+      "Product Type": "Fast Wall Charger / Flash Charging Power Adapter"
+    },
+    "rawSpecs": "Variants / Colors: Black, White\n\nCharging Standard: Super Fast Charging (25W), USB PD 3.0, PPS standard\n\nInput / Output: 100-240V AC; Output: (PDO) 5V/3A, 9V/2.77A | (PPS) 3.3-5.9V/3.0A or 3.3-11.0V/2.25A\n\nSafety Features: Low standby power consumption (<5mW), thermal control, and surge protection",
+    "benefits": [
+      "Compact, highly portable form factor that does not block adjacent wall outlets while delivering maximum supported charging speed for base Galaxy devices."
+    ],
+    "useCases": [
+      "Efficient, safe daily charging for phones, wireless earbuds, and smartwatches."
+    ],
+    "targetCustomer": [
+      "Base Galaxy S24 / A-series owners, minimalists, and frequent travelers."
+    ],
+    "occasion": [
+      "Bedside overnight charging, minimalist travel packing, coffee shop work sessions."
+    ],
+    "upsellIds": [
+      "P108"
+    ],
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "accessories",
+      "samsung",
+      "power adapters & wall chargers",
+      "fast wall charger / flash charging power adapter"
+    ]
+  },
+  {
+    "product_id": "P112",
+    "name": "Samsung Galaxy Buds 2 Pro",
+    "brand": "Samsung",
+    "category": "headphones",
+    "categoryDisplay": "Electronics",
+    "subCategory": "Earbuds",
+    "productType": "Samsung Earbuds",
+    "description": "15% smaller compact fit for pressure-free ear comfort, top-tier IPX7 waterproofing, and deep spatial audio",
+    "price": 6499,
+    "currency": "INR",
+    "image": "https://www.rtings.com/headphones/reviews/samsung/galaxy-buds2-pro-true-wireless",
+    "images": [
+      "https://www.rtings.com/headphones/reviews/samsung/galaxy-buds2-pro-true-wireless"
+    ],
+    "rating": 4.2,
+    "reviewCount": 952,
+    "stockStatus": "in_stock",
+    "stockQuantity": 15,
+    "deliveryEstimate": "6 days",
+    "deliveryDays": 6,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Samsung",
+      "Category": "Electronics",
+      "Sub-Category": "Earbuds",
+      "Product Type": "Samsung Earbuds"
+    },
+    "rawSpecs": "Variants / Colors: Graphite, White, Bora PurpleAudio & Hardware: Custom coaxial 2-way speaker, 24-bit Hi-Fi sound support (via Samsung Seamless Codec)Battery & Charging: 61 mAh per bud, 515 mAh case; up to 29 hours total (ANC off); Type-C & Qi Wireless ChargingConnectivity: Bluetooth 5.3, Auto Switch between Galaxy ecosystem devices",
+    "featuresList": [
+      "Intelligent 360 Audio with Dolby Head Tracking, Voice Detect, IPX7 water resistance (high sweat/splash protection)"
+    ],
+    "benefits": [
+      "15% smaller compact fit for pressure-free ear comfort, top-tier IPX7 waterproofing, and deep spatial audio"
+    ],
+    "useCases": [
+      "Blocking out background gym noise, immersive movie viewing on tablets/phones, sweat-resistant running audio."
+    ],
+    "targetCustomer": [
+      "Gym-goers, daily commuters, students, and buyers seeking high-end sound in a compact, stemless design."
+    ],
+    "occasion": [
+      "High-intensity gym workouts, daily bus/train commutes, and study/focus sessions."
+    ],
+    "upsellIds": [
+      "P109"
+    ],
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "headphones",
+      "samsung",
+      "earbuds",
+      "samsung earbuds"
+    ]
+  },
+  {
+    "product_id": "P113",
+    "name": "Galaxy Watch 6",
+    "brand": "Samsung",
+    "category": "wearables",
+    "categoryDisplay": "Electronics",
+    "subCategory": "Watches",
+    "productType": "Smart Watches",
+    "description": "Lightweight sleek profile for comfortable 24/7 wear, rapid health diagnostics on your wrist, and rich third-party Wear OS app support.",
+    "price": 19999,
+    "currency": "INR",
+    "image": "https://news.samsung.com/global/samsung-galaxy-watch6-and-galaxy-watch6-classic-inspiring-your-best-self-day-and-night",
+    "images": [
+      "https://news.samsung.com/global/samsung-galaxy-watch6-and-galaxy-watch6-classic-inspiring-your-best-self-day-and-night"
+    ],
+    "rating": 4.2,
+    "reviewCount": 970,
+    "stockStatus": "in_stock",
+    "stockQuantity": 23,
+    "deliveryEstimate": "3 days",
+    "deliveryDays": 3,
+    "shippingCharge": "₹99",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Samsung",
+      "Category": "Electronics",
+      "Sub-Category": "Watches",
+      "Product Type": "Smart Watches"
+    },
+    "rawSpecs": "Variants / Colors: 40mm (Graphite, Gold) & 44mm (Graphite, Silver) | Bluetooth / LTEDisplay & Build: 1.3-inch / 1.5-inch Super AMOLED, 2,000 nits, 20% larger screen with 30% slimmer bezels, Sapphire CrystalProcessor, RAM & Storage: Exynos W930 (Dual-core 1.4 GHz), 2 GB RAM, 16 GB storageBattery & Charging: 300 mAh (40mm) / 425 mAh (44mm), up to 40 hours runtime, Fast Wireless ChargingOS & Connectivity: Wear OS Powered by Samsung, Bluetooth 5.3, Wi-Fi 2.4/5GHz, NFC (Samsung Wallet), GPSHealth Sensors: BioActive Sensor (ECG, Blood Pressure, Optical Heart Rate, BIA Body Composition), Skin Temperature",
+    "benefits": [
+      "Lightweight sleek profile for comfortable 24/7 wear, rapid health diagnostics on your wrist, and rich third-party Wear OS app support."
+    ],
+    "useCases": [
+      "Contactless payments via Samsung Wallet, sleep quality tracking with personalized sleep coaching, monitoring body fat percentage"
+    ],
+    "targetCustomer": [
+      "Health-conscious individuals, fitness enthusiasts, corporate professionals, and everyday smartwatch wearers."
+    ],
+    "occasion": [
+      "Daily office wear, gym routines, formal dinners, and overnight sleep tracking."
+    ],
+    "upsellIds": [
+      "P110"
+    ],
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "wearables",
+      "samsung",
+      "watches",
+      "smart watches"
+    ]
+  },
+  {
+    "product_id": "P114",
+    "name": "iPhone 16 Pro Max",
+    "brand": "Apple",
+    "category": "phones",
+    "categoryDisplay": "Electronics",
+    "subCategory": "Smartphones",
+    "productType": "Mobile Phones",
+    "description": "Exceptional battery longevity, massive display canvas for productivity, zero thermal throttling under load, and high resale value.",
+    "price": 144900,
+    "currency": "INR",
+    "image": "",
+    "images": [],
+    "rating": 4.4,
+    "reviewCount": 561,
+    "stockStatus": "in_stock",
+    "stockQuantity": 18,
+    "deliveryEstimate": "3 days",
+    "deliveryDays": 3,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Apple",
+      "Category": "Electronics",
+      "Sub-Category": "Smartphones",
+      "Product Type": "Mobile Phones"
+    },
+    "rawSpecs": "",
+    "benefits": [
+      "Exceptional battery longevity, massive display canvas for productivity, zero thermal throttling under load, and high resale value."
+    ],
+    "useCases": [
+      "Shoots for cinematic vlogs, running AAA desktop-grade mobile games, recording spatial videos for AR, and reading complex spreadsheets on the go."
+    ],
+    "targetCustomer": [
+      "Professional filmmakers, mobile gamers, content creators, tech enthusiasts, and heavy multitasking business users."
+    ],
+    "occasion": [
+      "International business travel, professional outdoor media production, weekend gaming marathons, and high-profile tech presentations."
+    ],
+    "variants": [
+      {
+        "variant_id": "256gb",
+        "name": "8 GB + 256 GB",
+        "type": "ram_storage",
+        "price": 144900,
+        "attributes": {
+          "ram": "8 GB",
+          "storage": "256 GB"
+        }
+      },
+      {
+        "variant_id": "512gb",
+        "name": "8 GB + 512 GB",
+        "type": "ram_storage",
+        "price": 164900,
+        "attributes": {
+          "ram": "8 GB",
+          "storage": "512 GB"
+        }
+      },
+      {
+        "variant_id": "1tb",
+        "name": "8 GB + 1 TB",
+        "type": "ram_storage",
+        "price": 184900,
+        "attributes": {
+          "ram": "8 GB",
+          "storage": "1 TB"
+        }
+      }
+    ],
+    "crossSellIds": [
+      "P116",
+      "P117",
+      "P118",
+      "P119",
+      "P120"
+    ],
+    "featured": true,
+    "trending": false,
+    "tags": [
+      "phones",
+      "apple",
+      "smartphones",
+      "mobile phones"
+    ]
+  },
+  {
+    "product_id": "P115",
+    "name": "Apple iPhone 16 Pro",
+    "brand": "Apple",
+    "category": "phones",
+    "categoryDisplay": "Electronics",
+    "subCategory": "Smartphones",
+    "productType": "Mobile Phones",
+    "description": "Weighs only 199 grams (highly comfortable for one-handed messaging and pocket storage), identical processing capability as the Max.",
+    "price": 119900,
+    "currency": "INR",
+    "image": "https://www.apple.com/in/iphone/",
+    "images": [
+      "https://www.apple.com/in/iphone/"
+    ],
+    "rating": 4.2,
+    "reviewCount": 920,
+    "stockStatus": "in_stock",
+    "stockQuantity": 19,
+    "deliveryEstimate": "6 days",
+    "deliveryDays": 6,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Apple",
+      "Category": "Electronics",
+      "Sub-Category": "Smartphones",
+      "Product Type": "Mobile Phones"
+    },
+    "rawSpecs": "",
+    "featuresList": [
+      "Capacitive Camera Control Slider, 4 studio-quality microphones with Audio Mix voice routing, and aerospace-grade titanium build."
+    ],
+    "benefits": [
+      "Weighs only 199 grams (highly comfortable for one-handed messaging and pocket storage), identical processing capability as the Max."
+    ],
+    "useCases": [
+      "Quick on-the-move document scanning, high-quality spontaneous street photography, executive workspace multitasking, and dynamic social outings"
+    ],
+    "targetCustomer": [
+      "Travel bloggers, corporate leaders, daily commuters, and professionals wanting uncompromising camera tech in a compact shape"
+    ],
+    "variants": [
+      {
+        "variant_id": "128gb",
+        "name": "8 GB + 128 GB",
+        "type": "ram_storage",
+        "price": 119900,
+        "attributes": {
+          "ram": "8 GB",
+          "storage": "128 GB"
+        }
+      },
+      {
+        "variant_id": "256gb",
+        "name": "8 GB + 256 GB",
+        "type": "ram_storage",
+        "price": 129900,
+        "attributes": {
+          "ram": "8 GB",
+          "storage": "256 GB"
+        }
+      },
+      {
+        "variant_id": "512gb",
+        "name": "8 GB + 512 GB",
+        "type": "ram_storage",
+        "price": 149900,
+        "attributes": {
+          "ram": "8 GB",
+          "storage": "512 GB"
+        }
+      },
+      {
+        "variant_id": "1tb",
+        "name": "8 GB + 1 TB",
+        "type": "ram_storage",
+        "price": 169900,
+        "attributes": {
+          "ram": "8 GB",
+          "storage": "1 TB"
+        }
+      }
+    ],
+    "crossSellIds": [
+      "P116",
+      "P117",
+      "P118",
+      "P119",
+      "P120"
+    ],
+    "upsellIds": [
+      "P114"
+    ],
+    "featured": true,
+    "trending": true,
+    "tags": [
+      "phones",
+      "apple",
+      "smartphones",
+      "mobile phones"
+    ]
+  },
+  {
+    "product_id": "P116",
+    "name": "Apple Watch Ultra 2",
+    "brand": "Apple",
+    "category": "wearables",
+    "categoryDisplay": "Electronics",
+    "subCategory": "Wearables",
+    "productType": "Rugged Smartwatch",
+    "description": "Highly visible in harsh sunlight, one-handed control via double tap gesture, private and offline voice queries, carbon-neutral options",
+    "price": 89900,
+    "currency": "INR",
+    "image": "https://www.apple.com/in/iphone/",
+    "images": [
+      "https://www.apple.com/in/iphone/"
+    ],
+    "rating": 4.8,
+    "reviewCount": 740,
+    "stockStatus": "in_stock",
+    "stockQuantity": 23,
+    "deliveryEstimate": "6 days",
+    "deliveryDays": 6,
+    "shippingCharge": "₹99",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Apple",
+      "Category": "Electronics",
+      "Sub-Category": "Wearables",
+      "Product Type": "Rugged Smartwatch"
+    },
+    "rawSpecs": "Variants\t49 mm Titanium case; Band options: Alpine Loop (blue, indigo, olive), Trail Loop (orange/beige, green/grey, blue/black), Ocean Band (blue, orange)\nProcessor\tS9 SiP with 4-core Neural Engine\nRAM / Storage\t(Not specified in the press release)\nDisplay\tUp to 3000 nits peak brightness, down to 1 nit in low light; supports Modular Ultra watch face\nBattery Life\tUp to 36 hours regular use; up to 72 hours in Low Power Mode\nCharging\t(Not specified in the press release)\nCameras\tNone (includes Camera Remote feature for iPhone)\nOperating System\twatchOS 10",
+    "featuresList": [
+      "Double tap gesture, on-device Siri with health data access, Precision Finding for iPhone 15, Depth gauge & water temperature sensor, automatic Night Mode, Modular Ultra face, Flashlight boost via Digital Crown"
+    ],
+    "benefits": [
+      "Highly visible in harsh sunlight, one-handed control via double tap gesture, private and offline voice queries, carbon-neutral options"
+    ],
+    "targetCustomer": [
+      "Outdoor adventurers, endurance athletes, divers, cyclists, and fitness enthusiasts"
+    ],
+    "occasion": [
+      "Scuba diving & freediving (with Oceanic+ app), high-altitude mountaineering, trail running, competitive cycling, daily health & fitness tracking"
+    ],
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "wearables",
+      "apple",
+      "wearables",
+      "rugged smartwatch"
+    ]
+  },
+  {
+    "product_id": "P117",
+    "name": "Apple AirPods Pro (2nd Gen, USB-C)",
+    "brand": "Apple",
+    "category": "headphones",
+    "categoryDisplay": "Electronics & Audio",
+    "subCategory": "Personal Audio & Wearables",
+    "productType": "True Wireless Stereo (TWS) In-Ear Noise-Cancelling Earbuds",
+    "description": "Eliminates distracting ambient noise, automatic voice/volume adjustment during chats, sweat/dust resistance (IP54 rating for both buds and case), effortless multi-device switching across Apple devices",
+    "price": 18990,
+    "mrp": 24900,
+    "currency": "INR",
+    "image": "https://support.apple.com/en-in/111834",
+    "images": [
+      "https://support.apple.com/en-in/111834"
+    ],
+    "rating": 5,
+    "reviewCount": 844,
+    "stockStatus": "in_stock",
+    "stockQuantity": 25,
+    "deliveryEstimate": "4 days",
+    "deliveryDays": 4,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Apple",
+      "Category": "Electronics & Audio",
+      "Sub-Category": "Personal Audio & Wearables",
+      "Product Type": "True Wireless Stereo (TWS) In-Ear Noise-Cancelling Earbuds"
+    },
+    "rawSpecs": "Specifications        \n• Dimensions (each earbud): 30.9 × 21.8 × 24.0 mm; Weight: 5.3 g\n\n\n• Dimensions (case): 45.2 × 60.6 × 21.7 mm; Weight: 50.8 g\n\n\n• Ingress Protection: IP54 (dust, sweat, and water resistant)Variants\tSingle standard variant: White (4 silicone ear tip sizes included: XS, S, M, L)\nRAM / Storage\tEmbedded memory for firmware only (not user-accessible / standard RAM/ROM metrics do not apply)\nDisplay\tNone (status LED on MagSafe case for battery/charging indications)\nProcessor\tApple H2 headphone chip (in earbuds) + Apple U1 chip (in MagSafe charging case for Precision Finding)\nBattery Life\t\n• Earbuds alone: Up to 6 hours listening (up to 5.5 hours with Spatial Audio; up to 4.5 hours talk time)\n\n\n• With MagSafe Case: Up to 30 hours total listening time (up to 24 hours talk time)\n\nCharging\t\n• USB Type-C wired charging\n\n\n• MagSafe wireless charging, Apple Watch magnetic puck charging, and Qi wireless charging\n\n\n• Fast charge: 5 minutes in case provides ~1 hour listening/talk time\n\nCameras\tNone\nOperating System\tFirmware updates via connected iOS/iPadOS/macOS devices\nConnectivity\tBluetooth 5.3, Ultra Wideband (U1 chip in case), 20-bit/48kHz Lossless Audio support with Apple Vision Pro",
+    "featuresList": [
+      "Pro-level Active Noise Cancellation (up to 2x more noise reduction)",
+      "Adaptive Audio, Transparency mode & Conversation Awareness",
+      "Personalised Spatial Audio with dynamic head tracking",
+      "Touch control on stems (swipe for volume, press for playback/modes)",
+      "Built-in case speaker for Find My alerts and lanyard loop",
+      "Hearing Test and Loud Sound Reduction features"
+    ],
+    "benefits": [
+      "Eliminates distracting ambient noise, automatic voice/volume adjustment during chats, sweat/dust resistance (IP54 rating for both buds and case), effortless multi-device switching across Apple devices"
+    ],
+    "targetCustomer": [
+      "Daily commuters, remote workers, fitness enthusiasts, frequent travelers, and Apple ecosystem users seeking premium ANC and hands-free convenience"
+    ],
+    "occasion": [
+      "Air travel, daily transit/commute, virtual meetings and calls, gym and outdoor workouts, study sessions, immersive media viewing"
+    ],
+    "featured": true,
+    "trending": false,
+    "tags": [
+      "headphones",
+      "apple",
+      "personal audio & wearables",
+      "true wireless stereo (tws) in-ear noise-cancelling earbuds"
+    ]
+  },
+  {
+    "product_id": "P118",
+    "name": "Apple 30W USB-C Adapter ",
+    "brand": "Apple",
+    "category": "accessories",
+    "categoryDisplay": "Electronics & Mobile Accessories",
+    "subCategory": "Wall Chargers & Adapters",
+    "productType": "USB-C Power Delivery (PD) Wall Adapter",
+    "description": "Charges iPhones from 0 to 50% in ~30 mins; officially tuned for MacBook Air battery health",
+    "price": 3800,
+    "currency": "INR",
+    "image": "https://quicktech.in/products/apple-30w-usb-c-power-adapter-white-my1w2hn",
+    "images": [
+      "https://quicktech.in/products/apple-30w-usb-c-power-adapter-white-my1w2hn"
+    ],
+    "rating": 4,
+    "reviewCount": 606,
+    "stockStatus": "in_stock",
+    "stockQuantity": 17,
+    "deliveryEstimate": "4 days",
+    "deliveryDays": 4,
+    "shippingCharge": "₹99",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Apple",
+      "Category": "Electronics & Mobile Accessories",
+      "Sub-Category": "Wall Chargers & Adapters",
+      "Product Type": "USB-C Power Delivery (PD) Wall Adapter"
+    },
+    "rawSpecs": "Variants        Single standard variant (White, SKU: MW2G3HN/A / MY1W2HN/A)\nRAM / Storage        N/A (Standard hardware accessory)\nDisplay        None\nProcessor        Power Delivery (PD) Controller Chip\nBattery / Output        Delivers up to 30W power output (Supports fast charging)\nCharging Port        1 × USB-C port\nCameras        None\nOS        None\nConnectivity        Wired USB-C              Specifications        Output: Up to 30W; Input: 100–240V AC; Port: USB-C",
+    "benefits": [
+      "Charges iPhones from 0 to 50% in ~30 mins; officially tuned for MacBook Air battery health"
+    ],
+    "targetCustomer": [
+      "MacBook Air users, iPad Pro owners, and iPhone users needing optimal fast charging"
+    ],
+    "occasion": [
+      "Desk workstation setup, bedside fast-charging, business travel, office powering"
+    ],
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "accessories",
+      "apple",
+      "wall chargers & adapters",
+      "usb-c power delivery (pd) wall adapter"
+    ]
+  },
+  {
+    "product_id": "P119",
+    "name": "Samsung Portable SSD T7",
+    "brand": "",
+    "category": "storage",
+    "categoryDisplay": "Computers & Accessories",
+    "subCategory": "External Data Storage",
+    "productType": "High-Speed Portable Solid State Drive (NVMe PSSD)",
+    "description": "Up to 9.5x faster than traditional external HDDs; drop-resistant up to 2 meters (3 meters on Shield); credit-card sized form factor",
+    "price": 12999,
+    "currency": "INR",
+    "image": "https://www.google.com/search?q=Samsung+T7+Portable+SSD&prds=catalogid%3A11123816470905228312%2Cgpcid%3A11894660869907988604%2CheadlineOfferDocid%3A18172469487572581464%2Cmid%3A576462898620093684%2Cproductid%3A15656416441331796291%2Cpvo%3A41%2Cpvt%3Ahg%2Crds%3APC_11894660869907988604%7CPROD_PC_11894660869907988604&ibp=oshop&gemcid=c_4ec50adf1dff0ecf&gemrid=r_964cdb9f49517c7c&pvo=41&opi=89978449&gl=IN&hl=hi&noiga=1",
+    "images": [
+      "https://www.google.com/search?q=Samsung+T7+Portable+SSD&prds=catalogid%3A11123816470905228312%2Cgpcid%3A11894660869907988604%2CheadlineOfferDocid%3A18172469487572581464%2Cmid%3A576462898620093684%2Cproductid%3A15656416441331796291%2Cpvo%3A41%2Cpvt%3Ahg%2Crds%3APC_11894660869907988604%7CPROD_PC_11894660869907988604&ibp=oshop&gemcid=c_4ec50adf1dff0ecf&gemrid=r_964cdb9f49517c7c&pvo=41&opi=89978449&gl=IN&hl=hi&noiga=1"
+    ],
+    "rating": 4.4,
+    "reviewCount": 902,
+    "stockStatus": "in_stock",
+    "stockQuantity": 22,
+    "deliveryEstimate": "5 days",
+    "deliveryDays": 5,
+    "shippingCharge": "₹99",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Category": "Computers & Accessories",
+      "Sub-Category": "External Data Storage",
+      "Product Type": "High-Speed Portable Solid State Drive (NVMe PSSD)"
+    },
+    "rawSpecs": "Variants        \n• Models: Standard T7 (Aluminum body), T7 Shield (Rugged IP65 rubber casing), T7 Touch (Built-in fingerprint reader)\n\n\n• Colours: Titan Gray, Indigo Blue, Metallic Red (Standard); Black, Blue, Beige (Shield)\n\nStorage Capacity        500 GB, 1 TB, 2 TB, and 4 TB (4TB available in Shield series)\nRAM        Embedded DRAM cache managed internally by SSD controller\nDisplay        None (T7 standard has a status LED; T7 Touch features a square Motion LED indicator)\nProcessor / Controller        Samsung PCIe NVMe SSD Controller\nBattery / Power        Bus-powered (Draws direct power via USB-C from host device; no external battery required)\nCharging        N/A (Powered via USB host port)\nCameras        None\nOS Compatibility        Windows 7 or higher, macOS 10.10 or higher, Android 5.1 (Lollipop) or higher, gaming console OS (PS5, Xbox)\nConnectivity        USB 3.2 Gen 2 (10 Gbps) Type-C interface (backward compatible with USB 3.0/2.0 and USB-A)• Dimensions: 85 × 57 × 8.0 mm\n\n\n• Weight: 58 g (Standard) / 98 g (Shield)\n\n\n• Interface Protocol: PCIe NVMe, UASP support\n\n\n• Durability: Shock-resistant aluminum shell (IP65 dust/water protection on Shield)",
+    "featuresList": [
+      "Read speeds up to 1,050 MB/s, write speeds up to 1,000 MB/s",
+      "AES 256-bit hardware encryption with optional password/fingerprint protection",
+      "Dynamic Thermal Guard (ePCM) to maintain optimal operating temperatures during large transfers",
+      "Managed via Samsung Magician & Samsung Portable SSD software"
+    ],
+    "benefits": [
+      "Up to 9.5x faster than traditional external HDDs; drop-resistant up to 2 meters (3 meters on Shield); credit-card sized form factor"
+    ],
+    "targetCustomer": [
+      "Video editors, content creators, photographers, software developers, college students, and gamers"
+    ],
+    "occasion": [
+      "Direct 4K/8K ProRes video recording on iPhone 15/16 Pro, video editing timeline offloading, large code/dataset backups, expanding PS5/Xbox game storage"
+    ],
+    "variants": [
+      {
+        "variant_id": "500gb",
+        "name": "500 GB",
+        "type": "storage",
+        "price": 12999,
+        "attributes": {
+          "storage": "500 GB"
+        }
+      },
+      {
+        "variant_id": "1tb",
+        "name": "1 TB",
+        "type": "storage",
+        "price": 18999,
+        "attributes": {
+          "storage": "1 TB"
+        }
+      },
+      {
+        "variant_id": "2tb",
+        "name": "2 TB",
+        "type": "storage",
+        "price": 24999,
+        "attributes": {
+          "storage": "2 TB"
+        }
+      }
+    ],
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "storage",
+      "external data storage",
+      "high-speed portable solid state drive (nvme pssd)"
+    ]
+  },
+  {
+    "product_id": "P120",
+    "name": "Apple MagSafe Charger",
+    "brand": "Apple",
+    "category": "accessories",
+    "categoryDisplay": "Electronics & Accessories",
+    "subCategory": "Wireless Chargers & Docks",
+    "productType": "Magnetic Inductive Wireless Charger",
+    "description": "Zero hassle of plugging/unplugging cables, prevents wear on the phone's port, fast wireless charging speeds",
+    "price": 4500,
+    "currency": "INR",
+    "image": "https://www.reliancedigital.in/product/apple-magsafe-charger-200-cm-2-m-m0xtdu-8590409",
+    "images": [
+      "https://www.reliancedigital.in/product/apple-magsafe-charger-200-cm-2-m-m0xtdu-8590409"
+    ],
+    "rating": 4.5,
+    "reviewCount": 813,
+    "stockStatus": "in_stock",
+    "stockQuantity": 18,
+    "deliveryEstimate": "6 days",
+    "deliveryDays": 6,
+    "shippingCharge": "₹99",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Apple",
+      "Category": "Electronics & Accessories",
+      "Sub-Category": "Wireless Chargers & Docks",
+      "Product Type": "Magnetic Inductive Wireless Charger"
+    },
+    "rawSpecs": "Variants\t1-metre cable and 2-metre woven cable versions (Silver/White)\nRAM / Storage\tN/A (Standard hardware accessory)\nDisplay\tNone\nProcessor\tMagSafe power management & alignment controller\nBattery / Output\tUp to 25W fast wireless charging (when paired with a 30W adapter) / 15W standard wireless charging\nCharging Connector\tIntegrated USB-C cable connector (plugs into power adapter)\nCameras\tNone\nOS\tFirmware updates automatically via paired iOS devices\nConnectivity\tQi and Qi2 magnetic wireless charging standard",
+    "featuresList": [
+      "Perfectly aligned magnets snap onto compatible iPhones, supports StandBy mode, Qi-compatible for older iPhones/AirPods"
+    ],
+    "benefits": [
+      "Zero hassle of plugging/unplugging cables, prevents wear on the phone's port, fast wireless charging speeds"
+    ],
+    "useCases": [
+      "Bedside nightstand charging, office desk charging, using phone while charging without damaging ports"
+    ],
+    "targetCustomer": [
+      "iPhone 12 through 16 series users, AirPods wireless charging case owners"
+    ],
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "accessories",
+      "apple",
+      "wireless chargers & docks",
+      "magnetic inductive wireless charger"
+    ]
+  },
+  {
+    "product_id": "P121",
+    "name": "boAt Nirvana Zenith Pro",
+    "brand": "Boat",
+    "category": "headphones",
+    "categoryDisplay": "Audio & Wearables",
+    "subCategory": "Personal Audio & Wearables",
+    "productType": "Truly Wireless Earbuds (TWS)",
+    "description": "12mm Dynamic Drivers, 50dB Hybrid Adaptive ANC, LDAC Hi-Res Audio, 6-Mic AI-ENx, 60ms BEAST Mode, IPX4 rating",
+    "price": 3199,
+    "currency": "INR",
+    "image": "",
+    "images": [],
+    "rating": 4.7,
+    "reviewCount": 925,
+    "stockStatus": "in_stock",
+    "stockQuantity": 22,
+    "deliveryEstimate": "7 days",
+    "deliveryDays": 7,
+    "shippingCharge": "₹99",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Boat",
+      "Category": "Audio & Wearables",
+      "Sub-Category": "Personal Audio & Wearables",
+      "Product Type": "Truly Wireless Earbuds (TWS)"
+    },
+    "rawSpecs": "Variants: Carbon Black, Celestial Blue, Gunmetal GreyRAM / Storage / Display / Cameras / OS: N/A (Standard TWS Audio Device)Processor / Audio Chip: Proprietary DSP with Mimi Adaptive EQ engineBattery & Charging: 600 mAh (Case), 60 mAh (Buds); up to 80 hours playback; ASAP Fast Charge (10 min = 250 min playtime) via Type-CConnectivity: Bluetooth 5.3, Google Fast Pair, Multipoint Dual Pairing",
+    "featuresList": [
+      "12mm Dynamic Drivers, 50dB Hybrid Adaptive ANC, LDAC Hi-Res Audio, 6-Mic AI-ENx, 60ms BEAST Mode, IPX4 rating"
+    ],
+    "useCases": [
+      "Blocks engine and ambient noise during travel; provides theater-like spatial audio and crystal-clear call quality."
+    ],
+    "targetCustomer": [
+      "Commuters, office professionals, and bass/audiophile enthusiasts; daily transit, work-from-home, gym, travel."
+    ],
+    "crossSellIds": [
+      "P122",
+      "P123"
+    ],
+    "featured": false,
+    "trending": true,
+    "tags": [
+      "headphones",
+      "boat",
+      "personal audio & wearables",
+      "truly wireless earbuds (tws)"
+    ]
+  },
+  {
+    "product_id": "P122",
+    "name": "boAt Nirvana X TWS",
+    "brand": "Boat",
+    "category": "other",
+    "categoryDisplay": "General",
+    "subCategory": "",
+    "productType": "",
+    "description": "Authentic boAt Nirvana X TWS from Boat.",
+    "price": 0,
+    "currency": "INR",
+    "image": "",
+    "images": [],
+    "rating": 5,
+    "reviewCount": 660,
+    "stockStatus": "in_stock",
+    "stockQuantity": 15,
+    "deliveryEstimate": "7 days",
+    "deliveryDays": 7,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Boat"
+    },
+    "rawSpecs": "",
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "other",
+      "boat"
+    ]
+  },
+  {
+    "product_id": "P123",
+    "name": "Protective silicone case cover",
+    "brand": "",
+    "category": "accessories",
+    "categoryDisplay": "General",
+    "subCategory": "",
+    "productType": "",
+    "description": "Authentic Protective silicone case cover from official source.",
+    "price": 0,
+    "currency": "INR",
+    "image": "",
+    "images": [],
+    "rating": 4.5,
+    "reviewCount": 965,
+    "stockStatus": "in_stock",
+    "stockQuantity": 22,
+    "deliveryEstimate": "4 days",
+    "deliveryDays": 4,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {},
+    "rawSpecs": "",
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "accessories"
+    ]
+  },
+  {
+    "product_id": "P124",
+    "name": "Noise Buds VS102",
+    "brand": "Noise",
+    "category": "headphones",
+    "categoryDisplay": "Audio & Wearables",
+    "subCategory": "Personal Audio & Wearables",
+    "productType": "Truly Wireless Earbuds (TWS)",
+    "description": "Long-lasting backup for students; sweatproof design handles intense gym sessions with comfort.",
+    "price": 1499,
+    "currency": "INR",
+    "image": "",
+    "images": [],
+    "rating": 5,
+    "reviewCount": 983,
+    "stockStatus": "in_stock",
+    "stockQuantity": 19,
+    "deliveryEstimate": "7 days",
+    "deliveryDays": 7,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Noise",
+      "Category": "Audio & Wearables",
+      "Sub-Category": "Personal Audio & Wearables",
+      "Product Type": "Truly Wireless Earbuds (TWS)"
+    },
+    "rawSpecs": "Variants: Jet Black, Midnight Blue, Mint Green, Celestial Purple\n\nRAM / Storage / Display / Cameras / OS: N/A (Standard TWS Audio Device)\n\nProcessor / Audio Chip: Custom Low-Power Bluetooth SoC\n\nBattery & Charging: Up to 50 hours total playtime; Instacharge (10 min = 120 min) via Type-C\n\nConnectivity: Bluetooth 5.3 / 5.1, Hyper Sync™ instant pairing",
+    "featuresList": [
+      "11mm Dynamic Drivers, Quad-Mic Environmental Noise Cancellation (ENC), IPX5 Water Resistance, Full Touch Controls"
+    ],
+    "benefits": [
+      "Long-lasting backup for students; sweatproof design handles intense gym sessions with comfort."
+    ],
+    "targetCustomer": [
+      "Students, first-time TWS buyers, casual listeners; online classes, daily workouts, casual calls."
+    ],
+    "crossSellIds": [
+      "P125",
+      "P126"
+    ],
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "headphones",
+      "noise",
+      "personal audio & wearables",
+      "truly wireless earbuds (tws)"
+    ]
+  },
+  {
+    "product_id": "P125",
+    "name": "Lanyard case",
+    "brand": "",
+    "category": "accessories",
+    "categoryDisplay": "General",
+    "subCategory": "",
+    "productType": "",
+    "description": "Authentic Lanyard case from official source.",
+    "price": 0,
+    "currency": "INR",
+    "image": "",
+    "images": [],
+    "rating": 4.3,
+    "reviewCount": 588,
+    "stockStatus": "in_stock",
+    "stockQuantity": 20,
+    "deliveryEstimate": "6 days",
+    "deliveryDays": 6,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {},
+    "rawSpecs": "",
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "accessories"
+    ]
+  },
+  {
+    "product_id": "P126",
+    "name": "Noise Buds VS102 Pro ANC",
+    "brand": "",
+    "category": "headphones",
+    "categoryDisplay": "General",
+    "subCategory": "",
+    "productType": "",
+    "description": "Authentic Noise Buds VS102 Pro ANC from official source.",
+    "price": 0,
+    "currency": "INR",
+    "image": "",
+    "images": [],
+    "rating": 4,
+    "reviewCount": 567,
+    "stockStatus": "in_stock",
+    "stockQuantity": 16,
+    "deliveryEstimate": "3 days",
+    "deliveryDays": 3,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {},
+    "rawSpecs": "",
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "headphones"
+    ]
+  },
+  {
+    "product_id": "P127",
+    "name": "Realme Buds Air 6 Pro",
+    "brand": "Realme",
+    "category": "headphones",
+    "categoryDisplay": "Audio & Wearables",
+    "subCategory": "Personal Audio & Wearables",
+    "productType": "Truly Wireless Earbuds (TWS)",
+    "description": "11mm Bass Driver + 6mm Micro-planar Tweeter, 50dB Smart ANC, 4000Hz Ultra-wide Frequency, 55ms Low Latency, 6-Mic ENC, IP55 rating",
+    "price": 4999,
+    "currency": "INR",
+    "image": "",
+    "images": [],
+    "rating": 4.9,
+    "reviewCount": 760,
+    "stockStatus": "in_stock",
+    "stockQuantity": 25,
+    "deliveryEstimate": "3 days",
+    "deliveryDays": 3,
+    "shippingCharge": "₹99",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Realme",
+      "Category": "Audio & Wearables",
+      "Sub-Category": "Personal Audio & Wearables",
+      "Product Type": "Truly Wireless Earbuds (TWS)"
+    },
+    "rawSpecs": "Variants: Titanium Twilight, Silver Blue\n\nRAM / Storage / Display / Cameras / OS: N/A (Standard TWS Audio Device)\n\nProcessor / Audio Chip: Dual-Core Noise Cancellation DSP Chip\n\nBattery & Charging: Up to 40 hours total playback; Dart Fast Charging (10 min = 7 hours) via USB-C\n\nConnectivity: Bluetooth 5.3, Dual-Device Connection, Google Fast Pair",
+    "featuresList": [
+      "11mm Bass Driver + 6mm Micro-planar Tweeter, 50dB Smart ANC, 4000Hz Ultra-wide Frequency, 55ms Low Latency, 6-Mic ENC, IP55 rating"
+    ],
+    "useCases": [
+      "Low lag gaming without audio delay; dual drivers isolate crisp vocals and high bass textures separately."
+    ],
+    "targetCustomer": [
+      "Tech enthusiasts, mobile gamers, and high-fidelity music streamers; gaming tournaments, office calls, flights."
+    ],
+    "crossSellIds": [
+      "P128",
+      "P129"
+    ],
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "headphones",
+      "realme",
+      "personal audio & wearables",
+      "truly wireless earbuds (tws)"
+    ]
+  },
+  {
+    "product_id": "P128",
+    "name": "Realme fast-charge wall adapter",
+    "brand": "",
+    "category": "accessories",
+    "categoryDisplay": "General",
+    "subCategory": "",
+    "productType": "",
+    "description": "Authentic Realme fast-charge wall adapter from official source.",
+    "price": 0,
+    "currency": "INR",
+    "image": "",
+    "images": [],
+    "rating": 4,
+    "reviewCount": 614,
+    "stockStatus": "in_stock",
+    "stockQuantity": 15,
+    "deliveryEstimate": "4 days",
+    "deliveryDays": 4,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {},
+    "rawSpecs": "",
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "accessories"
+    ]
+  },
+  {
+    "product_id": "P129",
+    "name": "Realme Buds Air 7 Pro",
+    "brand": "",
+    "category": "headphones",
+    "categoryDisplay": "General",
+    "subCategory": "",
+    "productType": "",
+    "description": "Authentic Realme Buds Air 7 Pro from official source.",
+    "price": 0,
+    "currency": "INR",
+    "image": "",
+    "images": [],
+    "rating": 4.1,
+    "reviewCount": 520,
+    "stockStatus": "in_stock",
+    "stockQuantity": 24,
+    "deliveryEstimate": "4 days",
+    "deliveryDays": 4,
+    "shippingCharge": "₹99",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {},
+    "rawSpecs": "",
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "headphones"
+    ]
+  },
+  {
+    "product_id": "P130",
+    "name": "boAt Airdopes 311 Pro",
+    "brand": "boAt",
+    "category": "headphones",
+    "categoryDisplay": "Audio & Wearables",
+    "subCategory": "Personal Audio & Wearables",
+    "productType": "Truly Wireless Earbuds (TWS)",
+    "description": "10mm Dynamic Drivers, Dual Mics with ENx™ Tech, 50ms Low-Latency BEAST™ Mode, IPX4 Water/Sweat Resistance, One-touch Voice Assistant",
+    "price": 1099,
+    "currency": "INR",
+    "image": "",
+    "images": [],
+    "rating": 4.2,
+    "reviewCount": 668,
+    "stockStatus": "in_stock",
+    "stockQuantity": 24,
+    "deliveryEstimate": "3 days",
+    "deliveryDays": 3,
+    "shippingCharge": "₹99",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "boAt",
+      "Category": "Audio & Wearables",
+      "Sub-Category": "Personal Audio & Wearables",
+      "Product Type": "Truly Wireless Earbuds (TWS)"
+    },
+    "rawSpecs": "Variants: Active Black, Dusk Blue, Space Grey, Lavender Rush\n\nRAM / Storage / Display / Cameras / OS: N/A (Standard TWS Audio Device)\n\nProcessor / Audio Chip: Ultra-low latency Bluetooth SoC\n\nBattery & Charging: Up to 50 hours total playtime; ASAP Charge (10 min charge = 150 min playback) via Type-C\n\nConnectivity: Bluetooth 5.3, Insta Wake N’ Pair (IWP™)",
+    "featuresList": [
+      "10mm Dynamic Drivers, Dual Mics with ENx™ Tech, 50ms Low-Latency BEAST™ Mode, IPX4 Water/Sweat Resistance, One-touch Voice Assistant"
+    ],
+    "useCases": [
+      "Lag-free casual gaming; fast top-ups on busy workdays"
+    ],
+    "targetCustomer": [
+      "College students, mobile gamers, and budget-conscious buyers; gaming sessions, daily commuting, and workout playlists."
+    ],
+    "upsellIds": [
+      "P121"
+    ],
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "headphones",
+      "boat",
+      "personal audio & wearables",
+      "truly wireless earbuds (tws)"
+    ]
+  },
+  {
+    "product_id": "P131",
+    "name": "Noise Buds Vector",
+    "brand": "Noise",
+    "category": "headphones",
+    "categoryDisplay": "Audio & Wearables",
+    "subCategory": "Personal Audio & Wearables",
+    "productType": "Truly Wireless Earbuds (TWS)",
+    "description": "11mm Dynamic Drivers, LDAC 24-bit Hi-Res Streaming, Quad-Mic Environmental Noise Cancellation (ENC), IPX4 Splash Resistance, Touch Controls",
+    "price": 1299,
+    "currency": "INR",
+    "image": "",
+    "images": [],
+    "rating": 4.6,
+    "reviewCount": 856,
+    "stockStatus": "in_stock",
+    "stockQuantity": 25,
+    "deliveryEstimate": "7 days",
+    "deliveryDays": 7,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Noise",
+      "Category": "Audio & Wearables",
+      "Sub-Category": "Personal Audio & Wearables",
+      "Product Type": "Truly Wireless Earbuds (TWS)"
+    },
+    "rawSpecs": "Variants: Midnight Blue, Nimbus Grey, Lunar SilverRAM / Storage / Display / Cameras / OS: N/A (Standard TWS Audio Device)Processor / Audio Chip: Hi-Res LDAC Audio DSPBattery & Charging: Up to 40 hours total playtime; Instacharge (10 min charge = 120 min playtime) via Type-CConnectivity: Bluetooth 5.3, Hyper Sync™ instant pairing, Dual Device Pairing",
+    "featuresList": [
+      "11mm Dynamic Drivers, LDAC 24-bit Hi-Res Streaming, Quad-Mic Environmental Noise Cancellation (ENC), IPX4 Splash Resistance, Touch Controls"
+    ],
+    "useCases": [
+      "Delivers higher fidelity wireless audio for music lovers; filters ambient room background chatter on office calls"
+    ],
+    "targetCustomer": [
+      "Music enthusiasts and work-from-home callers seeking high audio clarity at an entry price point; voice meetings, podcast listening, and gym."
+    ],
+    "upsellIds": [
+      "P124"
+    ],
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "headphones",
+      "noise",
+      "personal audio & wearables",
+      "truly wireless earbuds (tws)"
+    ]
+  },
+  {
+    "product_id": "P132",
+    "name": "Realme Buds Air 6 Pro",
+    "brand": "Realme",
+    "category": "headphones",
+    "categoryDisplay": "Audio & Wearables",
+    "subCategory": "Personal Audio & Wearables",
+    "productType": "Active Noise Cancelling TWS",
+    "description": "Cancels heavy background engine rumble during flights and train travel; titanium driver delivers punchy bass with detailed mids",
+    "price": 3299,
+    "currency": "INR",
+    "image": "",
+    "images": [],
+    "rating": 4,
+    "reviewCount": 753,
+    "stockStatus": "in_stock",
+    "stockQuantity": 15,
+    "deliveryEstimate": "3 days",
+    "deliveryDays": 3,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Realme",
+      "Category": "Audio & Wearables",
+      "Sub-Category": "Personal Audio & Wearables",
+      "Product Type": "Active Noise Cancelling TWS"
+    },
+    "rawSpecs": "Variants: Flame Silver, Forest GreenRAM / Storage / Display / Cameras / OS: N/A (Standard TWS Audio Device)Processor / Audio Chip: Dual-Core Smart ANC ProcessorBattery & Charging: Up to 40 hours total playback; Dart Fast Charge (10 min charge = 7 hours playback) via Type-CConnectivity: Bluetooth 5.3, Google Fast Pair, Realme Link App integration",
+    "featuresList": [
+      "12.4mm Dynamic Bass Boost Drivers, 50dB Deep Sea ANC 2.0, LHDC 5.0 (24-bit/192kHz), 6-Mic AI Call Noise Reduction, 55ms Low-Latency Gaming Mode, IP55 Dust & Water Resistance"
+    ],
+    "benefits": [
+      "Cancels heavy background engine rumble during flights and train travel; titanium driver delivers punchy bass with detailed mids"
+    ],
+    "targetCustomer": [
+      "Frequent commuters, students in loud libraries/cafes, and smartphone power users; train rides, remote work focus, study sessions."
+    ],
+    "upsellIds": [
+      "P127"
+    ],
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "headphones",
+      "realme",
+      "personal audio & wearables",
+      "active noise cancelling tws"
+    ]
+  },
+  {
+    "product_id": "P133",
+    "name": "Nike Pegasus Premium",
+    "brand": "Nike",
+    "category": "footwear",
+    "categoryDisplay": "Athletic Footwear",
+    "subCategory": "Running Shoes",
+    "productType": "Men's Road Running Shoes",
+    "description": "Maximum energy return, reduced joint fatigue on hard surfaces, all-day comfort, highly breathable",
+    "price": 19295,
+    "currency": "INR",
+    "image": "https://www.nike.in/nike-pegasus-premium-men-s-road-running-shoes/p/27761887",
+    "images": [
+      "https://www.nike.in/nike-pegasus-premium-men-s-road-running-shoes/p/27761887",
+      "https://www.nike.in/nike-pegasus-premium-men-s-road-running-shoes/p/27761879"
+    ],
+    "rating": 4.2,
+    "reviewCount": 769,
+    "stockStatus": "in_stock",
+    "stockQuantity": 19,
+    "deliveryEstimate": "5 days",
+    "deliveryDays": 5,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Nike",
+      "Category": "Athletic Footwear",
+      "Sub-Category": "Running Shoes",
+      "Product Type": "Men's Road Running Shoes"
+    },
+    "rawSpecs": "Variants: Black/Red, Light Bone/Teal, Multiple UK Size options (UK 6 to UK 12)\n\nSpecifications: Full-length visible sculpted Air Zoom unit, dual-foam midsole (ReactX + ZoomX compound), engineered circular knit upper, waffle-inspired rubber outsole",
+    "featuresList": [
+      "Contoured visible Air cushioning, high-traction rubber outsole, padded heel collar, secure midfoot lockdown system"
+    ],
+    "benefits": [
+      "Maximum energy return, reduced joint fatigue on hard surfaces, all-day comfort, highly breathable"
+    ],
+    "useCases": [
+      "Daily road running, high-mileage marathon training, tempo runs, athleisure styling"
+    ],
+    "targetCustomer": [
+      "Serious runners, athletes, daily fitness enthusiasts, sneaker collectors seeking premium tech"
+    ],
+    "occasion": [
+      "Morning workouts, marathon prep, outdoor road runs, gym sessions, casual streetwear"
+    ],
+    "crossSellIds": [
+      "P135",
+      "P136",
+      "P137",
+      "P138"
+    ],
+    "featured": true,
+    "trending": false,
+    "tags": [
+      "footwear",
+      "nike",
+      "running shoes",
+      "men's road running shoes"
+    ]
+  },
+  {
+    "product_id": "P134",
+    "name": "Nike Vomero 18",
+    "brand": "Nike",
+    "category": "footwear",
+    "categoryDisplay": "Athletic Footwear",
+    "subCategory": "Running Shoes",
+    "productType": "Men's Max-Cushion Road Running Shoes",
+    "description": "Ultra-soft step-in feel, maximum shock absorption, smooth heel-to-toe transitions, joint protection for heavy miles",
+    "price": 13295,
+    "currency": "INR",
+    "image": "https://www.nike.in/nike-vomero-18-men-s-road-running-shoes/p/26000290",
+    "images": [
+      "https://www.nike.in/nike-vomero-18-men-s-road-running-shoes/p/26000290"
+    ],
+    "rating": 4,
+    "reviewCount": 685,
+    "stockStatus": "in_stock",
+    "stockQuantity": 15,
+    "deliveryEstimate": "7 days",
+    "deliveryDays": 7,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Nike",
+      "Category": "Athletic Footwear",
+      "Sub-Category": "Running Shoes",
+      "Product Type": "Men's Max-Cushion Road Running Shoes"
+    },
+    "rawSpecs": "Variants: Standard Fit, Wide Fit, White/Photo Blue, Sail/Hyper Pink, Barely Green, Black/WhiteSpecifications: Stack height ~42.5 mm heel / 28.6 mm forefoot, dual-density ZoomX and ReactX foam, engineered mesh upper, high-abrasion rubber lug outsole",
+    "featuresList": [
+      "Max-stack plush midsole, widened base for inherent stability, soft padded tongue and heel collar, reflective detailing"
+    ],
+    "benefits": [
+      "Ultra-soft step-in feel, maximum shock absorption, smooth heel-to-toe transitions, joint protection for heavy miles"
+    ],
+    "useCases": [
+      "Easy recovery runs, long-distance training, everyday walking, treadmill running"
+    ],
+    "targetCustomer": [
+      "Runners prioritizing maximum comfort and joint protection, heel-strikers, beginners to ultra-runners"
+    ],
+    "occasion": [
+      "Long weekend runs, daily recovery sessions, high-step count travel, casual activewear"
+    ],
+    "crossSellIds": [
+      "P135",
+      "P136",
+      "P137",
+      "P138"
+    ],
+    "upsellIds": [
+      "P133"
+    ],
+    "featured": false,
+    "trending": true,
+    "tags": [
+      "footwear",
+      "nike",
+      "running shoes",
+      "men's max-cushion road running shoes"
+    ]
+  },
+  {
+    "product_id": "P135",
+    "name": "Nike Dri-FIT Stride 5\" Running Shorts",
+    "brand": "Nike",
+    "category": "apparel",
+    "categoryDisplay": "Athletic Apparel",
+    "subCategory": "Men's Running Bottoms",
+    "productType": " Men's Brief-Lined Running Shorts (13 cm / 5\" approx.)",
+    "description": "Prevents chafing, rapid sweat evaporation, full mobility during high strides, secure key/card and phone storage",
+    "price": 3695,
+    "currency": "INR",
+    "image": "https://www.nike.in/nike-stride-men-s-dri-fit-13cm-approx-brief-lined-running-shorts/p/24930879",
+    "images": [
+      "https://www.nike.in/nike-stride-men-s-dri-fit-13cm-approx-brief-lined-running-shorts/p/24930879"
+    ],
+    "rating": 4,
+    "reviewCount": 951,
+    "stockStatus": "in_stock",
+    "stockQuantity": 16,
+    "deliveryEstimate": "5 days",
+    "deliveryDays": 5,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Nike",
+      "Category": "Athletic Apparel",
+      "Sub-Category": "Men's Running Bottoms",
+      "Product Type": " Men's Brief-Lined Running Shorts (13 cm / 5\" approx.)"
+    },
+    "rawSpecs": "Variants: Black/Reflective Silver, Smoke Grey, Iron Purple, Sizes S to 3XL, Brief-Lined / Unlined optionsSpecifications: 100% recycled polyester/spandex blend, 5-inch inseam, low-rise ergonomic waistband with internal drawcord, moisture-wicking Dri-FIT woven fabric",
+    "featuresList": [
+      "Built-in breathable brief lining, back zippered media pocket with moisture barrier, dual side slash pockets, side vents for ease of motion, reflective detailing"
+    ],
+    "benefits": [
+      "Prevents chafing, rapid sweat evaporation, full mobility during high strides, secure key/card and phone storage"
+    ],
+    "useCases": [
+      "Road running, track sprinting, outdoor trail runs, high-intensity interval training (HIIT), gym workouts"
+    ],
+    "targetCustomer": [
+      "Runners, marathoners, track athletes, and fitness enthusiasts wanting lightweight, anti-chafing running apparel"
+    ],
+    "occasion": [
+      "Daily morning jogs, marathon training sessions, warm-weather athletic conditioning"
+    ],
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "apparel",
+      "nike",
+      "men's running bottoms",
+      " men's brief-lined running shorts (13 cm / 5\" approx.)"
+    ]
+  },
+  {
+    "product_id": "P136",
+    "name": "Nike Club Running Cap",
+    "brand": "Nike",
+    "category": "accessories",
+    "categoryDisplay": "Athletic Accessories",
+    "subCategory": "Headwear",
+    "productType": "Men's / Unisex Dri-FIT Featherlight Performance Cap",
+    "description": "Sun glare protection, sweat prevention from eyes, lightweight breathable fit that stays secure in high winds",
+    "price": 1195,
+    "currency": "INR",
+    "image": "https://www.nike.in/nike-dri-fit-club-structured-swoosh-cap/p/24933653",
+    "images": [
+      "https://www.nike.in/nike-dri-fit-club-structured-swoosh-cap/p/24933653"
+    ],
+    "rating": 4.9,
+    "reviewCount": 587,
+    "stockStatus": "in_stock",
+    "stockQuantity": 23,
+    "deliveryEstimate": "4 days",
+    "deliveryDays": 4,
+    "shippingCharge": "₹99",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Nike",
+      "Category": "Athletic Accessories",
+      "Sub-Category": "Headwear",
+      "Product Type": "Men's / Unisex Dri-FIT Featherlight Performance Cap"
+    },
+    "rawSpecs": "Variants: Black/White Swoosh, White/Black Swoosh, Obsidian Navy, Sizes S/M & M/L (with adjustable back strap)Specifications: 100% polyester twill/ripstop, Dri-FIT sweatband, pre-curved visor, laser-perforated side vents",
+    "featuresList": [
+      "Nike AeroBill / Featherlight brim technology, adjustable hook-and-loop closure, mesh ventilation panels, sweat-wicking brow band"
+    ],
+    "benefits": [
+      "Sun glare protection, sweat prevention from eyes, lightweight breathable fit that stays secure in high winds"
+    ],
+    "useCases": [
+      "Sunny outdoor runs, long-distance road training, tennis, golf, casual activewear"
+    ],
+    "targetCustomer": [
+      "Outdoor runners, tennis/padel players, athletes training under the sun"
+    ],
+    "occasion": [
+      "Morning/afternoon outdoor runs, sports matches, summer outdoor fitness, travel 1"
+    ],
+    "crossSellIds": [
+      "P137"
+    ],
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "accessories",
+      "nike",
+      "headwear",
+      "men's / unisex dri-fit featherlight performance cap"
+    ]
+  },
+  {
+    "product_id": "P137",
+    "name": "Nike Spark Lightweight Socks",
+    "brand": "Nike",
+    "category": "accessories",
+    "categoryDisplay": "Athletic Accessories",
+    "subCategory": "Running Socks",
+    "productType": "Unisex Lightweight Ankle Running Socks",
+    "description": "Reduces blister risk, locks foot securely to eliminate shoe slippage, high airflow to keep feet cool during long sessions",
+    "price": 895,
+    "currency": "INR",
+    "image": "https://www.myntra.com/socks/nike/nike-spark-cotton-lightweight-running-ankle-socks/26721014/buy",
+    "images": [
+      "https://www.myntra.com/socks/nike/nike-spark-cotton-lightweight-running-ankle-socks/26721014/buy"
+    ],
+    "rating": 4.5,
+    "reviewCount": 582,
+    "stockStatus": "in_stock",
+    "stockQuantity": 18,
+    "deliveryEstimate": "6 days",
+    "deliveryDays": 6,
+    "shippingCharge": "₹99",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Nike",
+      "Category": "Athletic Accessories",
+      "Sub-Category": "Running Socks",
+      "Product Type": "Unisex Lightweight Ankle Running Socks"
+    },
+    "rawSpecs": "Variants: White/Reflective Silver, Black/Anthracite, Volt/Black, Sizes S, M, L, XL (Ankle / No-Show heights)\n\nSpecifications: 84–88% nylon / 12–16% elastane (or cotton-blend tech), thin micro-mesh footbed, contoured arch compression band",
+    "featuresList": [
+      "Barefoot-feel thin profile, targeted underfoot arch support, breathable top-of-foot mesh, flat toe seams to eliminate friction, reflective collar accents"
+    ],
+    "benefits": [
+      "Reduces blister risk, locks foot securely to eliminate shoe slippage, high airflow to keep feet cool during long sessions"
+    ],
+    "useCases": [
+      "Road races, marathon running, track workouts, gym training, tempo intervals"
+    ],
+    "targetCustomer": [
+      "Serious runners and athletes looking for a second-skin, anti-blister sock for high-mileage runs"
+    ],
+    "occasion": [
+      "Race day, daily running routines, indoor cardio, cross-training"
+    ],
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "accessories",
+      "nike",
+      "running socks",
+      "unisex lightweight ankle running socks"
+    ]
+  },
+  {
+    "product_id": "P138",
+    "name": "Nike Hypersport Water Bottle 20oz",
+    "brand": "Nike",
+    "category": "accessories",
+    "categoryDisplay": "Athletic Accessories",
+    "subCategory": "Hydration & Water Bottles",
+    "productType": "Squeeze Sports Water Bottle / Sipper",
+    "description": "Rapid one-handed hydration without stopping your stride, spill prevention in gym bags, easy cleaning and refilling",
+    "price": 999,
+    "currency": "INR",
+    "image": "https://share.google/BN1t1EaAXIwvdHQwW",
+    "images": [
+      "https://share.google/BN1t1EaAXIwvdHQwW"
+    ],
+    "rating": 4.9,
+    "reviewCount": 530,
+    "stockStatus": "in_stock",
+    "stockQuantity": 15,
+    "deliveryEstimate": "6 days",
+    "deliveryDays": 6,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Nike",
+      "Category": "Athletic Accessories",
+      "Sub-Category": "Hydration & Water Bottles",
+      "Product Type": "Squeeze Sports Water Bottle / Sipper"
+    },
+    "rawSpecs": "Variants: Black/White, Blue/Black, Orange, Translucent Clear; 18 oz (530 ml), 20 oz (590 ml), 24 oz (710 ml), and 32 oz (946 ml) capacitiesSpecifications: 100% BPA-free food-grade construction (70.3% low-density polyethylene, 28.26% polypropylene, 1.44% silicone), 590 ml / 20 oz volume capacity, dishwasher-safe lid",
+    "featuresList": [
+      "Leak-resistant puff valve spout, squeezable contoured body, textured non-slip grip zones, wide screw-top opening for ice cubes, designated player ID area"
+    ],
+    "benefits": [
+      "Rapid one-handed hydration without stopping your stride, spill prevention in gym bags, easy cleaning and refilling"
+    ],
+    "useCases": [
+      "Road running hydration, gym weightlifting sessions, cycling bottle cages, treadmill workouts, sports practice"
+    ],
+    "targetCustomer": [
+      "Runners, athletes, gym-goers, and fitness enthusiasts needing quick on-the-move hydration"
+    ],
+    "occasion": [
+      "Daily morning runs, gym training, sports matches, hot outdoor workouts, track practice"
+    ],
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "accessories",
+      "nike",
+      "hydration & water bottles",
+      "squeeze sports water bottle / sipper"
+    ]
+  },
+  {
+    "product_id": "P139",
+    "name": "Salicylic Acid + LHA 2% Cleanser",
+    "brand": "Minimalist",
+    "category": "skincare",
+    "categoryDisplay": "Beauty & Personal Care / Skincare",
+    "subCategory": "Facial Cleansers & Face Washes",
+    "productType": "Face Cleanser",
+    "description": "Decongests pores, reduces excess sebum production, prevents acne breakouts, and gently exfoliates without stripping or drying out the skin barrier.",
+    "price": 278,
+    "mrp": 299,
+    "currency": "INR",
+    "image": "https://beminimalist.co/products/salicylic-lha-2-cleanser?srsltid=AfmBOopEm0UOCEni0GOLGZxzYW79mrymVfTxxlrTr3mqnTgSCY4LwuHf",
+    "images": [
+      "https://beminimalist.co/products/salicylic-lha-2-cleanser?srsltid=AfmBOopEm0UOCEni0GOLGZxzYW79mrymVfTxxlrTr3mqnTgSCY4LwuHf"
+    ],
+    "rating": 4,
+    "reviewCount": 975,
+    "stockStatus": "in_stock",
+    "stockQuantity": 19,
+    "deliveryEstimate": "3 days",
+    "deliveryDays": 3,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Minimalist",
+      "Category": "Beauty & Personal Care / Skincare",
+      "Sub-Category": "Facial Cleansers & Face Washes",
+      "Product Type": "Face Cleanser"
+    },
+    "rawSpecs": "Variants: 100ml, 250ml                                                                                             Active Ingredients: 2% BHA (Salicylic Acid) + LHA (Capryloyl Salicylic Acid), Oat Extract, Zinc, Allantoin\n\npH Level: 4.5 – 5.5\n\nFormulation Attributes: Fragrance-free, Essential oil-free, Non-comedogenic\n\nShelf Life: 18 months from manufacturing date\n\nDimensions: 5.0 x 5.0 x 18.0 cm\n\nSKU Codes: 8906128100320 (100ml), 8906128101136 (250ml)\n\nCountry of Origin: India",
+    "benefits": [
+      "Decongests pores, reduces excess sebum production, prevents acne breakouts, and gently exfoliates without stripping or drying out the skin barrier."
+    ],
+    "useCases": [
+      "Daily facial cleansing, active acne management, blackhead and pore decongestion."
+    ],
+    "targetCustomer": [
+      "Individuals with oily, combination, or acne-prone skin dealing with excess sebum, pimple breakouts, or clogged pores."
+    ],
+    "occasion": [
+      "Daily skincare routine (Morning & Evening)"
+    ],
+    "crossSellIds": [
+      "P140",
+      "P141",
+      "P142"
+    ],
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "skincare",
+      "minimalist",
+      "facial cleansers & face washes",
+      "face cleanser"
+    ]
+  },
+  {
+    "product_id": "P140",
+    "name": "Vitamin B5 10% Moisturizer",
+    "brand": "Minimalist",
+    "category": "skincare",
+    "categoryDisplay": "Beauty & Personal Care / Skincare",
+    "subCategory": "Face Moisturizers & Creams",
+    "productType": "Oil-Free Gel Moisturizer",
+    "description": "Deeply hydrates without greasiness, repairs compromised skin barrier, and regulates excess sebum.",
+    "price": 325,
+    "mrp": 349,
+    "currency": "INR",
+    "image": "https://beminimalist.co/products/vitamin-b5-10-moisturizer",
+    "images": [
+      "https://beminimalist.co/products/vitamin-b5-10-moisturizer"
+    ],
+    "rating": 4.9,
+    "reviewCount": 549,
+    "stockStatus": "in_stock",
+    "stockQuantity": 15,
+    "deliveryEstimate": "4 days",
+    "deliveryDays": 4,
+    "shippingCharge": "₹99",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Minimalist",
+      "Category": "Beauty & Personal Care / Skincare",
+      "Sub-Category": "Face Moisturizers & Creams",
+      "Product Type": "Oil-Free Gel Moisturizer"
+    },
+    "rawSpecs": "Specifications: pH 5.0–6.0, formulated with Biosaccharide Gum-1, country of origin: India. Variants: 30g, 50g, 100g",
+    "featuresList": [
+      "10% Panthenol (D-Panthenol USP), infused with Zinc, Copper, Magnesium, Hyaluronic Acid, and Betaine; fragrance-free and non-comedogenic."
+    ],
+    "benefits": [
+      "Deeply hydrates without greasiness, repairs compromised skin barrier, and regulates excess sebum."
+    ],
+    "useCases": [
+      "Daily face hydration, post-acne barrier recovery, lightweight daytime moisturizing."
+    ],
+    "targetCustomer": [
+      "Individuals with oily, combination, dehydrated, or acne-prone skin with barrier damage."
+    ],
+    "occasion": [
+      "Daily skincare routine (AM/PM"
+    ],
+    "featured": false,
+    "trending": true,
+    "tags": [
+      "skincare",
+      "minimalist",
+      "face moisturizers & creams",
+      "oil-free gel moisturizer"
+    ]
+  },
+  {
+    "product_id": "P141",
+    "name": "Salicylic Acid 2% Face Serum",
+    "brand": "Minimalist",
+    "category": "skincare",
+    "categoryDisplay": "Beauty & Personal Care / Skincare",
+    "subCategory": "Facial Serums & Treatments",
+    "productType": "Exfoliating BHA Serum",
+    "description": "Dissolves trapped sebum inside pore walls, diminishes blackheads by up to 50%, and calms acne-related inflammation.",
+    "price": 511,
+    "mrp": 549,
+    "currency": "INR",
+    "image": "https://beminimalist.co/collections/best-sellers/products/salicylic-acid-2",
+    "images": [
+      "https://beminimalist.co/collections/best-sellers/products/salicylic-acid-2"
+    ],
+    "rating": 4.1,
+    "reviewCount": 908,
+    "stockStatus": "in_stock",
+    "stockQuantity": 15,
+    "deliveryEstimate": "3 days",
+    "deliveryDays": 3,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Minimalist",
+      "Category": "Beauty & Personal Care / Skincare",
+      "Sub-Category": "Facial Serums & Treatments",
+      "Product Type": "Exfoliating BHA Serum"
+    },
+    "rawSpecs": "Specifications: pH 3.2–4.0, water-based, non-comedogenic, fragrance-free, country of origin: InVariants: 10ml, 30ml, 60ml",
+    "featuresList": [
+      "2% RonaCare Salicylic Acid Extra Pure, Oligopeptide-10, EGCG (Green Tea Extract), and White Horehound Extract."
+    ],
+    "benefits": [
+      "Dissolves trapped sebum inside pore walls, diminishes blackheads by up to 50%, and calms acne-related inflammation."
+    ],
+    "useCases": [
+      "Exfoliating clogged pores, treating breakouts, smoothing uneven skin texture."
+    ],
+    "targetCustomer": [
+      "People dealing with blackheads, open pores, active acne, and excessive sebum production"
+    ],
+    "occasion": [
+      "Evening skincare routine (PM use, 2–3 times weekly to daily)"
+    ],
+    "featured": false,
+    "trending": true,
+    "tags": [
+      "skincare",
+      "minimalist",
+      "facial serums & treatments",
+      "exfoliating bha serum"
+    ]
+  },
+  {
+    "product_id": "P142",
+    "name": "SPF 50 Sunscreen",
+    "brand": "Minimalist",
+    "category": "skincare",
+    "categoryDisplay": "Beauty & Personal Care / Skincare",
+    "subCategory": "Sunscreens & UV Protection",
+    "productType": "Multi-Vitamin Cream Sunscreen",
+    "description": "Blocks >98% of UVB rays, provides high UVA protection against photoaging, leaves no white cast or greasy finish.",
+    "price": 371,
+    "mrp": 399,
+    "currency": "INR",
+    "image": "https://beminimalist.co/collections/best-sellers/products/multi-vitamin-spf-50",
+    "images": [
+      "https://beminimalist.co/collections/best-sellers/products/multi-vitamin-spf-50"
+    ],
+    "rating": 5,
+    "reviewCount": 508,
+    "stockStatus": "in_stock",
+    "stockQuantity": 25,
+    "deliveryEstimate": "5 days",
+    "deliveryDays": 5,
+    "shippingCharge": "₹99",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Minimalist",
+      "Category": "Beauty & Personal Care / Skincare",
+      "Sub-Category": "Sunscreens & UV Protection",
+      "Product Type": "Multi-Vitamin Cream Sunscreen"
+    },
+    "rawSpecs": "Specifications: Broad-spectrum PA++++, in-vivo tested, fragrance-free, country of origin: India.Variants: 30g, 50g, 100g",
+    "featuresList": [
+      "SPF 50 with PA++++ rating, 4 photostable UV filters, enriched with Niacinamide, Vitamin B5 (Panthenol), Vitamin E, and Vitamin F"
+    ],
+    "benefits": [
+      "Blocks >98% of UVB rays, provides high UVA protection against photoaging, leaves no white cast or greasy finish."
+    ],
+    "useCases": [
+      "Daily broad-spectrum sun defence, anti-tanning barrier, daytime moisturizer for normal-to-dry skin"
+    ],
+    "targetCustomer": [
+      "Anyone seeking broad-spectrum sun protection, prevention against photoaging, tanning, and UV-induced dark spots."
+    ],
+    "occasion": [
+      "Daily morning protection (AM) and reapplication before sun exposure"
+    ],
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "skincare",
+      "minimalist",
+      "sunscreens & uv protection",
+      "multi-vitamin cream sunscreen"
+    ]
+  },
+  {
+    "product_id": "P143",
+    "name": "Mamaearth Ubtan With Turmeric & Saffron Face Wash",
+    "brand": "Mamaearth",
+    "category": "skincare",
+    "categoryDisplay": "Beauty & Personal Care / Skincare",
+    "subCategory": "Facial Cleansers & Face Washes",
+    "productType": "Exfoliating Face Wash / Cleanser",
+    "description": "Key Actives: Turmeric, Saffron, Carrot Seed Oil, and Walnut Beads.",
+    "price": 359,
+    "mrp": 499,
+    "currency": "INR",
+    "image": "https://mamaearth.in/products/ubtan-face-wash-with-turmeric-saffron-for-tan-removal-150-ml",
+    "images": [
+      "https://mamaearth.in/products/ubtan-face-wash-with-turmeric-saffron-for-tan-removal-150-ml"
+    ],
+    "rating": 4.3,
+    "reviewCount": 971,
+    "stockStatus": "in_stock",
+    "stockQuantity": 22,
+    "deliveryEstimate": "6 days",
+    "deliveryDays": 6,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Mamaearth",
+      "Category": "Beauty & Personal Care / Skincare",
+      "Sub-Category": "Facial Cleansers & Face Washes",
+      "Product Type": "Exfoliating Face Wash / Cleanser"
+    },
+    "rawSpecs": "Specifications & Manufacturing\n\nNet Volume: 150 ml\n\nBest Before / Shelf Life: 30 Months from manufacturing date\n\nDimensions: 10 × 5 × 5 cm\n\nCountry of Origin: IndiaVariants:\n\n150 ml\n\n200 ml\n\n150 ml (Pack of 2)\n\n200 ml (Pack of 2)\n\n(Also available in 50 ml and 100 ml sizes)",
+    "featuresList": [
+      "Key Actives: Turmeric, Saffron, Carrot Seed Oil, and Walnut Beads.",
+      "Toxin-Free Formulation: Free of Parabens, Silicones, Mineral Oils, and Dyes.",
+      "Texture: Gentle lathering cream base with micro-walnut exfoliating beads."
+    ],
+    "useCases": [
+      "Tan Reduction: Saffron and carrot seed oil help lighten pigmentation and tan lines.",
+      "Gentle Exfoliation: Walnut beads buff away dead epidermal cells and environmental pollutants.",
+      "Antioxidant Protection: Turmeric calms inflammation and protects skin from free radical damage.",
+      "Radiance Boost: Evens skin tone and restores natural skin radiance without overdrying."
+    ],
+    "targetCustomer": [
+      "Men and women (aged 18+) looking to address sun tan, skin dullness, and dead skin buildup across all skin types."
+    ],
+    "occasion": [
+      "Daily morning/evening facial cleansing, post-sun exposure recovery, and pre-event skincare preparation."
+    ],
+    "crossSellIds": [
+      "P144",
+      "P145",
+      "P146"
+    ],
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "skincare",
+      "mamaearth",
+      "facial cleansers & face washes",
+      "exfoliating face wash / cleanser"
+    ]
+  },
+  {
+    "product_id": "P144",
+    "name": "Mamaearth Ubtan Face Scrub",
+    "brand": "Mamaearth",
+    "category": "skincare",
+    "categoryDisplay": "Beauty & Personal Care / Skincare",
+    "subCategory": "Skincare (Exfoliators & Scrubs)",
+    "productType": "Physical Exfoliating Cream Scrub",
+    "description": "Micro-ground walnut beads, anti-inflammatory turmeric extracts, paraben- and sulfate-free.",
+    "price": 286,
+    "mrp": 349,
+    "currency": "INR",
+    "image": "https://share.google/HPYlWxFYsrbGGEEha",
+    "images": [
+      "https://share.google/HPYlWxFYsrbGGEEha"
+    ],
+    "rating": 4.5,
+    "reviewCount": 693,
+    "stockStatus": "in_stock",
+    "stockQuantity": 25,
+    "deliveryEstimate": "4 days",
+    "deliveryDays": 4,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Mamaearth",
+      "Category": "Beauty & Personal Care / Skincare",
+      "Sub-Category": "Skincare (Exfoliators & Scrubs)",
+      "Product Type": "Physical Exfoliating Cream Scrub"
+    },
+    "rawSpecs": "",
+    "featuresList": [
+      "Micro-ground walnut beads, anti-inflammatory turmeric extracts, paraben- and sulfate-free."
+    ],
+    "useCases": [
+      "Clears deep-seated dirt from pores, reduces surface tanning, and preps skin for maximum serum/moisturizer absorption."
+    ],
+    "targetCustomer": [
+      "Anyone wanting to eliminate dead skin buildup, blackheads, and uneven skin texture."
+    ],
+    "occasion": [
+      "1–2 times weekly deep exfoliation before applying a face mask or moisturizer."
+    ],
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "skincare",
+      "mamaearth",
+      "skincare (exfoliators & scrubs)",
+      "physical exfoliating cream scrub"
+    ]
+  },
+  {
+    "product_id": "P145",
+    "name": "Mamaearth Ubtan Detan Face Pack",
+    "brand": "Mamaearth",
+    "category": "skincare",
+    "categoryDisplay": "Beauty & Personal Care / Skincare",
+    "subCategory": "Skincare (Face Masks & Packs)",
+    "productType": "Clay-Based Wash-Off Face Mask",
+    "description": "Draws out impurities, reduces sun tan, smooths rough texture, and strengthens the skin barrier.",
+    "price": 250,
+    "mrp": 499,
+    "currency": "INR",
+    "image": "https://share.google/xlMpLYCpDH1OL1Ktk",
+    "images": [
+      "https://share.google/xlMpLYCpDH1OL1Ktk"
+    ],
+    "rating": 4.4,
+    "reviewCount": 699,
+    "stockStatus": "in_stock",
+    "stockQuantity": 23,
+    "deliveryEstimate": "7 days",
+    "deliveryDays": 7,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Mamaearth",
+      "Category": "Beauty & Personal Care / Skincare",
+      "Sub-Category": "Skincare (Face Masks & Packs)",
+      "Product Type": "Clay-Based Wash-Off Face Mask"
+    },
+    "rawSpecs": "Variants: 100 g, 200 g",
+    "featuresList": [
+      "pH-balanced clay formulation, Panthenol & Glycerin hydration lock, toxin-free, 15-minute quick-action format."
+    ],
+    "benefits": [
+      "Draws out impurities, reduces sun tan, smooths rough texture, and strengthens the skin barrier."
+    ],
+    "targetCustomer": [
+      "Individuals dealing with sun tan, surface pigmentation, or dull skin tone."
+    ],
+    "occasion": [
+      "Weekly deep skincare treatments, pre-event glowing prep, and post-sun recovery."
+    ],
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "skincare",
+      "mamaearth",
+      "skincare (face masks & packs)",
+      "clay-based wash-off face mask"
+    ]
+  },
+  {
+    "product_id": "P146",
+    "name": "Mamaearth Ubtan Oil-Free Face Moisturizer",
+    "brand": "Mamaearth",
+    "category": "skincare",
+    "categoryDisplay": "Beauty & Personal Care / Skincare",
+    "subCategory": "Skincare (Moisturizers & Day Creams)",
+    "productType": "Oil-Free Gel-Cream Moisturizer",
+    "description": "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months.",
+    "price": 242,
+    "mrp": 319,
+    "currency": "INR",
+    "image": "https://share.google/TXk6QhoWtcM9cndhd",
+    "images": [
+      "https://share.google/TXk6QhoWtcM9cndhd"
+    ],
+    "rating": 5,
+    "reviewCount": 537,
+    "stockStatus": "in_stock",
+    "stockQuantity": 24,
+    "deliveryEstimate": "3 days",
+    "deliveryDays": 3,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Mamaearth",
+      "Category": "Beauty & Personal Care / Skincare",
+      "Sub-Category": "Skincare (Moisturizers & Day Creams)",
+      "Product Type": "Oil-Free Gel-Cream Moisturizer"
+    },
+    "rawSpecs": "Variants: 80 g / 80 ml, 80 g (Pack of 2)",
+    "featuresList": [
+      "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months."
+    ],
+    "useCases": [
+      "Deeply moisturizes without clogging pores, restores natural glow, and helps prevent sun-induced dullness."
+    ],
+    "targetCustomer": [
+      "Men and women (aged 18+) looking for non-sticky daily hydration and skin brightening"
+    ],
+    "occasion": [
+      "Daily morning/night hydration routine and base layer under sunscreen or makeup."
+    ],
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "skincare",
+      "mamaearth",
+      "skincare (moisturizers & day creams)",
+      "oil-free gel-cream moisturizer"
+    ]
+  },
+  {
+    "product_id": "P147",
+    "name": "Optimum Nutrition (ON) Gold Standard 100% Whey Protein Powder",
+    "brand": "Optimum Nutrition (ON)",
+    "category": "nutrition",
+    "categoryDisplay": "Health & Fitness Supplements / Sports Nutrition",
+    "subCategory": "Whey Protein Powders",
+    "productType": "Protein Powder",
+    "description": "A globally benchmarked whey protein blend powered primarily by Whey Protein Isolate, delivering 24g of high-quality protein per serving to support muscle recovery and lean muscle growth.",
+    "price": 5079,
+    "currency": "INR",
+    "image": "https://www.optimumnutrition.co.in/products/gold-standard-100-whey-protein-powder-double-rich-chocolate-1118949",
+    "images": [
+      "https://www.optimumnutrition.co.in/products/gold-standard-100-whey-protein-powder-double-rich-chocolate-1118949"
+    ],
+    "rating": 4.2,
+    "reviewCount": 748,
+    "stockStatus": "in_stock",
+    "stockQuantity": 18,
+    "deliveryEstimate": "7 days",
+    "deliveryDays": 7,
+    "shippingCharge": "₹99",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Optimum Nutrition (ON)",
+      "Category": "Health & Fitness Supplements / Sports Nutrition",
+      "Sub-Category": "Whey Protein Powders",
+      "Product Type": "Protein Powder"
+    },
+    "rawSpecs": "",
+    "featuresList": [
+      "24 g of blended protein per serving (Whey Isolate, Concentrate, and Peptides).",
+      "5.5 g of naturally occurring BCAAs (Leucine, Isoleucine, Valine).",
+      "4 g of naturally occurring Glutamine and Glutamic Acid.",
+      "Instantized powder for easy mixing with a spoon or shaker.",
+      "Informed-Choice certified and banned-substance tested."
+    ],
+    "benefits": [
+      "Accelerates post-workout muscle repair and recovery.",
+      "Helps maintain and build lean muscle mass.",
+      "Easy on digestion with low carbohydrate and fat content.",
+      "Bridges daily dietary protein gaps conveniently."
+    ],
+    "useCases": [
+      "Post-exercise recovery shake, morning protein boost, smoothie base, or high-protein baking ingredient."
+    ],
+    "targetCustomer": [
+      "Gym-goers, endurance athletes, bodybuilders, fitness beginners, and active individuals needing high-quality dietary protein."
+    ],
+    "occasion": [
+      "Immediate post-workout window (30–60 minutes post-training), first thing in the morning, or between meals."
+    ],
+    "crossSellIds": [
+      "P148",
+      "P149",
+      "P150"
+    ],
+    "upsellIds": [
+      "P151"
+    ],
+    "featured": true,
+    "trending": false,
+    "tags": [
+      "nutrition",
+      "optimum nutrition (on)",
+      "whey protein powders",
+      "protein powder"
+    ]
+  },
+  {
+    "product_id": "P148",
+    "name": "Micronised Creatine Powder",
+    "brand": "",
+    "category": "nutrition",
+    "categoryDisplay": "General",
+    "subCategory": "",
+    "productType": "",
+    "description": "Authentic Micronised Creatine Powder from official source.",
+    "price": 0,
+    "currency": "INR",
+    "image": "",
+    "images": [],
+    "rating": 4.5,
+    "reviewCount": 546,
+    "stockStatus": "in_stock",
+    "stockQuantity": 16,
+    "deliveryEstimate": "4 days",
+    "deliveryDays": 4,
+    "shippingCharge": "₹99",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {},
+    "rawSpecs": "",
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "nutrition"
+    ]
+  },
+  {
+    "product_id": "P149",
+    "name": "Glutamine Powder",
+    "brand": "",
+    "category": "nutrition",
+    "categoryDisplay": "General",
+    "subCategory": "",
+    "productType": "",
+    "description": "Authentic Glutamine Powder from official source.",
+    "price": 0,
+    "currency": "INR",
+    "image": "",
+    "images": [],
+    "rating": 4.2,
+    "reviewCount": 812,
+    "stockStatus": "in_stock",
+    "stockQuantity": 18,
+    "deliveryEstimate": "4 days",
+    "deliveryDays": 4,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {},
+    "rawSpecs": "",
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "nutrition"
+    ]
+  },
+  {
+    "product_id": "P150",
+    "name": "BCAA 5000 Powder",
+    "brand": "",
+    "category": "nutrition",
+    "categoryDisplay": "General",
+    "subCategory": "",
+    "productType": "",
+    "description": "Authentic BCAA 5000 Powder from official source.",
+    "price": 0,
+    "currency": "INR",
+    "image": "",
+    "images": [],
+    "rating": 4.6,
+    "reviewCount": 560,
+    "stockStatus": "in_stock",
+    "stockQuantity": 25,
+    "deliveryEstimate": "4 days",
+    "deliveryDays": 4,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {},
+    "rawSpecs": "",
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "nutrition"
+    ]
+  },
+  {
+    "product_id": "P151",
+    "name": "Gold Standard 100% Whey Protein Powder | 5 lbs (2.27 kg)",
+    "brand": "",
+    "category": "nutrition",
+    "categoryDisplay": "General",
+    "subCategory": "",
+    "productType": "",
+    "description": "Authentic Gold Standard 100% Whey Protein Powder | 5 lbs (2.27 kg) from official source.",
+    "price": 0,
+    "currency": "INR",
+    "image": "",
+    "images": [],
+    "rating": 4.2,
+    "reviewCount": 551,
+    "stockStatus": "in_stock",
+    "stockQuantity": 22,
+    "deliveryEstimate": "6 days",
+    "deliveryDays": 6,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {},
+    "rawSpecs": "",
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "nutrition"
+    ]
+  },
+  {
+    "product_id": "P152",
+    "name": "ASUS Vivobook 15",
+    "brand": "",
+    "category": "laptops",
+    "categoryDisplay": "General",
+    "subCategory": "",
+    "productType": "",
+    "description": "Authentic ASUS Vivobook 15 from official source.",
+    "price": 0,
+    "currency": "INR",
+    "image": "",
+    "images": [],
+    "rating": 4.1,
+    "reviewCount": 861,
+    "stockStatus": "in_stock",
+    "stockQuantity": 18,
+    "deliveryEstimate": "4 days",
+    "deliveryDays": 4,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {},
+    "rawSpecs": "",
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "laptops"
+    ]
+  },
+  {
+    "product_id": "P153",
+    "name": "ASUS TUF Gaming A15 / F15",
+    "brand": "",
+    "category": "laptops",
+    "categoryDisplay": "General",
+    "subCategory": "",
+    "productType": "",
+    "description": "Authentic ASUS TUF Gaming A15 / F15 from official source.",
+    "price": 0,
+    "currency": "INR",
+    "image": "",
+    "images": [],
+    "rating": 4.7,
+    "reviewCount": 666,
+    "stockStatus": "in_stock",
+    "stockQuantity": 18,
+    "deliveryEstimate": "4 days",
+    "deliveryDays": 4,
+    "shippingCharge": "₹99",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {},
+    "rawSpecs": "",
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "laptops"
+    ]
+  },
+  {
+    "product_id": "P154",
+    "name": " ASUS Zenbook S 14 / 16",
+    "brand": "",
+    "category": "laptops",
+    "categoryDisplay": "General",
+    "subCategory": "",
+    "productType": "",
+    "description": "Authentic  ASUS Zenbook S 14 / 16 from official source.",
+    "price": 0,
+    "currency": "INR",
+    "image": "",
+    "images": [],
+    "rating": 4.2,
+    "reviewCount": 891,
+    "stockStatus": "in_stock",
+    "stockQuantity": 19,
+    "deliveryEstimate": "3 days",
+    "deliveryDays": 3,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {},
+    "rawSpecs": "",
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "laptops"
+    ]
+  }
+]

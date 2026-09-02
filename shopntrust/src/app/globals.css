@@ -1,0 +1,214 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* ShopNTrust — Futuristic Premium Commerce Semantic Colors */
+  --color-snt-accent: var(--snt-accent);
+  --color-snt-accent-hover: var(--snt-accent-hover);
+  --color-snt-accent-foreground: var(--snt-accent-foreground);
+  --color-snt-accent-subtle: var(--snt-accent-subtle);
+  --color-snt-surface: var(--snt-surface);
+  --color-snt-surface-elevated: var(--snt-surface-elevated);
+  --color-snt-dark: var(--snt-dark);
+  --color-snt-dark-foreground: var(--snt-dark-foreground);
+  --color-snt-success: var(--snt-success);
+  --color-snt-warning: var(--snt-warning);
+}
+
+/* ============================================================
+   FUTURISTIC PREMIUM COMMERCE — PALETTE
+   ============================================================ */
+
+:root {
+  /* Crisp Luminous Foundation */
+  --background: oklch(0.985 0.003 260); /* Clean soft pearl/off-white #F9FAFB */
+  --foreground: oklch(0.16 0.015 260);   /* Deep rich slate #111827 */
+  
+  --card: oklch(1 0 0);                 /* Pure pristine white #FFFFFF */
+  --card-foreground: oklch(0.16 0.015 260);
+  
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.16 0.015 260);
+  
+  --primary: oklch(0.16 0.015 260);      /* Bold dark action button */
+  --primary-foreground: oklch(0.99 0 0);
+  
+  --secondary: oklch(0.95 0.005 260);    /* Soft refined neutral surface #F1F5F9 */
+  --secondary-foreground: oklch(0.25 0.015 260);
+  
+  --muted: oklch(0.96 0.004 260);
+  --muted-foreground: oklch(0.48 0.015 260); /* Clear readable secondary text #64748B */
+  
+  --accent: oklch(0.95 0.008 272);
+  --accent-foreground: oklch(0.20 0.03 272);
+  
+  --destructive: oklch(0.58 0.22 25);
+  
+  --border: oklch(0.91 0.005 260);      /* Crisp subtle border #E2E8F0 */
+  --input: oklch(0.91 0.005 260);
+  --ring: oklch(0.52 0.22 272);
+  
+  --chart-1: oklch(0.52 0.22 272);
+  --chart-2: oklch(0.60 0.18 190);
+  --chart-3: oklch(0.65 0.16 145);
+  --chart-4: oklch(0.70 0.15 75);
+  --chart-5: oklch(0.58 0.22 25);
+  
+  --radius: 0.75rem;
+
+  --sidebar: oklch(0.985 0.003 260);
+  --sidebar-foreground: oklch(0.16 0.015 260);
+  --sidebar-primary: oklch(0.52 0.22 272);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.95 0.008 272);
+  --sidebar-accent-foreground: oklch(0.20 0.03 272);
+  --sidebar-border: oklch(0.91 0.005 260);
+  --sidebar-ring: oklch(0.52 0.22 272);
+
+  /* ShopNTrust Futuristic Design Tokens */
+  --snt-accent: oklch(0.52 0.22 272);          /* Electric Indigo #4F46E5 */
+  --snt-accent-hover: oklch(0.46 0.22 272);    /* Deep Indigo #4338CA */
+  --snt-accent-foreground: oklch(1 0 0);
+  --snt-accent-subtle: oklch(0.96 0.025 272);  /* Soft Indigo Tint */
+  
+  --snt-surface: oklch(0.965 0.004 260);       /* Soft card contrast */
+  --snt-surface-elevated: oklch(1 0 0);
+  
+  --snt-dark: oklch(0.14 0.015 265);           /* Deep Obsidian Slate for AI & Footer */
+  --snt-dark-foreground: oklch(0.98 0 0);
+  
+  --snt-success: oklch(0.60 0.18 150);         /* Clean Emerald Green */
+  --snt-warning: oklch(0.72 0.16 75);          /* Amber */
+}
+
+/* ============================================================
+   BASE LAYER & UTILITIES
+   ============================================================ */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  button:not(:disabled), [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+  }
+
+  /* Smooth scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.85 0.005 260);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.70 0.01 260);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ============================================================
+   FUTURISTIC AI & COMMERCE VISUAL UTILITIES
+   ============================================================ */
+
+@layer components {
+  /* Futuristic soft glow on hover */
+  .snt-card-glow {
+    transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  }
+  .snt-card-glow:hover {
+    box-shadow: 0 12px 32px -8px rgba(79, 70, 229, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+    border-color: oklch(0.52 0.22 272 / 30%);
+  }
+
+  /* Electric AI Badge */
+  .snt-ai-pill {
+    background: linear-gradient(135deg, oklch(0.52 0.22 272 / 10%) 0%, oklch(0.58 0.18 290 / 10%) 100%);
+    border: 1px solid oklch(0.52 0.22 272 / 20%);
+    color: oklch(0.48 0.22 272);
+  }
+
+  /* High-contrast Obsidian section background */
+  .snt-dark-module {
+    background-color: var(--snt-dark);
+    color: var(--snt-dark-foreground);
+  }
+
+  /* Ambient radial gradient for section headers */
+  .snt-hero-ambient {
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 0%, oklch(0.52 0.22 272 / 6%) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 90% 20%, oklch(0.60 0.18 190 / 4%) 0%, transparent 60%);
+  }
+
+  /* Divider line with center accent fade */
+  .snt-line-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, oklch(0.91 0.005 260) 20%, oklch(0.91 0.005 260) 80%, transparent 100%);
+  }
+}

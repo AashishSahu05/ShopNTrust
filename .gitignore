@@ -1,0 +1,7 @@
+# Root Git Ignore
+node_modules
+.next
+out
+build
+*.log
+.DS_Store
