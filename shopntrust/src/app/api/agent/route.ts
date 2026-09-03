@@ -51,9 +51,36 @@ function sanitizeCustomerFacingMessage(
   // 4. Remove any stray 'svg' artifact tokens
   text = text.replace(/\bsvg\b/gi, '').replace(/\[svg\]/gi, '');
 
-  text = text.trim();
+  // 5. Split into lines and filter out any raw unbracketed JSON property lines
+  const lines = text.split(/\r?\n/);
+  const cleanLines: string[] = [];
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed) {
+      if (cleanLines.length > 0 && cleanLines[cleanLines.length - 1] !== '') {
+        cleanLines.push('');
+      }
+      continue;
+    }
+    if (
+      /^"(?:reason|product_ids?|type|actions?|recommendations?|match_points?|matchPoints|benefits|label|source_product_id)":/i.test(trimmed) ||
+      /^"(?:SHOW_PRODUCTS|SHOW_COMPARISON|SHOW_UPSELL|SHOW_CROSS_SELL)"/i.test(trimmed) ||
+      /^"[^"]+",?\s*$/.test(trimmed) ||
+      /^[{}\[\],]+$/.test(trimmed) ||
+      trimmed.includes('"product_ids":') ||
+      trimmed.includes('"recommendations":') ||
+      trimmed.includes('"actions":')
+    ) {
+      continue;
+    }
+    // Clean "(Product ID: P117)" to "(P117)" for clean human readability
+    const cleanedLine = trimmed.replace(/\(Product ID:\s*(P1\d{2})\)/gi, '($1)');
+    cleanLines.push(cleanedLine);
+  }
 
-  // 5. If the message was purely a raw JSON object (or empty after stripping JSON),
+  text = cleanLines.join('\n').trim();
+
+  // 6. If the message was purely a raw JSON object (or empty after stripping JSON),
   // construct a clean, human-readable conversational message preserving all product details.
   if (!text || text.startsWith('{') || text.startsWith('[') || text.includes('"recommendations":')) {
     if (recommendations.length > 0) {
@@ -463,10 +490,10 @@ export async function POST(req: NextRequest) {
                 ],
               });
             }
-            const watch = getProductById('P119'); // Galaxy Watch 6
-            if (watch && !recommendedSet.has('P119') && !upsellSet.has('P119') && !cartProductIds.has('P119')) {
+            const watch = getProductById('P113'); // Galaxy Watch 6
+            if (watch && !recommendedSet.has('P113') && !upsellSet.has('P113') && !cartProductIds.has('P113')) {
               finalCrossSell.push({
-                productId: 'P119',
+                productId: 'P113',
                 sourceProductId: primaryId,
                 label: 'Complete Your Setup',
                 reason: `Track real-time fitness metrics and get notifications on your wrist synced to your smartphone.`,
@@ -477,10 +504,10 @@ export async function POST(req: NextRequest) {
               });
             }
           } else if (primaryProd.category === 'footwear' || primaryProd.category === 'apparel') {
-            const watch = getProductById('P107'); // Apple Watch
-            if (watch && !recommendedSet.has('P107') && !upsellSet.has('P107') && !cartProductIds.has('P107')) {
+            const watch = getProductById('P116'); // Apple Watch Ultra 2
+            if (watch && !recommendedSet.has('P116') && !upsellSet.has('P116') && !cartProductIds.has('P116')) {
               finalCrossSell.push({
-                productId: 'P107',
+                productId: 'P116',
                 sourceProductId: primaryId,
                 label: 'Essential Workout Add-on',
                 reason: `Track pace, heart rate zones, and GPS running routes during your training sessions.`,
@@ -491,10 +518,10 @@ export async function POST(req: NextRequest) {
               });
             }
           } else if (primaryProd.category === 'headphones') {
-            const watch = getProductById('P119');
-            if (watch && !recommendedSet.has('P119') && !upsellSet.has('P119') && !cartProductIds.has('P119')) {
+            const watch = getProductById('P113'); // Galaxy Watch 6
+            if (watch && !recommendedSet.has('P113') && !upsellSet.has('P113') && !cartProductIds.has('P113')) {
               finalCrossSell.push({
-                productId: 'P119',
+                productId: 'P113',
                 sourceProductId: primaryId,
                 label: 'Pairs Well With',
                 reason: `Control offline music and volume directly from your wrist while running or working out.`,

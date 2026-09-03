@@ -469,7 +469,34 @@ export function normalizeAgentResponse(
   cleanMessage = cleanMessage.replace(/https?:\/\/(?:localhost(?::\d+)?|127\.0\.0\.1(?::\d+)?)\/product\/([a-zA-Z0-9_-]+)/gi, '/product/$1');
   cleanMessage = cleanMessage.replace(/https?:\/\/(?:localhost(?::\d+)?|127\.0\.0\.1(?::\d+)?)\S*/gi, '');
   cleanMessage = cleanMessage.replace(/\bsvg\b/gi, '').replace(/\[svg\]/gi, '');
-  cleanMessage = cleanMessage.trim();
+
+  // Split into lines and filter out any raw unbracketed JSON property lines
+  const lines = cleanMessage.split(/\r?\n/);
+  const cleanLines: string[] = [];
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed) {
+      if (cleanLines.length > 0 && cleanLines[cleanLines.length - 1] !== '') {
+        cleanLines.push('');
+      }
+      continue;
+    }
+    if (
+      /^"(?:reason|product_ids?|type|actions?|recommendations?|match_points?|matchPoints|benefits|label|source_product_id)":/i.test(trimmed) ||
+      /^"(?:SHOW_PRODUCTS|SHOW_COMPARISON|SHOW_UPSELL|SHOW_CROSS_SELL)"/i.test(trimmed) ||
+      /^"[^"]+",?\s*$/.test(trimmed) ||
+      /^[{}\[\],]+$/.test(trimmed) ||
+      trimmed.includes('"product_ids":') ||
+      trimmed.includes('"recommendations":') ||
+      trimmed.includes('"actions":')
+    ) {
+      continue;
+    }
+    // Clean "(Product ID: P117)" to "(P117)" for clean human readability
+    const cleanedLine = trimmed.replace(/\(Product ID:\s*(P1\d{2})\)/gi, '($1)');
+    cleanLines.push(cleanedLine);
+  }
+  cleanMessage = cleanLines.join('\n').trim();
 
   if (!cleanMessage || cleanMessage.startsWith('{') || cleanMessage.startsWith('[') || cleanMessage.includes('"recommendations":')) {
     if (structuredRecs.length > 0) {

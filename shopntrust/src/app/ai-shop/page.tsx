@@ -129,23 +129,31 @@ function CleanAIMessageRenderer({ content }: { content: string }) {
   };
 
   lines.forEach((line, idx) => {
-    const trimmed = line.trim();
+    let trimmed = line.trim();
 
-    // 1. Never render raw JSON brackets or technical field names
+    // 1. Never render raw JSON brackets, technical metadata lines, or unbracketed JSON property lines
     if (
       trimmed.startsWith('{') ||
       trimmed.startsWith('}') ||
       trimmed.startsWith('[') ||
       trimmed.startsWith(']') ||
+      /^"(?:reason|product_ids?|type|actions?|recommendations?|match_points?|matchPoints|benefits|label|source_product_id)":/i.test(trimmed) ||
+      /^"(?:SHOW_PRODUCTS|SHOW_COMPARISON|SHOW_UPSELL|SHOW_CROSS_SELL)"/i.test(trimmed) ||
+      /^"[^"]+",?\s*$/.test(trimmed) ||
+      /^[{}\[\],]+$/.test(trimmed) ||
+      trimmed.includes('"product_ids":') ||
+      trimmed.includes('"product_id":') ||
       trimmed.includes('"recommendations":') ||
       trimmed.includes('"actions":') ||
-      trimmed.includes('"product_id":') ||
-      trimmed.includes('"match_points":')
+      trimmed.includes('"reason":')
     ) {
       return;
     }
 
-    // 2. Check for bullet list lines (•, -, *, 1.)
+    // 2. Clean technical "(Product ID: P117)" to elegant "(P117)"
+    trimmed = trimmed.replace(/\(Product ID:\s*(P1\d{2})\)/gi, '($1)');
+
+    // 3. Check for bullet list lines (•, -, *, 1.)
     const bulletMatch = trimmed.match(/^[\u2022\-\*]\s+(.*)$/);
     if (bulletMatch) {
       currentList.push({ text: bulletMatch[1], key: idx });
