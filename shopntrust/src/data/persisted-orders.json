@@ -1,0 +1,4080 @@
+[
+  {
+    "orderId": "ORD-1788466268258-9B81",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788466268840,
+    "updatedAt": 1788466268840
+  },
+  {
+    "orderId": "ORD-1788466267117-TU6Z",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788466267628,
+    "updatedAt": 1788466267628
+  },
+  {
+    "orderId": "ORD-1788466263094-J0ET",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788466263503,
+    "updatedAt": 1788466263503
+  },
+  {
+    "orderId": "ORD-1788466263081-5T5F",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788466263277,
+    "updatedAt": 1788466263277
+  },
+  {
+    "orderId": "ORD-1788466259969-JQY9",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P117",
+          "name": "Apple Watch Ultra 2",
+          "price": 89900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "wearables",
+          "description": "Companion",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_cross_sell"
+      }
+    ],
+    "total": 89900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_cross_sell",
+    "aiSessionId": "sess_ai_phase9_03",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788466260395,
+    "updatedAt": 1788466260395
+  },
+  {
+    "orderId": "ORD-1788466255508-T3CX",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P102",
+          "name": "Apple iPhone 16 Pro",
+          "price": 119900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Upgrade Tier",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_upsell"
+      }
+    ],
+    "total": 119900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_upsell",
+    "aiSessionId": "sess_ai_phase9_02",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788466255718,
+    "updatedAt": 1788466255718
+  },
+  {
+    "orderId": "ORD-1788466251797-ZNMB",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P103",
+          "name": "Samsung Galaxy S24 Ultra",
+          "price": 129999,
+          "currency": "INR",
+          "brand": "Samsung",
+          "category": "phones",
+          "description": "AI Flagship",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_primary"
+      }
+    ],
+    "total": 129999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_recommendation",
+    "aiSessionId": "sess_ai_phase9_01",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788466252601,
+    "updatedAt": 1788466252601
+  },
+  {
+    "orderId": "ORD-1788466244672-2547",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788466244877,
+    "updatedAt": 1788466244877
+  },
+  {
+    "orderId": "ORD-1788464829839-FVCA",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788464830833,
+    "updatedAt": 1788464830833
+  },
+  {
+    "orderId": "ORD-1788464828348-LETB",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788464829395,
+    "updatedAt": 1788464829395
+  },
+  {
+    "orderId": "ORD-1788464820190-BZ2V",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788464822693,
+    "updatedAt": 1788464822693
+  },
+  {
+    "orderId": "ORD-1788464820173-WX9G",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788464822292,
+    "updatedAt": 1788464822292
+  },
+  {
+    "orderId": "ORD-1788464810663-1JA9",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P117",
+          "name": "Apple Watch Ultra 2",
+          "price": 89900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "wearables",
+          "description": "Companion",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_cross_sell"
+      }
+    ],
+    "total": 89900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_cross_sell",
+    "aiSessionId": "sess_ai_phase9_03",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788464812297,
+    "updatedAt": 1788464812297
+  },
+  {
+    "orderId": "ORD-1788464803793-MRF3",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P102",
+          "name": "Apple iPhone 16 Pro",
+          "price": 119900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Upgrade Tier",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_upsell"
+      }
+    ],
+    "total": 119900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_upsell",
+    "aiSessionId": "sess_ai_phase9_02",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788464805223,
+    "updatedAt": 1788464805223
+  },
+  {
+    "orderId": "ORD-1788464790776-ATL7",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P103",
+          "name": "Samsung Galaxy S24 Ultra",
+          "price": 129999,
+          "currency": "INR",
+          "brand": "Samsung",
+          "category": "phones",
+          "description": "AI Flagship",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_primary"
+      }
+    ],
+    "total": 129999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_recommendation",
+    "aiSessionId": "sess_ai_phase9_01",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788464792587,
+    "updatedAt": 1788464792587
+  },
+  {
+    "orderId": "ORD-1788464782652-T6F5",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788464783107,
+    "updatedAt": 1788464783107
+  },
+  {
+    "orderId": "ORD-1788457608668-Q1SP",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788457609188,
+    "updatedAt": 1788457609188
+  },
+  {
+    "orderId": "ORD-1788457607566-583U",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788457608431,
+    "updatedAt": 1788457608431
+  },
+  {
+    "orderId": "ORD-1788457600921-HE3F",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788457601923,
+    "updatedAt": 1788457601923
+  },
+  {
+    "orderId": "ORD-1788457600914-TEOR",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788457601417,
+    "updatedAt": 1788457601417
+  },
+  {
+    "orderId": "ORD-1788457596727-1WK8",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P117",
+          "name": "Apple Watch Ultra 2",
+          "price": 89900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "wearables",
+          "description": "Companion",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_cross_sell"
+      }
+    ],
+    "total": 89900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_cross_sell",
+    "aiSessionId": "sess_ai_phase9_03",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788457597224,
+    "updatedAt": 1788457597224
+  },
+  {
+    "orderId": "ORD-1788457593331-W0PJ",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P102",
+          "name": "Apple iPhone 16 Pro",
+          "price": 119900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Upgrade Tier",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_upsell"
+      }
+    ],
+    "total": 119900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_upsell",
+    "aiSessionId": "sess_ai_phase9_02",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788457593548,
+    "updatedAt": 1788457593548
+  },
+  {
+    "orderId": "ORD-1788457587764-JMLJ",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P103",
+          "name": "Samsung Galaxy S24 Ultra",
+          "price": 129999,
+          "currency": "INR",
+          "brand": "Samsung",
+          "category": "phones",
+          "description": "AI Flagship",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_primary"
+      }
+    ],
+    "total": 129999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_recommendation",
+    "aiSessionId": "sess_ai_phase9_01",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788457589366,
+    "updatedAt": 1788457589366
+  },
+  {
+    "orderId": "ORD-1788457580484-DGZE",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788457580971,
+    "updatedAt": 1788457580971
+  },
+  {
+    "orderId": "ORD-1788456488010-ME6I",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788456488294,
+    "updatedAt": 1788456488294
+  },
+  {
+    "orderId": "ORD-1788456487310-VWX3",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788456487752,
+    "updatedAt": 1788456487752
+  },
+  {
+    "orderId": "ORD-1788456479601-GUQ1",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788456480652,
+    "updatedAt": 1788456480652
+  },
+  {
+    "orderId": "ORD-1788456479619-UF6O",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788456480484,
+    "updatedAt": 1788456480484
+  },
+  {
+    "orderId": "ORD-1788456469297-BO2C",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P117",
+          "name": "Apple Watch Ultra 2",
+          "price": 89900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "wearables",
+          "description": "Companion",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_cross_sell"
+      }
+    ],
+    "total": 89900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_cross_sell",
+    "aiSessionId": "sess_ai_phase9_03",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788456470236,
+    "updatedAt": 1788456470236
+  },
+  {
+    "orderId": "ORD-1788456461496-U05A",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P102",
+          "name": "Apple iPhone 16 Pro",
+          "price": 119900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Upgrade Tier",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_upsell"
+      }
+    ],
+    "total": 119900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_upsell",
+    "aiSessionId": "sess_ai_phase9_02",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788456463166,
+    "updatedAt": 1788456463166
+  },
+  {
+    "orderId": "ORD-1788456455478-HHKI",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P103",
+          "name": "Samsung Galaxy S24 Ultra",
+          "price": 129999,
+          "currency": "INR",
+          "brand": "Samsung",
+          "category": "phones",
+          "description": "AI Flagship",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_primary"
+      }
+    ],
+    "total": 129999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_recommendation",
+    "aiSessionId": "sess_ai_phase9_01",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788456457484,
+    "updatedAt": 1788456457484
+  },
+  {
+    "orderId": "ORD-1788456447716-JJP3",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788456447976,
+    "updatedAt": 1788456447976
+  },
+  {
+    "orderId": "ORD-1788455904275-9JK4",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788455904525,
+    "updatedAt": 1788455904525
+  },
+  {
+    "orderId": "ORD-1788455902481-STOW",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788455903590,
+    "updatedAt": 1788455903590
+  },
+  {
+    "orderId": "ORD-1788455898354-SHEX",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788455899223,
+    "updatedAt": 1788455899223
+  },
+  {
+    "orderId": "ORD-1788455898377-DCCS",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788455898964,
+    "updatedAt": 1788455898964
+  },
+  {
+    "orderId": "ORD-1788455892087-KFNJ",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P117",
+          "name": "Apple Watch Ultra 2",
+          "price": 89900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "wearables",
+          "description": "Companion",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_cross_sell"
+      }
+    ],
+    "total": 89900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_cross_sell",
+    "aiSessionId": "sess_ai_phase9_03",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788455892705,
+    "updatedAt": 1788455892705
+  },
+  {
+    "orderId": "ORD-1788455887639-R3X1",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P102",
+          "name": "Apple iPhone 16 Pro",
+          "price": 119900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Upgrade Tier",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_upsell"
+      }
+    ],
+    "total": 119900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_upsell",
+    "aiSessionId": "sess_ai_phase9_02",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788455888327,
+    "updatedAt": 1788455888327
+  },
+  {
+    "orderId": "ORD-1788455881514-TIPI",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P103",
+          "name": "Samsung Galaxy S24 Ultra",
+          "price": 129999,
+          "currency": "INR",
+          "brand": "Samsung",
+          "category": "phones",
+          "description": "AI Flagship",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_primary"
+      }
+    ],
+    "total": 129999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_recommendation",
+    "aiSessionId": "sess_ai_phase9_01",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788455883863,
+    "updatedAt": 1788455883863
+  },
+  {
+    "orderId": "ORD-1788455871591-LKWG",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788455872809,
+    "updatedAt": 1788455872809
+  },
+  {
+    "orderId": "ORD-1788455579492-EYWH",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788455579707,
+    "updatedAt": 1788455579707
+  },
+  {
+    "orderId": "ORD-1788455578859-ETGA",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788455579253,
+    "updatedAt": 1788455579253
+  },
+  {
+    "orderId": "ORD-1788455572133-YQHC",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788455572789,
+    "updatedAt": 1788455572789
+  },
+  {
+    "orderId": "ORD-1788455572151-782Y",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788455572649,
+    "updatedAt": 1788455572649
+  },
+  {
+    "orderId": "ORD-1788455563944-VFR0",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P117",
+          "name": "Apple Watch Ultra 2",
+          "price": 89900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "wearables",
+          "description": "Companion",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_cross_sell"
+      }
+    ],
+    "total": 89900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_cross_sell",
+    "aiSessionId": "sess_ai_phase9_03",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788455565146,
+    "updatedAt": 1788455565146
+  },
+  {
+    "orderId": "ORD-1788455556526-UNA1",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P102",
+          "name": "Apple iPhone 16 Pro",
+          "price": 119900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Upgrade Tier",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_upsell"
+      }
+    ],
+    "total": 119900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_upsell",
+    "aiSessionId": "sess_ai_phase9_02",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788455557996,
+    "updatedAt": 1788455557996
+  },
+  {
+    "orderId": "ORD-1788455553032-XZ5K",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P103",
+          "name": "Samsung Galaxy S24 Ultra",
+          "price": 129999,
+          "currency": "INR",
+          "brand": "Samsung",
+          "category": "phones",
+          "description": "AI Flagship",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_primary"
+      }
+    ],
+    "total": 129999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_recommendation",
+    "aiSessionId": "sess_ai_phase9_01",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788455553538,
+    "updatedAt": 1788455553538
+  },
+  {
+    "orderId": "ORD-1788455546857-V8VW",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788455547321,
+    "updatedAt": 1788455547321
+  },
+  {
+    "orderId": "ORD-1788455268266-AUDX",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788455268763,
+    "updatedAt": 1788455268763
+  },
+  {
+    "orderId": "ORD-1788455266972-EGJ8",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788455267748,
+    "updatedAt": 1788455267748
+  },
+  {
+    "orderId": "ORD-1788455260591-7T6T",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788455261445,
+    "updatedAt": 1788455261445
+  },
+  {
+    "orderId": "ORD-1788455260608-4V0N",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788455260952,
+    "updatedAt": 1788455260952
+  },
+  {
+    "orderId": "ORD-1788455251650-7J9Y",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P117",
+          "name": "Apple Watch Ultra 2",
+          "price": 89900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "wearables",
+          "description": "Companion",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_cross_sell"
+      }
+    ],
+    "total": 89900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_cross_sell",
+    "aiSessionId": "sess_ai_phase9_03",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788455252898,
+    "updatedAt": 1788455252898
+  },
+  {
+    "orderId": "ORD-1788455242012-TK9U",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P102",
+          "name": "Apple iPhone 16 Pro",
+          "price": 119900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Upgrade Tier",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_upsell"
+      }
+    ],
+    "total": 119900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_upsell",
+    "aiSessionId": "sess_ai_phase9_02",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788455243507,
+    "updatedAt": 1788455243507
+  },
+  {
+    "orderId": "ORD-1788455234854-QBLA",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P103",
+          "name": "Samsung Galaxy S24 Ultra",
+          "price": 129999,
+          "currency": "INR",
+          "brand": "Samsung",
+          "category": "phones",
+          "description": "AI Flagship",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_primary"
+      }
+    ],
+    "total": 129999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_recommendation",
+    "aiSessionId": "sess_ai_phase9_01",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788455236428,
+    "updatedAt": 1788455236428
+  },
+  {
+    "orderId": "ORD-1788455228297-WQWJ",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788455228515,
+    "updatedAt": 1788455228515
+  },
+  {
+    "orderId": "ORD-1788453831981-TMYW",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788453832225,
+    "updatedAt": 1788453832225
+  },
+  {
+    "orderId": "ORD-1788453829595-BZOB",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788453830846,
+    "updatedAt": 1788453830846
+  },
+  {
+    "orderId": "ORD-1788453824136-1KZJ",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788453825144,
+    "updatedAt": 1788453825144
+  },
+  {
+    "orderId": "ORD-1788453824119-G1KF",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788453825118,
+    "updatedAt": 1788453825118
+  },
+  {
+    "orderId": "ORD-1788453815825-NDUD",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P117",
+          "name": "Apple Watch Ultra 2",
+          "price": 89900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "wearables",
+          "description": "Companion",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_cross_sell"
+      }
+    ],
+    "total": 89900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_cross_sell",
+    "aiSessionId": "sess_ai_phase9_03",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788453817551,
+    "updatedAt": 1788453817551
+  },
+  {
+    "orderId": "ORD-1788453806741-3L6J",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P102",
+          "name": "Apple iPhone 16 Pro",
+          "price": 119900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Upgrade Tier",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_upsell"
+      }
+    ],
+    "total": 119900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_upsell",
+    "aiSessionId": "sess_ai_phase9_02",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788453809603,
+    "updatedAt": 1788453809603
+  },
+  {
+    "orderId": "ORD-1788453799081-TFSC",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P103",
+          "name": "Samsung Galaxy S24 Ultra",
+          "price": 129999,
+          "currency": "INR",
+          "brand": "Samsung",
+          "category": "phones",
+          "description": "AI Flagship",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_primary"
+      }
+    ],
+    "total": 129999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_recommendation",
+    "aiSessionId": "sess_ai_phase9_01",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788453800958,
+    "updatedAt": 1788453800958
+  },
+  {
+    "orderId": "ORD-1788453790882-B14V",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788453791114,
+    "updatedAt": 1788453791114
+  },
+  {
+    "orderId": "ORD-1788449991536-S9X0",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788449992633,
+    "updatedAt": 1788449992633
+  },
+  {
+    "orderId": "ORD-1788449990493-5JZV",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788449991283,
+    "updatedAt": 1788449991283
+  },
+  {
+    "orderId": "ORD-1788449980258-28CY",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788449983312,
+    "updatedAt": 1788449983312
+  },
+  {
+    "orderId": "ORD-1788449980244-972U",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788449981135,
+    "updatedAt": 1788449981135
+  },
+  {
+    "orderId": "ORD-1788449975618-C6NQ",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P117",
+          "name": "Apple Watch Ultra 2",
+          "price": 89900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "wearables",
+          "description": "Companion",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_cross_sell"
+      }
+    ],
+    "total": 89900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_cross_sell",
+    "aiSessionId": "sess_ai_phase9_03",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788449976471,
+    "updatedAt": 1788449976471
+  },
+  {
+    "orderId": "ORD-1788449968422-AJ55",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P102",
+          "name": "Apple iPhone 16 Pro",
+          "price": 119900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Upgrade Tier",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_upsell"
+      }
+    ],
+    "total": 119900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_upsell",
+    "aiSessionId": "sess_ai_phase9_02",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788449969358,
+    "updatedAt": 1788449969358
+  },
+  {
+    "orderId": "ORD-1788449956803-215O",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P103",
+          "name": "Samsung Galaxy S24 Ultra",
+          "price": 129999,
+          "currency": "INR",
+          "brand": "Samsung",
+          "category": "phones",
+          "description": "AI Flagship",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_primary"
+      }
+    ],
+    "total": 129999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_recommendation",
+    "aiSessionId": "sess_ai_phase9_01",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788449959535,
+    "updatedAt": 1788449959535
+  },
+  {
+    "orderId": "ORD-1788449949100-TMOT",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788449949315,
+    "updatedAt": 1788449949315
+  },
+  {
+    "orderId": "ORD-1788448704878-49DL",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 484,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Test product",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 484,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788448705746,
+    "updatedAt": 1788448705746
+  },
+  {
+    "orderId": "ORD-1788448631439-KVOX",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 484,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Test product",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 484,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788448632050,
+    "updatedAt": 1788448632050
+  },
+  {
+    "orderId": "ORD-1788448631355-8ZK1",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P146",
+          "name": "Mamaearth Ubtan Oil-Free Face Moisturizer",
+          "brand": "Mamaearth",
+          "category": "skincare",
+          "categoryDisplay": "Beauty & Personal Care / Skincare",
+          "subCategory": "Skincare (Moisturizers & Day Creams)",
+          "productType": "Oil-Free Gel-Cream Moisturizer",
+          "description": "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months.",
+          "price": 242,
+          "mrp": 319,
+          "currency": "INR",
+          "image": "https://share.google/TXk6QhoWtcM9cndhd",
+          "images": [
+            "https://share.google/TXk6QhoWtcM9cndhd"
+          ],
+          "rating": 5,
+          "reviewCount": 537,
+          "stockStatus": "in_stock",
+          "stockQuantity": 24,
+          "deliveryEstimate": "3 days",
+          "deliveryDays": 3,
+          "shippingCharge": "₹0",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Mamaearth",
+            "Category": "Beauty & Personal Care / Skincare",
+            "Sub-Category": "Skincare (Moisturizers & Day Creams)",
+            "Product Type": "Oil-Free Gel-Cream Moisturizer"
+          },
+          "rawSpecs": "Variants: 80 g / 80 ml, 80 g (Pack of 2)",
+          "featuresList": [
+            "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months."
+          ],
+          "useCases": [
+            "Deeply moisturizes without clogging pores, restores natural glow, and helps prevent sun-induced dullness."
+          ],
+          "targetCustomer": [
+            "Men and women (aged 18+) looking for non-sticky daily hydration and skin brightening"
+          ],
+          "occasion": [
+            "Daily morning/night hydration routine and base layer under sunscreen or makeup."
+          ],
+          "featured": false,
+          "trending": false,
+          "tags": [
+            "skincare",
+            "mamaearth",
+            "skincare (moisturizers & day creams)",
+            "oil-free gel-cream moisturizer"
+          ]
+        },
+        "quantity": 2,
+        "addedVia": "manual",
+        "addedAt": 1788448252281
+      }
+    ],
+    "total": 484,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "aiSessionId": "snt-active-session",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788448631874,
+    "updatedAt": 1788448631874
+  },
+  {
+    "orderId": "ORD-1788448592873-9GGH",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P146",
+          "name": "Mamaearth Ubtan Oil-Free Face Moisturizer",
+          "brand": "Mamaearth",
+          "category": "skincare",
+          "categoryDisplay": "Beauty & Personal Care / Skincare",
+          "subCategory": "Skincare (Moisturizers & Day Creams)",
+          "productType": "Oil-Free Gel-Cream Moisturizer",
+          "description": "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months.",
+          "price": 242,
+          "mrp": 319,
+          "currency": "INR",
+          "image": "https://share.google/TXk6QhoWtcM9cndhd",
+          "images": [
+            "https://share.google/TXk6QhoWtcM9cndhd"
+          ],
+          "rating": 5,
+          "reviewCount": 537,
+          "stockStatus": "in_stock",
+          "stockQuantity": 24,
+          "deliveryEstimate": "3 days",
+          "deliveryDays": 3,
+          "shippingCharge": "₹0",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Mamaearth",
+            "Category": "Beauty & Personal Care / Skincare",
+            "Sub-Category": "Skincare (Moisturizers & Day Creams)",
+            "Product Type": "Oil-Free Gel-Cream Moisturizer"
+          },
+          "rawSpecs": "Variants: 80 g / 80 ml, 80 g (Pack of 2)",
+          "featuresList": [
+            "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months."
+          ],
+          "useCases": [
+            "Deeply moisturizes without clogging pores, restores natural glow, and helps prevent sun-induced dullness."
+          ],
+          "targetCustomer": [
+            "Men and women (aged 18+) looking for non-sticky daily hydration and skin brightening"
+          ],
+          "occasion": [
+            "Daily morning/night hydration routine and base layer under sunscreen or makeup."
+          ],
+          "featured": false,
+          "trending": false,
+          "tags": [
+            "skincare",
+            "mamaearth",
+            "skincare (moisturizers & day creams)",
+            "oil-free gel-cream moisturizer"
+          ]
+        },
+        "quantity": 2,
+        "addedVia": "manual",
+        "addedAt": 1788448252281
+      }
+    ],
+    "total": 484,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "aiSessionId": "snt-active-session",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788448595760,
+    "updatedAt": 1788448595760
+  },
+  {
+    "orderId": "ORD-1788448583313-9IY3",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P146",
+          "name": "Mamaearth Ubtan Oil-Free Face Moisturizer",
+          "brand": "Mamaearth",
+          "category": "skincare",
+          "categoryDisplay": "Beauty & Personal Care / Skincare",
+          "subCategory": "Skincare (Moisturizers & Day Creams)",
+          "productType": "Oil-Free Gel-Cream Moisturizer",
+          "description": "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months.",
+          "price": 242,
+          "mrp": 319,
+          "currency": "INR",
+          "image": "https://share.google/TXk6QhoWtcM9cndhd",
+          "images": [
+            "https://share.google/TXk6QhoWtcM9cndhd"
+          ],
+          "rating": 5,
+          "reviewCount": 537,
+          "stockStatus": "in_stock",
+          "stockQuantity": 24,
+          "deliveryEstimate": "3 days",
+          "deliveryDays": 3,
+          "shippingCharge": "₹0",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Mamaearth",
+            "Category": "Beauty & Personal Care / Skincare",
+            "Sub-Category": "Skincare (Moisturizers & Day Creams)",
+            "Product Type": "Oil-Free Gel-Cream Moisturizer"
+          },
+          "rawSpecs": "Variants: 80 g / 80 ml, 80 g (Pack of 2)",
+          "featuresList": [
+            "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months."
+          ],
+          "useCases": [
+            "Deeply moisturizes without clogging pores, restores natural glow, and helps prevent sun-induced dullness."
+          ],
+          "targetCustomer": [
+            "Men and women (aged 18+) looking for non-sticky daily hydration and skin brightening"
+          ],
+          "occasion": [
+            "Daily morning/night hydration routine and base layer under sunscreen or makeup."
+          ],
+          "featured": false,
+          "trending": false,
+          "tags": [
+            "skincare",
+            "mamaearth",
+            "skincare (moisturizers & day creams)",
+            "oil-free gel-cream moisturizer"
+          ]
+        },
+        "quantity": 2,
+        "addedVia": "manual",
+        "addedAt": 1788448252281
+      }
+    ],
+    "total": 484,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "aiSessionId": "snt-active-session",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788448585760,
+    "updatedAt": 1788448585760
+  },
+  {
+    "orderId": "ORD-1788448480198-VNMS",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P146",
+          "name": "Mamaearth Ubtan Oil-Free Face Moisturizer",
+          "brand": "Mamaearth",
+          "category": "skincare",
+          "categoryDisplay": "Beauty & Personal Care / Skincare",
+          "subCategory": "Skincare (Moisturizers & Day Creams)",
+          "productType": "Oil-Free Gel-Cream Moisturizer",
+          "description": "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months.",
+          "price": 242,
+          "mrp": 319,
+          "currency": "INR",
+          "image": "https://share.google/TXk6QhoWtcM9cndhd",
+          "images": [
+            "https://share.google/TXk6QhoWtcM9cndhd"
+          ],
+          "rating": 5,
+          "reviewCount": 537,
+          "stockStatus": "in_stock",
+          "stockQuantity": 24,
+          "deliveryEstimate": "3 days",
+          "deliveryDays": 3,
+          "shippingCharge": "₹0",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Mamaearth",
+            "Category": "Beauty & Personal Care / Skincare",
+            "Sub-Category": "Skincare (Moisturizers & Day Creams)",
+            "Product Type": "Oil-Free Gel-Cream Moisturizer"
+          },
+          "rawSpecs": "Variants: 80 g / 80 ml, 80 g (Pack of 2)",
+          "featuresList": [
+            "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months."
+          ],
+          "useCases": [
+            "Deeply moisturizes without clogging pores, restores natural glow, and helps prevent sun-induced dullness."
+          ],
+          "targetCustomer": [
+            "Men and women (aged 18+) looking for non-sticky daily hydration and skin brightening"
+          ],
+          "occasion": [
+            "Daily morning/night hydration routine and base layer under sunscreen or makeup."
+          ],
+          "featured": false,
+          "trending": false,
+          "tags": [
+            "skincare",
+            "mamaearth",
+            "skincare (moisturizers & day creams)",
+            "oil-free gel-cream moisturizer"
+          ]
+        },
+        "quantity": 2,
+        "addedVia": "manual",
+        "addedAt": 1788448252281
+      }
+    ],
+    "total": 484,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "aiSessionId": "snt-active-session",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788448480959,
+    "updatedAt": 1788448480959
+  },
+  {
+    "orderId": "ORD-1788448472078-OPRM",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P146",
+          "name": "Mamaearth Ubtan Oil-Free Face Moisturizer",
+          "brand": "Mamaearth",
+          "category": "skincare",
+          "categoryDisplay": "Beauty & Personal Care / Skincare",
+          "subCategory": "Skincare (Moisturizers & Day Creams)",
+          "productType": "Oil-Free Gel-Cream Moisturizer",
+          "description": "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months.",
+          "price": 242,
+          "mrp": 319,
+          "currency": "INR",
+          "image": "https://share.google/TXk6QhoWtcM9cndhd",
+          "images": [
+            "https://share.google/TXk6QhoWtcM9cndhd"
+          ],
+          "rating": 5,
+          "reviewCount": 537,
+          "stockStatus": "in_stock",
+          "stockQuantity": 24,
+          "deliveryEstimate": "3 days",
+          "deliveryDays": 3,
+          "shippingCharge": "₹0",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Mamaearth",
+            "Category": "Beauty & Personal Care / Skincare",
+            "Sub-Category": "Skincare (Moisturizers & Day Creams)",
+            "Product Type": "Oil-Free Gel-Cream Moisturizer"
+          },
+          "rawSpecs": "Variants: 80 g / 80 ml, 80 g (Pack of 2)",
+          "featuresList": [
+            "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months."
+          ],
+          "useCases": [
+            "Deeply moisturizes without clogging pores, restores natural glow, and helps prevent sun-induced dullness."
+          ],
+          "targetCustomer": [
+            "Men and women (aged 18+) looking for non-sticky daily hydration and skin brightening"
+          ],
+          "occasion": [
+            "Daily morning/night hydration routine and base layer under sunscreen or makeup."
+          ],
+          "featured": false,
+          "trending": false,
+          "tags": [
+            "skincare",
+            "mamaearth",
+            "skincare (moisturizers & day creams)",
+            "oil-free gel-cream moisturizer"
+          ]
+        },
+        "quantity": 2,
+        "addedVia": "manual",
+        "addedAt": 1788448252281
+      }
+    ],
+    "total": 484,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "aiSessionId": "snt-active-session",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788448472802,
+    "updatedAt": 1788448472802
+  },
+  {
+    "orderId": "ORD-1788448438173-096Z",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P146",
+          "name": "Mamaearth Ubtan Oil-Free Face Moisturizer",
+          "brand": "Mamaearth",
+          "category": "skincare",
+          "categoryDisplay": "Beauty & Personal Care / Skincare",
+          "subCategory": "Skincare (Moisturizers & Day Creams)",
+          "productType": "Oil-Free Gel-Cream Moisturizer",
+          "description": "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months.",
+          "price": 242,
+          "mrp": 319,
+          "currency": "INR",
+          "image": "https://share.google/TXk6QhoWtcM9cndhd",
+          "images": [
+            "https://share.google/TXk6QhoWtcM9cndhd"
+          ],
+          "rating": 5,
+          "reviewCount": 537,
+          "stockStatus": "in_stock",
+          "stockQuantity": 24,
+          "deliveryEstimate": "3 days",
+          "deliveryDays": 3,
+          "shippingCharge": "₹0",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Mamaearth",
+            "Category": "Beauty & Personal Care / Skincare",
+            "Sub-Category": "Skincare (Moisturizers & Day Creams)",
+            "Product Type": "Oil-Free Gel-Cream Moisturizer"
+          },
+          "rawSpecs": "Variants: 80 g / 80 ml, 80 g (Pack of 2)",
+          "featuresList": [
+            "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months."
+          ],
+          "useCases": [
+            "Deeply moisturizes without clogging pores, restores natural glow, and helps prevent sun-induced dullness."
+          ],
+          "targetCustomer": [
+            "Men and women (aged 18+) looking for non-sticky daily hydration and skin brightening"
+          ],
+          "occasion": [
+            "Daily morning/night hydration routine and base layer under sunscreen or makeup."
+          ],
+          "featured": false,
+          "trending": false,
+          "tags": [
+            "skincare",
+            "mamaearth",
+            "skincare (moisturizers & day creams)",
+            "oil-free gel-cream moisturizer"
+          ]
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "addedAt": 1788448252281
+      }
+    ],
+    "total": 242,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "aiSessionId": "snt-active-session",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788448438410,
+    "updatedAt": 1788448438410
+  },
+  {
+    "orderId": "ORD-1788448433654-S4HG",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P146",
+          "name": "Mamaearth Ubtan Oil-Free Face Moisturizer",
+          "brand": "Mamaearth",
+          "category": "skincare",
+          "categoryDisplay": "Beauty & Personal Care / Skincare",
+          "subCategory": "Skincare (Moisturizers & Day Creams)",
+          "productType": "Oil-Free Gel-Cream Moisturizer",
+          "description": "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months.",
+          "price": 242,
+          "mrp": 319,
+          "currency": "INR",
+          "image": "https://share.google/TXk6QhoWtcM9cndhd",
+          "images": [
+            "https://share.google/TXk6QhoWtcM9cndhd"
+          ],
+          "rating": 5,
+          "reviewCount": 537,
+          "stockStatus": "in_stock",
+          "stockQuantity": 24,
+          "deliveryEstimate": "3 days",
+          "deliveryDays": 3,
+          "shippingCharge": "₹0",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Mamaearth",
+            "Category": "Beauty & Personal Care / Skincare",
+            "Sub-Category": "Skincare (Moisturizers & Day Creams)",
+            "Product Type": "Oil-Free Gel-Cream Moisturizer"
+          },
+          "rawSpecs": "Variants: 80 g / 80 ml, 80 g (Pack of 2)",
+          "featuresList": [
+            "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months."
+          ],
+          "useCases": [
+            "Deeply moisturizes without clogging pores, restores natural glow, and helps prevent sun-induced dullness."
+          ],
+          "targetCustomer": [
+            "Men and women (aged 18+) looking for non-sticky daily hydration and skin brightening"
+          ],
+          "occasion": [
+            "Daily morning/night hydration routine and base layer under sunscreen or makeup."
+          ],
+          "featured": false,
+          "trending": false,
+          "tags": [
+            "skincare",
+            "mamaearth",
+            "skincare (moisturizers & day creams)",
+            "oil-free gel-cream moisturizer"
+          ]
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "addedAt": 1788448252281
+      }
+    ],
+    "total": 242,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "aiSessionId": "snt-active-session",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788448434078,
+    "updatedAt": 1788448434078
+  },
+  {
+    "orderId": "ORD-1788448414558-HZVF",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P146",
+          "name": "Mamaearth Ubtan Oil-Free Face Moisturizer",
+          "brand": "Mamaearth",
+          "category": "skincare",
+          "categoryDisplay": "Beauty & Personal Care / Skincare",
+          "subCategory": "Skincare (Moisturizers & Day Creams)",
+          "productType": "Oil-Free Gel-Cream Moisturizer",
+          "description": "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months.",
+          "price": 242,
+          "mrp": 319,
+          "currency": "INR",
+          "image": "https://share.google/TXk6QhoWtcM9cndhd",
+          "images": [
+            "https://share.google/TXk6QhoWtcM9cndhd"
+          ],
+          "rating": 5,
+          "reviewCount": 537,
+          "stockStatus": "in_stock",
+          "stockQuantity": 24,
+          "deliveryEstimate": "3 days",
+          "deliveryDays": 3,
+          "shippingCharge": "₹0",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Mamaearth",
+            "Category": "Beauty & Personal Care / Skincare",
+            "Sub-Category": "Skincare (Moisturizers & Day Creams)",
+            "Product Type": "Oil-Free Gel-Cream Moisturizer"
+          },
+          "rawSpecs": "Variants: 80 g / 80 ml, 80 g (Pack of 2)",
+          "featuresList": [
+            "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months."
+          ],
+          "useCases": [
+            "Deeply moisturizes without clogging pores, restores natural glow, and helps prevent sun-induced dullness."
+          ],
+          "targetCustomer": [
+            "Men and women (aged 18+) looking for non-sticky daily hydration and skin brightening"
+          ],
+          "occasion": [
+            "Daily morning/night hydration routine and base layer under sunscreen or makeup."
+          ],
+          "featured": false,
+          "trending": false,
+          "tags": [
+            "skincare",
+            "mamaearth",
+            "skincare (moisturizers & day creams)",
+            "oil-free gel-cream moisturizer"
+          ]
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "addedAt": 1788448252281
+      }
+    ],
+    "total": 242,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "aiSessionId": "snt-active-session",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788448417746,
+    "updatedAt": 1788448417746
+  },
+  {
+    "orderId": "ORD-P9-AI-13",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P103",
+          "name": "Samsung Galaxy S24 Ultra",
+          "price": 129999,
+          "currency": "INR",
+          "brand": "Samsung",
+          "category": "phones",
+          "description": "AI Flagship",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_primary"
+      }
+    ],
+    "total": 129999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_recommendation",
+    "aiSessionId": "sess_ai_test_13",
+    "paymentMethod": "razorpay",
+    "razorpayPaymentId": "pay_ai_13",
+    "createdAt": 1788448360300,
+    "updatedAt": 1788448360300
+  },
+  {
+    "orderId": "ORD-P9-CANCEL-11",
+    "status": "order_confirmed",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P103",
+          "name": "Samsung Galaxy S24 Ultra",
+          "price": 129999,
+          "currency": "INR",
+          "brand": "Samsung",
+          "category": "phones",
+          "description": "AI Flagship",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_primary"
+      }
+    ],
+    "total": 129999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Customer Cancel",
+      "email": "cancel@example.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_recommendation",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788448359054,
+    "updatedAt": 1788448359054
+  },
+  {
+    "orderId": "ORD-P9-FAILED-10",
+    "status": "order_confirmed",
+    "paymentStatus": "failed",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Nathan Drake",
+      "email": "customer@shopntrust.dev",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788448357941,
+    "updatedAt": 1788448357941
+  },
+  {
+    "orderId": "ORD-P9-SUCCESS-09",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Nathan Drake",
+      "email": "customer@shopntrust.dev",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "razorpayPaymentId": "pay_rzp_test_success_09",
+    "createdAt": 1788448354705,
+    "updatedAt": 1788448354705
+  },
+  {
+    "orderId": "ORD-1788448353886-ZIBP",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788448354118,
+    "updatedAt": 1788448354118
+  },
+  {
+    "orderId": "ORD-1788448350902-WC41",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788448352269,
+    "updatedAt": 1788448352269
+  },
+  {
+    "orderId": "ORD-1788448348970-J3HW",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788448350082,
+    "updatedAt": 1788448350082
+  },
+  {
+    "orderId": "ORD-1788448348952-EMZP",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788448349402,
+    "updatedAt": 1788448349402
+  },
+  {
+    "orderId": "ORD-1788448347391-VDNT",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P117",
+          "name": "Apple Watch Ultra 2",
+          "price": 89900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "wearables",
+          "description": "Companion",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_cross_sell"
+      }
+    ],
+    "total": 89900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_cross_sell",
+    "aiSessionId": "sess_ai_phase9_03",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788448347849,
+    "updatedAt": 1788448347849
+  },
+  {
+    "orderId": "ORD-1788448345128-K084",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P102",
+          "name": "Apple iPhone 16 Pro",
+          "price": 119900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Upgrade Tier",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_upsell"
+      }
+    ],
+    "total": 119900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_upsell",
+    "aiSessionId": "sess_ai_phase9_02",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788448345638,
+    "updatedAt": 1788448345638
+  },
+  {
+    "orderId": "ORD-1788448343674-1ORL",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P103",
+          "name": "Samsung Galaxy S24 Ultra",
+          "price": 129999,
+          "currency": "INR",
+          "brand": "Samsung",
+          "category": "phones",
+          "description": "AI Flagship",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_primary"
+      }
+    ],
+    "total": 129999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_recommendation",
+    "aiSessionId": "sess_ai_phase9_01",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788448344208,
+    "updatedAt": 1788448344208
+  },
+  {
+    "orderId": "ORD-1788448340841-BMN4",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788448341382,
+    "updatedAt": 1788448341382
+  },
+  {
+    "orderId": "ORD-1788448309365-KKHY",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P146",
+          "name": "Mamaearth Ubtan Oil-Free Face Moisturizer",
+          "brand": "Mamaearth",
+          "category": "skincare",
+          "categoryDisplay": "Beauty & Personal Care / Skincare",
+          "subCategory": "Skincare (Moisturizers & Day Creams)",
+          "productType": "Oil-Free Gel-Cream Moisturizer",
+          "description": "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months.",
+          "price": 242,
+          "mrp": 319,
+          "currency": "INR",
+          "image": "https://share.google/TXk6QhoWtcM9cndhd",
+          "images": [
+            "https://share.google/TXk6QhoWtcM9cndhd"
+          ],
+          "rating": 5,
+          "reviewCount": 537,
+          "stockStatus": "in_stock",
+          "stockQuantity": 24,
+          "deliveryEstimate": "3 days",
+          "deliveryDays": 3,
+          "shippingCharge": "₹0",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Mamaearth",
+            "Category": "Beauty & Personal Care / Skincare",
+            "Sub-Category": "Skincare (Moisturizers & Day Creams)",
+            "Product Type": "Oil-Free Gel-Cream Moisturizer"
+          },
+          "rawSpecs": "Variants: 80 g / 80 ml, 80 g (Pack of 2)",
+          "featuresList": [
+            "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months."
+          ],
+          "useCases": [
+            "Deeply moisturizes without clogging pores, restores natural glow, and helps prevent sun-induced dullness."
+          ],
+          "targetCustomer": [
+            "Men and women (aged 18+) looking for non-sticky daily hydration and skin brightening"
+          ],
+          "occasion": [
+            "Daily morning/night hydration routine and base layer under sunscreen or makeup."
+          ],
+          "featured": false,
+          "trending": false,
+          "tags": [
+            "skincare",
+            "mamaearth",
+            "skincare (moisturizers & day creams)",
+            "oil-free gel-cream moisturizer"
+          ]
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "addedAt": 1788448252281
+      }
+    ],
+    "total": 242,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "aiSessionId": "snt-active-session",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788448312088,
+    "updatedAt": 1788448312088
+  },
+  {
+    "orderId": "ORD-1788448273203-ZHBB",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P146",
+          "name": "Mamaearth Ubtan Oil-Free Face Moisturizer",
+          "brand": "Mamaearth",
+          "category": "skincare",
+          "categoryDisplay": "Beauty & Personal Care / Skincare",
+          "subCategory": "Skincare (Moisturizers & Day Creams)",
+          "productType": "Oil-Free Gel-Cream Moisturizer",
+          "description": "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months.",
+          "price": 242,
+          "mrp": 319,
+          "currency": "INR",
+          "image": "https://share.google/TXk6QhoWtcM9cndhd",
+          "images": [
+            "https://share.google/TXk6QhoWtcM9cndhd"
+          ],
+          "rating": 5,
+          "reviewCount": 537,
+          "stockStatus": "in_stock",
+          "stockQuantity": 24,
+          "deliveryEstimate": "3 days",
+          "deliveryDays": 3,
+          "shippingCharge": "₹0",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Mamaearth",
+            "Category": "Beauty & Personal Care / Skincare",
+            "Sub-Category": "Skincare (Moisturizers & Day Creams)",
+            "Product Type": "Oil-Free Gel-Cream Moisturizer"
+          },
+          "rawSpecs": "Variants: 80 g / 80 ml, 80 g (Pack of 2)",
+          "featuresList": [
+            "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months."
+          ],
+          "useCases": [
+            "Deeply moisturizes without clogging pores, restores natural glow, and helps prevent sun-induced dullness."
+          ],
+          "targetCustomer": [
+            "Men and women (aged 18+) looking for non-sticky daily hydration and skin brightening"
+          ],
+          "occasion": [
+            "Daily morning/night hydration routine and base layer under sunscreen or makeup."
+          ],
+          "featured": false,
+          "trending": false,
+          "tags": [
+            "skincare",
+            "mamaearth",
+            "skincare (moisturizers & day creams)",
+            "oil-free gel-cream moisturizer"
+          ]
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "addedAt": 1788448252281
+      }
+    ],
+    "total": 242,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "aiSessionId": "snt-active-session",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788448274407,
+    "updatedAt": 1788448274407
+  },
+  {
+    "orderId": "ord_failed_test_05",
+    "status": "order_confirmed",
+    "paymentStatus": "failed",
+    "items": [
+      {
+        "product": {
+          "product_id": "P104",
+          "name": "Google Pixel 9 Pro",
+          "price": 109999,
+          "currency": "INR",
+          "brand": "Google",
+          "category": "phones",
+          "description": "Pixel phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_primary",
+        "addedAt": 1788447319129
+      }
+    ],
+    "total": 109999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Test Customer",
+      "email": "test@example.com",
+      "phone": "+91 98765 43210",
+      "address": "Test Address",
+      "city": "Delhi",
+      "state": "Delhi",
+      "pincode": "110001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_recommendation",
+    "aiSessionId": "snt-session-ai-02",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788447319387,
+    "updatedAt": 1788447319387
+  },
+  {
+    "orderId": "ord_cross_test_04",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P117",
+          "name": "Apple Watch Ultra 2",
+          "price": 89900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "wearables",
+          "description": "Flagship watch companion",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_cross_sell",
+        "addedAt": 1788447318462
+      }
+    ],
+    "total": 89900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_cross_sell",
+    "aiSessionId": "snt-session-ai-02",
+    "paymentMethod": "razorpay",
+    "razorpayPaymentId": "pay_cross_004",
+    "createdAt": 1788447318704,
+    "updatedAt": 1788447318704
+  },
+  {
+    "orderId": "ord_upsell_test_03",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P102",
+          "name": "Apple iPhone 16 Pro",
+          "price": 119900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Pro Tier Upgrade",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_upsell",
+        "addedAt": 1788447311248
+      }
+    ],
+    "total": 119900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_upsell",
+    "aiSessionId": "snt-session-ai-02",
+    "paymentMethod": "razorpay",
+    "razorpayPaymentId": "pay_upsell_003",
+    "createdAt": 1788447312442,
+    "updatedAt": 1788447312442
+  },
+  {
+    "orderId": "ord_ai_test_02",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P103",
+          "name": "Samsung Galaxy S24 Ultra",
+          "price": 129999,
+          "currency": "INR",
+          "brand": "Samsung",
+          "category": "phones",
+          "description": "AI Flagship",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_primary",
+        "addedAt": 1788447281134
+      }
+    ],
+    "total": 129999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_recommendation",
+    "aiSessionId": "snt-session-ai-01",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "razorpayPaymentId": "pay_ai_002",
+    "createdAt": 1788447281376,
+    "updatedAt": 1788447281376
+  },
+  {
+    "orderId": "ord_manual_test_01",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "addedAt": 1788447261189
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "razorpayPaymentId": "pay_manual_001",
+    "createdAt": 1788447262411,
+    "updatedAt": 1788447262411
+  }
+]

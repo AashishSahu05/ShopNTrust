@@ -127,7 +127,7 @@ function ProductDetailView({
           <div className="lg:col-span-6">
             <div className="sticky top-24 space-y-4">
               {/* Main Image */}
-              <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-border/80 bg-slate-50/70 p-8 flex items-center justify-center shadow-sm">
+              <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-slate-200/80 bg-white p-8 flex items-center justify-center shadow-[0_4px_24px_-4px_rgba(15,23,42,0.04)]">
                 {activeImage && !imageError ? (
                   <Image
                     src={activeImage}
@@ -151,19 +151,19 @@ function ProductDetailView({
 
                 {/* Brand & Stock Badges */}
                 <div className="absolute top-5 left-5 flex flex-wrap gap-2 z-10">
-                  <span className="inline-flex items-center rounded-lg bg-white/95 px-3 py-1 text-xs font-bold uppercase tracking-wider text-slate-800 shadow-xs border border-slate-200">
+                  <span className="inline-flex items-center rounded-lg bg-white/95 px-3 py-1 text-xs font-bold uppercase tracking-wider text-slate-800 shadow-2xs border border-slate-200/80 backdrop-blur-xs">
                     {product.brand || product.categoryDisplay}
                   </span>
                   {product.stockStatus === 'in_stock' ? (
-                    <span className="inline-flex items-center rounded-lg bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700 border border-emerald-200">
+                    <span className="inline-flex items-center rounded-lg bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700 border border-emerald-200/70 shadow-2xs">
                       In Stock {product.stockQuantity ? `(${product.stockQuantity})` : ''}
                     </span>
                   ) : product.stockStatus === 'low_stock' ? (
-                    <span className="inline-flex items-center rounded-lg bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-700 border border-amber-200">
+                    <span className="inline-flex items-center rounded-lg bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-700 border border-amber-200/70 shadow-2xs">
                       Low Stock {product.stockQuantity ? `(${product.stockQuantity})` : ''}
                     </span>
                   ) : (
-                    <span className="inline-flex items-center rounded-lg bg-rose-50 px-2.5 py-1 text-xs font-semibold text-rose-700 border border-rose-200">
+                    <span className="inline-flex items-center rounded-lg bg-rose-50 px-2.5 py-1 text-xs font-semibold text-rose-700 border border-rose-200/70 shadow-2xs">
                       Out of Stock
                     </span>
                   )}
@@ -171,62 +171,73 @@ function ProductDetailView({
 
                 {/* SKU Code Stamp */}
                 <div className="absolute bottom-5 left-5 z-10">
-                  <span className="font-mono text-xs font-semibold text-slate-500 bg-white/90 px-2.5 py-1 rounded-md border border-slate-200/80 shadow-2xs">
+                  <span className="font-mono text-xs font-semibold text-slate-500 bg-white/95 px-2.5 py-1 rounded-md border border-slate-200/80 shadow-2xs">
                     ID: {product.product_id}
                   </span>
                 </div>
               </div>
 
-              {/* Gallery Thumbnails (if multiple images) */}
+              {/* Gallery Thumbnails (Amazon-style multi-angle switcher) */}
               {galleryImages.length > 1 && (
-                <div className="flex items-center gap-3 overflow-x-auto pb-1">
-                  {galleryImages.map((img, idx) => (
-                    <button
-                      key={idx}
-                      type="button"
-                      onClick={() => {
-                        setActiveImage(img);
-                        setImageError(false);
-                      }}
-                      className={cn(
-                        'relative size-16 shrink-0 rounded-xl overflow-hidden border-2 bg-slate-50 p-1 cursor-pointer transition-all',
-                        activeImage === img
-                          ? 'border-snt-accent shadow-xs ring-1 ring-snt-accent'
-                          : 'border-border opacity-70 hover:opacity-100'
-                      )}
-                    >
-                      <Image
-                        src={img}
-                        alt={`${product.name} view ${idx + 1}`}
-                        fill
-                        className="object-contain p-1"
-                        unoptimized
-                      />
-                    </button>
-                  ))}
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-[11px] font-medium text-slate-500">
+                    <span>Product Views ({galleryImages.length} angles available)</span>
+                    <span className="text-slate-400">Hover or click to switch view</span>
+                  </div>
+                  <div className="flex items-center gap-3 overflow-x-auto pb-1">
+                    {galleryImages.map((img, idx) => (
+                      <button
+                        key={idx}
+                        type="button"
+                        onClick={() => {
+                          setActiveImage(img);
+                          setImageError(false);
+                        }}
+                        onMouseEnter={() => {
+                          setActiveImage(img);
+                          setImageError(false);
+                        }}
+                        aria-label={`Switch to angle ${idx + 1}`}
+                        className={cn(
+                          'relative size-16 shrink-0 rounded-xl overflow-hidden border-2 bg-white p-1 cursor-pointer transition-all',
+                          activeImage === img
+                            ? 'border-indigo-600 shadow-xs ring-2 ring-indigo-500/20 scale-105'
+                            : 'border-slate-200/80 opacity-70 hover:opacity-100 hover:border-slate-300'
+                        )}
+                      >
+                        <Image
+                          src={img}
+                          alt={`${product.name} angle ${idx + 1}`}
+                          fill
+                          className="object-contain p-1"
+                          unoptimized
+                        />
+                      </button>
+                    ))}
+                  </div>
                 </div>
               )}
 
               {/* Assurance Bar */}
-              <div className="grid grid-cols-3 gap-3 rounded-2xl border border-border bg-card p-4 text-center text-xs text-muted-foreground shadow-2xs">
+              <div className="grid grid-cols-3 gap-3 rounded-2xl border border-slate-200/80 bg-slate-50/60 p-4 text-center text-xs text-slate-600 shadow-2xs">
                 <div className="flex flex-col items-center gap-1.5">
-                  <Truck className="size-4 text-snt-accent" />
-                  <span className="font-medium text-foreground">
+                  <Truck className="size-4 text-indigo-600" />
+                  <span className="font-semibold text-slate-800">
                     {product.shippingCharge === '₹0' || product.shippingCharge === 'Free' ? 'Free Delivery' : product.shippingCharge}
                   </span>
-                  <span className="text-[10px] text-muted-foreground">{product.deliveryEstimate}</span>
+                  <span className="text-[10px] text-slate-400">{product.deliveryEstimate}</span>
                 </div>
-                <div className="flex flex-col items-center gap-1.5 border-x border-border">
-                  <RotateCcw className="size-4 text-snt-accent" />
-                  <span className="font-medium text-foreground">
+                <div className="flex flex-col items-center gap-1.5 border-x border-slate-200/80">
+                  <RotateCcw className="size-4 text-indigo-600" />
+                  <span className="font-semibold text-slate-800">
                     {product.returnable ? `${product.returnWindowDays} Days Return` : 'Non-returnable'}
                   </span>
-                  <span className="text-[10px] text-muted-foreground">Standard Policy</span>
+                  <span className="text-[10px] text-slate-400">Standard Policy</span>
                 </div>
                 <div className="flex flex-col items-center gap-1.5">
-                  <ShieldCheck className="size-4 text-snt-accent" />
-                  <span className="font-medium text-foreground">100% Genuine</span>
-                  <span className="text-[10px] text-muted-foreground">Direct Source</span>
+                  <ShieldCheck className="size-4 text-indigo-600" />
+                  <span className="font-semibold text-slate-800">100% Genuine</span>
+                  <span className="text-[10px] text-slate-400">Direct Source</span>
                 </div>
               </div>
             </div>
@@ -238,16 +249,17 @@ function ProductDetailView({
               {/* Category & Title */}
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="rounded-md bg-indigo-50 px-2.5 py-0.5 text-xs font-bold text-snt-accent border border-indigo-100">
+                  <span className="rounded-md bg-indigo-50 px-2.5 py-0.5 text-xs font-bold text-indigo-700 border border-indigo-100">
                     {product.categoryDisplay || product.category}
                   </span>
                   {product.subCategory && (
-                    <span className="text-xs text-muted-foreground">
+                    <span className="text-xs text-slate-500">
                       • {product.subCategory}
                     </span>
                   )}
                 </div>
-                <h1 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl leading-tight">
+
+                <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl leading-tight">
                   {product.name}
                 </h1>
 
@@ -259,8 +271,8 @@ function ProductDetailView({
                       <span>{product.rating.toFixed(1)}</span>
                     </div>
                     {product.reviewCount !== undefined && (
-                      <span className="text-xs text-muted-foreground">
-                        based on <strong className="text-foreground">{product.reviewCount}</strong> verified reviews
+                      <span className="text-xs text-slate-500">
+                        based on <strong className="text-slate-800">{product.reviewCount}</strong> verified reviews
                       </span>
                     )}
                   </div>
@@ -268,14 +280,14 @@ function ProductDetailView({
               </div>
 
               {/* Price Display Box */}
-              <div className="rounded-2xl border border-border bg-card p-5 shadow-xs">
+              <div className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-2xs">
                 <div className="flex items-baseline gap-3">
-                  <span className="text-3xl sm:text-4xl font-black text-foreground tracking-tight">
+                  <span className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
                     {formatPrice(currentPrice, product.currency)}
                   </span>
                   {currentMrp && currentMrp > currentPrice && (
                     <>
-                      <span className="text-sm text-muted-foreground line-through font-medium">
+                      <span className="text-sm text-slate-400 line-through font-medium">
                         {formatPrice(currentMrp, product.currency)}
                       </span>
                       <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
@@ -284,25 +296,25 @@ function ProductDetailView({
                     </>
                   )}
                 </div>
-                <p className="mt-1.5 text-xs text-muted-foreground">
+                <p className="mt-1.5 text-xs text-slate-400">
                   Tax-inclusive pricing. All payment modes supported via Razorpay.
                 </p>
               </div>
 
               {/* Description */}
-              <p className="text-sm text-slate-700 leading-relaxed">
+              <p className="text-sm text-slate-600 leading-relaxed">
                 {product.description}
               </p>
 
               {/* Variant Selectors */}
               {product.variants && product.variants.length > 0 && (
-                <div className="border-t border-border pt-5 space-y-3">
+                <div className="border-t border-slate-100 pt-5 space-y-3">
                   <div className="flex items-center justify-between">
-                    <label className="text-xs font-bold uppercase tracking-wider text-foreground">
+                    <label className="text-xs font-bold uppercase tracking-wider text-slate-800">
                       Configuration / Variant
                     </label>
                     {selectedVariant && (
-                      <span className="text-xs font-bold text-snt-accent">
+                      <span className="text-xs font-bold text-indigo-600">
                         {selectedVariant.name}
                       </span>
                     )}
@@ -320,14 +332,14 @@ function ProductDetailView({
                           className={cn(
                             'flex flex-col items-start rounded-xl border p-3 text-left transition-all cursor-pointer',
                             isSelected
-                              ? 'border-snt-accent bg-indigo-50/70 shadow-sm ring-1 ring-snt-accent'
-                              : 'border-border bg-card hover:bg-secondary/60 hover:border-slate-300'
+                              ? 'border-indigo-600 bg-indigo-50/70 shadow-xs ring-1 ring-indigo-500/30'
+                              : 'border-slate-200/80 bg-white hover:bg-slate-50 hover:border-slate-300'
                           )}
                         >
-                          <span className="text-xs font-bold text-foreground">
+                          <span className="text-xs font-bold text-slate-900">
                             {v.name}
                           </span>
-                          <span className="mt-1 text-[11px] font-mono font-semibold text-muted-foreground">
+                          <span className="mt-1 text-[11px] font-mono font-semibold text-slate-500">
                             {formatPrice(v.price, product.currency)}
                           </span>
                         </button>
@@ -338,27 +350,27 @@ function ProductDetailView({
               )}
 
               {/* Quantity Stepper & Add to Cart */}
-              <div className="border-t border-border pt-6">
+              <div className="border-t border-slate-100 pt-6">
                 <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
                   {/* Stepper */}
-                  <div className="flex items-center rounded-xl border border-border bg-card p-1 shrink-0 justify-between sm:justify-start">
+                  <div className="flex items-center rounded-xl border border-slate-200/80 bg-white p-1 shrink-0 justify-between sm:justify-start shadow-2xs">
                     <button
                       type="button"
                       onClick={() => setQuantity(Math.max(1, quantity - 1))}
                       disabled={quantity <= 1}
-                      className="flex size-9 items-center justify-center rounded-lg text-muted-foreground hover:bg-secondary hover:text-foreground disabled:opacity-30 transition-colors cursor-pointer"
+                      className="flex size-9 items-center justify-center rounded-lg text-slate-400 hover:bg-slate-100 hover:text-slate-800 disabled:opacity-30 transition-colors cursor-pointer"
                       aria-label="Decrease quantity"
                     >
                       <Minus className="size-4" />
                     </button>
-                    <span className="w-12 text-center text-sm font-bold font-mono text-foreground">
+                    <span className="w-12 text-center text-sm font-bold font-mono text-slate-900">
                       {quantity}
                     </span>
                     <button
                       type="button"
                       onClick={() => setQuantity(Math.min(10, quantity + 1))}
                       disabled={quantity >= 10}
-                      className="flex size-9 items-center justify-center rounded-lg text-muted-foreground hover:bg-secondary hover:text-foreground disabled:opacity-30 transition-colors cursor-pointer"
+                      className="flex size-9 items-center justify-center rounded-lg text-slate-400 hover:bg-slate-100 hover:text-slate-800 disabled:opacity-30 transition-colors cursor-pointer"
                       aria-label="Increase quantity"
                     >
                       <Plus className="size-4" />
@@ -371,10 +383,10 @@ function ProductDetailView({
                     onClick={handleAddToCart}
                     disabled={product.stockStatus === 'out_of_stock'}
                     className={cn(
-                      'flex-1 h-12 text-sm font-bold gap-2 shadow-sm transition-all cursor-pointer',
+                      'flex-1 h-12 text-sm font-bold gap-2 shadow-sm transition-all cursor-pointer rounded-xl',
                       addedSuccess
                         ? 'bg-emerald-600 hover:bg-emerald-600 text-white'
-                        : 'bg-snt-accent hover:bg-snt-accent-hover text-white shadow-indigo-500/20'
+                        : 'bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white shadow-md shadow-indigo-600/25 active:scale-[0.99]'
                     )}
                   >
                     {addedSuccess ? (
@@ -555,7 +567,7 @@ function ProductDetailView({
             </div>
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {crossSellProducts.map((p, i) => (
-                <ProductCard key={p.product_id} product={p} index={i} />
+                <ProductCard key={p.product_id} product={p} index={i} addedVia="ai_cross_sell" />
               ))}
             </div>
           </div>
@@ -574,7 +586,7 @@ function ProductDetailView({
             </div>
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {upsellProducts.map((p, i) => (
-                <ProductCard key={p.product_id} product={p} index={i} />
+                <ProductCard key={p.product_id} product={p} index={i} addedVia="ai_upsell" />
               ))}
             </div>
           </div>

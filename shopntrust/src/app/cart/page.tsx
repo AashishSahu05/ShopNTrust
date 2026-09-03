@@ -149,13 +149,13 @@ export default function CartPage() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.2 }}
-                    className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-2xl border border-border bg-card p-4 sm:p-5 shadow-xs hover:border-slate-300 transition-colors"
+                    className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-2xl border border-slate-200/80 bg-white p-4 sm:p-5 shadow-[0_1px_3px_0_rgba(0,0,0,0.02),0_4px_16px_-4px_rgba(15,23,42,0.03)] hover:border-slate-300 transition-all"
                   >
                     {/* Thumbnail & Product Details */}
                     <div className="flex items-center gap-4 flex-1 min-w-0">
                       <Link
                         href={`/product/${canonical.product_id}`}
-                        className="relative size-20 sm:size-24 shrink-0 overflow-hidden rounded-xl border border-border bg-slate-50 p-2 flex items-center justify-center group"
+                        className="relative size-20 sm:size-24 shrink-0 overflow-hidden rounded-xl border border-slate-200/80 bg-slate-50/60 p-2 flex items-center justify-center group shadow-2xs"
                       >
                         {imageUrl ? (
                           <Image
@@ -175,40 +175,40 @@ export default function CartPage() {
 
                       <div className="space-y-1 min-w-0 flex-1">
                         <div className="flex items-center gap-1.5">
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-slate-700 bg-secondary px-2 py-0.5 rounded">
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-slate-700 bg-slate-100 px-2 py-0.5 rounded shadow-2xs">
                             {canonical.brand || canonical.category}
                           </span>
-                          <span className="font-mono text-[10px] text-muted-foreground bg-slate-100 px-1.5 py-0.5 rounded">
+                          <span className="font-mono text-[10px] text-slate-400 bg-slate-50 border border-slate-100 px-1.5 py-0.5 rounded">
                             {canonical.product_id}
                           </span>
                         </div>
 
                         <Link
                           href={`/product/${canonical.product_id}`}
-                          className="text-sm font-bold text-foreground hover:text-snt-accent transition-colors block truncate"
+                          className="text-sm font-bold text-slate-900 hover:text-indigo-600 transition-colors block truncate"
                         >
                           {canonical.name}
                         </Link>
 
                         {item.selectedVariant && (
                           <div className="flex items-center gap-1">
-                            <Tag className="size-3 text-snt-accent" />
-                            <span className="text-xs font-bold text-snt-accent bg-indigo-50 px-2 py-0.5 rounded border border-indigo-100/60">
+                            <Tag className="size-3 text-indigo-600" />
+                            <span className="text-xs font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-100">
                               Config: {item.selectedVariant.name}
                             </span>
                           </div>
                         )}
 
                         <div className="flex items-baseline gap-2 pt-0.5">
-                          <span className="text-xs font-extrabold text-foreground">
+                          <span className="text-xs font-extrabold text-slate-900 font-mono">
                             {formatPrice(unitPrice, canonical.currency)}
                           </span>
                           {unitMrp && unitMrp > unitPrice && (
-                            <span className="text-[11px] text-muted-foreground line-through">
+                            <span className="text-[11px] text-slate-400 line-through font-mono">
                               {formatPrice(unitMrp, canonical.currency)}
                             </span>
                           )}
-                          <span className="text-[10px] text-muted-foreground font-medium">
+                          <span className="text-[10px] text-slate-400 font-medium">
                             each
                           </span>
                         </div>
@@ -216,26 +216,26 @@ export default function CartPage() {
                     </div>
 
                     {/* Quantity Stepper, Line Total & Remove Action */}
-                    <div className="flex items-center justify-between w-full sm:w-auto sm:justify-end gap-5 pt-3 sm:pt-0 border-t sm:border-t-0 border-border/80">
+                    <div className="flex items-center justify-between w-full sm:w-auto sm:justify-end gap-5 pt-3 sm:pt-0 border-t sm:border-t-0 border-slate-100">
                       {/* Stepper with Bounds [1..10] */}
-                      <div className="flex items-center rounded-xl border border-border bg-background p-1 shadow-2xs">
+                      <div className="flex items-center rounded-xl border border-slate-200/80 bg-slate-50/60 p-1 shadow-2xs">
                         <button
                           type="button"
                           onClick={() => updateQuantity(itemKey, item.quantity - 1)}
                           disabled={item.quantity <= 1}
-                          className="flex size-7 items-center justify-center rounded-lg text-muted-foreground hover:bg-secondary hover:text-foreground disabled:opacity-30 transition-colors cursor-pointer"
+                          className="flex size-7 items-center justify-center rounded-lg text-slate-400 hover:bg-slate-200/60 hover:text-slate-900 disabled:opacity-30 transition-colors cursor-pointer"
                           aria-label="Decrease quantity"
                         >
                           <Minus className="size-3" />
                         </button>
-                        <span className="w-8 text-center text-xs font-bold font-mono text-foreground">
+                        <span className="w-8 text-center text-xs font-bold font-mono text-slate-900">
                           {item.quantity}
                         </span>
                         <button
                           type="button"
                           onClick={() => updateQuantity(itemKey, item.quantity + 1)}
                           disabled={item.quantity >= 10}
-                          className="flex size-7 items-center justify-center rounded-lg text-muted-foreground hover:bg-secondary hover:text-foreground disabled:opacity-30 transition-colors cursor-pointer"
+                          className="flex size-7 items-center justify-center rounded-lg text-slate-400 hover:bg-slate-200/60 hover:text-slate-900 disabled:opacity-30 transition-colors cursor-pointer"
                           aria-label="Increase quantity"
                         >
                           <Plus className="size-3" />
@@ -243,7 +243,7 @@ export default function CartPage() {
                       </div>
 
                       {/* Line Total */}
-                      <span className="text-base font-extrabold text-foreground min-w-[90px] text-right font-mono">
+                      <span className="text-base font-extrabold text-slate-900 min-w-[90px] text-right font-mono">
                         {formatPrice(lineTotal, canonical.currency)}
                       </span>
 
@@ -251,7 +251,7 @@ export default function CartPage() {
                       <button
                         type="button"
                         onClick={() => removeItem(itemKey)}
-                        className="p-2 text-muted-foreground hover:text-rose-600 rounded-lg hover:bg-rose-50 transition-colors cursor-pointer"
+                        className="p-2 text-slate-400 hover:text-rose-600 rounded-lg hover:bg-rose-50 transition-colors cursor-pointer"
                         aria-label={`Remove ${canonical.name} from bag`}
                       >
                         <Trash2 className="size-4" />
@@ -265,34 +265,34 @@ export default function CartPage() {
 
           {/* Right Column: Order Summary */}
           <div className="lg:col-span-4">
-            <div className="sticky top-24 rounded-3xl border border-border bg-card p-6 shadow-sm space-y-5">
-              <h2 className="text-base font-bold text-foreground pb-3 border-b border-border">
+            <div className="sticky top-24 rounded-3xl border border-slate-200/80 bg-white p-6 sm:p-7 shadow-[0_4px_24px_-4px_rgba(15,23,42,0.04)] space-y-5">
+              <h2 className="text-base font-bold text-slate-900 pb-3 border-b border-slate-100">
                 Order Summary
               </h2>
 
               <div className="space-y-3 text-xs">
-                <div className="flex justify-between text-muted-foreground">
+                <div className="flex justify-between text-slate-500">
                   <span>Subtotal ({summary.totalQuantity} {summary.totalQuantity === 1 ? 'item' : 'items'})</span>
-                  <span className="font-bold text-foreground font-mono">
+                  <span className="font-bold text-slate-900 font-mono">
                     {formatPrice(summary.subtotal, summary.currency)}
                   </span>
                 </div>
 
-                <div className="flex justify-between text-muted-foreground">
+                <div className="flex justify-between text-slate-500">
                   <span>Standard Delivery</span>
                   <span className="font-semibold text-emerald-600">FREE</span>
                 </div>
 
-                <div className="flex justify-between text-muted-foreground">
+                <div className="flex justify-between text-slate-500">
                   <span>Taxes (GST Included)</span>
-                  <span className="font-semibold text-foreground">₹0.00</span>
+                  <span className="font-semibold text-slate-900">₹0.00</span>
                 </div>
               </div>
 
-              <div className="border-t border-border pt-4">
+              <div className="border-t border-slate-100 pt-4">
                 <div className="flex items-baseline justify-between">
-                  <span className="text-sm font-bold text-foreground">Total Amount</span>
-                  <span className="text-2xl font-black text-foreground tracking-tight font-mono">
+                  <span className="text-sm font-bold text-slate-900">Total Amount</span>
+                  <span className="text-2xl font-black text-slate-900 tracking-tight font-mono">
                     {formatPrice(summary.subtotal, summary.currency)}
                   </span>
                 </div>
@@ -300,7 +300,7 @@ export default function CartPage() {
 
               <Button
                 size="lg"
-                className="w-full h-12 bg-snt-accent hover:bg-snt-accent-hover text-white font-bold shadow-md shadow-snt-accent/20 gap-2 cursor-pointer"
+                className="w-full h-12 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-bold shadow-md shadow-indigo-600/20 gap-2 cursor-pointer rounded-xl"
                 render={<Link href="/checkout" />}
               >
                 <Lock className="size-4" />

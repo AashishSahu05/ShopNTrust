@@ -66,31 +66,31 @@
 
 :root {
   /* Crisp Luminous Foundation */
-  --background: oklch(0.985 0.003 260); /* Clean soft pearl/off-white #F9FAFB */
-  --foreground: oklch(0.16 0.015 260);   /* Deep rich slate #111827 */
+  --background: oklch(0.99 0.002 260); /* Soft warm white #FBFBFD */
+  --foreground: oklch(0.14 0.015 260); /* Deep rich obsidian slate #0F172A */
   
   --card: oklch(1 0 0);                 /* Pure pristine white #FFFFFF */
-  --card-foreground: oklch(0.16 0.015 260);
+  --card-foreground: oklch(0.14 0.015 260);
   
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.16 0.015 260);
+  --popover-foreground: oklch(0.14 0.015 260);
   
-  --primary: oklch(0.16 0.015 260);      /* Bold dark action button */
+  --primary: oklch(0.14 0.015 260);      /* Deep obsidian primary */
   --primary-foreground: oklch(0.99 0 0);
   
-  --secondary: oklch(0.95 0.005 260);    /* Soft refined neutral surface #F1F5F9 */
-  --secondary-foreground: oklch(0.25 0.015 260);
+  --secondary: oklch(0.965 0.004 260);   /* Refined tactile surface #F3F4F6 */
+  --secondary-foreground: oklch(0.20 0.015 260);
   
-  --muted: oklch(0.96 0.004 260);
-  --muted-foreground: oklch(0.48 0.015 260); /* Clear readable secondary text #64748B */
+  --muted: oklch(0.965 0.003 260);
+  --muted-foreground: oklch(0.46 0.015 260); /* Clear readable secondary text #64748B */
   
-  --accent: oklch(0.95 0.008 272);
+  --accent: oklch(0.96 0.012 272);
   --accent-foreground: oklch(0.20 0.03 272);
   
   --destructive: oklch(0.58 0.22 25);
   
-  --border: oklch(0.91 0.005 260);      /* Crisp subtle border #E2E8F0 */
-  --input: oklch(0.91 0.005 260);
+  --border: oklch(0.92 0.004 260);      /* Crisp subtle border #E2E8F0 */
+  --input: oklch(0.92 0.004 260);
   --ring: oklch(0.52 0.22 272);
   
   --chart-1: oklch(0.52 0.22 272);
@@ -99,30 +99,30 @@
   --chart-4: oklch(0.70 0.15 75);
   --chart-5: oklch(0.58 0.22 25);
   
-  --radius: 0.75rem;
+  --radius: 0.875rem;
 
-  --sidebar: oklch(0.985 0.003 260);
-  --sidebar-foreground: oklch(0.16 0.015 260);
+  --sidebar: oklch(0.99 0.002 260);
+  --sidebar-foreground: oklch(0.14 0.015 260);
   --sidebar-primary: oklch(0.52 0.22 272);
   --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.95 0.008 272);
+  --sidebar-accent: oklch(0.96 0.012 272);
   --sidebar-accent-foreground: oklch(0.20 0.03 272);
-  --sidebar-border: oklch(0.91 0.005 260);
+  --sidebar-border: oklch(0.92 0.004 260);
   --sidebar-ring: oklch(0.52 0.22 272);
 
   /* ShopNTrust Futuristic Design Tokens */
   --snt-accent: oklch(0.52 0.22 272);          /* Electric Indigo #4F46E5 */
   --snt-accent-hover: oklch(0.46 0.22 272);    /* Deep Indigo #4338CA */
   --snt-accent-foreground: oklch(1 0 0);
-  --snt-accent-subtle: oklch(0.96 0.025 272);  /* Soft Indigo Tint */
+  --snt-accent-subtle: oklch(0.965 0.02 272);  /* Soft Indigo Tint */
   
-  --snt-surface: oklch(0.965 0.004 260);       /* Soft card contrast */
+  --snt-surface: oklch(0.975 0.003 260);       /* Soft card contrast */
   --snt-surface-elevated: oklch(1 0 0);
   
-  --snt-dark: oklch(0.14 0.015 265);           /* Deep Obsidian Slate for AI & Footer */
-  --snt-dark-foreground: oklch(0.98 0 0);
+  --snt-dark: oklch(0.12 0.015 265);           /* Deep Obsidian Slate */
+  --snt-dark-foreground: oklch(0.99 0 0);
   
-  --snt-success: oklch(0.60 0.18 150);         /* Clean Emerald Green */
+  --snt-success: oklch(0.60 0.18 150);         /* Clean Emerald */
   --snt-warning: oklch(0.72 0.16 75);          /* Amber */
 }
 
@@ -137,6 +137,8 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
   }
   button:not(:disabled), [role="button"]:not(:disabled) {
     cursor: pointer;
@@ -155,11 +157,11 @@
     background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: oklch(0.85 0.005 260);
+    background: oklch(0.86 0.005 260);
     border-radius: 9999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: oklch(0.70 0.01 260);
+    background: oklch(0.72 0.01 260);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -173,42 +175,58 @@
 }
 
 /* ============================================================
-   FUTURISTIC AI & COMMERCE VISUAL UTILITIES
+   FUTURISTIC AI & LUXURY COMMERCE VISUAL UTILITIES
    ============================================================ */
 
 @layer components {
-  /* Futuristic soft glow on hover */
+  /* Physical tactile surface card with micro-border and diffuse shadow */
+  .snt-surface-card {
+    background: #ffffff;
+    border: 1px solid oklch(0.92 0.004 260);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.02), 0 8px 24px -6px rgba(15, 23, 42, 0.04);
+  }
+
+  /* Futuristic soft hover glow */
   .snt-card-glow {
-    transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    transition: box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .snt-card-glow:hover {
-    box-shadow: 0 12px 32px -8px rgba(79, 70, 229, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
-    border-color: oklch(0.52 0.22 272 / 30%);
+    box-shadow: 0 16px 36px -8px rgba(79, 70, 229, 0.09), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+    border-color: oklch(0.52 0.22 272 / 35%);
   }
 
-  /* Electric AI Badge */
+  /* Electric AI Pill / Badge */
   .snt-ai-pill {
-    background: linear-gradient(135deg, oklch(0.52 0.22 272 / 10%) 0%, oklch(0.58 0.18 290 / 10%) 100%);
-    border: 1px solid oklch(0.52 0.22 272 / 20%);
-    color: oklch(0.48 0.22 272);
+    background: linear-gradient(135deg, oklch(0.52 0.22 272 / 8%) 0%, oklch(0.58 0.18 290 / 8%) 100%);
+    border: 1px solid oklch(0.52 0.22 272 / 18%);
+    color: oklch(0.46 0.22 272);
   }
 
-  /* High-contrast Obsidian section background */
+  /* High-contrast Obsidian section */
   .snt-dark-module {
     background-color: var(--snt-dark);
     color: var(--snt-dark-foreground);
   }
 
-  /* Ambient radial gradient for section headers */
+  /* Subtle ambient lighting for hero & section backdrops */
   .snt-hero-ambient {
     background:
-      radial-gradient(ellipse 60% 50% at 50% 0%, oklch(0.52 0.22 272 / 6%) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 40% at 90% 20%, oklch(0.60 0.18 190 / 4%) 0%, transparent 60%);
+      radial-gradient(ellipse 70% 50% at 50% -10%, oklch(0.52 0.22 272 / 6%) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 90% 15%, oklch(0.60 0.18 190 / 3.5%) 0%, transparent 60%);
+  }
+
+  /* Subtle ambient backdrop for body/pages */
+  .snt-page-ambient {
+    background:
+      radial-gradient(circle 800px at 50% -100px, rgba(99, 102, 241, 0.04), transparent 80%),
+      radial-gradient(circle 600px at 100% 200px, rgba(147, 51, 234, 0.025), transparent 70%);
   }
 
   /* Divider line with center accent fade */
   .snt-line-divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent 0%, oklch(0.91 0.005 260) 20%, oklch(0.91 0.005 260) 80%, transparent 100%);
+    background: linear-gradient(90deg, transparent 0%, oklch(0.92 0.004 260) 20%, oklch(0.92 0.004 260) 80%, transparent 100%);
   }
 }

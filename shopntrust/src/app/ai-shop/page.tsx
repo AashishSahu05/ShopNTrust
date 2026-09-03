@@ -56,6 +56,8 @@ import { getProductImageUrl } from '@/lib/product-images';
 import { formatPrice } from '@/lib/format';
 import type {
   Product,
+  CartItem,
+  AddedVia,
   AgentProductMatch,
   StructuredRecommendation,
   AIComparisonData,
@@ -630,7 +632,7 @@ function InChatComparisonTable({
 
 interface InChatUpsellCardProps {
   upsell: UpsellRecommendation;
-  onAdd: (product: Product) => void;
+  onAdd: (product: Product, addedVia?: CartItem['addedVia'], sourceProductId?: string) => void;
   isAdded: boolean;
 }
 
@@ -774,7 +776,7 @@ function InChatUpsellCard({ upsell, onAdd, isAdded }: InChatUpsellCardProps) {
             ) : (
               <Button
                 size="sm"
-                onClick={() => onAdd(product)}
+                onClick={() => onAdd(product, 'ai_upsell', upsell.sourceProductId)}
                 className={`flex-1 h-7 text-[11px] font-bold rounded-lg cursor-pointer transition-all shadow-xs gap-1 ${
                   isAdded
                     ? 'bg-emerald-600 hover:bg-emerald-700 text-white'
@@ -815,7 +817,7 @@ function InChatUpsellCard({ upsell, onAdd, isAdded }: InChatUpsellCardProps) {
 
 interface InChatCrossSellSectionProps {
   items: CrossSellRecommendation[];
-  onAdd: (product: Product) => void;
+  onAdd: (product: Product, addedVia?: CartItem['addedVia']) => void;
   addedItemIds: Record<string, boolean>;
 }
 
@@ -926,7 +928,7 @@ function InChatCrossSellSection({
                 ) : (
                   <Button
                     size="sm"
-                    onClick={() => onAdd(product)}
+                    onClick={() => onAdd(product, 'ai_cross_sell')}
                     className="w-full h-6 text-[10px] font-bold bg-[#5B4DFB] hover:bg-[#4d3ef7] text-white rounded-md cursor-pointer gap-1 shadow-2xs"
                   >
                     {addedItemIds[product.product_id] ? (
@@ -957,10 +959,11 @@ function InChatCrossSellSection({
 
 export default function AIShopPage() {
   const router = useRouter();
-  const { isMerchant, customerProfile, isCustomer, openAuthModal } = useAuth();
+  const { isMerchant, customerProfile, isCustomer, openAuthModal, user } = useAuth();
   const { state: cartState, summary: cartSummary, addItem, removeItem, updateQuantity } = useCart();
   const {
     messages,
+    activeSessionId,
     sendMessage,
     compareProducts,
     isLoading,
@@ -999,7 +1002,7 @@ export default function AIShopPage() {
   // Dynamic loading indicator messages
   const loadingPhrases = [
     'Understanding your requirements…',
-    'Querying verified catalog via n8n…',
+    'Scanning verified catalog in real-time…',
     'Analyzing specifications & best matches…',
   ];
 
@@ -1008,17 +1011,35 @@ export default function AIShopPage() {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, isLoading]);
 
-  // Add to Bag with instant visual feedback
+  // Add to Bag with instant visual feedback & Phase 8 event attribution
   const handleAddProduct = useCallback(
-    (product: Product) => {
+    (product: Product, addedVia: CartItem['addedVia'] = 'ai_primary', sourceProductId?: string) => {
       const defaultVariant = product.variants?.[0];
-      addItem(product, defaultVariant, 1, 'ai_primary');
+      addItem(product, defaultVariant, 1, addedVia);
       setAddedItemIds((prev) => ({ ...prev, [product.product_id]: true }));
       setTimeout(() => {
         setAddedItemIds((prev) => ({ ...prev, [product.product_id]: false }));
       }, 2000);
+
+      // Phase 8 non-blocking event logging
+      let eventType = 'AI_PRODUCT_ADDED';
+      if (addedVia === 'ai_upsell') eventType = 'AI_UPSELL_ACCEPTED';
+      if (addedVia === 'ai_cross_sell') eventType = 'AI_CROSS_SELL_ACCEPTED';
+
+      fetch('/api/analytics/events', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          sessionId: activeSessionId,
+          eventType,
+          productId: product.product_id,
+          sourceProductId,
+          userId: isCustomer && user.role === 'customer' ? user.profile.id : null,
+          metadata: { price: product.price, name: product.name },
+        }),
+      }).catch(() => {});
     },
-    [addItem]
+    [addItem, activeSessionId, isCustomer, user]
   );
 
   const handleFormSubmit = (e: React.FormEvent) => {
@@ -1035,85 +1056,19 @@ export default function AIShopPage() {
 
   return (
     <div className="min-h-screen bg-[#F8F9FD] text-slate-900 flex flex-col font-sans">
-      {/* Top Navbar */}
-      <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80 px-4 sm:px-8 py-3.5 flex items-center justify-between shadow-xs">
-        {/* Left: Brand Identity */}
-        <div className="flex items-center gap-3">
-          <Link href="/" className="flex items-center gap-2.5 transition-opacity hover:opacity-90">
-            <div className="flex size-9 items-center justify-center rounded-xl bg-gradient-to-tr from-[#5B4DFB] to-[#7952F5] text-white shadow-sm shadow-indigo-500/20">
-              <Sparkles className="size-5" />
-            </div>
-            <div>
-              <div className="flex items-center gap-1.5">
-                <span className="text-base font-extrabold tracking-tight text-slate-900">
-                  Shop<span className="text-[#5B4DFB]">N</span>Trust
-                </span>
-                <span className="rounded-md bg-indigo-50 text-[#5B4DFB] border border-indigo-200/60 px-1.5 py-0.2 text-[9px] font-extrabold uppercase">
-                  AI
-                </span>
-              </div>
-              <p className="text-[11px] font-medium text-slate-500">Autonomous Shopping Agent</p>
-            </div>
-          </Link>
-        </div>
-
-        {/* Right: Mode Badge, Bag Indicator & User Profile */}
-        <div className="flex items-center gap-3 sm:gap-4">
-          <div className="hidden sm:flex items-center gap-1.5 rounded-full bg-[#5B4DFB]/10 border border-[#5B4DFB]/20 px-3.5 py-1 text-xs font-bold text-[#5B4DFB]">
-            <Sparkles className="size-3.5" />
-            <span>AI Shopping Mode</span>
-          </div>
-
-          {/* Shared Bag Icon with live badge */}
-          <Link
-            href="/cart"
-            className="relative flex size-9 items-center justify-center rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
-            title="View Shared Cart"
-          >
-            <ShoppingBag className="size-4.5" />
-            {cartSummary.itemCount > 0 && (
-              <span className="absolute -top-1 -right-1 flex size-4.5 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-bold text-white shadow-xs">
-                {cartSummary.itemCount}
-              </span>
-            )}
-          </Link>
-
-          {/* User Profile Pill */}
-          {isCustomer ? (
-            <div className="flex items-center gap-2.5 pl-2 border-l border-slate-200">
-              <div className="flex size-8 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 text-white font-bold text-xs shadow-xs">
-                {userName[0]}
-              </div>
-              <div className="hidden md:block text-left">
-                <p className="text-xs font-bold text-slate-900 leading-tight">{userName}</p>
-                <p className="text-[10px] font-medium text-emerald-600">Authenticated Customer</p>
-              </div>
-            </div>
-          ) : (
-            <Button
-              size="sm"
-              onClick={openAuthModal}
-              className="h-8 px-3 text-xs font-bold bg-[#5B4DFB] hover:bg-[#4d3ef7] text-white rounded-lg shadow-xs cursor-pointer"
-            >
-              Sign In
-            </Button>
-          )}
-        </div>
-      </header>
-
       {/* Main 3-Column Workspace */}
-      <main className="flex-1 max-w-[1600px] w-full mx-auto p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+      <main className="flex-1 max-w-[1720px] w-full mx-auto px-4 py-4 sm:px-6 sm:py-5 grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
         {/* ============================================================ */}
-        {/* LEFT COLUMN (3 cols): Navigation & Preferences */}
+        {/* LEFT COLUMN (3 cols lg / 2 cols 2xl): Navigation & Preferences */}
         {/* ============================================================ */}
-        <aside className="lg:col-span-3 space-y-4 hidden lg:block">
+        <aside className="lg:col-span-3 2xl:col-span-2 space-y-4 hidden lg:block sticky top-20">
           {/* Navigation Card */}
           <div className="rounded-2xl border border-slate-200/80 bg-white p-3.5 shadow-xs space-y-1">
             <div className="flex items-center gap-3 rounded-xl bg-[#5B4DFB]/10 p-3 text-[#5B4DFB]">
               <Sparkles className="size-5 shrink-0" />
               <div>
                 <p className="text-xs font-bold leading-tight">AI Assistant</p>
-                <p className="text-[10px] text-[#5B4DFB]/80">Connected to Live n8n Agent</p>
+                <p className="text-[10px] text-[#5B4DFB]/80">Autonomous Shopping Intelligence</p>
               </div>
             </div>
 
@@ -1202,7 +1157,7 @@ export default function AIShopPage() {
 
               <div>
                 <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Verified Catalog</p>
-                <p className="font-bold text-slate-800">54 Canonical Products</p>
+                <p className="font-bold text-slate-800">66 Canonical Products</p>
               </div>
 
               <div>
@@ -1218,9 +1173,9 @@ export default function AIShopPage() {
         </aside>
 
         {/* ============================================================ */}
-        {/* CENTER COLUMN (6 cols): AI Chat & Live Recommendations */}
+        {/* CENTER COLUMN (6 cols lg / 7 cols 2xl): AI Chat & Live Recommendations (Focal Point) */}
         {/* ============================================================ */}
-        <section className="lg:col-span-6 bg-white rounded-3xl border border-slate-200/80 shadow-xs flex flex-col h-[calc(100vh-100px)] min-h-[650px] overflow-hidden">
+        <section className="lg:col-span-6 2xl:col-span-7 bg-white rounded-3xl border border-slate-200/80 shadow-xs flex flex-col h-[calc(100vh-5.5rem)] min-h-[720px] overflow-hidden">
           {/* Agent Header Bar */}
           <div className="px-5 py-3.5 border-b border-slate-100 flex items-center justify-between bg-white">
             <div className="flex items-center gap-3">
@@ -1232,7 +1187,7 @@ export default function AIShopPage() {
                 <h2 className="text-sm font-bold text-slate-900 leading-tight">ShopNTrust AI Assistant</h2>
                 <p className="text-[11px] font-medium text-emerald-600 flex items-center gap-1">
                   <span className="size-1.5 rounded-full bg-emerald-500 inline-block animate-pulse" />
-                  REAL n8n AI AGENT • Connected
+                  Live Catalog Intelligence • Online
                 </p>
               </div>
             </div>
@@ -1268,7 +1223,7 @@ export default function AIShopPage() {
               <div key={msg.id} className="space-y-3">
                 {msg.role === 'assistant' ? (
                   /* Assistant Message Bubble */
-                  <div className="flex items-start gap-3 max-w-2xl">
+                  <div className="flex items-start gap-3 w-full max-w-3xl">
                     <div className="flex size-7 items-center justify-center rounded-lg bg-[#5B4DFB]/10 text-[#5B4DFB] shrink-0 mt-1">
                       <Sparkles aria-hidden="true" focusable="false" className="size-4" />
                     </div>
@@ -1332,7 +1287,7 @@ export default function AIShopPage() {
                                   productId={pId}
                                   matchData={matchObj}
                                   recommendationData={recObj}
-                                  onAdd={handleAddProduct}
+                                  onAdd={(prod) => handleAddProduct(prod, 'ai_primary')}
                                   onCompare={(selectedId) => {
                                     const otherId = msg.recommendedProductIds?.find((id) => id !== selectedId);
                                     if (otherId) {
@@ -1353,7 +1308,7 @@ export default function AIShopPage() {
                               productIds={msg.comparison?.productIds || msg.recommendedProductIds.slice(0, 2)}
                               title={msg.comparison?.title || 'Side-by-Side Product Comparison'}
                               summary={msg.comparison?.summary}
-                              onAdd={handleAddProduct}
+                              onAdd={(prod) => handleAddProduct(prod, 'ai_primary')}
                               onClose={() =>
                                 setExpandedComparisons((prev) => ({ ...prev, [msg.id]: false }))
                               }
@@ -1369,7 +1324,7 @@ export default function AIShopPage() {
                             <InChatUpsellCard
                               key={u.productId}
                               upsell={u}
-                              onAdd={handleAddProduct}
+                              onAdd={(prod) => handleAddProduct(prod, 'ai_upsell', u.sourceProductId)}
                               isAdded={!!addedItemIds[u.productId]}
                             />
                           ))}
@@ -1381,7 +1336,7 @@ export default function AIShopPage() {
                         <div className="pt-1">
                           <InChatCrossSellSection
                             items={msg.crossSell}
-                            onAdd={handleAddProduct}
+                            onAdd={(prod) => handleAddProduct(prod, 'ai_cross_sell')}
                             addedItemIds={addedItemIds}
                           />
                         </div>
@@ -1397,7 +1352,7 @@ export default function AIShopPage() {
                             render={<Link href="/shop" />}
                           >
                             <Store className="size-3.5 mr-1.5 text-slate-500" />
-                            <span>Browse 54 Canonical Items in Catalog</span>
+                            <span>Browse 66 Canonical Items in Catalog</span>
                           </Button>
                         </div>
                       )}
@@ -1480,15 +1435,15 @@ export default function AIShopPage() {
             </form>
 
             <p className="text-[10px] text-center text-slate-400 mt-2">
-              All recommended products are verified against the ShopNTrust canonical 54-item catalog.
+              All recommended products are verified against the ShopNTrust canonical 66-item catalog.
             </p>
           </div>
         </section>
 
         {/* ============================================================ */}
-        {/* RIGHT COLUMN (3 cols): Your Shared Cart & Checkout */}
+        {/* RIGHT COLUMN (3 cols lg / 3 cols 2xl): Your Shared Cart & Checkout */}
         {/* ============================================================ */}
-        <aside className="lg:col-span-3 space-y-4">
+        <aside className="lg:col-span-3 2xl:col-span-3 space-y-4 sticky top-20">
           {/* Shared Bag Card */}
           <div className="rounded-3xl border border-slate-200/80 bg-white p-4 shadow-xs space-y-4">
             {/* Header */}

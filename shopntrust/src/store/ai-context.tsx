@@ -63,7 +63,7 @@ export function AISessionProvider({ children }: { children: ReactNode }) {
       {
         id: 'msg-welcome',
         role: 'assistant',
-        content: `Hello ${userName}! 👋 I'm your AI shopping assistant connected directly to our 54-product catalog.\n\nI can help you find smartphones, audio, smartwatches, athletic gear, and wellness products under your exact budget. What are you looking for today?`,
+        content: `Hello ${userName}! 👋 I'm your AI shopping assistant connected directly to our 66-product catalog.\n\nI can help you find smartphones, audio, smartwatches, athletic gear, and wellness products under your exact budget. What are you looking for today?`,
         timestamp: 0,
       },
     ],
@@ -231,6 +231,62 @@ export function AISessionProvider({ children }: { children: ReactNode }) {
         const finalMessages = [...updatedMessages, assistantMsg];
         setMessages(finalMessages);
 
+        // Phase 8: Emit non-blocking AI commerce events for merchant attribution
+        try {
+          if (messages.length <= 1) {
+            fetch('/api/analytics/events', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                sessionId: activeSessionId,
+                eventType: 'AI_SESSION_STARTED',
+                userId,
+              }),
+            }).catch(() => {});
+          }
+
+          if (agentRes.recommendedProductIds && agentRes.recommendedProductIds.length > 0) {
+            fetch('/api/analytics/events', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                sessionId: activeSessionId,
+                eventType: 'AI_RECOMMENDATION_SHOWN',
+                userId,
+                metadata: { productIds: agentRes.recommendedProductIds },
+              }),
+            }).catch(() => {});
+          }
+
+          if (agentRes.upsell && agentRes.upsell.length > 0) {
+            fetch('/api/analytics/events', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                sessionId: activeSessionId,
+                eventType: 'AI_UPSELL_SHOWN',
+                userId,
+                metadata: { productIds: agentRes.upsell.map((u) => u.productId) },
+              }),
+            }).catch(() => {});
+          }
+
+          if (agentRes.crossSell && agentRes.crossSell.length > 0) {
+            fetch('/api/analytics/events', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                sessionId: activeSessionId,
+                eventType: 'AI_CROSS_SELL_SHOWN',
+                userId,
+                metadata: { productIds: agentRes.crossSell.map((c) => c.productId) },
+              }),
+            }).catch(() => {});
+          }
+        } catch {
+          // Non-blocking analytics logging
+        }
+
         // Persist to Supabase if authenticated
         if (userId) {
           const sessionTitle =
@@ -242,6 +298,7 @@ export function AISessionProvider({ children }: { children: ReactNode }) {
           await saveDbChatMessages(userId, activeSessionId, [userMsg, assistantMsg]);
           refreshHistorySessions();
         }
+
       } catch {
         setLastFailedQuery(query);
         const errId = ++messageIdCounter.current;

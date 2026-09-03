@@ -1,0 +1,302 @@
+[
+  {
+    "id": "evt_1788447278996_8wwz",
+    "sessionId": "snt-session-ai-01",
+    "eventType": "AI_SESSION_STARTED",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {},
+    "createdAt": "2026-09-03T14:54:38.996Z"
+  },
+  {
+    "id": "evt_1788447280035_932g",
+    "sessionId": "snt-session-ai-01",
+    "eventType": "AI_RECOMMENDATION_SHOWN",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "productId": "P103",
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "query": "best camera phone under 130000"
+    },
+    "createdAt": "2026-09-03T14:54:40.035Z"
+  },
+  {
+    "id": "evt_1788447280273_onvh",
+    "sessionId": "snt-session-ai-01",
+    "eventType": "AI_PRODUCT_ADDED",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "productId": "P103",
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {},
+    "createdAt": "2026-09-03T14:54:40.273Z"
+  },
+  {
+    "id": "evt_1788447280501_hyac",
+    "sessionId": "snt-session-ai-01",
+    "eventType": "AI_CHECKOUT_OPENED",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {},
+    "createdAt": "2026-09-03T14:54:40.501Z"
+  },
+  {
+    "id": "evt_1788447281701_lfky",
+    "sessionId": "snt-session-ai-01",
+    "eventType": "AI_PAYMENT_SUCCESS",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": "ord_ai_test_02",
+    "metadata": {
+      "totalAmount": 129999,
+      "attributionType": "ai_recommendation",
+      "itemCount": 1
+    },
+    "createdAt": "2026-09-03T14:54:41.701Z"
+  },
+  {
+    "id": "evt_1788447309054_zs3o",
+    "sessionId": "snt-session-ai-02",
+    "eventType": "AI_UPSELL_SHOWN",
+    "userId": null,
+    "productId": "P102",
+    "sourceProductId": "P101",
+    "orderId": null,
+    "metadata": {},
+    "createdAt": "2026-09-03T14:55:09.054Z"
+  },
+  {
+    "id": "evt_1788447310027_bt31",
+    "sessionId": "snt-session-ai-02",
+    "eventType": "AI_UPSELL_ACCEPTED",
+    "userId": null,
+    "productId": "P102",
+    "sourceProductId": "P101",
+    "orderId": null,
+    "metadata": {},
+    "createdAt": "2026-09-03T14:55:10.027Z"
+  },
+  {
+    "id": "evt_1788447313646_xd5t",
+    "sessionId": "snt-session-ai-02",
+    "eventType": "AI_PAYMENT_SUCCESS",
+    "userId": null,
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": "ord_upsell_test_03",
+    "metadata": {
+      "totalAmount": 119900,
+      "attributionType": "ai_upsell",
+      "itemCount": 1
+    },
+    "createdAt": "2026-09-03T14:55:13.646Z"
+  },
+  {
+    "id": "evt_1788447315455_7juh",
+    "sessionId": "snt-session-ai-02",
+    "eventType": "AI_CROSS_SELL_SHOWN",
+    "userId": null,
+    "productId": "P117",
+    "sourceProductId": "P102",
+    "orderId": null,
+    "metadata": {},
+    "createdAt": "2026-09-03T14:55:15.455Z"
+  },
+  {
+    "id": "evt_1788447317015_4sk4",
+    "sessionId": "snt-session-ai-02",
+    "eventType": "AI_CROSS_SELL_ACCEPTED",
+    "userId": null,
+    "productId": "P117",
+    "sourceProductId": "P102",
+    "orderId": null,
+    "metadata": {},
+    "createdAt": "2026-09-03T14:55:17.015Z"
+  },
+  {
+    "id": "evt_1788447318906_1tme",
+    "sessionId": "snt-session-ai-02",
+    "eventType": "AI_PAYMENT_SUCCESS",
+    "userId": null,
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": "ord_cross_test_04",
+    "metadata": {
+      "totalAmount": 89900,
+      "attributionType": "ai_cross_sell",
+      "itemCount": 1
+    },
+    "createdAt": "2026-09-03T14:55:18.906Z"
+  },
+  {
+    "id": "evt_1788447319626_5stm",
+    "sessionId": "snt-session-ai-02",
+    "eventType": "AI_PAYMENT_SUCCESS",
+    "userId": null,
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": "ord_upsell_test_03",
+    "metadata": {
+      "totalAmount": 119900,
+      "attributionType": "ai_upsell",
+      "itemCount": 1
+    },
+    "createdAt": "2026-09-03T14:55:19.626Z"
+  },
+  {
+    "id": "evt_1788448360874_ix24",
+    "sessionId": "sess_ai_test_13",
+    "eventType": "AI_PAYMENT_SUCCESS",
+    "userId": null,
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": "ORD-P9-AI-13",
+    "metadata": {
+      "totalAmount": 129999,
+      "attributionType": "ai_recommendation",
+      "itemCount": 1
+    },
+    "createdAt": "2026-09-03T15:12:40.874Z"
+  },
+  {
+    "id": "evt_1788449993654_lmyr",
+    "sessionId": "sess_ai_test_13",
+    "eventType": "AI_PAYMENT_SUCCESS",
+    "userId": null,
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": "ORD-P9-AI-13",
+    "metadata": {
+      "totalAmount": 129999,
+      "attributionType": "ai_recommendation",
+      "itemCount": 1
+    },
+    "createdAt": "2026-09-03T15:39:53.654Z"
+  },
+  {
+    "id": "evt_1788453832615_v2a7",
+    "sessionId": "sess_ai_test_13",
+    "eventType": "AI_PAYMENT_SUCCESS",
+    "userId": null,
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": "ORD-P9-AI-13",
+    "metadata": {
+      "totalAmount": 129999,
+      "attributionType": "ai_recommendation",
+      "itemCount": 1
+    },
+    "createdAt": "2026-09-03T16:43:52.615Z"
+  },
+  {
+    "id": "evt_1788455269046_32oo",
+    "sessionId": "sess_ai_test_13",
+    "eventType": "AI_PAYMENT_SUCCESS",
+    "userId": null,
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": "ORD-P9-AI-13",
+    "metadata": {
+      "totalAmount": 129999,
+      "attributionType": "ai_recommendation",
+      "itemCount": 1
+    },
+    "createdAt": "2026-09-03T17:07:49.046Z"
+  },
+  {
+    "id": "evt_1788455580420_fci4",
+    "sessionId": "sess_ai_test_13",
+    "eventType": "AI_PAYMENT_SUCCESS",
+    "userId": null,
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": "ORD-P9-AI-13",
+    "metadata": {
+      "totalAmount": 129999,
+      "attributionType": "ai_recommendation",
+      "itemCount": 1
+    },
+    "createdAt": "2026-09-03T17:13:00.420Z"
+  },
+  {
+    "id": "evt_1788455905050_3m8g",
+    "sessionId": "sess_ai_test_13",
+    "eventType": "AI_PAYMENT_SUCCESS",
+    "userId": null,
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": "ORD-P9-AI-13",
+    "metadata": {
+      "totalAmount": 129999,
+      "attributionType": "ai_recommendation",
+      "itemCount": 1
+    },
+    "createdAt": "2026-09-03T17:18:25.049Z"
+  },
+  {
+    "id": "evt_1788456488955_tjwl",
+    "sessionId": "sess_ai_test_13",
+    "eventType": "AI_PAYMENT_SUCCESS",
+    "userId": null,
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": "ORD-P9-AI-13",
+    "metadata": {
+      "totalAmount": 129999,
+      "attributionType": "ai_recommendation",
+      "itemCount": 1
+    },
+    "createdAt": "2026-09-03T17:28:08.955Z"
+  },
+  {
+    "id": "evt_1788457609762_h3vz",
+    "sessionId": "sess_ai_test_13",
+    "eventType": "AI_PAYMENT_SUCCESS",
+    "userId": null,
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": "ORD-P9-AI-13",
+    "metadata": {
+      "totalAmount": 129999,
+      "attributionType": "ai_recommendation",
+      "itemCount": 1
+    },
+    "createdAt": "2026-09-03T17:46:49.762Z"
+  },
+  {
+    "id": "evt_1788464831197_xsum",
+    "sessionId": "sess_ai_test_13",
+    "eventType": "AI_PAYMENT_SUCCESS",
+    "userId": null,
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": "ORD-P9-AI-13",
+    "metadata": {
+      "totalAmount": 129999,
+      "attributionType": "ai_recommendation",
+      "itemCount": 1
+    },
+    "createdAt": "2026-09-03T19:47:11.197Z"
+  },
+  {
+    "id": "evt_1788466269884_xzq7",
+    "sessionId": "sess_ai_test_13",
+    "eventType": "AI_PAYMENT_SUCCESS",
+    "userId": null,
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": "ORD-P9-AI-13",
+    "metadata": {
+      "totalAmount": 129999,
+      "attributionType": "ai_recommendation",
+      "itemCount": 1
+    },
+    "createdAt": "2026-09-03T20:11:09.884Z"
+  }
+]

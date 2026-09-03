@@ -45,7 +45,7 @@ export function FeaturedPreview() {
             href="/shop"
             className="inline-flex items-center gap-1.5 rounded-xl border border-border bg-card px-4 py-2 text-xs font-bold text-foreground hover:border-snt-accent/60 transition-all shadow-2xs shrink-0"
           >
-            <span>View All 54 Products</span>
+            <span>View Full Collection</span>
             <ArrowRight className="size-3.5 text-snt-accent" />
           </Link>
         </motion.div>
@@ -58,13 +58,13 @@ export function FeaturedPreview() {
         </div>
 
         {/* Mobile "View all" link */}
-        <div className="mt-8 flex justify-center sm:hidden">
+        <div className="mt-8 text-center sm:hidden">
           <Link
             href="/shop"
-            className="flex items-center gap-1.5 text-xs font-bold text-snt-accent hover:underline"
+            className="inline-flex items-center gap-2 rounded-xl bg-secondary px-5 py-2.5 text-xs font-bold text-foreground"
           >
-            <span>Explore all 54 products in catalog</span>
-            <ArrowRight className="size-3.5" />
+            <span>Explore the complete collection</span>
+            <ArrowRight className="size-3.5 text-snt-accent" />
           </Link>
         </div>
       </Container>

@@ -107,6 +107,15 @@ export interface Order {
   /** Delivery estimate */
   deliveryEstimate?: string;
 
+  /** AI Attribution tracking */
+  isAiAssisted?: boolean;
+  attributionType?: 'manual' | 'ai_recommendation' | 'ai_upsell' | 'ai_cross_sell' | 'ai_mixed';
+  aiSessionId?: string;
+  userId?: string;
+  paymentMethod?: string;
+  razorpayOrderId?: string;
+  razorpayPaymentId?: string;
+
   /** Timestamp of order creation */
   createdAt: number;
 
@@ -115,37 +124,70 @@ export interface Order {
 }
 
 /**
- * Payment webhook request — what we send to n8n for payment.
- *
- * PENDING: Adapt when actual n8n payment workflow contract is confirmed.
+ * Payment workflow response — what n8n Payment Workflow returns.
+ * Structure: { success: boolean, order_id?: string, payment_link?: string, error?: string }
+ */
+export interface PaymentWorkflowResponse {
+  /** Whether the payment link was successfully created by n8n */
+  success: boolean;
+
+  /** Authoritative Order ID returned by n8n/Razorpay */
+  order_id?: string;
+
+  /** Razorpay short URL payment link */
+  payment_link?: string;
+
+  /** Optional clean error explanation */
+  error?: string;
+}
+
+/**
+ * Payment webhook request — payload sent to n8n Payment Workflow.
  */
 export interface PaymentWebhookRequest {
-  /** Items with product IDs and quantities */
+  /** Items with product IDs, quantities, and prices */
   items: Array<{
     product_id: string;
+    name?: string;
     quantity: number;
     price: number;
+    added_via?: string;
   }>;
 
   /** Total amount */
   total: number;
+  amount?: number;
 
-  /** Currency */
+  /** Currency code (default 'INR') */
   currency: string;
 
   /** Customer information */
   customerInfo: CustomerInfo;
 
-  /** Session/reference ID */
+  /** Simplified customer contact for Razorpay */
+  customer?: {
+    name: string;
+    email: string;
+    contact?: string;
+  };
+
+  /** Order identifier */
+  order_id?: string;
+  orderId?: string;
+
+  /** Razorpay notes object */
+  notes?: Record<string, string>;
+
+  /** Session and attribution context */
   sessionId?: string;
+  aiSessionId?: string;
+  userId?: string;
+  isAiAssisted?: boolean;
+  attributionType?: string;
 }
 
 /**
- * Payment webhook response — what we receive from n8n.
- *
- * PENDING: This is a placeholder. Adapt when real contract is known.
+ * Legacy raw response mapping
  */
-export interface PaymentWebhookResponse {
-  /** Raw response — shape TBD */
-  [key: string]: unknown;
-}
+export type PaymentWebhookResponse = PaymentWorkflowResponse;
+

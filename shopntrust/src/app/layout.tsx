@@ -16,15 +16,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'ShopNTrust — Futuristic Premium Commerce',
+  title: 'ShopNTrust — AI-Powered Commerce Platform | Razorpay Buildathon 2026',
   description:
-    'Experience next-generation shopping. Discover authentic flagship products with natural intelligence and seamless commerce.',
+    'Autonomous agentic commerce platform demonstrating measurable merchant revenue growth through AI shopping assistance and verified Razorpay payment workflows.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground selection:bg-snt-accent/15 selection:text-snt-accent">

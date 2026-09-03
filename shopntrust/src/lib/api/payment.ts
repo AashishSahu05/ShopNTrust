@@ -145,32 +145,34 @@ export async function requestPaymentLink(
  * PENDING: Update when actual n8n payment response shape is confirmed.
  */
 export function normalizePaymentResponse(
-  raw: PaymentWebhookResponse
+  raw: PaymentWebhookResponse | Record<string, unknown>
 ): NormalizedPaymentResponse {
+  const r = (raw || {}) as Record<string, unknown>;
+
   // Try to extract a payment link from various possible response shapes
   const paymentLink =
-    typeof raw.paymentLink === 'string'
-      ? raw.paymentLink
-      : typeof raw.payment_link === 'string'
-        ? raw.payment_link
-        : typeof raw.short_url === 'string'
-          ? raw.short_url
-          : typeof raw.url === 'string'
-            ? raw.url
+    typeof r.payment_link === 'string'
+      ? r.payment_link
+      : typeof r.paymentLink === 'string'
+        ? r.paymentLink
+        : typeof r.short_url === 'string'
+          ? r.short_url
+          : typeof r.url === 'string'
+            ? r.url
             : undefined;
 
   const orderId =
-    typeof raw.orderId === 'string'
-      ? raw.orderId
-      : typeof raw.order_id === 'string'
-        ? raw.order_id
+    typeof r.order_id === 'string'
+      ? r.order_id
+      : typeof r.orderId === 'string'
+        ? r.orderId
         : undefined;
 
   const error =
-    typeof raw.error === 'string'
-      ? raw.error
-      : typeof raw.message === 'string' && !paymentLink
-        ? raw.message
+    typeof r.error === 'string'
+      ? r.error
+      : typeof r.message === 'string' && !paymentLink
+        ? r.message
         : undefined;
 
   return {

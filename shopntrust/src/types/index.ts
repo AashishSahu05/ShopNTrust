@@ -10,3 +10,4 @@ export * from './cart';
 export * from './ai';
 export * from './order';
 export * from './auth';
+export * from './analytics';

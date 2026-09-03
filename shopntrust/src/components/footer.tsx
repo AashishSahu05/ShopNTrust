@@ -13,12 +13,12 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-12">
           {/* Brand & Purpose */}
           <div className="md:col-span-5 space-y-3">
-            <div className="flex items-center gap-2">
-              <div className="flex size-7 items-center justify-center rounded-lg bg-snt-accent text-white">
+            <div className="flex items-center gap-2.5">
+              <div className="flex size-7 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 to-indigo-700 text-white shadow-xs shadow-indigo-600/30 ring-1 ring-indigo-500/30">
                 <Sparkles className="size-3.5" />
               </div>
               <span className="text-base font-extrabold tracking-tight text-white">
-                Shop<span className="text-snt-accent">N</span>Trust
+                Shop<span className="text-indigo-400 font-black">N</span>Trust
               </span>
             </div>
             <p className="max-w-sm text-xs text-slate-400 leading-relaxed">

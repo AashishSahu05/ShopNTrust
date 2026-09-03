@@ -59,7 +59,7 @@ const categoryLabels: Record<string, string> = {
 // ============================================================
 
 /**
- * Get all 54 canonical products in the catalog.
+ * Get all 66 canonical products in the catalog.
  */
 export function getAllProducts(): Product[] {
   return products;

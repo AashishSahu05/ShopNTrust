@@ -11,10 +11,9 @@
     "price": 37999,
     "mrp": 40999,
     "currency": "INR",
-    "image": "https://www.oneplus.in/nord-ce6/specs",
+    "image": "/images/products/P101.jpg",
     "images": [
-      "https://www.oneplus.in/nord-ce6/specs",
-      "https://gadgets.beebom.com/mobile/oneplus-nord-ce-6"
+      "/images/products/P101.jpg"
     ],
     "rating": 4.7,
     "reviewCount": 621,
@@ -119,9 +118,9 @@
     "price": 499,
     "mrp": 1399,
     "currency": "INR",
-    "image": "https://www.oneplus.in/product/oneplus-nord-ce6-sandstone-magnetic-case",
+    "image": "/images/products/P102.jpg",
     "images": [
-      "https://www.oneplus.in/product/oneplus-nord-ce6-sandstone-magnetic-case"
+      "/images/products/P102.jpg"
     ],
     "rating": 4,
     "reviewCount": 991,
@@ -184,9 +183,9 @@
     "price": 1799,
     "mrp": 2499,
     "currency": "INR",
-    "image": "https://www.oneplus.in/product/oneplus-supervooc-80w-power-adapter",
+    "image": "/images/products/P103.jpg",
     "images": [
-      "https://www.oneplus.in/product/oneplus-supervooc-80w-power-adapter"
+      "/images/products/P103.jpg"
     ],
     "rating": 4.8,
     "reviewCount": 908,
@@ -248,9 +247,9 @@
     "price": 2799,
     "mrp": 3999,
     "currency": "INR",
-    "image": "https://www.oneplus.in/product/product/oneplus-supervooc-100w-dual-ports-gan-power-adapter-lite",
+    "image": "/images/products/P104.jpg",
     "images": [
-      "https://www.oneplus.in/product/product/oneplus-supervooc-100w-dual-ports-gan-power-adapter-lite"
+      "/images/products/P104.jpg"
     ],
     "rating": 4.4,
     "reviewCount": 778,
@@ -307,10 +306,9 @@
     "price": 28999,
     "mrp": 31999,
     "currency": "INR",
-    "image": "https://www.oneplus.in/oneplus-nord-ce6-lite",
+    "image": "/images/products/P105.jpg",
     "images": [
-      "https://www.oneplus.in/oneplus-nord-ce6-lite",
-      "https://www.amazon.in/OnePlus-Segments-Dimensity-Processor-Recording/dp/B0GVYGLNH7"
+      "/images/products/P105.jpg"
     ],
     "rating": 4.6,
     "reviewCount": 725,
@@ -395,10 +393,9 @@
     "price": 119999,
     "mrp": 134999,
     "currency": "INR",
-    "image": "https://www.google.com/search?q=Samsung+Galaxy+S24+Ultra+5G+Images&sca_esv=66b01b7d6a9f6fd9&sxsrf=APpeQnvq9g_nFBd__etQj_JEqFxWCZI2QA%3A1787764683489&ei=yx-Pau67HaGrhvcPhbzd2Ag&biw=1280&bih=665&ved=0ahUKEwiuzZq35r6WAxWhleEIHQVeF4sQ4dUDCBA&uact=5&oq=Samsung+Galaxy+S24+Ultra+5G+Images&gs_lp=Egxnd3Mtd2l6LXNlcnAiIlNhbXN1bmcgR2FsYXh5IFMyNCBVbHRyYSA1RyBJbWFnZXMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyGhAuGNwGGLgGGNoGGNgCGOUEGMgDGLAD2AEBMhoQLhjcBhi4BhjaBhjYAhjlBBjIAxiwA9gBATIaEC4Y3AYYuAYY2gYY2AIY5QQYyAMYsAPYAQEyFxAuGNwGGLgGGNoGGNgCGMgDGLAD2AEBMhoQLhjcBhi4BhjaBhjYAhjlBBjIAxiwA9gBATIaEC4Y3AYYuAYY2gYY2AIY5QQYyAMYsAPYAQFIzgJQAFgAcAF4AZABAJgBAKABAKoBALgBA8gBAJgCAaACCZgDAIgGAZAGDroGBggBEAEYGZIHATGgBwCyBwC4BwDCBwMyLTHIBweACAE&sclient=gws-wiz-serp#sv=CAMSZhowKg5Ld2lMek03WGJrQUJVTTIOS3dpTHpNN1hia0FCVU06DkxRdzNGV0NmaU8zemFNIAQqLgoaXzNCLVBhcTRVdDZHRzl3LTA5cVBJQmdfNjASDkt3aUx6TTdYYmtBQlVNGAAwARgHIP__zOYPSggQARgBIAEoAQ",
+    "image": "/images/products/P106.jpg",
     "images": [
-      "https://www.google.com/search?q=Samsung+Galaxy+S24+Ultra+5G+Images&sca_esv=66b01b7d6a9f6fd9&sxsrf=APpeQnvq9g_nFBd__etQj_JEqFxWCZI2QA%3A1787764683489&ei=yx-Pau67HaGrhvcPhbzd2Ag&biw=1280&bih=665&ved=0ahUKEwiuzZq35r6WAxWhleEIHQVeF4sQ4dUDCBA&uact=5&oq=Samsung+Galaxy+S24+Ultra+5G+Images&gs_lp=Egxnd3Mtd2l6LXNlcnAiIlNhbXN1bmcgR2FsYXh5IFMyNCBVbHRyYSA1RyBJbWFnZXMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyGhAuGNwGGLgGGNoGGNgCGOUEGMgDGLAD2AEBMhoQLhjcBhi4BhjaBhjYAhjlBBjIAxiwA9gBATIaEC4Y3AYYuAYY2gYY2AIY5QQYyAMYsAPYAQEyFxAuGNwGGLgGGNoGGNgCGMgDGLAD2AEBMhoQLhjcBhi4BhjaBhjYAhjlBBjIAxiwA9gBATIaEC4Y3AYYuAYY2gYY2AIY5QQYyAMYsAPYAQFIzgJQAFgAcAF4AZABAJgBAKABAKoBALgBA8gBAJgCAaACCZgDAIgGAZAGDroGBggBEAEYGZIHATGgBwCyBwC4BwDCBwMyLTHIBweACAE&sclient=gws-wiz-serp#sv=CAMSZhowKg5Ld2lMek03WGJrQUJVTTIOS3dpTHpNN1hia0FCVU06DkxRdzNGV0NmaU8zemFNIAQqLgoaXzNCLVBhcTRVdDZHRzl3LTA5cVBJQmdfNjASDkt3aUx6TTdYYmtBQlVNGAAwARgHIP__zOYPSggQARgBIAEoAQ",
-      "https://www.gsmarena.com/samsung_galaxy_s24_ultra-12771.php"
+      "/images/products/P106.jpg"
     ],
     "rating": 5,
     "reviewCount": 956,
@@ -455,10 +452,9 @@
     "price": 49999,
     "mrp": 74999,
     "currency": "INR",
-    "image": "https://sell.gameloot.in/shop/samsung-galaxy-s24-ultra-5g-12gb-ram-256gb-storage-any-color/",
+    "image": "/images/products/P107.jpg",
     "images": [
-      "https://sell.gameloot.in/shop/samsung-galaxy-s24-ultra-5g-12gb-ram-256gb-storage-any-color/",
-      "https://www.flipkart.com/samsung-galaxy-s24-exynos-5g-marble-gray-128-gb/p/itme9ce56159db66?pid=MOBHYJ6QZP2UA4X9&lid=LSTMOBHYJ6QZP2UA4X9WSTBPZ&marketplace=FLIPKART&cmpid=content_mobile_8965229628_gmc"
+      "/images/products/P107.jpg"
     ],
     "rating": 5,
     "reviewCount": 942,
@@ -513,9 +509,9 @@
     "description": "Delivers up to 65-70% charge in ~30 minutes on supported devices, reducing downtime significantly.",
     "price": 2199,
     "currency": "INR",
-    "image": "https://www.croma.com/samsung-45w-type-c-super-fast-charger-adapter-only-smart-ic-technology-black-/p/313722?utm_source=google&utm_medium=ps&utm_campaign=crtl-ol_sok_roas-omni_google_shopping_accessories_na_ind_all_omni&gad_source=1&gad_campaignid=23934978902&gbraid=0AAAAADv7K35gnUTZwj1AqFiDMv-0s7qxU&gclid=Cj0KCQjwnbrUBhDOARIsAKKhPpc1Ow7Ti_bBIf15A7UMv1uSF3SoZ96Wr0BamRQKmL7m5Sb90tEXeREaAmGGEALw_wcB",
+    "image": "/images/products/P108.jpg",
     "images": [
-      "https://www.croma.com/samsung-45w-type-c-super-fast-charger-adapter-only-smart-ic-technology-black-/p/313722?utm_source=google&utm_medium=ps&utm_campaign=crtl-ol_sok_roas-omni_google_shopping_accessories_na_ind_all_omni&gad_source=1&gad_campaignid=23934978902&gbraid=0AAAAADv7K35gnUTZwj1AqFiDMv-0s7qxU&gclid=Cj0KCQjwnbrUBhDOARIsAKKhPpc1Ow7Ti_bBIf15A7UMv1uSF3SoZ96Wr0BamRQKmL7m5Sb90tEXeREaAmGGEALw_wcB"
+      "/images/products/P108.jpg"
     ],
     "rating": 4.5,
     "reviewCount": 705,
@@ -565,9 +561,9 @@
     "description": "Premium studio-grade sound reproduction, hands-free Galaxy AI translation, and improved microphone clarity during calls.",
     "price": 16150,
     "currency": "INR",
-    "image": "https://www.google.com/search?sca_esv=66b01b7d6a9f6fd9&sxsrf=APpeQntnLQihQ9rJpn72zPyQ9mIJvVmFbA:1787765067088&udm=2&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cqCQj_06QnZs315LoFmPf5bBLHMJ0vMQmTbuI72DM7jkCMzF6tiD-p-0w1wJ8QXOpatx0Vkldwpt1Xs0WJvV6McNCs3xUNN11_Omeek_RUNzreH3hK2lQciiOiOr8gNZJuz_FZY4yvDywlmGSh_apJs0D0gJwCzXuc4dhebau5wRzyrFfGs7m8WDu0tRfiUQ1WvtCsQ&q=Galaxy+Buds+3+Pro+ima&sa=X&ved=2ahUKEwjw14_u576WAxVUjuEIHZKMBIkQtKgLegQIGBAB&biw=1280&bih=665&dpr=1.5#sv=CAMSURoyKhBlLWJwYnc1N1hOckxDR0RNMg5icGJ3NTdYTnJMQ0dETToOSEZ6N0RfdzAzYjNIMk0gBCoXCgFzEhBlLWJwYnc1N1hOckxDR0RNGAEwARgHIL2TjocCSggQARgBIAEoAQ",
+    "image": "/images/products/P109.jpg",
     "images": [
-      "https://www.google.com/search?sca_esv=66b01b7d6a9f6fd9&sxsrf=APpeQntnLQihQ9rJpn72zPyQ9mIJvVmFbA:1787765067088&udm=2&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cqCQj_06QnZs315LoFmPf5bBLHMJ0vMQmTbuI72DM7jkCMzF6tiD-p-0w1wJ8QXOpatx0Vkldwpt1Xs0WJvV6McNCs3xUNN11_Omeek_RUNzreH3hK2lQciiOiOr8gNZJuz_FZY4yvDywlmGSh_apJs0D0gJwCzXuc4dhebau5wRzyrFfGs7m8WDu0tRfiUQ1WvtCsQ&q=Galaxy+Buds+3+Pro+ima&sa=X&ved=2ahUKEwjw14_u576WAxVUjuEIHZKMBIkQtKgLegQIGBAB&biw=1280&bih=665&dpr=1.5#sv=CAMSURoyKhBlLWJwYnc1N1hOckxDR0RNMg5icGJ3NTdYTnJMQ0dETToOSEZ6N0RfdzAzYjNIMk0gBCoXCgFzEhBlLWJwYnc1N1hOckxDR0RNGAEwARgHIL2TjocCSggQARgBIAEoAQ"
+      "/images/products/P109.jpg"
     ],
     "rating": 4.5,
     "reviewCount": 530,
@@ -620,9 +616,9 @@
     "description": "Extreme structural durability, reliable dual-band GPS accuracy under dense canopy/tall buildings, and extended multi-day battery endurance.",
     "price": 48999,
     "currency": "INR",
-    "image": "https://www.samsungmobilepress.com/media-assets/galaxy-watch-ultra",
+    "image": "/images/products/P110.jpg",
     "images": [
-      "https://www.samsungmobilepress.com/media-assets/galaxy-watch-ultra"
+      "/images/products/P110.jpg"
     ],
     "rating": 4.7,
     "reviewCount": 899,
@@ -675,9 +671,9 @@
     "description": "Compact, highly portable form factor that does not block adjacent wall outlets while delivering maximum supported charging speed for base Galaxy devices.",
     "price": 949,
     "currency": "INR",
-    "image": "https://www.amazon.in/Samsung-Original-Type-C-Adaptor-without/dp/B0D2R2MXXJ",
+    "image": "/images/products/P111.jpg",
     "images": [
-      "https://www.amazon.in/Samsung-Original-Type-C-Adaptor-without/dp/B0D2R2MXXJ"
+      "/images/products/P111.jpg"
     ],
     "rating": 4.4,
     "reviewCount": 625,
@@ -730,9 +726,9 @@
     "description": "15% smaller compact fit for pressure-free ear comfort, top-tier IPX7 waterproofing, and deep spatial audio",
     "price": 6499,
     "currency": "INR",
-    "image": "https://www.rtings.com/headphones/reviews/samsung/galaxy-buds2-pro-true-wireless",
+    "image": "/images/products/P112.jpg",
     "images": [
-      "https://www.rtings.com/headphones/reviews/samsung/galaxy-buds2-pro-true-wireless"
+      "/images/products/P112.jpg"
     ],
     "rating": 4.2,
     "reviewCount": 952,
@@ -788,9 +784,9 @@
     "description": "Lightweight sleek profile for comfortable 24/7 wear, rapid health diagnostics on your wrist, and rich third-party Wear OS app support.",
     "price": 19999,
     "currency": "INR",
-    "image": "https://news.samsung.com/global/samsung-galaxy-watch6-and-galaxy-watch6-classic-inspiring-your-best-self-day-and-night",
+    "image": "/images/products/P113.jpg",
     "images": [
-      "https://news.samsung.com/global/samsung-galaxy-watch6-and-galaxy-watch6-classic-inspiring-your-best-self-day-and-night"
+      "/images/products/P113.jpg"
     ],
     "rating": 4.2,
     "reviewCount": 970,
@@ -843,8 +839,10 @@
     "description": "Exceptional battery longevity, massive display canvas for productivity, zero thermal throttling under load, and high resale value.",
     "price": 144900,
     "currency": "INR",
-    "image": "",
-    "images": [],
+    "image": "/images/products/P114.png",
+    "images": [
+      "/images/products/P114.png"
+    ],
     "rating": 4.4,
     "reviewCount": 561,
     "stockStatus": "in_stock",
@@ -932,9 +930,9 @@
     "description": "Weighs only 199 grams (highly comfortable for one-handed messaging and pocket storage), identical processing capability as the Max.",
     "price": 119900,
     "currency": "INR",
-    "image": "https://www.apple.com/in/iphone/",
+    "image": "/images/products/P115.jpg",
     "images": [
-      "https://www.apple.com/in/iphone/"
+      "/images/products/P115.jpg"
     ],
     "rating": 4.2,
     "reviewCount": 920,
@@ -1036,9 +1034,9 @@
     "description": "Highly visible in harsh sunlight, one-handed control via double tap gesture, private and offline voice queries, carbon-neutral options",
     "price": 89900,
     "currency": "INR",
-    "image": "https://www.apple.com/in/iphone/",
+    "image": "/images/products/P116.jpg",
     "images": [
-      "https://www.apple.com/in/iphone/"
+      "/images/products/P116.jpg"
     ],
     "rating": 4.8,
     "reviewCount": 740,
@@ -1089,9 +1087,9 @@
     "price": 18990,
     "mrp": 24900,
     "currency": "INR",
-    "image": "https://support.apple.com/en-in/111834",
+    "image": "/images/products/P117.jpg",
     "images": [
-      "https://support.apple.com/en-in/111834"
+      "/images/products/P117.jpg"
     ],
     "rating": 5,
     "reviewCount": 844,
@@ -1146,9 +1144,9 @@
     "description": "Charges iPhones from 0 to 50% in ~30 mins; officially tuned for MacBook Air battery health",
     "price": 3800,
     "currency": "INR",
-    "image": "https://quicktech.in/products/apple-30w-usb-c-power-adapter-white-my1w2hn",
+    "image": "/images/products/P118.jpg",
     "images": [
-      "https://quicktech.in/products/apple-30w-usb-c-power-adapter-white-my1w2hn"
+      "/images/products/P118.jpg"
     ],
     "rating": 4,
     "reviewCount": 606,
@@ -1195,9 +1193,9 @@
     "description": "Up to 9.5x faster than traditional external HDDs; drop-resistant up to 2 meters (3 meters on Shield); credit-card sized form factor",
     "price": 12999,
     "currency": "INR",
-    "image": "https://www.google.com/search?q=Samsung+T7+Portable+SSD&prds=catalogid%3A11123816470905228312%2Cgpcid%3A11894660869907988604%2CheadlineOfferDocid%3A18172469487572581464%2Cmid%3A576462898620093684%2Cproductid%3A15656416441331796291%2Cpvo%3A41%2Cpvt%3Ahg%2Crds%3APC_11894660869907988604%7CPROD_PC_11894660869907988604&ibp=oshop&gemcid=c_4ec50adf1dff0ecf&gemrid=r_964cdb9f49517c7c&pvo=41&opi=89978449&gl=IN&hl=hi&noiga=1",
+    "image": "/images/products/P119.jpg",
     "images": [
-      "https://www.google.com/search?q=Samsung+T7+Portable+SSD&prds=catalogid%3A11123816470905228312%2Cgpcid%3A11894660869907988604%2CheadlineOfferDocid%3A18172469487572581464%2Cmid%3A576462898620093684%2Cproductid%3A15656416441331796291%2Cpvo%3A41%2Cpvt%3Ahg%2Crds%3APC_11894660869907988604%7CPROD_PC_11894660869907988604&ibp=oshop&gemcid=c_4ec50adf1dff0ecf&gemrid=r_964cdb9f49517c7c&pvo=41&opi=89978449&gl=IN&hl=hi&noiga=1"
+      "/images/products/P119.jpg"
     ],
     "rating": 4.4,
     "reviewCount": 902,
@@ -1277,9 +1275,9 @@
     "description": "Zero hassle of plugging/unplugging cables, prevents wear on the phone's port, fast wireless charging speeds",
     "price": 4500,
     "currency": "INR",
-    "image": "https://www.reliancedigital.in/product/apple-magsafe-charger-200-cm-2-m-m0xtdu-8590409",
+    "image": "/images/products/P120.jpg",
     "images": [
-      "https://www.reliancedigital.in/product/apple-magsafe-charger-200-cm-2-m-m0xtdu-8590409"
+      "/images/products/P120.jpg"
     ],
     "rating": 4.5,
     "reviewCount": 813,
@@ -1329,8 +1327,10 @@
     "description": "12mm Dynamic Drivers, 50dB Hybrid Adaptive ANC, LDAC Hi-Res Audio, 6-Mic AI-ENx, 60ms BEAST Mode, IPX4 rating",
     "price": 3199,
     "currency": "INR",
-    "image": "",
-    "images": [],
+    "image": "/images/products/P121.jpg",
+    "images": [
+      "/images/products/P121.jpg"
+    ],
     "rating": 4.7,
     "reviewCount": 925,
     "stockStatus": "in_stock",
@@ -1380,8 +1380,10 @@
     "description": "Authentic boAt Nirvana X TWS from Boat.",
     "price": 0,
     "currency": "INR",
-    "image": "",
-    "images": [],
+    "image": "/images/products/P122.jpg",
+    "images": [
+      "/images/products/P122.jpg"
+    ],
     "rating": 5,
     "reviewCount": 660,
     "stockStatus": "in_stock",
@@ -1413,8 +1415,10 @@
     "description": "Authentic Protective silicone case cover from official source.",
     "price": 0,
     "currency": "INR",
-    "image": "",
-    "images": [],
+    "image": "/images/products/P123.jpg",
+    "images": [
+      "/images/products/P123.jpg"
+    ],
     "rating": 4.5,
     "reviewCount": 965,
     "stockStatus": "in_stock",
@@ -1443,8 +1447,10 @@
     "description": "Long-lasting backup for students; sweatproof design handles intense gym sessions with comfort.",
     "price": 1499,
     "currency": "INR",
-    "image": "",
-    "images": [],
+    "image": "/images/products/P124.jpg",
+    "images": [
+      "/images/products/P124.jpg"
+    ],
     "rating": 5,
     "reviewCount": 983,
     "stockStatus": "in_stock",
@@ -1494,8 +1500,10 @@
     "description": "Authentic Lanyard case from official source.",
     "price": 0,
     "currency": "INR",
-    "image": "",
-    "images": [],
+    "image": "/images/products/P125.jpg",
+    "images": [
+      "/images/products/P125.jpg"
+    ],
     "rating": 4.3,
     "reviewCount": 588,
     "stockStatus": "in_stock",
@@ -1524,8 +1532,10 @@
     "description": "Authentic Noise Buds VS102 Pro ANC from official source.",
     "price": 0,
     "currency": "INR",
-    "image": "",
-    "images": [],
+    "image": "/images/products/P126.jpg",
+    "images": [
+      "/images/products/P126.jpg"
+    ],
     "rating": 4,
     "reviewCount": 567,
     "stockStatus": "in_stock",
@@ -1554,8 +1564,10 @@
     "description": "11mm Bass Driver + 6mm Micro-planar Tweeter, 50dB Smart ANC, 4000Hz Ultra-wide Frequency, 55ms Low Latency, 6-Mic ENC, IP55 rating",
     "price": 4999,
     "currency": "INR",
-    "image": "",
-    "images": [],
+    "image": "/images/products/P127.jpg",
+    "images": [
+      "/images/products/P127.jpg"
+    ],
     "rating": 4.9,
     "reviewCount": 760,
     "stockStatus": "in_stock",
@@ -1605,8 +1617,10 @@
     "description": "Authentic Realme fast-charge wall adapter from official source.",
     "price": 0,
     "currency": "INR",
-    "image": "",
-    "images": [],
+    "image": "/images/products/P128.jpg",
+    "images": [
+      "/images/products/P128.jpg"
+    ],
     "rating": 4,
     "reviewCount": 614,
     "stockStatus": "in_stock",
@@ -1635,8 +1649,10 @@
     "description": "Authentic Realme Buds Air 7 Pro from official source.",
     "price": 0,
     "currency": "INR",
-    "image": "",
-    "images": [],
+    "image": "/images/products/P129.jpg",
+    "images": [
+      "/images/products/P129.jpg"
+    ],
     "rating": 4.1,
     "reviewCount": 520,
     "stockStatus": "in_stock",
@@ -1665,8 +1681,10 @@
     "description": "10mm Dynamic Drivers, Dual Mics with ENx™ Tech, 50ms Low-Latency BEAST™ Mode, IPX4 Water/Sweat Resistance, One-touch Voice Assistant",
     "price": 1099,
     "currency": "INR",
-    "image": "",
-    "images": [],
+    "image": "/images/products/P130.jpg",
+    "images": [
+      "/images/products/P130.jpg"
+    ],
     "rating": 4.2,
     "reviewCount": 668,
     "stockStatus": "in_stock",
@@ -1715,8 +1733,10 @@
     "description": "11mm Dynamic Drivers, LDAC 24-bit Hi-Res Streaming, Quad-Mic Environmental Noise Cancellation (ENC), IPX4 Splash Resistance, Touch Controls",
     "price": 1299,
     "currency": "INR",
-    "image": "",
-    "images": [],
+    "image": "/images/products/P131.jpg",
+    "images": [
+      "/images/products/P131.jpg"
+    ],
     "rating": 4.6,
     "reviewCount": 856,
     "stockStatus": "in_stock",
@@ -1765,8 +1785,10 @@
     "description": "Cancels heavy background engine rumble during flights and train travel; titanium driver delivers punchy bass with detailed mids",
     "price": 3299,
     "currency": "INR",
-    "image": "",
-    "images": [],
+    "image": "/images/products/P132.jpg",
+    "images": [
+      "/images/products/P132.jpg"
+    ],
     "rating": 4,
     "reviewCount": 753,
     "stockStatus": "in_stock",
@@ -1815,10 +1837,9 @@
     "description": "Maximum energy return, reduced joint fatigue on hard surfaces, all-day comfort, highly breathable",
     "price": 19295,
     "currency": "INR",
-    "image": "https://www.nike.in/nike-pegasus-premium-men-s-road-running-shoes/p/27761887",
+    "image": "/images/products/P133.jpg",
     "images": [
-      "https://www.nike.in/nike-pegasus-premium-men-s-road-running-shoes/p/27761887",
-      "https://www.nike.in/nike-pegasus-premium-men-s-road-running-shoes/p/27761879"
+      "/images/products/P133.jpg"
     ],
     "rating": 4.2,
     "reviewCount": 769,
@@ -1877,9 +1898,9 @@
     "description": "Ultra-soft step-in feel, maximum shock absorption, smooth heel-to-toe transitions, joint protection for heavy miles",
     "price": 13295,
     "currency": "INR",
-    "image": "https://www.nike.in/nike-vomero-18-men-s-road-running-shoes/p/26000290",
+    "image": "/images/products/P134.jpg",
     "images": [
-      "https://www.nike.in/nike-vomero-18-men-s-road-running-shoes/p/26000290"
+      "/images/products/P134.jpg"
     ],
     "rating": 4,
     "reviewCount": 685,
@@ -1941,9 +1962,9 @@
     "description": "Prevents chafing, rapid sweat evaporation, full mobility during high strides, secure key/card and phone storage",
     "price": 3695,
     "currency": "INR",
-    "image": "https://www.nike.in/nike-stride-men-s-dri-fit-13cm-approx-brief-lined-running-shorts/p/24930879",
+    "image": "/images/products/P135.jpg",
     "images": [
-      "https://www.nike.in/nike-stride-men-s-dri-fit-13cm-approx-brief-lined-running-shorts/p/24930879"
+      "/images/products/P135.jpg"
     ],
     "rating": 4,
     "reviewCount": 951,
@@ -1996,9 +2017,9 @@
     "description": "Sun glare protection, sweat prevention from eyes, lightweight breathable fit that stays secure in high winds",
     "price": 1195,
     "currency": "INR",
-    "image": "https://www.nike.in/nike-dri-fit-club-structured-swoosh-cap/p/24933653",
+    "image": "/images/products/P136.jpg",
     "images": [
-      "https://www.nike.in/nike-dri-fit-club-structured-swoosh-cap/p/24933653"
+      "/images/products/P136.jpg"
     ],
     "rating": 4.9,
     "reviewCount": 587,
@@ -2054,9 +2075,9 @@
     "description": "Reduces blister risk, locks foot securely to eliminate shoe slippage, high airflow to keep feet cool during long sessions",
     "price": 895,
     "currency": "INR",
-    "image": "https://www.myntra.com/socks/nike/nike-spark-cotton-lightweight-running-ankle-socks/26721014/buy",
+    "image": "/images/products/P137.jpg",
     "images": [
-      "https://www.myntra.com/socks/nike/nike-spark-cotton-lightweight-running-ankle-socks/26721014/buy"
+      "/images/products/P137.jpg"
     ],
     "rating": 4.5,
     "reviewCount": 582,
@@ -2109,9 +2130,9 @@
     "description": "Rapid one-handed hydration without stopping your stride, spill prevention in gym bags, easy cleaning and refilling",
     "price": 999,
     "currency": "INR",
-    "image": "https://share.google/BN1t1EaAXIwvdHQwW",
+    "image": "/images/products/P138.jpg",
     "images": [
-      "https://share.google/BN1t1EaAXIwvdHQwW"
+      "/images/products/P138.jpg"
     ],
     "rating": 4.9,
     "reviewCount": 530,
@@ -2165,9 +2186,9 @@
     "price": 278,
     "mrp": 299,
     "currency": "INR",
-    "image": "https://beminimalist.co/products/salicylic-lha-2-cleanser?srsltid=AfmBOopEm0UOCEni0GOLGZxzYW79mrymVfTxxlrTr3mqnTgSCY4LwuHf",
+    "image": "/images/products/P139.jpg",
     "images": [
-      "https://beminimalist.co/products/salicylic-lha-2-cleanser?srsltid=AfmBOopEm0UOCEni0GOLGZxzYW79mrymVfTxxlrTr3mqnTgSCY4LwuHf"
+      "/images/products/P139.jpg"
     ],
     "rating": 4,
     "reviewCount": 975,
@@ -2223,9 +2244,9 @@
     "price": 325,
     "mrp": 349,
     "currency": "INR",
-    "image": "https://beminimalist.co/products/vitamin-b5-10-moisturizer",
+    "image": "/images/products/P140.jpg",
     "images": [
-      "https://beminimalist.co/products/vitamin-b5-10-moisturizer"
+      "/images/products/P140.jpg"
     ],
     "rating": 4.9,
     "reviewCount": 549,
@@ -2279,9 +2300,9 @@
     "price": 511,
     "mrp": 549,
     "currency": "INR",
-    "image": "https://beminimalist.co/collections/best-sellers/products/salicylic-acid-2",
+    "image": "/images/products/P141.jpg",
     "images": [
-      "https://beminimalist.co/collections/best-sellers/products/salicylic-acid-2"
+      "/images/products/P141.jpg"
     ],
     "rating": 4.1,
     "reviewCount": 908,
@@ -2335,9 +2356,9 @@
     "price": 371,
     "mrp": 399,
     "currency": "INR",
-    "image": "https://beminimalist.co/collections/best-sellers/products/multi-vitamin-spf-50",
+    "image": "/images/products/P142.jpg",
     "images": [
-      "https://beminimalist.co/collections/best-sellers/products/multi-vitamin-spf-50"
+      "/images/products/P142.jpg"
     ],
     "rating": 5,
     "reviewCount": 508,
@@ -2391,9 +2412,9 @@
     "price": 359,
     "mrp": 499,
     "currency": "INR",
-    "image": "https://mamaearth.in/products/ubtan-face-wash-with-turmeric-saffron-for-tan-removal-150-ml",
+    "image": "/images/products/P143.jpg",
     "images": [
-      "https://mamaearth.in/products/ubtan-face-wash-with-turmeric-saffron-for-tan-removal-150-ml"
+      "/images/products/P143.jpg"
     ],
     "rating": 4.3,
     "reviewCount": 971,
@@ -2454,9 +2475,9 @@
     "price": 286,
     "mrp": 349,
     "currency": "INR",
-    "image": "https://share.google/HPYlWxFYsrbGGEEha",
+    "image": "/images/products/P144.jpg",
     "images": [
-      "https://share.google/HPYlWxFYsrbGGEEha"
+      "/images/products/P144.jpg"
     ],
     "rating": 4.5,
     "reviewCount": 693,
@@ -2507,9 +2528,9 @@
     "price": 250,
     "mrp": 499,
     "currency": "INR",
-    "image": "https://share.google/xlMpLYCpDH1OL1Ktk",
+    "image": "/images/products/P145.jpg",
     "images": [
-      "https://share.google/xlMpLYCpDH1OL1Ktk"
+      "/images/products/P145.jpg"
     ],
     "rating": 4.4,
     "reviewCount": 699,
@@ -2560,9 +2581,9 @@
     "price": 242,
     "mrp": 319,
     "currency": "INR",
-    "image": "https://share.google/TXk6QhoWtcM9cndhd",
+    "image": "/images/products/P146.jpg",
     "images": [
-      "https://share.google/TXk6QhoWtcM9cndhd"
+      "/images/products/P146.jpg"
     ],
     "rating": 5,
     "reviewCount": 537,
@@ -2612,9 +2633,9 @@
     "description": "A globally benchmarked whey protein blend powered primarily by Whey Protein Isolate, delivering 24g of high-quality protein per serving to support muscle recovery and lean muscle growth.",
     "price": 5079,
     "currency": "INR",
-    "image": "https://www.optimumnutrition.co.in/products/gold-standard-100-whey-protein-powder-double-rich-chocolate-1118949",
+    "image": "/images/products/P147.jpg",
     "images": [
-      "https://www.optimumnutrition.co.in/products/gold-standard-100-whey-protein-powder-double-rich-chocolate-1118949"
+      "/images/products/P147.jpg"
     ],
     "rating": 4.2,
     "reviewCount": 748,
@@ -2674,16 +2695,19 @@
   {
     "product_id": "P148",
     "name": "Micronised Creatine Powder",
-    "brand": "",
+    "brand": "Optimum Nutrition (ON)",
     "category": "nutrition",
-    "categoryDisplay": "General",
-    "subCategory": "",
-    "productType": "",
-    "description": "Authentic Micronised Creatine Powder from official source.",
-    "price": 0,
+    "categoryDisplay": "Sports Nutrition",
+    "subCategory": "Creatine",
+    "productType": "Creatine Monohydrate Powder",
+    "description": "100% pure micronised creatine monohydrate to support explosive strength, power, and muscle recovery without fillers.",
+    "price": 1499,
+    "mrp": 1999,
     "currency": "INR",
-    "image": "",
-    "images": [],
+    "image": "/images/products/P148.jpg",
+    "images": [
+      "/images/products/P148.jpg"
+    ],
     "rating": 4.5,
     "reviewCount": 546,
     "stockStatus": "in_stock",
@@ -2693,27 +2717,68 @@
     "shippingCharge": "₹99",
     "returnable": true,
     "returnWindowDays": 7,
-    "specifications": {},
-    "rawSpecs": "",
+    "specifications": {
+      "Brand": "Optimum Nutrition (ON)",
+      "Form": "Micronised Powder",
+      "Net Weight": "250g",
+      "Servings": "83"
+    },
+    "rawSpecs": "100% Pure Creatine Monohydrate, Unflavoured",
+    "featuresList": [
+      "100% pure micronised creatine monohydrate",
+      "Enhances ATP muscle energy replenishment",
+      "Zero fillers, zero added sugars, mixes easily"
+    ],
+    "benefits": [
+      "Accelerates strength gains and power output",
+      "Faster recovery between high-intensity sets"
+    ],
+    "useCases": [
+      "Post-workout recovery",
+      "Strength training & powerlifting",
+      "CrossFit & athletic conditioning"
+    ],
+    "targetCustomer": [
+      "Gym-goers",
+      "Strength athletes",
+      "Fitness enthusiasts"
+    ],
+    "occasion": [
+      "Daily post-workout nutrition",
+      "Pre-workout energy stack"
+    ],
+    "crossSellIds": [
+      "P149",
+      "P150"
+    ],
+    "upsellIds": [
+      "P151"
+    ],
     "featured": false,
-    "trending": false,
+    "trending": true,
     "tags": [
-      "nutrition"
+      "nutrition",
+      "creatine",
+      "optimum nutrition",
+      "supplements"
     ]
   },
   {
     "product_id": "P149",
     "name": "Glutamine Powder",
-    "brand": "",
+    "brand": "Optimum Nutrition (ON)",
     "category": "nutrition",
-    "categoryDisplay": "General",
-    "subCategory": "",
-    "productType": "",
-    "description": "Authentic Glutamine Powder from official source.",
-    "price": 0,
+    "categoryDisplay": "Sports Nutrition",
+    "subCategory": "Amino Acids",
+    "productType": "L-Glutamine Powder",
+    "description": "Pure unflavored L-Glutamine powder for accelerated muscle repair, immune support, and gut health.",
+    "price": 1899,
+    "mrp": 2399,
     "currency": "INR",
-    "image": "",
-    "images": [],
+    "image": "/images/products/P149.jpg",
+    "images": [
+      "/images/products/P149.jpg"
+    ],
     "rating": 4.2,
     "reviewCount": 812,
     "stockStatus": "in_stock",
@@ -2723,27 +2788,65 @@
     "shippingCharge": "₹0",
     "returnable": true,
     "returnWindowDays": 7,
-    "specifications": {},
-    "rawSpecs": "",
+    "specifications": {
+      "Brand": "Optimum Nutrition (ON)",
+      "Form": "Pure Powder",
+      "Net Weight": "300g",
+      "Servings": "60 Servings"
+    },
+    "rawSpecs": "Free-form L-Glutamine 5g per serving",
+    "featuresList": [
+      "5g pure free-form L-Glutamine per serving",
+      "Unflavored for easy stacking with protein",
+      "Supports intestinal and immune health"
+    ],
+    "benefits": [
+      "Reduces muscle soreness after heavy lifting",
+      "Restores plasma glutamine levels depleted by exercise"
+    ],
+    "useCases": [
+      "Post-workout recovery",
+      "Intense training cycles"
+    ],
+    "targetCustomer": [
+      "Bodybuilders",
+      "Endurance athletes"
+    ],
+    "occasion": [
+      "Post-workout, bedtime"
+    ],
+    "crossSellIds": [
+      "P148",
+      "P150"
+    ],
+    "upsellIds": [
+      "P151"
+    ],
     "featured": false,
     "trending": false,
     "tags": [
-      "nutrition"
+      "nutrition",
+      "glutamine",
+      "optimum nutrition",
+      "supplements"
     ]
   },
   {
     "product_id": "P150",
     "name": "BCAA 5000 Powder",
-    "brand": "",
+    "brand": "Optimum Nutrition (ON)",
     "category": "nutrition",
-    "categoryDisplay": "General",
-    "subCategory": "",
-    "productType": "",
-    "description": "Authentic BCAA 5000 Powder from official source.",
-    "price": 0,
+    "categoryDisplay": "Sports Nutrition",
+    "subCategory": "Intra-Workout",
+    "productType": "Branched Chain Amino Acids",
+    "description": "5g of pure BCAAs in a proven 2:1:1 ratio to preserve muscle tissue and boost endurance during grueling workouts.",
+    "price": 2199,
+    "mrp": 2699,
     "currency": "INR",
-    "image": "",
-    "images": [],
+    "image": "/images/products/P150.jpg",
+    "images": [
+      "/images/products/P150.jpg"
+    ],
     "rating": 4.6,
     "reviewCount": 560,
     "stockStatus": "in_stock",
@@ -2753,27 +2856,64 @@
     "shippingCharge": "₹0",
     "returnable": true,
     "returnWindowDays": 7,
-    "specifications": {},
-    "rawSpecs": "",
+    "specifications": {
+      "Brand": "Optimum Nutrition (ON)",
+      "Ratio": "2:1:1 Leucine, Isoleucine, Valine",
+      "Net Weight": "380g"
+    },
+    "rawSpecs": "5g BCAAs per scoop, Instantized Formula",
+    "featuresList": [
+      "5g blended BCAAs per scoop",
+      "Zero sugar and zero calories",
+      "Instantized for smooth dissolution"
+    ],
+    "benefits": [
+      "Prevents muscle catabolism during fasted training",
+      "Boosts muscular endurance and delays fatigue"
+    ],
+    "useCases": [
+      "Intra-workout hydration",
+      "Pre-workout endurance"
+    ],
+    "targetCustomer": [
+      "Athletes",
+      "Fasted cardio practitioners"
+    ],
+    "occasion": [
+      "During workouts, between meals"
+    ],
+    "crossSellIds": [
+      "P148",
+      "P149"
+    ],
+    "upsellIds": [
+      "P151"
+    ],
     "featured": false,
-    "trending": false,
+    "trending": true,
     "tags": [
-      "nutrition"
+      "nutrition",
+      "bcaa",
+      "amino acids",
+      "optimum nutrition"
     ]
   },
   {
     "product_id": "P151",
     "name": "Gold Standard 100% Whey Protein Powder | 5 lbs (2.27 kg)",
-    "brand": "",
+    "brand": "Optimum Nutrition (ON)",
     "category": "nutrition",
-    "categoryDisplay": "General",
-    "subCategory": "",
-    "productType": "",
-    "description": "Authentic Gold Standard 100% Whey Protein Powder | 5 lbs (2.27 kg) from official source.",
-    "price": 0,
+    "categoryDisplay": "Sports Nutrition",
+    "subCategory": "Whey Protein",
+    "productType": "Protein Powder 5 lbs",
+    "description": "High-value 5 lb tub delivering 73 servings of pure whey isolate blend, 24g protein per scoop, and 5.5g naturally occurring BCAAs.",
+    "price": 8499,
+    "mrp": 9999,
     "currency": "INR",
-    "image": "",
-    "images": [],
+    "image": "/images/products/P151.jpg",
+    "images": [
+      "/images/products/P151.jpg"
+    ],
     "rating": 4.2,
     "reviewCount": 551,
     "stockStatus": "in_stock",
@@ -2783,27 +2923,67 @@
     "shippingCharge": "₹0",
     "returnable": true,
     "returnWindowDays": 7,
-    "specifications": {},
-    "rawSpecs": "",
-    "featured": false,
-    "trending": false,
+    "specifications": {
+      "Brand": "Optimum Nutrition (ON)",
+      "Size": "5 lbs (2.27 kg)",
+      "Servings": "73",
+      "Protein per Serving": "24g",
+      "Flavour": "Double Rich Chocolate"
+    },
+    "rawSpecs": "Whey Protein Isolate Primary Source, 5.5g BCAAs, 4g Glutamine",
+    "featuresList": [
+      "Primary source Whey Protein Isolate (WPI)",
+      "Over 5.5g BCAAs and 4g Glutamine",
+      "Banned substance tested, Informed-Choice certified"
+    ],
+    "benefits": [
+      "Maximum value 5-pound bulk supply",
+      "Fast-digesting post-workout protein delivery"
+    ],
+    "useCases": [
+      "Post-workout recovery shake",
+      "Morning protein smoothie"
+    ],
+    "targetCustomer": [
+      "Regular gym members",
+      "Bodybuilders",
+      "High-protein meal planners"
+    ],
+    "occasion": [
+      "Daily recovery, breakfast shake"
+    ],
+    "crossSellIds": [
+      "P148",
+      "P149",
+      "P150"
+    ],
+    "upsellIds": [],
+    "featured": true,
+    "trending": true,
     "tags": [
-      "nutrition"
+      "nutrition",
+      "whey protein",
+      "5 lbs",
+      "optimum nutrition",
+      "protein powder"
     ]
   },
   {
     "product_id": "P152",
     "name": "ASUS Vivobook 15",
-    "brand": "",
+    "brand": "ASUS",
     "category": "laptops",
-    "categoryDisplay": "General",
-    "subCategory": "",
-    "productType": "",
-    "description": "Authentic ASUS Vivobook 15 from official source.",
-    "price": 0,
+    "categoryDisplay": "Laptops & Computers",
+    "subCategory": "Thin & Light Laptops",
+    "productType": "Everyday Laptop",
+    "description": "15.6-inch FHD anti-glare display, Intel Core i5 processor, 16GB RAM, 512GB SSD, with fingerprint sensor and military-grade durability.",
+    "price": 49990,
+    "mrp": 59990,
     "currency": "INR",
-    "image": "",
-    "images": [],
+    "image": "/images/products/P152.jpg",
+    "images": [
+      "/images/products/P152.jpg"
+    ],
     "rating": 4.1,
     "reviewCount": 861,
     "stockStatus": "in_stock",
@@ -2813,27 +2993,70 @@
     "shippingCharge": "₹0",
     "returnable": true,
     "returnWindowDays": 7,
-    "specifications": {},
-    "rawSpecs": "",
+    "specifications": {
+      "Brand": "ASUS",
+      "Processor": "Intel Core i5-1335U",
+      "RAM": "16GB DDR4",
+      "Storage": "512GB NVMe SSD",
+      "Display": "15.6-inch FHD (1920x1080) 60Hz"
+    },
+    "rawSpecs": "Intel Core i5, 16GB RAM, 512GB SSD, 15.6\" FHD Display",
+    "featuresList": [
+      "NanoEdge slim bezel display",
+      "180-degree lay-flat hinge",
+      "ASUS Antimicrobial Guard Plus protection"
+    ],
+    "benefits": [
+      "Reliable everyday performance for multitasking and office work",
+      "Crisp anti-glare screen for long study sessions"
+    ],
+    "useCases": [
+      "College coursework",
+      "Remote office work",
+      "Web browsing & streaming"
+    ],
+    "targetCustomer": [
+      "Students",
+      "Office professionals",
+      "Budget laptop seekers"
+    ],
+    "occasion": [
+      "Daily study, home workstation, commuting"
+    ],
+    "crossSellIds": [
+      "P119",
+      "P161"
+    ],
+    "upsellIds": [
+      "P153",
+      "P154"
+    ],
     "featured": false,
     "trending": false,
     "tags": [
-      "laptops"
+      "laptops",
+      "asus",
+      "vivobook",
+      "intel i5",
+      "computers"
     ]
   },
   {
     "product_id": "P153",
     "name": "ASUS TUF Gaming A15 / F15",
-    "brand": "",
+    "brand": "ASUS",
     "category": "laptops",
-    "categoryDisplay": "General",
-    "subCategory": "",
-    "productType": "",
-    "description": "Authentic ASUS TUF Gaming A15 / F15 from official source.",
-    "price": 0,
+    "categoryDisplay": "Gaming & Laptops",
+    "subCategory": "Gaming Laptops",
+    "productType": "High-Performance Gaming Laptop",
+    "description": "High-framerate 144Hz IPS display, AMD Ryzen 7 / Intel Core i7, NVIDIA GeForce RTX graphics, and dual-fan anti-dust thermal system.",
+    "price": 74990,
+    "mrp": 89990,
     "currency": "INR",
-    "image": "",
-    "images": [],
+    "image": "/images/products/P153.jpg",
+    "images": [
+      "/images/products/P153.jpg"
+    ],
     "rating": 4.7,
     "reviewCount": 666,
     "stockStatus": "in_stock",
@@ -2843,27 +3066,70 @@
     "shippingCharge": "₹99",
     "returnable": true,
     "returnWindowDays": 7,
-    "specifications": {},
-    "rawSpecs": "",
-    "featured": false,
-    "trending": false,
+    "specifications": {
+      "Brand": "ASUS",
+      "GPU": "NVIDIA GeForce RTX 4050 6GB",
+      "Display": "15.6-inch FHD 144Hz IPS",
+      "RAM": "16GB DDR5",
+      "Storage": "512GB PCIe 4.0 SSD"
+    },
+    "rawSpecs": "NVIDIA RTX 4050, 144Hz Display, Dual-Fan Cooling",
+    "featuresList": [
+      "Military-grade MIL-STD-810H durability",
+      "MUX Switch with NVIDIA Advanced Optimus",
+      "Arc Flow Fans with 84 curved blades"
+    ],
+    "benefits": [
+      "Smooth competitive 144Hz AAA gaming",
+      "Handles heavy 3D rendering and video editing effortlessly"
+    ],
+    "useCases": [
+      "Competitive esports",
+      "AAA PC gaming",
+      "Video rendering and 3D modeling"
+    ],
+    "targetCustomer": [
+      "Gamers",
+      "Creators",
+      "Engineering students"
+    ],
+    "occasion": [
+      "Weekend gaming, competitive play, creator sessions"
+    ],
+    "crossSellIds": [
+      "P164",
+      "P165",
+      "P161"
+    ],
+    "upsellIds": [
+      "P154"
+    ],
+    "featured": true,
+    "trending": true,
     "tags": [
-      "laptops"
+      "laptops",
+      "gaming",
+      "asus tuf",
+      "rtx 4050",
+      "gaming laptop"
     ]
   },
   {
     "product_id": "P154",
-    "name": " ASUS Zenbook S 14 / 16",
-    "brand": "",
+    "name": "ASUS Zenbook S 14 / 16",
+    "brand": "ASUS",
     "category": "laptops",
-    "categoryDisplay": "General",
-    "subCategory": "",
-    "productType": "",
-    "description": "Authentic  ASUS Zenbook S 14 / 16 from official source.",
-    "price": 0,
+    "categoryDisplay": "Laptops & Computers",
+    "subCategory": "Premium OLED Ultrabooks",
+    "productType": "Intel Core Ultra AI Laptop",
+    "description": "Ultra-slim Ceraluminum chassis, 3K 120Hz Lumina OLED display, Intel Core Ultra 7 processor with built-in NPU for on-device AI.",
+    "price": 104990,
+    "mrp": 124990,
     "currency": "INR",
-    "image": "",
-    "images": [],
+    "image": "/images/products/P154.jpg",
+    "images": [
+      "/images/products/P154.jpg"
+    ],
     "rating": 4.2,
     "reviewCount": 891,
     "stockStatus": "in_stock",
@@ -2873,12 +3139,881 @@
     "shippingCharge": "₹0",
     "returnable": true,
     "returnWindowDays": 7,
-    "specifications": {},
-    "rawSpecs": "",
+    "specifications": {
+      "Brand": "ASUS",
+      "Processor": "Intel Core Ultra 7 258V (47 NPU TOPS)",
+      "Display": "14-inch 3K (2880x1800) 120Hz Lumina OLED",
+      "RAM": "32GB LPDDR5X",
+      "Storage": "1TB PCIe 4.0 SSD"
+    },
+    "rawSpecs": "Intel Core Ultra 7, 3K 120Hz OLED, Ceraluminum Chassis",
+    "featuresList": [
+      "Pioneering Ceraluminum ceramic material body",
+      "72Wh battery with up to 27 hours runtime",
+      "4-speaker Harman Kardon Dolby Atmos audio"
+    ],
+    "benefits": [
+      "Featherweight 1.2kg premium portability",
+      "Blazing on-device AI acceleration and stunning 3K OLED visuals"
+    ],
+    "useCases": [
+      "Executive travel",
+      "AI development & data analysis",
+      "Creative photo & 4K video editing"
+    ],
+    "targetCustomer": [
+      "Tech executives",
+      "Software architects",
+      "Creative directors"
+    ],
+    "occasion": [
+      "Business travel, boardroom presentations, creative work"
+    ],
+    "crossSellIds": [
+      "P161",
+      "P162",
+      "P119"
+    ],
+    "upsellIds": [],
+    "featured": true,
+    "trending": true,
+    "tags": [
+      "laptops",
+      "asus zenbook",
+      "oled",
+      "intel core ultra",
+      "ai pc"
+    ]
+  },
+  {
+    "product_id": "P155",
+    "sku": "UH-R-01",
+    "name": "Ultrahuman Ring Air",
+    "brand": "Ultrahuman",
+    "category": "wearables",
+    "categoryDisplay": "Smart Rings & Wearables",
+    "subCategory": "Smart Rings",
+    "productType": "Health Tracker",
+    "description": "Ultra-lightweight titanium smart ring for advanced sleep, recovery, and fitness tracking.",
+    "shortDescription": "Smart fitness ring",
+    "price": 24999,
+    "mrp": 27999,
+    "discountPercentage": 10,
+    "currency": "INR",
+    "image": "/images/products/P155.jpg",
+    "images": [
+      "/images/products/P155.jpg"
+    ],
+    "rating": 4.6,
+    "reviewCount": 1204,
+    "stockStatus": "in_stock",
+    "stockQuantity": 45,
+    "deliveryEstimate": "3 days",
+    "deliveryDays": 3,
+    "shippingCharge": "₹99",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Ultrahuman",
+      "Weight": "2.4g",
+      "Material": "Fighter jet titanium",
+      "Battery Life": "6-day battery",
+      "Connectivity": "Bluetooth 5.0"
+    },
+    "rawSpecs": "2.4g weight, Fighter jet titanium, 6-day battery, Bluetooth 5.0",
+    "featuresList": [
+      "Heart rate, HRV, temperature sensor, sleep staging",
+      "2.4g featherweight titanium construction",
+      "6-day uninterrupted battery life"
+    ],
+    "benefits": [
+      "Frictionless 24/7 health tracking without a bulky screen",
+      "Precise circadian rhythm and sleep phase optimization"
+    ],
+    "useCases": [
+      "Sleep tracking, daily workout logging, and recovery monitoring"
+    ],
+    "targetCustomer": [
+      "Biohackers",
+      "Fitness enthusiasts",
+      "Athletes"
+    ],
+    "occasion": [
+      "Daily wear, gym sessions, sleep tracking"
+    ],
+    "crossSellIds": [
+      "P156"
+    ],
+    "upsellIds": [
+      "P157"
+    ],
+    "featured": true,
+    "trending": true,
+    "tags": [
+      "wearables",
+      "smart rings",
+      "ultrahuman",
+      "fitness tracker",
+      "health"
+    ]
+  },
+  {
+    "product_id": "P156",
+    "sku": "UH-C-02",
+    "name": "Ring Protector Case",
+    "brand": "Ultrahuman",
+    "category": "accessories",
+    "categoryDisplay": "Wearable Accessories",
+    "subCategory": "Wearable Cases",
+    "productType": "Protective Cover",
+    "description": "Durable silicone outer shell designed specifically for Ultrahuman Ring Air to prevent scratches during heavy lifting.",
+    "shortDescription": "Silicone ring protector",
+    "price": 999,
+    "mrp": 1199,
+    "discountPercentage": 15,
+    "currency": "INR",
+    "image": "/images/products/P156.jpg",
+    "images": [
+      "/images/products/P156.jpg"
+    ],
+    "rating": 4.3,
+    "reviewCount": 850,
+    "stockStatus": "in_stock",
+    "stockQuantity": 120,
+    "deliveryEstimate": "3 days",
+    "deliveryDays": 3,
+    "shippingCharge": "₹49",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Ultrahuman",
+      "Material": "Medical-grade silicone",
+      "Thickness": "0.5mm",
+      "Compatibility": "Ultrahuman Ring Air"
+    },
+    "rawSpecs": "0.5mm thickness, medical-grade silicone",
+    "featuresList": [
+      "0.5mm ultra-thin silicone shell",
+      "Anti-slip textured exterior",
+      "Scratch and impact resistance"
+    ],
+    "benefits": [
+      "Protects premium titanium finish from barbell knurling",
+      "Maintains full sensor accuracy while shielding exterior"
+    ],
+    "useCases": [
+      "Weight training and rugged outdoor activities"
+    ],
+    "targetCustomer": [
+      "Gym-goers",
+      "Weightlifters",
+      "Crossfitters"
+    ],
+    "occasion": [
+      "High-intensity workouts, outdoor climbing"
+    ],
+    "crossSellIds": [],
+    "upsellIds": [],
     "featured": false,
     "trending": false,
     "tags": [
-      "laptops"
+      "accessories",
+      "cases",
+      "ultrahuman",
+      "protector"
+    ]
+  },
+  {
+    "product_id": "P157",
+    "sku": "UH-T-03",
+    "name": "Ultrahuman Ring Pro",
+    "brand": "Ultrahuman",
+    "category": "wearables",
+    "categoryDisplay": "Smart Rings & Wearables",
+    "subCategory": "Smart Rings",
+    "productType": "Health Tracker",
+    "description": "Enhanced pro version with deeper metrics, live stress tracking, and extended 8-day battery life.",
+    "shortDescription": "Premium smart fitness ring",
+    "price": 34999,
+    "mrp": 36999,
+    "discountPercentage": 5,
+    "currency": "INR",
+    "image": "/images/products/P157.jpg",
+    "images": [
+      "/images/products/P157.jpg"
+    ],
+    "rating": 4.8,
+    "reviewCount": 420,
+    "stockStatus": "in_stock",
+    "stockQuantity": 15,
+    "deliveryEstimate": "4 days",
+    "deliveryDays": 4,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Ultrahuman",
+      "Material": "Grade 5 Titanium",
+      "Battery Life": "8-day battery",
+      "Sensors": "Advanced PPG + Skin Temperature + Stress"
+    },
+    "rawSpecs": "Grade 5 Titanium, 8-day battery, Advanced sensors",
+    "featuresList": [
+      "Live stress score monitoring",
+      "Advanced blood oxygen (SpO2) analytics",
+      "Grade 5 Titanium with diamond-like coating"
+    ],
+    "benefits": [
+      "Comprehensive elite health insights in a sleek form",
+      "Industry-leading 8-day continuous battery performance"
+    ],
+    "useCases": [
+      "Professional athletic training and deep health analytics"
+    ],
+    "targetCustomer": [
+      "Professional athletes",
+      "Corporate executives",
+      "Health purists"
+    ],
+    "occasion": [
+      "24/7 continuous wear, high-stress boardroom work"
+    ],
+    "crossSellIds": [
+      "P156"
+    ],
+    "upsellIds": [],
+    "featured": true,
+    "trending": true,
+    "tags": [
+      "wearables",
+      "smart rings",
+      "ultrahuman",
+      "pro",
+      "health tracker"
+    ]
+  },
+  {
+    "product_id": "P158",
+    "sku": "ARD-O-01",
+    "name": "Arduino Oplà IoT Kit",
+    "brand": "Arduino",
+    "category": "accessories",
+    "categoryDisplay": "Microcontrollers & IoT",
+    "subCategory": "Microcontrollers",
+    "productType": "IoT Dev Kit",
+    "description": "Complete kit for building smart devices. Includes MKR WiFi 1010, OLED display, and environmental sensors.",
+    "shortDescription": "IoT starter development kit",
+    "price": 9999,
+    "mrp": 11499,
+    "discountPercentage": 12,
+    "currency": "INR",
+    "image": "/images/products/P158.jpg",
+    "images": [
+      "/images/products/P158.jpg"
+    ],
+    "rating": 4.7,
+    "reviewCount": 935,
+    "stockStatus": "in_stock",
+    "stockQuantity": 30,
+    "deliveryEstimate": "2 days",
+    "deliveryDays": 2,
+    "shippingCharge": "₹99",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Arduino",
+      "Board": "MKR WiFi 1010",
+      "Display": "Circular OLED",
+      "Controls": "Capacitive Touch Buttons",
+      "Relays": "24V Relays"
+    },
+    "rawSpecs": "MKR WiFi 1010, circular OLED, touch buttons, 24V relays",
+    "featuresList": [
+      "MKR WiFi 1010 IoT board included",
+      "Integrated circular OLED screen and capacitive touch",
+      "Native Arduino Cloud integration and app dashboards"
+    ],
+    "benefits": [
+      "Fast prototyping for connected IoT devices",
+      "Complete out-of-the-box system without soldering"
+    ],
+    "useCases": [
+      "Building automated pipelines, basic electronics setups, and smart home hubs"
+    ],
+    "targetCustomer": [
+      "Engineering students",
+      "Tech innovators",
+      "Hardware hackers"
+    ],
+    "occasion": [
+      "Hackathons, college projects, competitive coding events"
+    ],
+    "crossSellIds": [
+      "P159"
+    ],
+    "upsellIds": [
+      "P160"
+    ],
+    "featured": true,
+    "trending": false,
+    "tags": [
+      "electronics",
+      "arduino",
+      "iot",
+      "microcontrollers",
+      "development kit"
+    ]
+  },
+  {
+    "product_id": "P159",
+    "sku": "ARD-S-02",
+    "name": "DHT11 & Servo Motor Pack",
+    "brand": "Arduino",
+    "category": "accessories",
+    "categoryDisplay": "Electronics Components",
+    "subCategory": "Components",
+    "productType": "Sensor & Motor Kit",
+    "description": "Essential add-on pack featuring DHT11 temperature/humidity sensors and precision servo motors.",
+    "shortDescription": "Sensor and motor expansion",
+    "price": 899,
+    "mrp": 1149,
+    "discountPercentage": 20,
+    "currency": "INR",
+    "image": "/images/products/P159.jpg",
+    "images": [
+      "/images/products/P159.jpg"
+    ],
+    "rating": 4.5,
+    "reviewCount": 1450,
+    "stockStatus": "in_stock",
+    "stockQuantity": 85,
+    "deliveryEstimate": "2 days",
+    "deliveryDays": 2,
+    "shippingCharge": "₹49",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Arduino",
+      "Motor": "5V DC Micro Servo (SG90)",
+      "Sensor": "DHT11 Digital Humidity & Temp",
+      "Compatibility": "Arduino, Raspberry Pi, ESP32"
+    },
+    "rawSpecs": "5V DC servo, DHT11 digital output",
+    "featuresList": [
+      "5V DC high-precision micro servo motor",
+      "DHT11 calibrated digital temperature & humidity sensor",
+      "Breadboard-friendly header cables included"
+    ],
+    "benefits": [
+      "Expands base kit capabilities instantly for automation",
+      "Plug-and-play with simple Arduino libraries"
+    ],
+    "useCases": [
+      "Circuit building, environmental sensing, and physical automation"
+    ],
+    "targetCustomer": [
+      "Hobbyists",
+      "B.Tech CSE students",
+      "Makers"
+    ],
+    "occasion": [
+      "Robotics competitions, weekend DIY electronics"
+    ],
+    "crossSellIds": [],
+    "upsellIds": [],
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "electronics",
+      "sensors",
+      "servo",
+      "arduino",
+      "diy"
+    ]
+  },
+  {
+    "product_id": "P160",
+    "sku": "ARD-P-03",
+    "name": "Arduino Portenta H7",
+    "brand": "Arduino",
+    "category": "accessories",
+    "categoryDisplay": "Pro Microcontrollers",
+    "subCategory": "Microcontrollers",
+    "productType": "Pro Dev Board",
+    "description": "High-performance dual-core board capable of running machine learning models and heavy AI workflows.",
+    "shortDescription": "Pro-grade AI microcontroller",
+    "price": 12499,
+    "mrp": 13599,
+    "discountPercentage": 8,
+    "currency": "INR",
+    "image": "/images/products/P160.jpg",
+    "images": [
+      "/images/products/P160.jpg"
+    ],
+    "rating": 4.9,
+    "reviewCount": 215,
+    "stockStatus": "in_stock",
+    "stockQuantity": 12,
+    "deliveryEstimate": "5 days",
+    "deliveryDays": 5,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Arduino",
+      "Processor": "STM32H747XI dual Cortex-M7 (480 MHz) + M4 (240 MHz)",
+      "Memory": "8MB SDRAM + 16MB NOR Flash",
+      "Wireless": "Murata 1DX Wi-Fi/Bluetooth module"
+    },
+    "rawSpecs": "STM32H747XI dual Cortex-M7+M4",
+    "featuresList": [
+      "Simultaneous dual-core processing (M7 + M4)",
+      "MicroPython and TensorFlow Lite AI deployment ready",
+      "Hardware secure element for cryptographic operations"
+    ],
+    "benefits": [
+      "Enterprise-grade AI inference in a micro form factor",
+      "Industrial temperature rating (-40°C to +85°C)"
+    ],
+    "useCases": [
+      "Edge computing, autonomous agents, and industrial IoT"
+    ],
+    "targetCustomer": [
+      "Advanced developers",
+      "ML engineers",
+      "Robotics labs"
+    ],
+    "occasion": [
+      "Industrial prototyping, advanced AI research"
+    ],
+    "crossSellIds": [
+      "P159"
+    ],
+    "upsellIds": [],
+    "featured": true,
+    "trending": true,
+    "tags": [
+      "electronics",
+      "arduino",
+      "portenta",
+      "ai",
+      "edge computing"
+    ]
+  },
+  {
+    "product_id": "P161",
+    "sku": "LOG-M-01",
+    "name": "Logitech MX Master 3S",
+    "brand": "Logitech",
+    "category": "accessories",
+    "categoryDisplay": "Computer Peripherals",
+    "subCategory": "Mice",
+    "productType": "Wireless Mouse",
+    "description": "Ergonomic wireless mouse with 8K DPI tracking, MagSpeed scrolling, and quiet clicks.",
+    "shortDescription": "Premium productivity mouse",
+    "price": 8999,
+    "mrp": 9999,
+    "discountPercentage": 10,
+    "currency": "INR",
+    "image": "/images/products/P161.jpg",
+    "images": [
+      "/images/products/P161.jpg"
+    ],
+    "rating": 4.8,
+    "reviewCount": 3102,
+    "stockStatus": "in_stock",
+    "stockQuantity": 60,
+    "deliveryEstimate": "2 days",
+    "deliveryDays": 2,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Logitech",
+      "Sensor": "Darkfield 8000 DPI track-on-glass",
+      "Scrolling": "MagSpeed Electromagnetic wheel",
+      "Battery Life": "Up to 70 days on full charge",
+      "Connectivity": "Bluetooth Low Energy + Logi Bolt"
+    },
+    "rawSpecs": "8000 DPI, USB-C fast charging, Bluetooth/Logi Bolt",
+    "featuresList": [
+      "Quiet Click technology with 90% less click noise",
+      "MagSpeed electromagnetic scroll wheel (1,000 lines/sec)",
+      "Cross-computer Flow control across macOS and Windows"
+    ],
+    "benefits": [
+      "Reduces wrist strain during long coding and design sessions",
+      "Tracks seamlessly on any surface, including clear glass"
+    ],
+    "useCases": [
+      "Writing Python/C code, designing UI in Figma, and heavy multitasking"
+    ],
+    "targetCustomer": [
+      "Developers",
+      "Designers",
+      "Power users"
+    ],
+    "occasion": [
+      "Daily workstation setup, productivity workflows"
+    ],
+    "crossSellIds": [
+      "P162"
+    ],
+    "upsellIds": [
+      "P163"
+    ],
+    "featured": true,
+    "trending": true,
+    "tags": [
+      "accessories",
+      "logitech",
+      "mx master 3s",
+      "mouse",
+      "productivity"
+    ]
+  },
+  {
+    "product_id": "P162",
+    "sku": "LOG-D-02",
+    "name": "Logitech Desk Mat",
+    "brand": "Logitech",
+    "category": "accessories",
+    "categoryDisplay": "Computer Peripherals",
+    "subCategory": "Mousepads",
+    "productType": "Desk Accessory",
+    "description": "Anti-slip, spill-resistant desk mat that provides a smooth glide for high-end mice.",
+    "shortDescription": "Premium desk mat",
+    "price": 1499,
+    "mrp": 1999,
+    "discountPercentage": 25,
+    "currency": "INR",
+    "image": "/images/products/P162.jpg",
+    "images": [
+      "/images/products/P162.jpg"
+    ],
+    "rating": 4.4,
+    "reviewCount": 1890,
+    "stockStatus": "in_stock",
+    "stockQuantity": 150,
+    "deliveryEstimate": "2 days",
+    "deliveryDays": 2,
+    "shippingCharge": "₹49",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Logitech",
+      "Dimensions": "30 cm x 70 cm",
+      "Material": "Spill-resistant recycled polyester",
+      "Base": "Anti-slip natural rubber"
+    },
+    "rawSpecs": "30cm x 70cm, spill-resistant coating",
+    "featuresList": [
+      "Spill-resistant coating for easy wipe-downs",
+      "Anti-fraying flat-stitched perimeter edges",
+      "Non-slip rubber base keeps mat anchored"
+    ],
+    "benefits": [
+      "Enhances workstation aesthetics and tracking consistency",
+      "Protects premium wood and glass desks from scratches"
+    ],
+    "useCases": [
+      "Desk organization and smoother mouse tracking"
+    ],
+    "targetCustomer": [
+      "Professionals",
+      "Remote workers",
+      "Desk setup enthusiasts"
+    ],
+    "occasion": [
+      "Workspace upgrade, home office setup"
+    ],
+    "crossSellIds": [],
+    "upsellIds": [],
+    "featured": false,
+    "trending": false,
+    "tags": [
+      "accessories",
+      "desk mat",
+      "logitech",
+      "mousepad",
+      "office"
+    ]
+  },
+  {
+    "product_id": "P163",
+    "sku": "LOG-K-03",
+    "name": "MX Keys Wireless Combo",
+    "brand": "Logitech",
+    "category": "accessories",
+    "categoryDisplay": "Computer Peripherals",
+    "subCategory": "Keyboards",
+    "productType": "Keyboard & Mouse",
+    "description": "The ultimate productivity bundle featuring the MX Keys advanced illuminated keyboard and MX Master 3S.",
+    "shortDescription": "Premium wireless combo",
+    "price": 18990,
+    "mrp": 22490,
+    "discountPercentage": 15,
+    "currency": "INR",
+    "image": "/images/products/P163.jpg",
+    "images": [
+      "/images/products/P163.jpg"
+    ],
+    "rating": 4.7,
+    "reviewCount": 1125,
+    "stockStatus": "in_stock",
+    "stockQuantity": 25,
+    "deliveryEstimate": "3 days",
+    "deliveryDays": 3,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Logitech",
+      "Keys": "Spherically dished Perfect Stroke keys",
+      "Illumination": "Smart hand-proximity backlighting",
+      "Pairing": "Multi-OS, up to 3 devices simultaneously"
+    },
+    "rawSpecs": "Perfect Stroke keys, Smart illumination, Multi-device",
+    "featuresList": [
+      "Perfect Stroke keys shaped for fingertips",
+      "Smart backlighting turns on as hands approach",
+      "Easy-Switch between 3 computers with Logitech Flow"
+    ],
+    "benefits": [
+      "Ultimate setup for typing speed, accuracy, and comfort",
+      "Single unifying receiver or Bluetooth connection"
+    ],
+    "useCases": [
+      "Cross-computer control, rapid typing, and seamless workflow management"
+    ],
+    "targetCustomer": [
+      "Software engineers",
+      "Content creators",
+      "Tech leads"
+    ],
+    "occasion": [
+      "Full desk overhaul, high-productivity coding sessions"
+    ],
+    "crossSellIds": [
+      "P162"
+    ],
+    "upsellIds": [],
+    "featured": true,
+    "trending": true,
+    "tags": [
+      "accessories",
+      "keyboards",
+      "logitech",
+      "mx keys",
+      "combo"
+    ]
+  },
+  {
+    "product_id": "P164",
+    "sku": "SNY-P-01",
+    "name": "PlayStation 5 Slim",
+    "brand": "Sony",
+    "category": "gaming",
+    "categoryDisplay": "Gaming Consoles",
+    "subCategory": "Consoles",
+    "productType": "Gaming Console",
+    "description": "The new, slimmer PS5 offering lightning-fast loading with an ultra-high-speed SSD and 4K gaming.",
+    "shortDescription": "Next-gen 4K gaming console",
+    "price": 44990,
+    "mrp": 49990,
+    "discountPercentage": 10,
+    "currency": "INR",
+    "image": "/images/products/P164.jpg",
+    "images": [
+      "/images/products/P164.jpg"
+    ],
+    "rating": 4.9,
+    "reviewCount": 15240,
+    "stockStatus": "in_stock",
+    "stockQuantity": 40,
+    "deliveryEstimate": "4 days",
+    "deliveryDays": 4,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Sony",
+      "Storage": "1TB Custom NVMe SSD",
+      "Output": "4K 120Hz, HDR, Tempest 3D AudioTech",
+      "Optical Drive": "Ultra HD Blu-ray (or Digital Edition modular)"
+    },
+    "rawSpecs": "1TB SSD, Ray Tracing, 120Hz output",
+    "featuresList": [
+      "Custom 1TB ultra-high-speed NVMe SSD",
+      "Ray tracing hardware acceleration for lifelike shadows",
+      "Tempest 3D AudioTech spatial sound engine"
+    ],
+    "benefits": [
+      "Near-instant loading screens across next-gen titles",
+      "30% smaller volume and 18% lighter form factor"
+    ],
+    "useCases": [
+      "Immersive AAA gaming and competitive e-sports"
+    ],
+    "targetCustomer": [
+      "Gamers",
+      "Competitive players",
+      "Living room entertainment seekers"
+    ],
+    "occasion": [
+      "Weekend gaming, e-sports tournaments, multiplayer gaming"
+    ],
+    "crossSellIds": [
+      "P165"
+    ],
+    "upsellIds": [
+      "P166"
+    ],
+    "featured": true,
+    "trending": true,
+    "tags": [
+      "gaming",
+      "playstation",
+      "ps5",
+      "sony",
+      "console"
+    ]
+  },
+  {
+    "product_id": "P165",
+    "sku": "SNY-C-02",
+    "name": "DualSense Controller",
+    "brand": "Sony",
+    "category": "gaming",
+    "categoryDisplay": "Gaming Accessories",
+    "subCategory": "Accessories",
+    "productType": "Wireless Controller",
+    "description": "Extra DualSense wireless controller featuring immersive haptic feedback and dynamic adaptive triggers.",
+    "shortDescription": "PS5 wireless controller",
+    "price": 5499,
+    "mrp": 6490,
+    "discountPercentage": 15,
+    "currency": "INR",
+    "image": "/images/products/P165.jpg",
+    "images": [
+      "/images/products/P165.jpg"
+    ],
+    "rating": 4.8,
+    "reviewCount": 8450,
+    "stockStatus": "in_stock",
+    "stockQuantity": 95,
+    "deliveryEstimate": "3 days",
+    "deliveryDays": 3,
+    "shippingCharge": "₹99",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Sony",
+      "Feedback": "Dual actuators haptic feedback",
+      "Triggers": "Dynamic adaptive resistance triggers",
+      "Audio": "Built-in microphone and 3.5mm jack",
+      "Charging": "USB Type-C"
+    },
+    "rawSpecs": "Bluetooth 5.1, USB-C, built-in mic",
+    "featuresList": [
+      "Haptic feedback replaces traditional rumble motors",
+      "Adaptive triggers simulate tension of bows and vehicle pedals",
+      "Create button to capture and broadcast gameplay"
+    ],
+    "benefits": [
+      "Physical sensations that simulate in-game actions realistically",
+      "Essential companion for local 2-player multiplayer sessions"
+    ],
+    "useCases": [
+      "Multiplayer gaming, local co-op, replacement controller"
+    ],
+    "targetCustomer": [
+      "Console owners",
+      "Multiplayer enthusiasts"
+    ],
+    "occasion": [
+      "Multiplayer sessions, FIFA/Madden tournaments, couch co-op"
+    ],
+    "crossSellIds": [],
+    "upsellIds": [],
+    "featured": false,
+    "trending": true,
+    "tags": [
+      "gaming",
+      "controller",
+      "dualsense",
+      "ps5",
+      "sony"
+    ]
+  },
+  {
+    "product_id": "P166",
+    "sku": "SNY-P-03",
+    "name": "PlayStation 5 Pro",
+    "brand": "Sony",
+    "category": "gaming",
+    "categoryDisplay": "Gaming Consoles",
+    "subCategory": "Consoles",
+    "productType": "Premium Console",
+    "description": "Upgraded PS5 Pro with advanced GPU for unmatched graphical fidelity and higher frame rates.",
+    "shortDescription": "Ultra-premium 4K console",
+    "price": 59990,
+    "mrp": 59990,
+    "discountPercentage": 0,
+    "currency": "INR",
+    "image": "/images/products/P166.jpg",
+    "images": [
+      "/images/products/P166.jpg"
+    ],
+    "rating": 4.9,
+    "reviewCount": 3110,
+    "stockStatus": "in_stock",
+    "stockQuantity": 10,
+    "deliveryEstimate": "5 days",
+    "deliveryDays": 5,
+    "shippingCharge": "₹0",
+    "returnable": true,
+    "returnWindowDays": 7,
+    "specifications": {
+      "Brand": "Sony",
+      "GPU": "Upgraded GPU with 67% more Compute Units and 28% faster memory",
+      "Storage": "2TB Custom NVMe SSD",
+      "AI Upscaling": "PlayStation Spectral Super Resolution (PSSR)",
+      "Ray Tracing": "Advanced 2x-3x faster ray tracing reflections"
+    },
+    "rawSpecs": "2TB SSD, Advanced Ray Tracing, PSSR AI Upscaling",
+    "featuresList": [
+      "PlayStation Spectral Super Resolution (PSSR) AI upscaling",
+      "Massive 2TB custom high-speed NVMe internal storage",
+      "Advanced Ray Tracing with dynamic reflections and refractions"
+    ],
+    "benefits": [
+      "Eliminates fidelity vs performance mode dilemma (Play at 4K 60fps)",
+      "The absolute pinnacle of home console graphics and performance"
+    ],
+    "useCases": [
+      "Maximum performance gaming at 4K 120fps+ with ray tracing"
+    ],
+    "targetCustomer": [
+      "Hardcore gamers",
+      "Tech enthusiasts",
+      "OLED TV owners"
+    ],
+    "occasion": [
+      "Pro gaming setups, premiere AAA title launches"
+    ],
+    "crossSellIds": [
+      "P165"
+    ],
+    "upsellIds": [],
+    "featured": true,
+    "trending": true,
+    "tags": [
+      "gaming",
+      "ps5 pro",
+      "playstation",
+      "sony",
+      "premium console"
     ]
   }
 ]

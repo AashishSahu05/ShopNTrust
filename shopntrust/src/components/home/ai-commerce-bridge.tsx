@@ -62,7 +62,7 @@ export function AICommerceBridge() {
                 Browse & Filter Yourself
               </h3>
               <p className="text-xs text-slate-400 leading-relaxed mb-6">
-                Directly explore all 54 canonical products across phones, wearables, personal audio, laptops, and lifestyle gear with precision multi-filter controls.
+                Directly explore our curated selection across phones, wearables, personal audio, laptops, gaming, and lifestyle gear with precision multi-filter controls.
               </p>
 
               {/* Journey Steps */}

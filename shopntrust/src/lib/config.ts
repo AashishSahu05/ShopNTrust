@@ -22,7 +22,9 @@ export const n8nConfig = {
     'https://shopntrust.app.n8n.cloud/webhook/1f4f8f8b-a840-4d0f-8d99-96db0cee2865',
 
   /** Payment webhook URL */
-  paymentWebhookUrl: process.env.NEXT_PUBLIC_N8N_PAYMENT_WEBHOOK_URL || '',
+  paymentWebhookUrl:
+    process.env.NEXT_PUBLIC_N8N_PAYMENT_WEBHOOK_URL ||
+    'https://shopntrust.app.n8n.cloud/webhook-test/New_Order',
 
   /** Request timeout in milliseconds */
   requestTimeoutMs: 30_000,
