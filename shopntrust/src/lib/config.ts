@@ -29,6 +29,18 @@ export const n8nConfig = {
 } as const;
 
 /**
+ * Supabase client configuration.
+ */
+export const supabaseConfig = {
+  url: process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://qfjifooftpdcgvmlargl.supabase.co',
+  anonKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'sb_publishable_7TT8bexG_KxbIovXyAxi1Q_kdQsVYA8',
+} as const;
+
+export function isSupabaseConfigured(): boolean {
+  return Boolean(supabaseConfig.url && supabaseConfig.anonKey);
+}
+
+/**
  * Application-wide constants.
  */
 export const appConfig = {

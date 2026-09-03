@@ -1,8 +1,11 @@
 // ============================================================
-// ShopNTrust — Cart State (React Context + useReducer)
+// ShopNTrust — Customer-Isolated Cart State (Supabase + React Context)
 // ============================================================
-// Phase 3 Hardened: Variant-aware cart discrimination, canonical catalog
-// validation, bounded quantities [1..10], subtotal precision, and safe persistence.
+// Hardened customer-specific cart isolation:
+// - User-scoped storage keys (`shopntrust-cart-${userId}`)
+// - Direct synchronization with Supabase (`customer_carts` table)
+// - Real-time state updates with zero duplicate ghost items on removal
+// - Seamless guest cart vs authenticated customer cart isolation
 // ============================================================
 
 'use client';
@@ -13,11 +16,14 @@ import {
   useReducer,
   useEffect,
   useCallback,
+  useRef,
   type ReactNode,
 } from 'react';
 import type { Product, ProductVariant, CartItem, CartState, CartSummary } from '@/types';
 import { appConfig } from '@/lib/config';
 import { getProductById } from '@/lib/catalog';
+import { useAuth } from '@/store/auth-context';
+import { getDbCustomerCart, saveDbCustomerCart } from '@/lib/supabase/db';
 
 // ============================================================
 // HELPERS
@@ -43,7 +49,8 @@ type CartAction =
   | { type: 'REMOVE_ITEM'; itemKey: string }
   | { type: 'UPDATE_QUANTITY'; itemKey: string; quantity: number }
   | { type: 'CLEAR_CART' }
-  | { type: 'HYDRATE'; items: CartItem[] };
+  | { type: 'HYDRATE'; items: CartItem[] }
+  | { type: 'RESET_CART' };
 
 // ============================================================
 // REDUCER
@@ -80,7 +87,7 @@ function cartReducer(state: CartState, action: CartAction): CartState {
             idx === existingIndex
               ? {
                   ...item,
-                  product: canonical, // update with canonical product reference
+                  product: canonical,
                   quantity: Math.min(
                     item.quantity + qtyToAdd,
                     appConfig.maxCartQuantity
@@ -109,28 +116,26 @@ function cartReducer(state: CartState, action: CartAction): CartState {
     case 'REMOVE_ITEM':
       return {
         ...state,
-        items: state.items.filter(
-          (item) =>
-            getCartItemKey(
-              item.product.product_id,
-              item.selectedVariant?.variant_id
-            ) !== action.itemKey &&
-            item.product.product_id !== action.itemKey
-        ),
+        items: state.items.filter((item) => {
+          const key = getCartItemKey(
+            item.product.product_id,
+            item.selectedVariant?.variant_id
+          );
+          return key !== action.itemKey && item.product.product_id !== action.itemKey;
+        }),
       };
 
     case 'UPDATE_QUANTITY': {
       if (action.quantity <= 0) {
         return {
           ...state,
-          items: state.items.filter(
-            (item) =>
-              getCartItemKey(
-                item.product.product_id,
-                item.selectedVariant?.variant_id
-              ) !== action.itemKey &&
-              item.product.product_id !== action.itemKey
-          ),
+          items: state.items.filter((item) => {
+            const key = getCartItemKey(
+              item.product.product_id,
+              item.selectedVariant?.variant_id
+            );
+            return key !== action.itemKey && item.product.product_id !== action.itemKey;
+          }),
         };
       }
 
@@ -138,23 +143,27 @@ function cartReducer(state: CartState, action: CartAction): CartState {
 
       return {
         ...state,
-        items: state.items.map((item) =>
-          getCartItemKey(
+        items: state.items.map((item) => {
+          const key = getCartItemKey(
             item.product.product_id,
             item.selectedVariant?.variant_id
-          ) === action.itemKey ||
-          item.product.product_id === action.itemKey
-            ? {
-                ...item,
-                quantity: clampedQty,
-              }
-            : item
-        ),
+          );
+          if (key === action.itemKey || item.product.product_id === action.itemKey) {
+            return {
+              ...item,
+              quantity: clampedQty,
+            };
+          }
+          return item;
+        }),
       };
     }
 
     case 'CLEAR_CART':
       return { ...state, items: [] };
+
+    case 'RESET_CART':
+      return { items: [], isLoading: false };
 
     case 'HYDRATE':
       return { items: action.items, isLoading: false };
@@ -192,62 +201,108 @@ const CartContext = createContext<CartContextValue | undefined>(undefined);
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(cartReducer, initialState);
+  const { user, isCustomer } = useAuth();
 
-  // 1. Hydrate and validate from localStorage
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(appConfig.storageKeys.cart);
-      if (stored) {
-        const parsed = JSON.parse(stored) as CartItem[];
-        if (Array.isArray(parsed)) {
-          // Re-validate against canonical catalog
-          const validatedItems: CartItem[] = [];
-          for (const item of parsed) {
-            if (!item || !item.product || typeof item.product.product_id !== 'string') continue;
-            const canonical = getProductById(item.product.product_id);
-            if (!canonical) continue; // Safely omit invalid/stale product IDs
+  const userId = isCustomer && user.role === 'customer' ? user.profile.id : null;
+  const currentUserIdRef = useRef<string | null>(userId || null);
+  const isHydratedRef = useRef(false);
 
-            // Validate variant if specified
-            let validVariant: ProductVariant | undefined = undefined;
-            if (item.selectedVariant && canonical.variants) {
-              validVariant = canonical.variants.find(
-                (v) => v.variant_id === item.selectedVariant?.variant_id
-              );
-            }
+  // Derive isolated storage key for current customer session
+  const storageKey = userId ? `shopntrust-cart-${userId}` : 'shopntrust-cart-guest';
 
-            validatedItems.push({
-              product: canonical,
-              selectedVariant: validVariant || item.selectedVariant,
-              quantity: Math.max(1, Math.min(item.quantity || 1, appConfig.maxCartQuantity)),
-              addedVia: item.addedVia || 'manual',
-              addedAt: item.addedAt || Date.now(),
-            });
-          }
-          dispatch({ type: 'HYDRATE', items: validatedItems });
-        } else {
-          dispatch({ type: 'HYDRATE', items: [] });
-        }
-      } else {
-        dispatch({ type: 'HYDRATE', items: [] });
+  // Helper to validate raw cart items from DB or storage
+  const validateCartItems = useCallback((rawItems: CartItem[]): CartItem[] => {
+    if (!Array.isArray(rawItems)) return [];
+    const validated: CartItem[] = [];
+
+    for (const item of rawItems) {
+      if (!item || !item.product || typeof item.product.product_id !== 'string') continue;
+      const canonical = getProductById(item.product.product_id);
+      if (!canonical) continue;
+
+      let validVariant: ProductVariant | undefined = undefined;
+      if (item.selectedVariant && canonical.variants) {
+        validVariant = canonical.variants.find(
+          (v) => v.variant_id === item.selectedVariant?.variant_id
+        );
       }
-    } catch {
-      dispatch({ type: 'HYDRATE', items: [] });
+
+      validated.push({
+        product: canonical,
+        selectedVariant: validVariant || item.selectedVariant,
+        quantity: Math.max(1, Math.min(item.quantity || 1, appConfig.maxCartQuantity)),
+        addedVia: item.addedVia || 'manual',
+        addedAt: item.addedAt || Date.now(),
+      });
     }
+    return validated;
   }, []);
 
-  // 2. Persist state changes
+  // Hydrate cart whenever user identity changes
   useEffect(() => {
-    if (!state.isLoading) {
+    let active = true;
+    isHydratedRef.current = false;
+    currentUserIdRef.current = userId || null;
+
+    async function loadCart() {
+      // If customer is authenticated with user ID, fetch from Supabase first
+      if (userId) {
+        try {
+          const dbCart = await getDbCustomerCart(userId);
+          if (active && dbCart && dbCart.length > 0) {
+            const validated = validateCartItems(dbCart);
+            dispatch({ type: 'HYDRATE', items: validated });
+            isHydratedRef.current = true;
+            return;
+          }
+        } catch {
+          // Fallback to local storage if network fails
+        }
+      }
+
+      // Check user-scoped local storage
       try {
-        localStorage.setItem(
-          appConfig.storageKeys.cart,
-          JSON.stringify(state.items)
-        );
+        const stored = localStorage.getItem(storageKey);
+        if (stored && active) {
+          const parsed = JSON.parse(stored) as CartItem[];
+          const validated = validateCartItems(parsed);
+          dispatch({ type: 'HYDRATE', items: validated });
+          isHydratedRef.current = true;
+          return;
+        }
       } catch {
-        // fail silently if storage quota exceeded
+        // Continue to empty cart
+      }
+
+      if (active) {
+        dispatch({ type: 'HYDRATE', items: [] });
+        isHydratedRef.current = true;
       }
     }
-  }, [state.items, state.isLoading]);
+
+    loadCart();
+
+    return () => {
+      active = false;
+    };
+  }, [userId, storageKey, validateCartItems]);
+
+  // Persist state changes to user-scoped storage & Supabase
+  useEffect(() => {
+    if (!state.isLoading && isHydratedRef.current) {
+      // 1. User-scoped LocalStorage
+      try {
+        localStorage.setItem(storageKey, JSON.stringify(state.items));
+      } catch {
+        // quota safety
+      }
+
+      // 2. Supabase DB Persistence for Authenticated Customers
+      if (userId) {
+        saveDbCustomerCart(userId, state.items);
+      }
+    }
+  }, [state.items, state.isLoading, storageKey, userId]);
 
   // Compute subtotal with canonical price resolution
   const subtotal = state.items.reduce((sum, item) => {
@@ -261,9 +316,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     totalQuantity: state.items.reduce((sum, item) => sum + item.quantity, 0),
     subtotal,
     currency: appConfig.currency,
-    aiAssistedCount: state.items.filter(
-      (item) => item.addedVia !== 'manual'
-    ).length,
+    aiAssistedCount: state.items.filter((item) => item.addedVia !== 'manual').length,
   };
 
   const addItem = useCallback(
@@ -282,12 +335,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
     dispatch({ type: 'REMOVE_ITEM', itemKey });
   }, []);
 
-  const updateQuantity = useCallback(
-    (itemKey: string, quantity: number) => {
-      dispatch({ type: 'UPDATE_QUANTITY', itemKey, quantity });
-    },
-    []
-  );
+  const updateQuantity = useCallback((itemKey: string, quantity: number) => {
+    dispatch({ type: 'UPDATE_QUANTITY', itemKey, quantity });
+  }, []);
 
   const clearCart = useCallback(() => {
     dispatch({ type: 'CLEAR_CART' });

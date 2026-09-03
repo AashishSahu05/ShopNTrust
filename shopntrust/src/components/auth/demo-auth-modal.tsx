@@ -1,8 +1,7 @@
 // ============================================================
-// ShopNTrust — Realistic Demo Authentication Modal
+// ShopNTrust — Real Supabase Customer Authentication Modal
 // ============================================================
-// Provides genuine Sign In & Create Account flows for both
-// Customer and Merchant roles with local validation.
+// Customer-facing signup and login interface powered by Supabase Auth.
 // ============================================================
 
 'use client';
@@ -14,7 +13,6 @@ import {
   User,
   Store,
   X,
-  Sparkles,
   ShieldCheck,
   ArrowRight,
   Lock,
@@ -23,9 +21,9 @@ import {
   EyeOff,
   AlertCircle,
   Check,
-  Zap,
+  Loader2,
 } from 'lucide-react';
-import { useAuth, INITIAL_DEMO_ACCOUNTS } from '@/store/auth-context';
+import { useAuth } from '@/store/auth-context';
 import { getAvailableCategories } from '@/lib/catalog';
 import type { ProductCategory } from '@/types';
 import { Button } from '@/components/ui/button';
@@ -41,7 +39,7 @@ export function DemoAuthModal() {
   // Mode: 'signin' | 'signup'
   const [authMode, setAuthMode] = useState<'signin' | 'signup'>('signin');
 
-  // Common Form Fields
+  // Form Fields
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -58,8 +56,10 @@ export function DemoAuthModal() {
   // Merchant specific
   const [storeName, setStoreName] = useState('');
 
-  // Error & Status Feedback
+  // Status Feedback
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [successMsg, setSuccessMsg] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const categories = getAvailableCategories();
 
@@ -71,54 +71,73 @@ export function DemoAuthModal() {
     );
   };
 
-  const handleQuickFill = (emailVal: string, passVal: string, nameVal?: string, storeVal?: string) => {
-    setEmail(emailVal);
-    setPassword(passVal);
-    setConfirmPassword(passVal);
-    if (nameVal) setName(nameVal);
-    if (storeVal) setStoreName(storeVal);
-    setErrorMsg(null);
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg(null);
+    setSuccessMsg(null);
+    setIsSubmitting(true);
 
-    if (authMode === 'signin') {
-      const res = signIn(activeRole, email, password);
-      if (!res.success) {
-        setErrorMsg(res.error || 'Failed to sign in.');
-      } else {
-        if (activeRole === 'merchant') {
-          router.push('/merchant');
+    try {
+      if (authMode === 'signin') {
+        const res = await signIn(activeRole, email, password);
+        if (!res.success) {
+          setErrorMsg(res.error || 'Invalid email or password.');
         } else {
-          router.push('/');
+          setSuccessMsg('Successfully signed in!');
+          setTimeout(() => {
+            closeAuthModal();
+            if (activeRole === 'merchant') {
+              router.push('/merchant');
+            } else {
+              router.push('/');
+            }
+          }, 400);
+        }
+      } else {
+        // Sign Up Validation
+        if (!name.trim()) {
+          setErrorMsg('Please enter your full name.');
+          setIsSubmitting(false);
+          return;
+        }
+        if (password.length < 6) {
+          setErrorMsg('Password must be at least 6 characters.');
+          setIsSubmitting(false);
+          return;
+        }
+        if (password !== confirmPassword) {
+          setErrorMsg('Passwords do not match. Please verify.');
+          setIsSubmitting(false);
+          return;
+        }
+
+        const res = await signUp(activeRole, {
+          name: name.trim(),
+          email: email.trim(),
+          password,
+          preferredCategories: selectedCats,
+          storeName: storeName.trim() || 'Merchant Flagship Store',
+        });
+
+        if (!res.success) {
+          setErrorMsg(res.error || 'Failed to create account.');
+        } else {
+          setSuccessMsg('Account created successfully!');
+          setTimeout(() => {
+            closeAuthModal();
+            if (activeRole === 'merchant') {
+              router.push('/merchant');
+            } else {
+              router.push('/');
+            }
+          }, 500);
         }
       }
-    } else {
-      // Sign Up Validation
-      if (password && confirmPassword && password !== confirmPassword) {
-        setErrorMsg('Passwords do not match. Please verify.');
-        return;
-      }
-
-      const res = signUp(activeRole, {
-        name: name.trim() || (activeRole === 'customer' ? 'Demo Customer' : 'Demo Merchant'),
-        email: email.trim(),
-        password: password || 'password123',
-        preferredCategories: selectedCats,
-        storeName: storeName.trim() || 'Flagship Store',
-      });
-
-      if (!res.success) {
-        setErrorMsg(res.error || 'Failed to create account.');
-      } else {
-        if (activeRole === 'merchant') {
-          router.push('/merchant');
-        } else {
-          router.push('/');
-        }
-      }
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'An unexpected error occurred.';
+      setErrorMsg(msg);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -144,21 +163,21 @@ export function DemoAuthModal() {
           {/* Modal Header */}
           <div className="mb-5">
             <div className="inline-flex items-center gap-1.5 rounded-full bg-indigo-50 px-3 py-1 text-[11px] font-bold text-snt-accent border border-indigo-200/60 mb-2">
-              <Sparkles className="size-3" />
-              <span>Realistic Demo Authentication</span>
+              <ShieldCheck className="size-3.5 text-indigo-600" />
+              <span>Real Supabase Authentication</span>
             </div>
             <h2 className="text-2xl font-extrabold tracking-tight text-foreground">
-              {authMode === 'signin' ? 'Welcome Back' : 'Create Demo Account'}
+              {authMode === 'signin' ? 'Welcome Back' : 'Create Customer Account'}
             </h2>
-            <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">
-              {activeRole === 'customer'
-                ? 'Sign in as a Customer to build session context and browse with AI shopping.'
-                : 'Sign in to the Merchant Console to manage catalog inventory operations.'}
+            <p className="mt-1 text-xs text-muted-foreground">
+              {authMode === 'signin'
+                ? 'Sign in to access your persistent cart, AI shopping history, and profile.'
+                : 'Join ShopNTrust for personalized AI commerce, verified direct catalog pricing, and private carts.'}
             </p>
           </div>
 
-          {/* Role Choice Tabs */}
-          <div className="grid grid-cols-2 gap-2 p-1 bg-secondary/80 rounded-2xl mb-4">
+          {/* Role Switcher Tab */}
+          <div className="mb-4 grid grid-cols-2 rounded-xl bg-secondary/70 p-1 text-xs font-semibold">
             <button
               type="button"
               onClick={() => {
@@ -166,13 +185,13 @@ export function DemoAuthModal() {
                 setErrorMsg(null);
               }}
               className={cn(
-                'flex items-center justify-center gap-2 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer',
+                'flex items-center justify-center gap-2 rounded-lg py-2 transition-all cursor-pointer',
                 activeRole === 'customer'
                   ? 'bg-card text-foreground shadow-xs'
                   : 'text-muted-foreground hover:text-foreground'
               )}
             >
-              <User className="size-3.5 text-snt-accent" />
+              <User className="size-3.5" />
               <span>Customer</span>
             </button>
             <button
@@ -182,19 +201,19 @@ export function DemoAuthModal() {
                 setErrorMsg(null);
               }}
               className={cn(
-                'flex items-center justify-center gap-2 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer',
+                'flex items-center justify-center gap-2 rounded-lg py-2 transition-all cursor-pointer',
                 activeRole === 'merchant'
                   ? 'bg-card text-foreground shadow-xs'
                   : 'text-muted-foreground hover:text-foreground'
               )}
             >
-              <Store className="size-3.5 text-emerald-600" />
-              <span>Merchant</span>
+              <Store className="size-3.5" />
+              <span>Merchant Console</span>
             </button>
           </div>
 
-          {/* Mode Switcher (Sign In vs Create Account) */}
-          <div className="flex border-b border-border mb-4">
+          {/* Auth Mode Tabs (Sign In / Sign Up) */}
+          <div className="flex border-b border-border/70 mb-5">
             <button
               type="button"
               onClick={() => {
@@ -202,7 +221,7 @@ export function DemoAuthModal() {
                 setErrorMsg(null);
               }}
               className={cn(
-                'flex-1 pb-2.5 text-xs font-bold transition-all border-b-2 cursor-pointer',
+                'flex-1 pb-2.5 text-xs font-bold transition-colors text-center border-b-2 cursor-pointer',
                 authMode === 'signin'
                   ? 'border-snt-accent text-snt-accent'
                   : 'border-transparent text-muted-foreground hover:text-foreground'
@@ -217,7 +236,7 @@ export function DemoAuthModal() {
                 setErrorMsg(null);
               }}
               className={cn(
-                'flex-1 pb-2.5 text-xs font-bold transition-all border-b-2 cursor-pointer',
+                'flex-1 pb-2.5 text-xs font-bold transition-colors text-center border-b-2 cursor-pointer',
                 authMode === 'signup'
                   ? 'border-snt-accent text-snt-accent'
                   : 'border-transparent text-muted-foreground hover:text-foreground'
@@ -227,105 +246,58 @@ export function DemoAuthModal() {
             </button>
           </div>
 
-          {/* Quick Demo Pre-Fill Chips */}
-          <div className="mb-4 rounded-xl bg-slate-50 border border-slate-200/80 p-2.5">
-            <div className="flex items-center gap-1.5 mb-1.5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-              <Zap className="size-3 text-amber-500" />
-              <span>1-Click Test Credentials (Evaluator Shortcut)</span>
-            </div>
-            <div className="flex flex-wrap gap-1.5">
-              {activeRole === 'customer' ? (
-                <>
-                  <button
-                    type="button"
-                    onClick={() =>
-                      handleQuickFill(
-                        INITIAL_DEMO_ACCOUNTS[0].email,
-                        INITIAL_DEMO_ACCOUNTS[0].password || 'password123',
-                        INITIAL_DEMO_ACCOUNTS[0].name
-                      )
-                    }
-                    className="text-[11px] font-medium bg-white border border-slate-200 hover:border-snt-accent px-2 py-0.5 rounded-lg text-slate-700 hover:text-snt-accent transition-colors cursor-pointer"
-                  >
-                    Aarav ({INITIAL_DEMO_ACCOUNTS[0].email})
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() =>
-                      handleQuickFill(
-                        INITIAL_DEMO_ACCOUNTS[1].email,
-                        INITIAL_DEMO_ACCOUNTS[1].password || 'password123',
-                        INITIAL_DEMO_ACCOUNTS[1].name
-                      )
-                    }
-                    className="text-[11px] font-medium bg-white border border-slate-200 hover:border-snt-accent px-2 py-0.5 rounded-lg text-slate-700 hover:text-snt-accent transition-colors cursor-pointer"
-                  >
-                    Priya ({INITIAL_DEMO_ACCOUNTS[1].email})
-                  </button>
-                </>
-              ) : (
-                <button
-                  type="button"
-                  onClick={() =>
-                    handleQuickFill(
-                      INITIAL_DEMO_ACCOUNTS[2].email,
-                      INITIAL_DEMO_ACCOUNTS[2].password || 'password123',
-                      INITIAL_DEMO_ACCOUNTS[2].name,
-                      INITIAL_DEMO_ACCOUNTS[2].storeName
-                    )
-                  }
-                  className="text-[11px] font-medium bg-white border border-slate-200 hover:border-emerald-600 px-2 py-0.5 rounded-lg text-slate-700 hover:text-emerald-700 transition-colors cursor-pointer"
-                >
-                  Apex Store ({INITIAL_DEMO_ACCOUNTS[2].email})
-                </button>
-              )}
-            </div>
-          </div>
-
-          {/* Error Banner */}
+          {/* Error & Success Feedback Alerts */}
           {errorMsg && (
-            <div className="mb-4 flex items-center gap-2 rounded-xl bg-rose-50 border border-rose-200 p-3 text-xs text-rose-700 font-medium">
-              <AlertCircle className="size-4 shrink-0" />
+            <div className="mb-4 flex items-start gap-2.5 rounded-xl bg-destructive/10 border border-destructive/20 p-3 text-xs text-destructive">
+              <AlertCircle className="size-4 shrink-0 mt-0.5" />
               <span>{errorMsg}</span>
             </div>
           )}
 
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="overflow-y-auto pr-1 space-y-3.5 flex-1">
-            {/* Create Account Fields */}
+          {successMsg && (
+            <div className="mb-4 flex items-start gap-2.5 rounded-xl bg-emerald-50 border border-emerald-200 p-3 text-xs text-emerald-700">
+              <Check className="size-4 shrink-0 mt-0.5" />
+              <span>{successMsg}</span>
+            </div>
+          )}
+
+          {/* Form Body */}
+          <form onSubmit={handleSubmit} className="space-y-3.5 overflow-y-auto pr-1 flex-1">
+            {/* Sign Up: Name Field */}
             {authMode === 'signup' && (
               <div>
-                <label className="text-[11px] font-semibold text-muted-foreground block mb-1">
+                <label className="block text-xs font-semibold text-foreground mb-1">
                   Full Name
                 </label>
                 <div className="relative">
-                  <User className="absolute left-3 top-2.5 size-4 text-muted-foreground" />
+                  <User className="absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
                   <input
                     type="text"
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    placeholder="e.g. Rohan Sen"
-                    className="h-9 w-full rounded-xl border border-border bg-background pl-9 pr-3 text-xs text-foreground focus:border-snt-accent focus:outline-none"
+                    placeholder="Aarav Sharma"
+                    className="h-10 w-full rounded-xl border border-border bg-background pl-10 pr-4 text-xs text-foreground placeholder:text-muted-foreground focus:border-snt-accent focus:outline-none focus:ring-1 focus:ring-snt-accent"
                   />
                 </div>
               </div>
             )}
 
+            {/* Merchant Sign Up: Store Name */}
             {authMode === 'signup' && activeRole === 'merchant' && (
               <div>
-                <label className="text-[11px] font-semibold text-muted-foreground block mb-1">
+                <label className="block text-xs font-semibold text-foreground mb-1">
                   Store / Brand Name
                 </label>
                 <div className="relative">
-                  <Store className="absolute left-3 top-2.5 size-4 text-muted-foreground" />
+                  <Store className="absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
                   <input
                     type="text"
                     required
                     value={storeName}
                     onChange={(e) => setStoreName(e.target.value)}
-                    placeholder="e.g. Sen Tech Store"
-                    className="h-9 w-full rounded-xl border border-border bg-background pl-9 pr-3 text-xs text-foreground focus:border-snt-accent focus:outline-none"
+                    placeholder="Apex Electronics Flagship"
+                    className="h-10 w-full rounded-xl border border-border bg-background pl-10 pr-4 text-xs text-foreground placeholder:text-muted-foreground focus:border-snt-accent focus:outline-none focus:ring-1 focus:ring-snt-accent"
                   />
                 </div>
               </div>
@@ -333,89 +305,88 @@ export function DemoAuthModal() {
 
             {/* Email Field */}
             <div>
-              <label className="text-[11px] font-semibold text-muted-foreground block mb-1">
+              <label className="block text-xs font-semibold text-foreground mb-1">
                 Email Address
               </label>
               <div className="relative">
-                <Mail className="absolute left-3 top-2.5 size-4 text-muted-foreground" />
+                <Mail className="absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
                 <input
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="name@example.com"
-                  className="h-9 w-full rounded-xl border border-border bg-background pl-9 pr-3 text-xs text-foreground focus:border-snt-accent focus:outline-none"
+                  placeholder="you@example.com"
+                  className="h-10 w-full rounded-xl border border-border bg-background pl-10 pr-4 text-xs text-foreground placeholder:text-muted-foreground focus:border-snt-accent focus:outline-none focus:ring-1 focus:ring-snt-accent"
                 />
               </div>
             </div>
 
             {/* Password Field */}
             <div>
-              <label className="text-[11px] font-semibold text-muted-foreground block mb-1">
-                Password
+              <label className="block text-xs font-semibold text-foreground mb-1">
+                Password {authMode === 'signup' && <span className="text-muted-foreground font-normal">(min. 6 characters)</span>}
               </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-2.5 size-4 text-muted-foreground" />
+                <Lock className="absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
                 <input
                   type={showPassword ? 'text' : 'password'}
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="h-9 w-full rounded-xl border border-border bg-background pl-9 pr-9 text-xs text-foreground focus:border-snt-accent focus:outline-none font-mono"
+                  className="h-10 w-full rounded-xl border border-border bg-background pl-10 pr-10 text-xs text-foreground placeholder:text-muted-foreground focus:border-snt-accent focus:outline-none focus:ring-1 focus:ring-snt-accent"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-2.5 top-2.5 text-muted-foreground hover:text-foreground cursor-pointer"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground cursor-pointer"
                 >
-                  {showPassword ? <EyeOff className="size-3.5" /> : <Eye className="size-3.5" />}
+                  {showPassword ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
                 </button>
               </div>
             </div>
 
-            {/* Confirm Password Field for Signup */}
+            {/* Sign Up: Confirm Password */}
             {authMode === 'signup' && (
               <div>
-                <label className="text-[11px] font-semibold text-muted-foreground block mb-1">
+                <label className="block text-xs font-semibold text-foreground mb-1">
                   Confirm Password
                 </label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-2.5 size-4 text-muted-foreground" />
+                  <Lock className="absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
                   <input
                     type={showPassword ? 'text' : 'password'}
                     required
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     placeholder="••••••••"
-                    className="h-9 w-full rounded-xl border border-border bg-background pl-9 pr-3 text-xs text-foreground focus:border-snt-accent focus:outline-none font-mono"
+                    className="h-10 w-full rounded-xl border border-border bg-background pl-10 pr-4 text-xs text-foreground placeholder:text-muted-foreground focus:border-snt-accent focus:outline-none focus:ring-1 focus:ring-snt-accent"
                   />
                 </div>
               </div>
             )}
 
-            {/* Preferred Categories picker for customer signup */}
+            {/* Sign Up: Customer Category Preferences */}
             {authMode === 'signup' && activeRole === 'customer' && (
-              <div>
-                <label className="text-[11px] font-semibold text-muted-foreground block mb-1.5">
-                  Select Preferred Categories (Optional)
+              <div className="pt-2">
+                <label className="block text-xs font-semibold text-foreground mb-1.5">
+                  Preferred Shopping Categories
                 </label>
-                <div className="flex flex-wrap gap-1.5 max-h-24 overflow-y-auto p-1 bg-background rounded-xl border border-border">
+                <div className="flex flex-wrap gap-1.5 max-h-24 overflow-y-auto">
                   {categories.map((cat) => {
-                    const isSelected = selectedCats.includes(cat.id);
+                    const isSelected = selectedCats.includes(cat.id as ProductCategory);
                     return (
                       <button
                         key={cat.id}
                         type="button"
-                        onClick={() => handleToggleCategory(cat.id)}
+                        onClick={() => handleToggleCategory(cat.id as ProductCategory)}
                         className={cn(
-                          'px-2 py-1 rounded-lg text-[10px] font-semibold transition-all cursor-pointer',
+                          'rounded-lg px-2.5 py-1 text-[11px] font-medium transition-all cursor-pointer',
                           isSelected
-                            ? 'bg-snt-accent text-white shadow-2xs'
-                            : 'bg-secondary text-muted-foreground hover:text-foreground'
+                            ? 'bg-snt-accent text-white font-semibold shadow-2xs'
+                            : 'bg-secondary text-muted-foreground hover:text-foreground hover:bg-secondary/80'
                         )}
                       >
-                        {isSelected && <Check className="size-2.5 inline mr-1" />}
                         {cat.label}
                       </button>
                     );
@@ -425,30 +396,26 @@ export function DemoAuthModal() {
             )}
 
             {/* Submit Button */}
-            <Button
-              type="submit"
-              size="lg"
-              className={cn(
-                'w-full h-11 text-xs font-bold gap-2 shadow-xs cursor-pointer mt-2',
-                activeRole === 'merchant'
-                  ? 'bg-slate-900 hover:bg-slate-800 text-white'
-                  : 'bg-snt-accent hover:bg-snt-accent-hover text-white'
-              )}
-            >
-              <span>
-                {authMode === 'signin'
-                  ? `Sign In as ${activeRole === 'customer' ? 'Customer' : 'Merchant'}`
-                  : `Create ${activeRole === 'customer' ? 'Customer' : 'Merchant'} Account`}
-              </span>
-              <ArrowRight className="size-3.5" />
-            </Button>
+            <div className="pt-3">
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full h-11 bg-snt-accent hover:bg-snt-accent-hover text-white font-bold text-xs rounded-xl shadow-md shadow-snt-accent/20 cursor-pointer gap-2 disabled:opacity-50"
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="size-4 animate-spin" />
+                    <span>Processing with Supabase Auth...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>{authMode === 'signin' ? 'Sign In to Account' : 'Create Account'}</span>
+                    <ArrowRight className="size-4" />
+                  </>
+                )}
+              </Button>
+            </div>
           </form>
-
-          {/* Privacy & Demo Notice */}
-          <div className="mt-4 border-t border-border pt-3 flex items-center justify-center gap-2 text-[11px] text-muted-foreground text-center">
-            <ShieldCheck className="size-3.5 text-emerald-600 shrink-0" />
-            <span>Frontend demo only • Accounts persist in browser local storage.</span>
-          </div>
         </motion.div>
       </div>
     </AnimatePresence>

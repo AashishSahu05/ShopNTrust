@@ -271,7 +271,7 @@ export function CustomerProfileDrawer({ isOpen, onClose }: CustomerProfileDrawer
               className="text-xs text-rose-600 hover:text-rose-700 hover:bg-rose-50 gap-1.5 cursor-pointer"
             >
               <LogOut className="size-3.5" />
-              <span>Log Out Demo</span>
+              <span>Sign Out</span>
             </Button>
           </div>
         </motion.div>

@@ -1,8 +1,8 @@
 // ============================================================
-// ShopNTrust — Demo Auth & Customer Context Provider
+// ShopNTrust — Real Supabase Auth & Customer Context Provider
 // ============================================================
-// Frontend-only demo authentication and session context.
-// Realistic sign in / sign up validation against local storage accounts.
+// Real authentication powered by Supabase Auth and database persistence.
+// Handles customer signup, signin, logout, profile persistence, and viewed products.
 // ============================================================
 
 'use client';
@@ -16,82 +16,44 @@ import {
   useMemo,
   type ReactNode,
 } from 'react';
+import { supabase } from '@/lib/supabase/client';
+import {
+  getDbProfile,
+  upsertDbProfile,
+  recordDbViewedProduct,
+  getDbViewedProducts,
+} from '@/lib/supabase/db';
 import type {
   UserRole,
   CustomerProfile,
   MerchantProfile,
-  DemoAccountRecord,
   DemoUser,
   AuthContextType,
   ProductCategory,
 } from '@/types';
 import { productExists } from '@/lib/catalog';
 
-// ============================================================
-// PRESET DEMO ACCOUNTS SEED
-// ============================================================
-
-export const INITIAL_DEMO_ACCOUNTS: DemoAccountRecord[] = [
-  {
-    id: 'demo-cust-1',
-    role: 'customer',
-    name: 'Aarav Sharma',
-    email: 'aarav.sharma@example.com',
-    password: 'password123',
-    preferredCategories: ['phones', 'wearables', 'headphones'],
-  },
-  {
-    id: 'demo-cust-2',
-    role: 'customer',
-    name: 'Priya Patel',
-    email: 'priya.patel@example.com',
-    password: 'password123',
-    preferredCategories: ['skincare', 'footwear', 'nutrition'],
-  },
-  {
-    id: 'demo-merch-1',
-    role: 'merchant',
-    name: 'Vikram Mehta',
-    email: 'vikram@apexretail.in',
-    password: 'password123',
-    storeName: 'Apex Flagship Store',
-  },
-];
-
-const STORAGE_KEY_AUTH = 'snt_demo_auth_state_v1';
-const STORAGE_KEY_ACCOUNTS = 'snt_demo_accounts_v1';
-const STORAGE_KEY_VIEWED = 'snt_demo_viewed_products_v1';
-
-const defaultUser: DemoUser = {
-  role: 'customer',
-  profile: {
-    name: INITIAL_DEMO_ACCOUNTS[0].name,
-    email: INITIAL_DEMO_ACCOUNTS[0].email,
-    preferredCategories: INITIAL_DEMO_ACCOUNTS[0].preferredCategories || ['phones', 'wearables'],
-  },
-  session: { viewedProductIds: [] },
+const defaultGuestUser: DemoUser = {
+  role: 'guest',
 };
 
 interface AuthState {
   user: DemoUser;
-  accounts: DemoAccountRecord[];
   viewedProductIds: string[];
   isAuthModalOpen: boolean;
   isLoading: boolean;
 }
 
 type AuthAction =
-  | { type: 'HYDRATE'; user: DemoUser; accounts: DemoAccountRecord[]; viewedProductIds: string[] }
-  | { type: 'SET_USER'; user: DemoUser }
-  | { type: 'ADD_ACCOUNT'; account: DemoAccountRecord }
+  | { type: 'SET_USER'; user: DemoUser; viewedProductIds?: string[] }
+  | { type: 'SET_LOADING'; isLoading: boolean }
   | { type: 'UPDATE_CATEGORIES'; categories: ProductCategory[] }
   | { type: 'RECORD_VIEWED'; productId: string }
   | { type: 'CLEAR_VIEWED' }
   | { type: 'SET_MODAL_OPEN'; isOpen: boolean };
 
 const initialAuthState: AuthState = {
-  user: defaultUser,
-  accounts: INITIAL_DEMO_ACCOUNTS,
+  user: defaultGuestUser,
   viewedProductIds: [],
   isAuthModalOpen: false,
   isLoading: true,
@@ -99,26 +61,16 @@ const initialAuthState: AuthState = {
 
 function authReducer(state: AuthState, action: AuthAction): AuthState {
   switch (action.type) {
-    case 'HYDRATE':
-      return {
-        ...state,
-        user: action.user,
-        accounts: action.accounts,
-        viewedProductIds: action.viewedProductIds,
-        isLoading: false,
-      };
+    case 'SET_LOADING':
+      return { ...state, isLoading: action.isLoading };
 
     case 'SET_USER':
       return {
         ...state,
         user: action.user,
+        viewedProductIds: action.viewedProductIds !== undefined ? action.viewedProductIds : state.viewedProductIds,
         isAuthModalOpen: false,
-      };
-
-    case 'ADD_ACCOUNT':
-      return {
-        ...state,
-        accounts: [...state.accounts.filter((a) => a.email.toLowerCase() !== action.account.email.toLowerCase()), action.account],
+        isLoading: false,
       };
 
     case 'UPDATE_CATEGORIES':
@@ -149,6 +101,7 @@ function authReducer(state: AuthState, action: AuthAction): AuthState {
             ? {
                 ...state.user,
                 session: {
+                  ...state.user.session,
                   viewedProductIds: updatedList,
                 },
               }
@@ -170,10 +123,7 @@ function authReducer(state: AuthState, action: AuthAction): AuthState {
       };
 
     case 'SET_MODAL_OPEN':
-      return {
-        ...state,
-        isAuthModalOpen: action.isOpen,
-      };
+      return { ...state, isAuthModalOpen: action.isOpen };
 
     default:
       return state;
@@ -185,272 +135,425 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(authReducer, initialAuthState);
 
-  // 1. Hydrate from localStorage on client mount
+  // Sync session from Supabase on mount and listen to auth changes
   useEffect(() => {
-    try {
-      let hydratedUser = defaultUser;
-      let hydratedAccounts = INITIAL_DEMO_ACCOUNTS;
-      let hydratedViewed: string[] = [];
+    let mounted = true;
 
-      const storedAccounts = localStorage.getItem(STORAGE_KEY_ACCOUNTS);
-      if (storedAccounts) {
-        const parsedAccounts = JSON.parse(storedAccounts);
-        if (Array.isArray(parsedAccounts) && parsedAccounts.length > 0) {
-          hydratedAccounts = parsedAccounts;
+    async function initSession() {
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (!mounted) return;
+
+        if (session?.user) {
+          const user = session.user;
+          const userMetadata = user.user_metadata || {};
+          const isMerchantRole = userMetadata.role === 'merchant';
+
+          if (isMerchantRole) {
+            const merchProfile: MerchantProfile = {
+              id: user.id,
+              name: userMetadata.name || user.email?.split('@')[0] || 'Merchant Partner',
+              email: user.email || '',
+              storeName: userMetadata.storeName || 'Official Merchant Store',
+            };
+            dispatch({ type: 'SET_USER', user: { role: 'merchant', profile: merchProfile }, viewedProductIds: [] });
+          } else {
+            // Load DB profile or fallback to user metadata
+            const dbProfile = await getDbProfile(user.id);
+            const custProfile: CustomerProfile = {
+              id: user.id,
+              name: dbProfile?.name || userMetadata.name || user.email?.split('@')[0] || 'Customer',
+              email: user.email || '',
+              preferredCategories: dbProfile?.preferredCategories || userMetadata.preferredCategories || ['phones', 'wearables', 'headphones'],
+            };
+
+            const dbViewed = await getDbViewedProducts(user.id);
+            dispatch({
+              type: 'SET_USER',
+              user: {
+                role: 'customer',
+                profile: custProfile,
+                session: { viewedProductIds: dbViewed },
+              },
+              viewedProductIds: dbViewed,
+            });
+          }
+        } else {
+          dispatch({ type: 'SET_USER', user: defaultGuestUser, viewedProductIds: [] });
+        }
+      } catch (err) {
+        console.error('Supabase getSession error:', err);
+        if (mounted) {
+          dispatch({ type: 'SET_USER', user: defaultGuestUser, viewedProductIds: [] });
         }
       }
-
-      const storedAuth = localStorage.getItem(STORAGE_KEY_AUTH);
-      if (storedAuth) {
-        const parsed = JSON.parse(storedAuth);
-        if (parsed && (parsed.role === 'customer' || parsed.role === 'merchant' || parsed.role === 'guest')) {
-          hydratedUser = parsed;
-        }
-      }
-
-      const storedViewed = localStorage.getItem(STORAGE_KEY_VIEWED);
-      if (storedViewed) {
-        const parsedViewed = JSON.parse(storedViewed);
-        if (Array.isArray(parsedViewed)) {
-          hydratedViewed = parsedViewed.filter((id) => typeof id === 'string' && productExists(id));
-        }
-      }
-
-      dispatch({
-        type: 'HYDRATE',
-        user: hydratedUser,
-        accounts: hydratedAccounts,
-        viewedProductIds: hydratedViewed,
-      });
-    } catch {
-      dispatch({
-        type: 'HYDRATE',
-        user: defaultUser,
-        accounts: INITIAL_DEMO_ACCOUNTS,
-        viewedProductIds: [],
-      });
     }
+
+    initSession();
+
+    const { data: authListener } = supabase.auth.onAuthStateChange(async (event, session) => {
+      if (!mounted) return;
+
+      if (event === 'SIGNED_IN' && session?.user) {
+        const user = session.user;
+        const userMetadata = user.user_metadata || {};
+        const isMerchantRole = userMetadata.role === 'merchant';
+
+        if (isMerchantRole) {
+          const merchProfile: MerchantProfile = {
+            id: user.id,
+            name: userMetadata.name || user.email?.split('@')[0] || 'Merchant Partner',
+            email: user.email || '',
+            storeName: userMetadata.storeName || 'Official Merchant Store',
+          };
+          dispatch({ type: 'SET_USER', user: { role: 'merchant', profile: merchProfile }, viewedProductIds: [] });
+        } else {
+          const dbProfile = await getDbProfile(user.id);
+          const custProfile: CustomerProfile = {
+            id: user.id,
+            name: dbProfile?.name || userMetadata.name || user.email?.split('@')[0] || 'Customer',
+            email: user.email || '',
+            preferredCategories: dbProfile?.preferredCategories || userMetadata.preferredCategories || ['phones', 'wearables', 'headphones'],
+          };
+          const dbViewed = await getDbViewedProducts(user.id);
+          dispatch({
+            type: 'SET_USER',
+            user: {
+              role: 'customer',
+              profile: custProfile,
+              session: { viewedProductIds: dbViewed },
+            },
+            viewedProductIds: dbViewed,
+          });
+        }
+      } else if (event === 'SIGNED_OUT') {
+        dispatch({ type: 'SET_USER', user: defaultGuestUser, viewedProductIds: [] });
+      }
+    });
+
+    return () => {
+      mounted = false;
+      authListener?.subscription.unsubscribe();
+    };
   }, []);
 
-  // 2. Persist state changes
-  useEffect(() => {
-    if (!state.isLoading) {
-      try {
-        localStorage.setItem(STORAGE_KEY_AUTH, JSON.stringify(state.user));
-        localStorage.setItem(STORAGE_KEY_ACCOUNTS, JSON.stringify(state.accounts));
-        localStorage.setItem(STORAGE_KEY_VIEWED, JSON.stringify(state.viewedProductIds));
-      } catch {
-        // Storage write error ignored for demo
-      }
-    }
-  }, [state.user, state.accounts, state.viewedProductIds, state.isLoading]);
-
-  // Sign In with realistic validation
+  // Real Supabase Sign In (with auto-confirm fallback)
   const signIn = useCallback(
-    (role: 'customer' | 'merchant', email: string, password?: string) => {
-      const trimmedEmail = email.trim().toLowerCase();
-      if (!trimmedEmail) {
-        return { success: false, error: 'Please enter your email address.' };
+    async (
+      role: 'customer' | 'merchant',
+      email: string,
+      password?: string
+    ): Promise<{ success: boolean; error?: string }> => {
+      if (!email.trim() || !password) {
+        return { success: false, error: 'Email and password are required.' };
       }
 
-      const match = state.accounts.find(
-        (a) => a.email.toLowerCase() === trimmedEmail && a.role === role
-      );
-
-      if (!match) {
-        return {
-          success: false,
-          error: `No demo ${role} account found with email "${email}". Please create an account first.`,
-        };
-      }
-
-      if (password && match.password && match.password !== password) {
-        return {
-          success: false,
-          error: 'Incorrect password for this demo account.',
-        };
-      }
-
-      // Log in
-      if (role === 'customer') {
-        dispatch({
-          type: 'SET_USER',
-          user: {
-            role: 'customer',
-            profile: {
-              name: match.name,
-              email: match.email,
-              preferredCategories: match.preferredCategories || ['phones', 'headphones'],
-            },
-            session: {
-              viewedProductIds: state.viewedProductIds,
-            },
-          },
+      try {
+        const { data, error } = await supabase.auth.signInWithPassword({
+          email: email.trim(),
+          password,
         });
-      } else {
-        dispatch({
-          type: 'SET_USER',
-          user: {
-            role: 'merchant',
-            profile: {
-              name: match.name,
-              email: match.email,
-              storeName: match.storeName || 'Apex Flagship Store',
-            },
-          },
-        });
-      }
 
-      return { success: true };
+        // Handle "Email not confirmed" — auto-confirm and retry
+        if (error && (
+          error.message.toLowerCase().includes('email not confirmed') ||
+          error.message.toLowerCase().includes('email_not_confirmed')
+        )) {
+          try {
+            // Call server-side API to auto-confirm the user's email
+            const confirmRes = await fetch('/api/auth/confirm', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email: email.trim() }),
+            });
+
+            if (confirmRes.ok) {
+              // Retry sign-in after confirming email
+              const { data: retryData, error: retryError } = await supabase.auth.signInWithPassword({
+                email: email.trim(),
+                password,
+              });
+
+              if (retryError) {
+                return { success: false, error: retryError.message };
+              }
+
+              if (retryData.user) {
+                const user = retryData.user;
+                const userMetadata = user.user_metadata || {};
+                const isMerchantRole = role === 'merchant' || userMetadata.role === 'merchant';
+
+                if (isMerchantRole) {
+                  const merchProfile: MerchantProfile = {
+                    id: user.id,
+                    name: userMetadata.name || user.email?.split('@')[0] || 'Merchant Partner',
+                    email: user.email || '',
+                    storeName: userMetadata.storeName || 'Official Merchant Store',
+                  };
+                  dispatch({ type: 'SET_USER', user: { role: 'merchant', profile: merchProfile }, viewedProductIds: [] });
+                } else {
+                  const dbProfile = await getDbProfile(user.id);
+                  const custProfile: CustomerProfile = {
+                    id: user.id,
+                    name: dbProfile?.name || userMetadata.name || user.email?.split('@')[0] || 'Customer',
+                    email: user.email || '',
+                    preferredCategories: dbProfile?.preferredCategories || userMetadata.preferredCategories || ['phones', 'wearables', 'headphones'],
+                  };
+                  const dbViewed = await getDbViewedProducts(user.id);
+                  dispatch({
+                    type: 'SET_USER',
+                    user: {
+                      role: 'customer',
+                      profile: custProfile,
+                      session: { viewedProductIds: dbViewed },
+                    },
+                    viewedProductIds: dbViewed,
+                  });
+                }
+
+                return { success: true };
+              }
+            }
+          } catch {
+            // Auto-confirm failed, return original error with helpful message
+          }
+
+          return { success: false, error: 'Could not verify your account. Please try again or create a new account.' };
+        }
+
+        if (error) {
+          return { success: false, error: error.message };
+        }
+
+        if (data.user) {
+          const user = data.user;
+          const userMetadata = user.user_metadata || {};
+          const isMerchantRole = role === 'merchant' || userMetadata.role === 'merchant';
+
+          if (isMerchantRole) {
+            const merchProfile: MerchantProfile = {
+              id: user.id,
+              name: userMetadata.name || user.email?.split('@')[0] || 'Merchant Partner',
+              email: user.email || '',
+              storeName: userMetadata.storeName || 'Official Merchant Store',
+            };
+            dispatch({ type: 'SET_USER', user: { role: 'merchant', profile: merchProfile }, viewedProductIds: [] });
+          } else {
+            const dbProfile = await getDbProfile(user.id);
+            const custProfile: CustomerProfile = {
+              id: user.id,
+              name: dbProfile?.name || userMetadata.name || user.email?.split('@')[0] || 'Customer',
+              email: user.email || '',
+              preferredCategories: dbProfile?.preferredCategories || userMetadata.preferredCategories || ['phones', 'wearables', 'headphones'],
+            };
+            const dbViewed = await getDbViewedProducts(user.id);
+            dispatch({
+              type: 'SET_USER',
+              user: {
+                role: 'customer',
+                profile: custProfile,
+                session: { viewedProductIds: dbViewed },
+              },
+              viewedProductIds: dbViewed,
+            });
+          }
+
+          return { success: true };
+        }
+
+        return { success: false, error: 'Failed to sign in. Please try again.' };
+      } catch (err: unknown) {
+        const errorMsg = err instanceof Error ? err.message : 'Authentication network error';
+        return { success: false, error: errorMsg };
+      }
     },
-    [state.accounts, state.viewedProductIds]
+    []
   );
 
-  // Sign Up with realistic validation
+  // Real Supabase Sign Up (with auto-confirm + auto-sign-in)
   const signUp = useCallback(
-    (
+    async (
       role: 'customer' | 'merchant',
-      data: {
+      formData: {
         name: string;
         email: string;
         password?: string;
         preferredCategories?: ProductCategory[];
         storeName?: string;
       }
-    ) => {
-      const trimmedName = data.name.trim();
-      const trimmedEmail = data.email.trim().toLowerCase();
+    ): Promise<{ success: boolean; error?: string }> => {
+      const { name, email, password, preferredCategories, storeName } = formData;
 
-      if (!trimmedName) {
-        return { success: false, error: 'Please enter your full name.' };
+      if (!name.trim() || !email.trim() || !password) {
+        return { success: false, error: 'Name, email, and password are required.' };
       }
-      if (!trimmedEmail || !trimmedEmail.includes('@')) {
-        return { success: false, error: 'Please enter a valid email address.' };
-      }
-
-      // Check if already exists for this role
-      const existing = state.accounts.find(
-        (a) => a.email.toLowerCase() === trimmedEmail && a.role === role
-      );
-      if (existing) {
-        return {
-          success: false,
-          error: `A demo ${role} account with "${data.email}" already exists. Please sign in instead.`,
-        };
+      if (password.length < 6) {
+        return { success: false, error: 'Password must be at least 6 characters.' };
       }
 
-      const newAccount: DemoAccountRecord = {
-        id: `demo-${role}-${Date.now()}`,
-        role,
-        name: trimmedName,
-        email: data.email.trim(),
-        password: data.password || 'password123',
-        preferredCategories: data.preferredCategories || ['phones', 'wearables', 'headphones'],
-        storeName: data.storeName?.trim() || 'Flagship Store',
-      };
-
-      dispatch({ type: 'ADD_ACCOUNT', account: newAccount });
-
-      // Automatically sign in newly created account
-      if (role === 'customer') {
-        dispatch({
-          type: 'SET_USER',
-          user: {
-            role: 'customer',
-            profile: {
-              name: newAccount.name,
-              email: newAccount.email,
-              preferredCategories: newAccount.preferredCategories || ['phones'],
-            },
-            session: {
-              viewedProductIds: state.viewedProductIds,
+      try {
+        const { data, error } = await supabase.auth.signUp({
+          email: email.trim(),
+          password,
+          options: {
+            data: {
+              name: name.trim(),
+              role,
+              preferredCategories: preferredCategories || ['phones', 'wearables'],
+              storeName: storeName || '',
             },
           },
         });
-      } else {
-        dispatch({
-          type: 'SET_USER',
-          user: {
-            role: 'merchant',
-            profile: {
-              name: newAccount.name,
-              email: newAccount.email,
-              storeName: newAccount.storeName || 'Flagship Store',
-            },
-          },
-        });
-      }
 
-      return { success: true };
+        if (error) {
+          return { success: false, error: error.message };
+        }
+
+        if (data.user) {
+          const user = data.user;
+
+          // Auto-confirm the email via server-side API so login works later
+          try {
+            await fetch('/api/auth/confirm', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email: email.trim() }),
+            });
+          } catch {
+            // Non-fatal: confirmation may fail if service role key is not set
+          }
+
+          // Auto-sign-in after signup to establish a proper session
+          try {
+            await supabase.auth.signInWithPassword({
+              email: email.trim(),
+              password,
+            });
+          } catch {
+            // Non-fatal: the onAuthStateChange listener will handle session
+          }
+
+          if (role === 'merchant') {
+            const merchProfile: MerchantProfile = {
+              id: user.id,
+              name: name.trim(),
+              email: user.email || email.trim(),
+              storeName: storeName || 'Merchant Store',
+            };
+            dispatch({ type: 'SET_USER', user: { role: 'merchant', profile: merchProfile }, viewedProductIds: [] });
+          } else {
+            const custProfile: CustomerProfile = {
+              id: user.id,
+              name: name.trim(),
+              email: user.email || email.trim(),
+              preferredCategories: preferredCategories || ['phones', 'wearables', 'headphones'],
+            };
+
+            // Persist profile to Supabase profiles table
+            await upsertDbProfile(user.id, custProfile);
+
+            dispatch({
+              type: 'SET_USER',
+              user: {
+                role: 'customer',
+                profile: custProfile,
+                session: { viewedProductIds: [] },
+              },
+              viewedProductIds: [],
+            });
+          }
+
+          return { success: true };
+        }
+
+        return { success: false, error: 'Sign up failed. Please try again.' };
+      } catch (err: unknown) {
+        const errorMsg = err instanceof Error ? err.message : 'Sign up network error';
+        return { success: false, error: errorMsg };
+      }
     },
-    [state.accounts, state.viewedProductIds]
+    []
   );
 
-  // Fast convenience helpers
-  const loginAsCustomer = useCallback((profileData?: Partial<CustomerProfile>) => {
-    const defaultCust = INITIAL_DEMO_ACCOUNTS[0];
-    const profile: CustomerProfile = {
-      name: profileData?.name?.trim() || defaultCust.name,
-      email: profileData?.email?.trim() || defaultCust.email,
-      preferredCategories: profileData?.preferredCategories || defaultCust.preferredCategories || ['phones'],
+  // Helper Login Shortcuts for Quick UI switching
+  const loginAsCustomer = useCallback((profileOverride?: Partial<CustomerProfile>) => {
+    const custProfile: CustomerProfile = {
+      name: profileOverride?.name || 'Customer User',
+      email: profileOverride?.email || 'customer@example.com',
+      preferredCategories: profileOverride?.preferredCategories || ['phones', 'wearables'],
     };
-
     dispatch({
       type: 'SET_USER',
       user: {
         role: 'customer',
-        profile,
-        session: {
-          viewedProductIds: state.viewedProductIds,
-        },
+        profile: custProfile,
+        session: { viewedProductIds: [] },
       },
+      viewedProductIds: [],
     });
-  }, [state.viewedProductIds]);
+  }, []);
 
-  const loginAsMerchant = useCallback((merchantData?: Partial<MerchantProfile>) => {
-    const defaultMerch = INITIAL_DEMO_ACCOUNTS[2];
-    const profile: MerchantProfile = {
-      name: merchantData?.name?.trim() || defaultMerch.name,
-      email: merchantData?.email?.trim() || defaultMerch.email,
-      storeName: merchantData?.storeName?.trim() || defaultMerch.storeName || 'Apex Flagship Store',
+  const loginAsMerchant = useCallback((merchantOverride?: Partial<MerchantProfile>) => {
+    const merchProfile: MerchantProfile = {
+      name: merchantOverride?.name || 'Merchant Partner',
+      email: merchantOverride?.email || 'merchant@shopntrust.in',
+      storeName: merchantOverride?.storeName || 'Verified Merchant Store',
     };
-
     dispatch({
       type: 'SET_USER',
       user: {
         role: 'merchant',
-        profile,
+        profile: merchProfile,
       },
+      viewedProductIds: [],
     });
   }, []);
 
-  const logout = useCallback(() => {
-    dispatch({
-      type: 'SET_USER',
-      user: { role: 'guest' },
-    });
+  // Real Supabase Logout
+  const logout = useCallback(async () => {
+    try {
+      await supabase.auth.signOut();
+    } catch {
+      // Continue client cleanup
+    }
+    dispatch({ type: 'SET_USER', user: defaultGuestUser, viewedProductIds: [] });
   }, []);
 
-  const switchRole = useCallback(
-    (newRole: UserRole) => {
-      if (newRole === 'merchant') {
-        loginAsMerchant();
-      } else if (newRole === 'customer') {
-        loginAsCustomer();
-      } else {
-        logout();
+  const switchRole = useCallback((newRole: UserRole) => {
+    if (newRole === 'merchant') {
+      loginAsMerchant();
+    } else if (newRole === 'customer') {
+      loginAsCustomer();
+    } else {
+      logout();
+    }
+  }, [loginAsMerchant, loginAsCustomer, logout]);
+
+  // Update Preferred Categories
+  const updatePreferredCategories = useCallback(
+    async (categories: ProductCategory[]) => {
+      dispatch({ type: 'UPDATE_CATEGORIES', categories });
+      if (state.user.role === 'customer' && state.user.profile.id) {
+        await upsertDbProfile(state.user.profile.id, {
+          name: state.user.profile.name,
+          email: state.user.profile.email,
+          preferredCategories: categories,
+        });
       }
     },
-    [loginAsMerchant, loginAsCustomer, logout]
+    [state.user]
   );
 
-  const updatePreferredCategories = useCallback((categories: ProductCategory[]) => {
-    dispatch({ type: 'UPDATE_CATEGORIES', categories });
-  }, []);
-
-  const recordViewedProduct = useCallback((productId: string) => {
-    dispatch({ type: 'RECORD_VIEWED', productId });
-  }, []);
+  // Record Viewed Product
+  const recordViewedProduct = useCallback(
+    (productId: string) => {
+      dispatch({ type: 'RECORD_VIEWED', productId });
+      if (state.user.role === 'customer' && state.user.profile.id) {
+        recordDbViewedProduct(state.user.profile.id, productId);
+      }
+    },
+    [state.user]
+  );
 
   const clearViewedProducts = useCallback(() => {
     dispatch({ type: 'CLEAR_VIEWED' });
@@ -464,19 +567,27 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     dispatch({ type: 'SET_MODAL_OPEN', isOpen: false });
   }, []);
 
-  const value: AuthContextType = useMemo(() => {
-    const isCustomer = state.user.role === 'customer';
-    const isMerchant = state.user.role === 'merchant';
-    const isGuest = state.user.role === 'guest';
+  // Getters
+  const role: UserRole = state.user.role;
+  const isCustomer = role === 'customer';
+  const isMerchant = role === 'merchant';
+  const isGuest = role === 'guest';
 
-    return {
+  const customerProfile: CustomerProfile | null =
+    state.user.role === 'customer' ? state.user.profile : null;
+  const merchantProfile: MerchantProfile | null =
+    state.user.role === 'merchant' ? state.user.profile : null;
+
+  const value = useMemo<AuthContextType>(
+    () => ({
       user: state.user,
-      role: state.user.role,
+      role,
       isCustomer,
       isMerchant,
       isGuest,
-      customerProfile: state.user.role === 'customer' ? state.user.profile : null,
-      merchantProfile: state.user.role === 'merchant' ? state.user.profile : null,
+      isLoading: state.isLoading,
+      customerProfile,
+      merchantProfile,
       viewedProductIds: state.viewedProductIds,
       signIn,
       signUp,
@@ -490,23 +601,31 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       isAuthModalOpen: state.isAuthModalOpen,
       openAuthModal,
       closeAuthModal,
-    };
-  }, [
-    state.user,
-    state.viewedProductIds,
-    state.isAuthModalOpen,
-    signIn,
-    signUp,
-    loginAsCustomer,
-    loginAsMerchant,
-    logout,
-    switchRole,
-    updatePreferredCategories,
-    recordViewedProduct,
-    clearViewedProducts,
-    openAuthModal,
-    closeAuthModal,
-  ]);
+    }),
+    [
+      state.user,
+      role,
+      isCustomer,
+      isMerchant,
+      isGuest,
+      state.isLoading,
+      customerProfile,
+      merchantProfile,
+      state.viewedProductIds,
+      signIn,
+      signUp,
+      loginAsCustomer,
+      loginAsMerchant,
+      logout,
+      switchRole,
+      updatePreferredCategories,
+      recordViewedProduct,
+      clearViewedProducts,
+      state.isAuthModalOpen,
+      openAuthModal,
+      closeAuthModal,
+    ]
+  );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

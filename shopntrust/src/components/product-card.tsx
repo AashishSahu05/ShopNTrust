@@ -10,11 +10,11 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Star, ShoppingBag, Check, ArrowRight } from 'lucide-react';
+import { Star, ShoppingBag, Check, ArrowRight, Trash2, Minus, Plus } from 'lucide-react';
 import type { Product } from '@/types';
 import { formatPrice } from '@/lib/format';
 import { Button } from '@/components/ui/button';
-import { useCart } from '@/store/cart-context';
+import { useCart, getCartItemKey } from '@/store/cart-context';
 import { getProductImageUrl } from '@/lib/product-images';
 import { cn } from '@/lib/utils';
 
@@ -30,12 +30,14 @@ export function ProductCard({
   className,
   showQuickAdd = true,
 }: ProductCardProps) {
-  const { addItem, isInCart } = useCart();
+  const { addItem, isInCart, getQuantity, updateQuantity } = useCart();
   const [addedAnimation, setAddedAnimation] = useState(false);
   const [imageError, setImageError] = useState(false);
 
   const imageUrl = getProductImageUrl(product.product_id);
   const inCart = isInCart(product.product_id);
+  const currentQty = getQuantity(product.product_id);
+  const itemKey = getCartItemKey(product.product_id, product.variants?.[0]?.variant_id);
 
   const handleQuickAdd = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -177,37 +179,56 @@ export function ProductCard({
 
         <div className="flex items-center gap-2">
           {showQuickAdd && product.price > 0 && product.stockStatus !== 'out_of_stock' && (
-            <Button
-              size="sm"
-              variant={addedAnimation ? 'default' : inCart ? 'secondary' : 'default'}
-              onClick={handleQuickAdd}
-              className={cn(
-                'h-8 px-3 text-xs font-semibold transition-all shadow-xs gap-1.5 cursor-pointer',
-                addedAnimation
-                  ? 'bg-snt-success text-white border-snt-success'
-                  : inCart
-                  ? 'bg-secondary text-foreground hover:bg-secondary/80'
-                  : 'bg-foreground text-background hover:bg-foreground/90'
-              )}
-              aria-label={`Add ${product.name} to cart`}
-            >
-              {addedAnimation ? (
-                <>
-                  <Check className="size-3.5" />
-                  <span>Added</span>
-                </>
-              ) : inCart ? (
-                <>
-                  <Check className="size-3.5 text-snt-success" />
-                  <span>In Cart</span>
-                </>
+            <>
+              {inCart && !addedAnimation ? (
+                /* ── Quantity Stepper (replaces Add button once in cart) ── */
+                <div className="flex items-center h-8 rounded-lg border border-snt-accent/30 bg-snt-accent/5 overflow-hidden">
+                  <button
+                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); updateQuantity(itemKey, currentQty - 1); }}
+                    className="flex items-center justify-center h-full px-2 text-snt-accent hover:bg-snt-accent/10 transition-colors cursor-pointer"
+                    title={currentQty <= 1 ? 'Remove from cart' : 'Decrease quantity'}
+                  >
+                    {currentQty <= 1 ? <Trash2 className="size-3" /> : <Minus className="size-3" />}
+                  </button>
+                  <span className="flex items-center justify-center h-full px-2 text-xs font-extrabold text-snt-accent font-mono min-w-[24px] select-none">
+                    {currentQty}
+                  </span>
+                  <button
+                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); updateQuantity(itemKey, currentQty + 1); }}
+                    className="flex items-center justify-center h-full px-2 text-snt-accent hover:bg-snt-accent/10 transition-colors cursor-pointer"
+                    title="Increase quantity"
+                  >
+                    <Plus className="size-3" />
+                  </button>
+                </div>
               ) : (
-                <>
-                  <ShoppingBag className="size-3.5" />
-                  <span>Add</span>
-                </>
+                /* ── Add / Added Button ── */
+                <Button
+                  size="sm"
+                  variant={addedAnimation ? 'default' : 'default'}
+                  onClick={handleQuickAdd}
+                  className={cn(
+                    'h-8 px-3 text-xs font-semibold transition-all shadow-xs gap-1.5 cursor-pointer',
+                    addedAnimation
+                      ? 'bg-snt-success text-white border-snt-success'
+                      : 'bg-foreground text-background hover:bg-foreground/90'
+                  )}
+                  aria-label={`Add ${product.name} to cart`}
+                >
+                  {addedAnimation ? (
+                    <>
+                      <Check className="size-3.5" />
+                      <span>Added</span>
+                    </>
+                  ) : (
+                    <>
+                      <ShoppingBag className="size-3.5" />
+                      <span>Add</span>
+                    </>
+                  )}
+                </Button>
               )}
-            </Button>
+            </>
           )}
 
           <Link

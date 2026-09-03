@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
 
     if (n8nConfig.agentWebhookUrl) {
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 12000); // 12s timeout
+      const timeoutId = setTimeout(() => controller.abort(), 30000); // 30s timeout for AI reasoning
 
       try {
         const n8nRes = await fetch(n8nConfig.agentWebhookUrl, {
@@ -71,7 +71,7 @@ export async function POST(req: NextRequest) {
             }
           }
 
-          // Parse canonical product IDs (P101-P154) from output text or intermediate steps
+          // 1. Parse canonical product IDs (P101-P154) from output text or intermediate steps
           const combinedSearch = n8nRawText + ' ' + JSON.stringify(raw.intermediateSteps || '');
           const idMatches = combinedSearch.match(/P1\d{2}/gi);
           if (idMatches) {
@@ -81,6 +81,17 @@ export async function POST(req: NextRequest) {
                 extractedIds.add(canonicalId);
               }
             });
+          }
+
+          // 2. Scan output text for canonical catalog product names (e.g. "OnePlus Nord CE6", "Samsung Galaxy S24")
+          const allCatalog = getAllProducts();
+          const sortedByNameLength = [...allCatalog].sort((a, b) => b.name.length - a.name.length);
+          const lowerOutput = n8nRawText.toLowerCase();
+
+          for (const prod of sortedByNameLength) {
+            if (prod.name.length >= 4 && lowerOutput.includes(prod.name.toLowerCase())) {
+              extractedIds.add(prod.product_id);
+            }
           }
         }
       } catch (err) {
