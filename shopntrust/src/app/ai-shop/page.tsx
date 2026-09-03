@@ -40,6 +40,12 @@ import {
   X,
   Clock,
   ChevronRight,
+  Scale,
+  SlidersHorizontal,
+  ChevronDown,
+  ChevronUp,
+  TrendingUp,
+  Zap,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/store/auth-context';
@@ -48,20 +54,144 @@ import { useAISession } from '@/store/ai-context';
 import { getProductById } from '@/lib/catalog';
 import { getProductImageUrl } from '@/lib/product-images';
 import { formatPrice } from '@/lib/format';
-import type { Product, AgentProductMatch } from '@/types';
+import type {
+  Product,
+  AgentProductMatch,
+  StructuredRecommendation,
+  AIComparisonData,
+  UpsellRecommendation,
+  CrossSellRecommendation,
+} from '@/types';
 
 // ============================================================
-// IN-CHAT PRODUCT CARD COMPONENT
+// CLEAN CUSTOMER-FACING AI MESSAGE RENDERER (PHASE 7A)
+// ============================================================
+// Ensures that raw JSON, backend field names, raw URLs, and markdown
+// syntax are cleanly formatted and 100% human-readable.
+
+function renderInlineMarkdown(text: string): React.ReactNode {
+  // Strip any accidental 'svg' or '[svg]' tokens from text
+  const clean = text.replace(/\bsvg\b/gi, '').replace(/\[svg\]/gi, '').trim();
+
+  // Pattern to find **bold**, [link](url)
+  const tokens = clean.split(/(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g);
+
+  return tokens.map((tok, i) => {
+    if (tok.startsWith('**') && tok.endsWith('**')) {
+      return (
+        <strong key={i} className="font-bold text-slate-900">
+          {tok.slice(2, -2)}
+        </strong>
+      );
+    }
+    const linkMatch = tok.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (linkMatch) {
+      const label = linkMatch[1];
+      const href = linkMatch[2];
+      const cleanHref = href.replace(/^https?:\/\/(?:localhost(?::\d+)?|127\.0\.0\.1(?::\d+)?)/i, '');
+      const finalHref = cleanHref.startsWith('/product/') ? cleanHref : '#';
+      return (
+        <Link
+          key={i}
+          href={finalHref}
+          className="text-[#5B4DFB] font-semibold hover:underline inline-flex items-center gap-0.5"
+        >
+          {label}
+        </Link>
+      );
+    }
+    return tok;
+  });
+}
+
+function CleanAIMessageRenderer({ content }: { content: string }) {
+  if (!content) return null;
+
+  // Split into lines
+  const lines = content.split(/\r?\n/);
+  const elements: React.ReactNode[] = [];
+  let currentList: { text: string; key: number }[] = [];
+
+  const flushList = () => {
+    if (currentList.length > 0) {
+      elements.push(
+        <div key={`list-${elements.length}`} className="space-y-1.5 my-1.5 pl-1">
+          {currentList.map(({ text, key }) => (
+            <div key={key} className="flex items-start gap-2 text-xs sm:text-[13px] text-slate-800 leading-relaxed">
+              <span className="size-1.5 rounded-full bg-[#5B4DFB] shrink-0 mt-2" aria-hidden="true" />
+              <span className="flex-1">{renderInlineMarkdown(text)}</span>
+            </div>
+          ))}
+        </div>
+      );
+      currentList = [];
+    }
+  };
+
+  lines.forEach((line, idx) => {
+    const trimmed = line.trim();
+
+    // 1. Never render raw JSON brackets or technical field names
+    if (
+      trimmed.startsWith('{') ||
+      trimmed.startsWith('}') ||
+      trimmed.startsWith('[') ||
+      trimmed.startsWith(']') ||
+      trimmed.includes('"recommendations":') ||
+      trimmed.includes('"actions":') ||
+      trimmed.includes('"product_id":') ||
+      trimmed.includes('"match_points":')
+    ) {
+      return;
+    }
+
+    // 2. Check for bullet list lines (•, -, *, 1.)
+    const bulletMatch = trimmed.match(/^[\u2022\-\*]\s+(.*)$/);
+    if (bulletMatch) {
+      currentList.push({ text: bulletMatch[1], key: idx });
+      return;
+    }
+
+    // If it's a regular line, flush any pending list
+    flushList();
+
+    if (!trimmed) {
+      return;
+    }
+
+    elements.push(
+      <p key={idx} className="text-xs sm:text-[13px] text-slate-800 leading-relaxed font-normal">
+        {renderInlineMarkdown(trimmed)}
+      </p>
+    );
+  });
+
+  flushList();
+
+  return <div className="space-y-2">{elements}</div>;
+}
+
+// ============================================================
+// IN-CHAT PRODUCT CARD COMPONENT (PHASE 6: EXPLAINABILITY)
 // ============================================================
 
 interface InChatCardProps {
   productId: string;
   matchData?: AgentProductMatch;
+  recommendationData?: StructuredRecommendation;
   onAdd: (product: Product) => void;
+  onCompare?: (productId: string) => void;
   isAdded: boolean;
 }
 
-function InChatProductCard({ productId, matchData, onAdd, isAdded }: InChatCardProps) {
+function InChatProductCard({
+  productId,
+  matchData,
+  recommendationData,
+  onAdd,
+  onCompare,
+  isAdded,
+}: InChatCardProps) {
   const product = getProductById(productId);
   const { isInCart, getQuantity, updateQuantity } = useCart();
   if (!product) return null;
@@ -75,6 +205,21 @@ function InChatProductCard({ productId, matchData, onAdd, isAdded }: InChatCardP
   const itemInCart = isInCart(product.product_id);
   const currentQty = getQuantity(product.product_id);
   const itemKey = getCartItemKey(product.product_id, product.variants?.[0]?.variant_id);
+
+  // Structured explainability details
+  const matchPoints =
+    recommendationData?.matchPoints ||
+    matchData?.reasoning ||
+    [];
+
+  const matchReason =
+    recommendationData?.reason ||
+    (matchData?.reasoning?.[0] ? matchData.reasoning[0] : null);
+
+  const matchLabel =
+    recommendationData?.matchLabel ||
+    matchData?.matchLabel ||
+    'Strong Match';
 
   return (
     <div className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-3.5 shadow-2xs hover:border-[#5B4DFB]/40 hover:shadow-md transition-all text-left">
@@ -91,7 +236,7 @@ function InChatProductCard({ productId, matchData, onAdd, isAdded }: InChatCardP
             />
           ) : (
             <div className="flex flex-col items-center justify-center text-slate-400">
-              <ShoppingBag className="size-6 mb-1" />
+              <ShoppingBag aria-hidden="true" focusable="false" className="size-6 mb-1" />
               <span className="text-[10px] font-mono">{product.product_id}</span>
             </div>
           )}
@@ -142,7 +287,7 @@ function InChatProductCard({ productId, matchData, onAdd, isAdded }: InChatCardP
           <div className="flex items-center gap-2 text-[10px] text-slate-500 pt-0.5">
             {product.rating && (
               <span className="flex items-center gap-0.5 text-amber-600 font-semibold bg-amber-50/80 px-1.5 py-0.5 rounded border border-amber-100/80">
-                <Star className="size-2.5 fill-amber-500 text-amber-500" />
+                <Star aria-hidden="true" focusable="false" className="size-2.5 fill-amber-500 text-amber-500" />
                 {product.rating.toFixed(1)}
               </span>
             )}
@@ -151,41 +296,61 @@ function InChatProductCard({ productId, matchData, onAdd, isAdded }: InChatCardP
             )}
           </div>
 
-          {/* Recommendation / Match Reason */}
-          {matchData?.reasoning?.[0] ? (
-            <p className="text-[10px] text-slate-600 line-clamp-2 bg-indigo-50/50 p-1.5 rounded-lg border border-indigo-100/60 mt-1 leading-relaxed">
-              <span className="font-semibold text-indigo-700">Why recommended: </span>
-              {matchData.reasoning[0]}
-            </p>
-          ) : product.description ? (
-            <p className="text-[10px] text-slate-500 line-clamp-1 mt-1 leading-relaxed">
-              {product.description}
-            </p>
-          ) : null}
+          {/* PHASE 6: WHY THIS MATCHES EXPLAINABILITY BOX */}
+          {(matchReason || matchPoints.length > 0) && (
+            <div className="mt-2 rounded-xl bg-indigo-50/60 border border-indigo-100/70 p-2 space-y-1.5">
+              <div className="flex items-center justify-between gap-1">
+                <div className="flex items-center gap-1.5 text-[10px] font-bold text-indigo-900">
+                  <Sparkles aria-hidden="true" focusable="false" className="size-3 text-[#5B4DFB] shrink-0" />
+                  <span>Why this matches</span>
+                </div>
+                <span className="text-[9.5px] font-bold text-indigo-700 bg-indigo-100/70 px-2 py-0.5 rounded-full border border-indigo-200/50">
+                  {matchLabel}
+                </span>
+              </div>
+
+              {matchReason && (
+                <p className="text-[10px] text-slate-700 leading-snug font-medium line-clamp-2">
+                  {matchReason}
+                </p>
+              )}
+
+              {matchPoints.length > 0 && (
+                <ul className="space-y-0.5 pt-0.5">
+                  {matchPoints.slice(0, 2).map((pt, idx) => (
+                    <li key={idx} className="flex items-start gap-1.5 text-[9.5px] text-slate-600 leading-tight">
+                      <CheckCircle2 aria-hidden="true" focusable="false" className="size-2.5 text-emerald-600 shrink-0 mt-0.5" />
+                      <span className="line-clamp-1">{pt}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          )}
         </div>
       </div>
 
       {/* Action Buttons Row */}
-      <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between gap-2">
+      <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between gap-1.5">
         {itemInCart ? (
           /* ── Quantity Stepper (replaces "Add to Bag" once in cart) ── */
           <div className="flex-1 flex items-center justify-center h-7 rounded-lg border border-[#5B4DFB]/30 bg-[#5B4DFB]/5 gap-0 overflow-hidden">
             <button
               onClick={() => updateQuantity(itemKey, currentQty - 1)}
-              className="flex items-center justify-center h-full px-2.5 text-[#5B4DFB] hover:bg-[#5B4DFB]/10 transition-colors cursor-pointer"
+              className="flex items-center justify-center h-full px-2 text-[#5B4DFB] hover:bg-[#5B4DFB]/10 transition-colors cursor-pointer"
               title={currentQty <= 1 ? 'Remove from bag' : 'Decrease quantity'}
             >
-              {currentQty <= 1 ? <Trash2 className="size-3" /> : <Minus className="size-3" />}
+              {currentQty <= 1 ? <Trash2 aria-hidden="true" focusable="false" className="size-3" /> : <Minus aria-hidden="true" focusable="false" className="size-3" />}
             </button>
-            <span className="flex items-center justify-center h-full px-3 text-[11px] font-extrabold text-[#5B4DFB] font-mono min-w-[28px] select-none">
+            <span className="flex items-center justify-center h-full px-2 text-[11px] font-extrabold text-[#5B4DFB] font-mono min-w-[24px] select-none">
               {currentQty}
             </span>
             <button
               onClick={() => updateQuantity(itemKey, currentQty + 1)}
-              className="flex items-center justify-center h-full px-2.5 text-[#5B4DFB] hover:bg-[#5B4DFB]/10 transition-colors cursor-pointer"
+              className="flex items-center justify-center h-full px-2 text-[#5B4DFB] hover:bg-[#5B4DFB]/10 transition-colors cursor-pointer"
               title="Increase quantity"
             >
-              <Plus className="size-3" />
+              <Plus aria-hidden="true" focusable="false" className="size-3" />
             </button>
           </div>
         ) : (
@@ -193,7 +358,7 @@ function InChatProductCard({ productId, matchData, onAdd, isAdded }: InChatCardP
           <Button
             size="sm"
             onClick={() => onAdd(product)}
-            className={`flex-1 h-7 text-[11px] font-bold rounded-lg cursor-pointer transition-all shadow-xs gap-1.5 ${
+            className={`flex-1 h-7 text-[11px] font-bold rounded-lg cursor-pointer transition-all shadow-xs gap-1 ${
               isAdded
                 ? 'bg-emerald-600 hover:bg-emerald-700 text-white'
                 : 'bg-[#5B4DFB] hover:bg-[#4d3ef7] text-white'
@@ -201,16 +366,27 @@ function InChatProductCard({ productId, matchData, onAdd, isAdded }: InChatCardP
           >
             {isAdded ? (
               <>
-                <Check className="size-3.5" />
+                <Check aria-hidden="true" focusable="false" className="size-3" />
                 <span>Added!</span>
               </>
             ) : (
               <>
-                <ShoppingBag className="size-3" />
+                <ShoppingBag aria-hidden="true" focusable="false" className="size-3" />
                 <span>Add to Bag</span>
               </>
             )}
           </Button>
+        )}
+
+        {/* Quick Compare Button */}
+        {onCompare && (
+          <button
+            onClick={() => onCompare(product.product_id)}
+            className="flex size-7 items-center justify-center rounded-lg border border-indigo-200 text-indigo-600 hover:bg-indigo-50 transition-colors shadow-2xs shrink-0 cursor-pointer"
+            title="Compare this product"
+          >
+            <Scale aria-hidden="true" focusable="false" className="size-3" />
+          </button>
         )}
 
         <Link
@@ -218,8 +394,550 @@ function InChatProductCard({ productId, matchData, onAdd, isAdded }: InChatCardP
           className="flex size-7 items-center justify-center rounded-lg border border-slate-200 text-slate-500 hover:text-[#5B4DFB] hover:border-[#5B4DFB]/40 transition-colors shadow-2xs shrink-0"
           title="View Product Details"
         >
-          <ExternalLink className="size-3" />
+          <ExternalLink aria-hidden="true" focusable="false" className="size-3" />
         </Link>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// IN-CHAT COMPARISON MATRIX COMPONENT (PHASE 6)
+// ============================================================
+
+interface InChatComparisonTableProps {
+  productIds: string[];
+  title?: string;
+  summary?: string;
+  onAdd: (product: Product) => void;
+  onClose?: () => void;
+}
+
+function InChatComparisonTable({
+  productIds,
+  title = 'Product Comparison Matrix',
+  summary,
+  onAdd,
+  onClose,
+}: InChatComparisonTableProps) {
+  const { isInCart, getQuantity, updateQuantity } = useCart();
+  const validProducts = productIds
+    .map((id) => getProductById(id))
+    .filter((p): p is Product => !!p);
+
+  if (validProducts.length < 2) return null;
+
+  return (
+    <div className="mt-3 rounded-2xl border border-indigo-200/80 bg-white overflow-hidden shadow-xs">
+      {/* Comparison Header */}
+      <div className="bg-gradient-to-r from-indigo-50 via-purple-50/50 to-white px-3.5 py-2.5 border-b border-indigo-100 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <div className="flex size-6 items-center justify-center rounded-lg bg-[#5B4DFB] text-white">
+            <Scale aria-hidden="true" focusable="false" className="size-3.5" />
+          </div>
+          <div>
+            <h4 className="text-xs font-extrabold text-slate-900 leading-tight">{title}</h4>
+            <p className="text-[10px] text-slate-500">Verified side-by-side canonical specs</p>
+          </div>
+        </div>
+
+        {onClose && (
+          <button
+            onClick={onClose}
+            className="text-slate-400 hover:text-slate-700 p-1 rounded-md transition-colors cursor-pointer"
+            title="Hide comparison"
+          >
+            <X aria-hidden="true" focusable="false" className="size-3.5" />
+          </button>
+        )}
+      </div>
+
+      {summary && (
+        <div className="px-3.5 py-2 bg-indigo-50/30 border-b border-indigo-50 text-[11px] text-slate-700 leading-snug">
+          <span className="font-bold text-indigo-700">AI Conclusion: </span>
+          {summary}
+        </div>
+      )}
+
+      {/* Comparison Grid */}
+      <div className="overflow-x-auto">
+        <table className="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr className="border-b border-slate-100 bg-slate-50/60">
+              <th className="p-3 text-[10px] font-bold uppercase tracking-wider text-slate-400 w-28 shrink-0">
+                Attributes
+              </th>
+              {validProducts.map((p) => {
+                const img = getProductImageUrl(p.product_id);
+                const itemInCart = isInCart(p.product_id);
+                const currentQty = getQuantity(p.product_id);
+                const itemKey = getCartItemKey(p.product_id, p.variants?.[0]?.variant_id);
+
+                return (
+                  <th key={p.product_id} className="p-3 min-w-[180px] align-top">
+                    <div className="flex items-center gap-2.5">
+                      <div className="relative size-12 rounded-lg bg-white border border-slate-200/80 p-1 shrink-0 overflow-hidden flex items-center justify-center">
+                        {img ? (
+                          <Image src={img} alt={p.name} fill className="object-contain" unoptimized />
+                        ) : (
+                          <ShoppingBag aria-hidden="true" focusable="false" className="size-4 text-slate-400" />
+                        )}
+                      </div>
+                      <div className="min-w-0">
+                        <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">
+                          {p.brand}
+                        </span>
+                        <Link
+                          href={`/product/${p.product_id}`}
+                          className="font-bold text-slate-900 hover:text-[#5B4DFB] line-clamp-1 block transition-colors"
+                        >
+                          {p.name}
+                        </Link>
+                        <span className="text-[9px] font-mono text-slate-400">{p.product_id}</span>
+                      </div>
+                    </div>
+
+                    {/* In-Table Add to Bag / Stepper Button */}
+                    <div className="mt-2.5">
+                      {itemInCart ? (
+                        <div className="flex items-center justify-center h-6 rounded-md border border-[#5B4DFB]/30 bg-[#5B4DFB]/5 gap-0 overflow-hidden w-full">
+                          <button
+                            onClick={() => updateQuantity(itemKey, currentQty - 1)}
+                            className="flex items-center justify-center h-full px-2 text-[#5B4DFB] hover:bg-[#5B4DFB]/10 transition-colors cursor-pointer"
+                          >
+                            {currentQty <= 1 ? <Trash2 aria-hidden="true" focusable="false" className="size-2.5" /> : <Minus aria-hidden="true" focusable="false" className="size-2.5" />}
+                          </button>
+                          <span className="flex items-center justify-center h-full px-2 text-[10px] font-extrabold text-[#5B4DFB] font-mono min-w-[20px] select-none">
+                            {currentQty}
+                          </span>
+                          <button
+                            onClick={() => updateQuantity(itemKey, currentQty + 1)}
+                            className="flex items-center justify-center h-full px-2 text-[#5B4DFB] hover:bg-[#5B4DFB]/10 transition-colors cursor-pointer"
+                          >
+                            <Plus aria-hidden="true" focusable="false" className="size-2.5" />
+                          </button>
+                        </div>
+                      ) : (
+                        <Button
+                          size="sm"
+                          onClick={() => onAdd(p)}
+                          className="w-full h-6 text-[10px] font-bold bg-[#5B4DFB] hover:bg-[#4d3ef7] text-white rounded-md cursor-pointer gap-1 shadow-2xs"
+                        >
+                          <ShoppingBag aria-hidden="true" focusable="false" className="size-2.5" />
+                          <span>Add to Bag</span>
+                        </Button>
+                      )}
+                    </div>
+                  </th>
+                );
+              })}
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-slate-100 text-[11px]">
+            {/* Price Row */}
+            <tr>
+              <td className="p-3 font-semibold text-slate-500 bg-slate-50/30">Price</td>
+              {validProducts.map((p) => (
+                <td key={p.product_id} className="p-3">
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="font-extrabold font-mono text-slate-900 text-xs">
+                      {formatPrice(p.price)}
+                    </span>
+                    {p.mrp && p.mrp > p.price && (
+                      <span className="text-[10px] text-slate-400 line-through font-mono">
+                        {formatPrice(p.mrp)}
+                      </span>
+                    )}
+                  </div>
+                </td>
+              ))}
+            </tr>
+
+            {/* Rating Row */}
+            <tr>
+              <td className="p-3 font-semibold text-slate-500 bg-slate-50/30">Rating</td>
+              {validProducts.map((p) => (
+                <td key={p.product_id} className="p-3">
+                  {p.rating ? (
+                    <span className="inline-flex items-center gap-1 text-amber-700 font-bold bg-amber-50 px-1.5 py-0.5 rounded border border-amber-100 text-[10px]">
+                      <Star aria-hidden="true" focusable="false" className="size-2.5 fill-amber-500 text-amber-500" />
+                      {p.rating.toFixed(1)} {p.reviewCount ? `(${p.reviewCount} reviews)` : ''}
+                    </span>
+                  ) : (
+                    <span className="text-slate-400">—</span>
+                  )}
+                </td>
+              ))}
+            </tr>
+
+            {/* Key Highlights Row */}
+            <tr>
+              <td className="p-3 font-semibold text-slate-500 bg-slate-50/30">Key Highlights</td>
+              {validProducts.map((p) => {
+                const highlights = p.featuresList?.slice(0, 2) || p.benefits?.slice(0, 2) || [p.description];
+                return (
+                  <td key={p.product_id} className="p-3 text-slate-700">
+                    <ul className="space-y-1">
+                      {highlights.map((h, idx) => (
+                        <li key={idx} className="flex items-start gap-1 leading-tight text-[10px]">
+                          <Check aria-hidden="true" focusable="false" className="size-2.5 text-emerald-600 shrink-0 mt-0.5" />
+                          <span>{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </td>
+                );
+              })}
+            </tr>
+
+            {/* Delivery Row */}
+            <tr>
+              <td className="p-3 font-semibold text-slate-500 bg-slate-50/30">Delivery</td>
+              {validProducts.map((p) => (
+                <td key={p.product_id} className="p-3 text-emerald-700 font-medium text-[10px]">
+                  ⚡ {p.deliveryEstimate || 'Standard 3-5 days'}
+                </td>
+              ))}
+            </tr>
+
+            {/* Return Policy */}
+            <tr>
+              <td className="p-3 font-semibold text-slate-500 bg-slate-50/30">Return Policy</td>
+              {validProducts.map((p) => (
+                <td key={p.product_id} className="p-3 text-slate-600 text-[10px]">
+                  {p.returnable !== false ? `${p.returnWindowDays || 7} Days Return Window` : 'Non-returnable'}
+                </td>
+              ))}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// IN-CHAT UPSELL COMPONENT (PHASE 7: UPGRADE OPPORTUNITY)
+// ============================================================
+
+interface InChatUpsellCardProps {
+  upsell: UpsellRecommendation;
+  onAdd: (product: Product) => void;
+  isAdded: boolean;
+}
+
+function InChatUpsellCard({ upsell, onAdd, isAdded }: InChatUpsellCardProps) {
+  const product = getProductById(upsell.productId);
+  const { isInCart, getQuantity, updateQuantity } = useCart();
+  if (!product) return null;
+
+  const imageUrl = getProductImageUrl(product.product_id);
+  const discountPercent =
+    product.mrp && product.mrp > product.price
+      ? Math.round(((product.mrp - product.price) / product.mrp) * 100)
+      : null;
+
+  const itemInCart = isInCart(product.product_id);
+  const currentQty = getQuantity(product.product_id);
+  const itemKey = getCartItemKey(product.product_id, product.variants?.[0]?.variant_id);
+
+  return (
+    <div className="mt-3 overflow-hidden rounded-2xl border border-amber-200/90 bg-gradient-to-br from-amber-50/40 via-white to-amber-50/20 p-3.5 shadow-2xs hover:shadow-md hover:border-amber-300 transition-all">
+      {/* Premium Header Badge */}
+      <div className="flex items-center justify-between gap-2 pb-2.5 border-b border-amber-100">
+        <div className="flex items-center gap-1.5">
+          <span className="flex size-5 items-center justify-center rounded-md bg-amber-500 text-white shadow-2xs">
+            <Sparkles aria-hidden="true" focusable="false" className="size-3" />
+          </span>
+          <span className="text-xs font-extrabold text-amber-950">
+            {upsell.label || 'Worth the Upgrade'}
+          </span>
+        </div>
+        <span className="text-[10px] font-bold text-amber-700 bg-amber-100/80 px-2 py-0.5 rounded-full border border-amber-200/80">
+          Premium Alternative
+        </span>
+      </div>
+
+      <div className="mt-3 flex flex-col sm:flex-row gap-3">
+        {/* Product Image */}
+        <div className="relative aspect-[16/11] sm:w-36 shrink-0 overflow-hidden rounded-xl bg-white border border-slate-200/80 p-2 flex items-center justify-center">
+          {imageUrl ? (
+            <Image
+              src={imageUrl}
+              alt={product.name}
+              fill
+              className="object-contain p-1"
+              unoptimized
+            />
+          ) : (
+            <ShoppingBag aria-hidden="true" focusable="false" className="size-8 text-slate-400" />
+          )}
+          {discountPercent && (
+            <span className="absolute top-1.5 right-1.5 rounded-md bg-emerald-50 text-emerald-700 px-1.5 py-0.5 text-[9.5px] font-bold border border-emerald-200/80">
+              {discountPercent}% OFF
+            </span>
+          )}
+        </div>
+
+        {/* Product Content */}
+        <div className="flex-1 flex flex-col justify-between">
+          <div>
+            <div className="flex items-start justify-between gap-1.5">
+              <div>
+                <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">
+                  {product.brand}
+                </span>
+                <Link
+                  href={`/product/${product.product_id}`}
+                  className="text-xs font-bold text-slate-900 hover:text-[#5B4DFB] line-clamp-1 transition-colors"
+                >
+                  {product.name}
+                </Link>
+              </div>
+              <span className="text-[9px] font-mono font-bold text-slate-400 shrink-0 bg-slate-100 px-1.5 py-0.5 rounded">
+                {product.product_id}
+              </span>
+            </div>
+
+            {/* Price & Rating */}
+            <div className="flex items-baseline gap-2 pt-1">
+              <span className="text-sm font-extrabold font-mono text-slate-900">
+                {formatPrice(product.price)}
+              </span>
+              {product.mrp && product.mrp > product.price && (
+                <span className="text-[11px] text-slate-400 line-through font-mono">
+                  {formatPrice(product.mrp)}
+                </span>
+              )}
+              {product.rating && (
+                <span className="ml-auto inline-flex items-center gap-0.5 text-[10px] text-amber-700 font-bold bg-amber-50 px-1.5 py-0.5 rounded border border-amber-100">
+                  <Star aria-hidden="true" focusable="false" className="size-2.5 fill-amber-500 text-amber-500" />
+                  {product.rating.toFixed(1)}
+                </span>
+              )}
+            </div>
+
+            {/* "Why this upgrade?" Box */}
+            <div className="mt-2 rounded-xl bg-amber-50/70 border border-amber-200/60 p-2 space-y-1">
+              <p className="text-[10px] font-bold text-amber-900 flex items-center gap-1.5">
+                <TrendingUp aria-hidden="true" focusable="false" className="size-3 text-amber-600" />
+                <span>Why this upgrade?</span>
+              </p>
+              {upsell.reason && (
+                <p className="text-[10px] text-slate-700 leading-snug font-medium">
+                  {upsell.reason}
+                </p>
+              )}
+              {upsell.benefits && upsell.benefits.length > 0 && (
+                <ul className="space-y-0.5 pt-0.5">
+                  {upsell.benefits.map((b, idx) => (
+                    <li key={idx} className="flex items-start gap-1.5 text-[9.5px] text-slate-600 leading-tight">
+                      <CheckCircle2 aria-hidden="true" focusable="false" className="size-2.5 text-emerald-600 shrink-0 mt-0.5" />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+
+          {/* Action Row */}
+          <div className="mt-3 pt-2 border-t border-amber-100/70 flex items-center justify-between gap-1.5">
+            {itemInCart ? (
+              <div className="flex-1 flex items-center justify-center h-7 rounded-lg border border-[#5B4DFB]/30 bg-[#5B4DFB]/5 gap-0 overflow-hidden">
+                <button
+                  onClick={() => updateQuantity(itemKey, currentQty - 1)}
+                  className="flex items-center justify-center h-full px-2 text-[#5B4DFB] hover:bg-[#5B4DFB]/10 transition-colors cursor-pointer"
+                  title={currentQty <= 1 ? 'Remove from bag' : 'Decrease quantity'}
+                >
+                  {currentQty <= 1 ? <Trash2 aria-hidden="true" focusable="false" className="size-3" /> : <Minus aria-hidden="true" focusable="false" className="size-3" />}
+                </button>
+                <span className="flex items-center justify-center h-full px-2 text-[11px] font-extrabold text-[#5B4DFB] font-mono min-w-[24px] select-none">
+                  {currentQty}
+                </span>
+                <button
+                  onClick={() => updateQuantity(itemKey, currentQty + 1)}
+                  className="flex items-center justify-center h-full px-2 text-[#5B4DFB] hover:bg-[#5B4DFB]/10 transition-colors cursor-pointer"
+                  title="Increase quantity"
+                >
+                  <Plus aria-hidden="true" focusable="false" className="size-3" />
+                </button>
+              </div>
+            ) : (
+              <Button
+                size="sm"
+                onClick={() => onAdd(product)}
+                className={`flex-1 h-7 text-[11px] font-bold rounded-lg cursor-pointer transition-all shadow-xs gap-1 ${
+                  isAdded
+                    ? 'bg-emerald-600 hover:bg-emerald-700 text-white'
+                    : 'bg-amber-600 hover:bg-amber-700 text-white'
+                }`}
+              >
+                {isAdded ? (
+                  <>
+                    <Check aria-hidden="true" focusable="false" className="size-3" />
+                    <span>Added!</span>
+                  </>
+                ) : (
+                  <>
+                    <ShoppingBag aria-hidden="true" focusable="false" className="size-3" />
+                    <span>Add to Bag</span>
+                  </>
+                )}
+              </Button>
+            )}
+
+            <Link
+              href={`/product/${product.product_id}`}
+              className="flex size-7 items-center justify-center rounded-lg border border-slate-200 text-slate-500 hover:text-[#5B4DFB] hover:border-[#5B4DFB]/40 transition-colors shadow-2xs shrink-0"
+              title="View Product Details"
+            >
+              <ExternalLink aria-hidden="true" focusable="false" className="size-3" />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// IN-CHAT CROSS-SELL COMPONENT (PHASE 7: COMPLEMENTARY ADD-ONS)
+// ============================================================
+
+interface InChatCrossSellSectionProps {
+  items: CrossSellRecommendation[];
+  onAdd: (product: Product) => void;
+  addedItemIds: Record<string, boolean>;
+}
+
+function InChatCrossSellSection({
+  items,
+  onAdd,
+  addedItemIds,
+}: InChatCrossSellSectionProps) {
+  const { isInCart, getQuantity, updateQuantity } = useCart();
+  const validItems = items
+    .map((item) => ({ ...item, product: getProductById(item.productId) }))
+    .filter((item): item is typeof item & { product: Product } => !!item.product);
+
+  if (validItems.length === 0) return null;
+
+  return (
+    <div className="mt-3 rounded-2xl border border-emerald-200/80 bg-gradient-to-br from-emerald-50/40 via-white to-emerald-50/20 p-3.5 shadow-2xs">
+      <div className="flex items-center justify-between pb-2 border-b border-emerald-100">
+        <div className="flex items-center gap-1.5">
+          <span className="flex size-5 items-center justify-center rounded-md bg-emerald-600 text-white shadow-2xs">
+            <PlusCircle aria-hidden="true" focusable="false" className="size-3" />
+          </span>
+          <span className="text-xs font-extrabold text-emerald-950">
+            {items[0]?.label || 'Complete Your Setup'}
+          </span>
+        </div>
+        <span className="text-[10px] font-bold text-emerald-700 bg-emerald-100/80 px-2 py-0.5 rounded-full border border-emerald-200/80">
+          Pairs Well With Selection
+        </span>
+      </div>
+
+      <div className="mt-2.5 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+        {validItems.map(({ product, reason, benefits }) => {
+          const imageUrl = getProductImageUrl(product.product_id);
+          const itemInCart = isInCart(product.product_id);
+          const currentQty = getQuantity(product.product_id);
+          const itemKey = getCartItemKey(product.product_id, product.variants?.[0]?.variant_id);
+
+          return (
+            <div
+              key={product.product_id}
+              className="flex flex-col justify-between rounded-xl border border-emerald-100 bg-white p-2.5 shadow-2xs hover:border-emerald-300 transition-all"
+            >
+              <div>
+                <div className="flex items-center gap-2">
+                  <div className="relative size-12 rounded-lg bg-slate-50 border border-slate-100 p-1 shrink-0 overflow-hidden flex items-center justify-center">
+                    {imageUrl ? (
+                      <Image src={imageUrl} alt={product.name} fill className="object-contain" unoptimized />
+                    ) : (
+                      <ShoppingBag aria-hidden="true" focusable="false" className="size-4 text-slate-400" />
+                    )}
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">
+                      {product.brand}
+                    </span>
+                    <Link
+                      href={`/product/${product.product_id}`}
+                      className="text-xs font-bold text-slate-900 hover:text-[#5B4DFB] line-clamp-1 block transition-colors"
+                    >
+                      {product.name}
+                    </Link>
+                    <span className="text-[11px] font-extrabold font-mono text-slate-900">
+                      {formatPrice(product.price)}
+                    </span>
+                  </div>
+                </div>
+
+                {/* "Why this add-on?" Section */}
+                {(reason || (benefits && benefits.length > 0)) && (
+                  <div className="mt-2 rounded-lg bg-emerald-50/60 border border-emerald-100/80 p-1.5 space-y-0.5">
+                    <p className="text-[9px] font-bold text-emerald-900">Why this add-on?</p>
+                    {reason && (
+                      <p className="text-[9.5px] text-slate-600 leading-snug line-clamp-2">
+                        {reason}
+                      </p>
+                    )}
+                    {benefits && benefits.length > 0 && (
+                      <p className="text-[9px] text-slate-500 flex items-center gap-1 line-clamp-1 pt-0.5">
+                        <CheckCircle2 aria-hidden="true" focusable="false" className="size-2.5 text-emerald-600 shrink-0" />
+                        <span>{benefits[0]}</span>
+                      </p>
+                    )}
+                  </div>
+                )}
+              </div>
+
+              {/* Add to Bag Stepper Button */}
+              <div className="mt-2 pt-2 border-t border-slate-100">
+                {itemInCart ? (
+                  <div className="flex items-center justify-center h-6 rounded-md border border-[#5B4DFB]/30 bg-[#5B4DFB]/5 gap-0 overflow-hidden w-full">
+                    <button
+                      onClick={() => updateQuantity(itemKey, currentQty - 1)}
+                      className="flex items-center justify-center h-full px-2 text-[#5B4DFB] hover:bg-[#5B4DFB]/10 transition-colors cursor-pointer"
+                    >
+                      {currentQty <= 1 ? <Trash2 aria-hidden="true" focusable="false" className="size-2.5" /> : <Minus aria-hidden="true" focusable="false" className="size-2.5" />}
+                    </button>
+                    <span className="flex items-center justify-center h-full px-2 text-[10px] font-extrabold text-[#5B4DFB] font-mono min-w-[20px] select-none">
+                      {currentQty}
+                    </span>
+                    <button
+                      onClick={() => updateQuantity(itemKey, currentQty + 1)}
+                      className="flex items-center justify-center h-full px-2 text-[#5B4DFB] hover:bg-[#5B4DFB]/10 transition-colors cursor-pointer"
+                    >
+                      <Plus aria-hidden="true" focusable="false" className="size-2.5" />
+                    </button>
+                  </div>
+                ) : (
+                  <Button
+                    size="sm"
+                    onClick={() => onAdd(product)}
+                    className="w-full h-6 text-[10px] font-bold bg-[#5B4DFB] hover:bg-[#4d3ef7] text-white rounded-md cursor-pointer gap-1 shadow-2xs"
+                  >
+                    {addedItemIds[product.product_id] ? (
+                      <>
+                        <Check aria-hidden="true" focusable="false" className="size-2.5" />
+                        <span>Added!</span>
+                      </>
+                    ) : (
+                      <>
+                        <ShoppingBag aria-hidden="true" focusable="false" className="size-2.5" />
+                        <span>Add Add-on</span>
+                      </>
+                    )}
+                  </Button>
+                )}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -236,6 +954,7 @@ export default function AIShopPage() {
   const {
     messages,
     sendMessage,
+    compareProducts,
     isLoading,
     loadingStep,
     activeBudget,
@@ -265,6 +984,7 @@ export default function AIShopPage() {
   const [inputText, setInputText] = useState('');
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [addedItemIds, setAddedItemIds] = useState<Record<string, boolean>>({});
+  const [expandedComparisons, setExpandedComparisons] = useState<Record<string, boolean>>({});
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -542,13 +1262,11 @@ export default function AIShopPage() {
                   /* Assistant Message Bubble */
                   <div className="flex items-start gap-3 max-w-2xl">
                     <div className="flex size-7 items-center justify-center rounded-lg bg-[#5B4DFB]/10 text-[#5B4DFB] shrink-0 mt-1">
-                      <Sparkles className="size-4" />
+                      <Sparkles aria-hidden="true" focusable="false" className="size-4" />
                     </div>
                     <div className="w-full rounded-2xl bg-slate-50 border border-slate-100 p-4 text-xs sm:text-[13px] text-slate-800 leading-relaxed space-y-3">
-                      {/* REAL AI Customer-Facing Output */}
-                      <p className="whitespace-pre-line text-slate-800 leading-relaxed font-normal">
-                        {msg.content}
-                      </p>
+                      {/* REAL AI Customer-Facing Output rendered cleanly */}
+                      <CleanAIMessageRenderer content={msg.content} />
 
                       {/* Error Retry Option */}
                       {msg.status === 'error' && lastFailedQuery && (
@@ -559,32 +1277,105 @@ export default function AIShopPage() {
                             onClick={retryLastQuery}
                             className="h-7 text-xs border-red-200 text-red-600 hover:bg-red-50 gap-1.5 cursor-pointer"
                           >
-                            <RotateCcw className="size-3" />
+                            <RotateCcw aria-hidden="true" focusable="false" className="size-3" />
                             <span>Retry Query</span>
                           </Button>
                         </div>
                       )}
 
-                      {/* Recommended Live Product Cards inside the Conversation */}
+                      {/* Recommended Live Product Cards inside the Conversation (Phase 6) */}
                       {msg.recommendedProductIds && msg.recommendedProductIds.length > 0 && (
-                        <div className="pt-2 space-y-2">
-                          <p className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">
-                            Recommended Canonical Products:
-                          </p>
+                        <div className="pt-2 space-y-2.5">
+                          {/* Section Header with Comparison Trigger */}
+                          <div className="flex items-center justify-between gap-2">
+                            <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800">
+                              <Sparkles aria-hidden="true" focusable="false" className="size-3.5 text-[#5B4DFB] shrink-0" />
+                              <span>Recommended Products ({msg.recommendedProductIds.length})</span>
+                            </div>
+                            {msg.recommendedProductIds.length >= 2 && (
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setExpandedComparisons((prev) => ({
+                                    ...prev,
+                                    [msg.id]: !prev[msg.id],
+                                  }));
+                                }}
+                                className="inline-flex items-center gap-1.5 text-[10.5px] font-bold text-[#5B4DFB] hover:text-[#4d3ef7] bg-indigo-50 hover:bg-indigo-100/80 border border-indigo-200/70 px-2.5 py-1 rounded-lg transition-colors cursor-pointer shadow-2xs"
+                              >
+                                <Scale aria-hidden="true" focusable="false" className="size-3.5 shrink-0" />
+                                <span>
+                                  {expandedComparisons[msg.id] || msg.comparison?.enabled
+                                    ? 'Hide Comparison'
+                                    : 'Compare Options'}
+                                </span>
+                              </button>
+                            )}
+                          </div>
+
+                          {/* Recommendation Product Cards Grid */}
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                             {msg.recommendedProductIds.map((pId) => {
                               const matchObj = msg.matches?.find((m) => m.productId === pId);
+                              const recObj = msg.recommendations?.find((r) => r.productId === pId);
                               return (
                                 <InChatProductCard
                                   key={pId}
                                   productId={pId}
                                   matchData={matchObj}
+                                  recommendationData={recObj}
                                   onAdd={handleAddProduct}
+                                  onCompare={(selectedId) => {
+                                    const otherId = msg.recommendedProductIds?.find((id) => id !== selectedId);
+                                    if (otherId) {
+                                      compareProducts([selectedId, otherId]);
+                                    } else {
+                                      compareProducts([selectedId]);
+                                    }
+                                  }}
                                   isAdded={!!addedItemIds[pId]}
                                 />
                               );
                             })}
                           </div>
+
+                          {/* In-Chat Comparison Table Component */}
+                          {(msg.comparison?.enabled || expandedComparisons[msg.id]) && (
+                            <InChatComparisonTable
+                              productIds={msg.comparison?.productIds || msg.recommendedProductIds.slice(0, 2)}
+                              title={msg.comparison?.title || 'Side-by-Side Product Comparison'}
+                              summary={msg.comparison?.summary}
+                              onAdd={handleAddProduct}
+                              onClose={() =>
+                                setExpandedComparisons((prev) => ({ ...prev, [msg.id]: false }))
+                              }
+                            />
+                          )}
+                        </div>
+                      )}
+
+                      {/* Phase 7: AI-Powered Contextual Upsell ("Worth the Upgrade") */}
+                      {msg.upsell && msg.upsell.length > 0 && (
+                        <div className="pt-1">
+                          {msg.upsell.map((u) => (
+                            <InChatUpsellCard
+                              key={u.productId}
+                              upsell={u}
+                              onAdd={handleAddProduct}
+                              isAdded={!!addedItemIds[u.productId]}
+                            />
+                          ))}
+                        </div>
+                      )}
+
+                      {/* Phase 7: AI-Powered Contextual Cross-Sell ("Pairs Well With") */}
+                      {msg.crossSell && msg.crossSell.length > 0 && (
+                        <div className="pt-1">
+                          <InChatCrossSellSection
+                            items={msg.crossSell}
+                            onAdd={handleAddProduct}
+                            addedItemIds={addedItemIds}
+                          />
                         </div>
                       )}
 

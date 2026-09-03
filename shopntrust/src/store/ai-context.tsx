@@ -41,6 +41,7 @@ interface AIContextValue {
   historySessions: DbChatSession[];
   isHistoryOpen: boolean;
   sendMessage: (query: string) => Promise<void>;
+  compareProducts: (productIds: string[]) => Promise<void>;
   startNewChat: () => void;
   loadHistorySession: (sessionId: string) => Promise<void>;
   openHistoryDrawer: () => void;
@@ -215,8 +216,14 @@ export function AISessionProvider({ children }: { children: ReactNode }) {
           timestamp: Date.now(),
           extractedIntent: agentRes.extractedIntent,
           recommendedProductIds: agentRes.recommendedProductIds,
+          recommendations: agentRes.recommendations,
+          comparison: agentRes.comparison,
+          upsell: agentRes.upsell,
+          crossSell: agentRes.crossSell,
+          actions: agentRes.actions,
           matches: agentRes.matches,
           recommendationReasons: agentRes.recommendationReasons,
+          matchFactors: agentRes.matchFactors,
           suggestedPrompts: agentRes.suggestedPrompts,
           status: 'success',
         };
@@ -265,6 +272,19 @@ export function AISessionProvider({ children }: { children: ReactNode }) {
     ]
   );
 
+  // Quick Compare Products Trigger
+  const compareProducts = useCallback(
+    async (productIds: string[]) => {
+      const validNames = productIds.map((id) => getProductById(id)?.name).filter(Boolean);
+      if (validNames.length >= 2) {
+        await sendMessage(`Compare ${validNames[0]} and ${validNames[1]}`);
+      } else {
+        await sendMessage(`Compare these recommended options`);
+      }
+    },
+    [sendMessage]
+  );
+
   const retryLastQuery = useCallback(async () => {
     if (lastFailedQuery) {
       await sendMessage(lastFailedQuery);
@@ -285,6 +305,7 @@ export function AISessionProvider({ children }: { children: ReactNode }) {
       historySessions,
       isHistoryOpen,
       sendMessage,
+      compareProducts,
       startNewChat,
       loadHistorySession,
       openHistoryDrawer,
@@ -301,6 +322,7 @@ export function AISessionProvider({ children }: { children: ReactNode }) {
       historySessions,
       isHistoryOpen,
       sendMessage,
+      compareProducts,
       startNewChat,
       loadHistorySession,
       openHistoryDrawer,

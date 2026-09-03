@@ -15,6 +15,9 @@ import type {
   AgentExtractedIntent,
   AgentProductMatch,
   AgentContextPayload,
+  UpsellRecommendation,
+  CrossSellRecommendation,
+  AIAction,
 } from '@/types';
 import { formatPrice } from '@/lib/format';
 
@@ -334,6 +337,7 @@ export async function queryDemoAgent(
       message: `I couldn't find a direct match for your request in our current 54-product catalog. Try adjusting your criteria or search by popular categories.`,
       extractedIntent: intent,
       recommendedProductIds: [],
+      recommendations: [],
       matches: [],
       suggestedPrompts: [
         'Find flagship smartphones',
@@ -344,21 +348,209 @@ export async function queryDemoAgent(
     };
   }
 
+  // Build StructuredRecommendation array
+  const structuredRecs = matches.map((m) => {
+    const prod = getProductById(m.productId);
+    return {
+      productId: m.productId,
+      reason: reasons[m.productId] || `Verified catalog recommendation under ${prod?.categoryDisplay || prod?.category || 'Electronics'}.`,
+      matchPoints: m.reasoning,
+      matchLabel: m.matchLabel,
+    };
+  });
+
+  const matchFactors: Record<string, string[]> = {};
+  for (const m of matches) {
+    matchFactors[m.productId] = m.reasoning;
+  }
+
+  // Detect explicit comparison requests
+  const isComparisonQuery =
+    lower.includes('compare') ||
+    lower.includes('difference') ||
+    lower.includes('which is better') ||
+    lower.includes('vs') ||
+    lower.includes('versus');
+
+  let comparison = undefined;
+  if (isComparisonQuery && recommendedIds.length >= 2) {
+    const comparedProducts = recommendedIds.slice(0, 2).map((id) => getProductById(id)?.name).join(' vs ');
+    comparison = {
+      enabled: true,
+      productIds: recommendedIds.slice(0, 2),
+      title: 'Product Comparison Matrix',
+      summary: `Comparing ${comparedProducts} based on verified canonical catalog specifications.`,
+    };
+  }
+
+  // Phase 7: Contextual Upsell & Cross-Sell Generation
+  const cartProductIds = new Set<string>(
+    (context?.session?.cartProductIds || []).map((id) => id.toUpperCase().trim())
+  );
+  const recommendedSet = new Set<string>(recommendedIds);
+
+  const upsell: UpsellRecommendation[] = [];
+  const crossSell: CrossSellRecommendation[] = [];
+
+  if (recommendedIds.length > 0) {
+    const primaryId = recommendedIds[0];
+    const primaryProd = getProductById(primaryId);
+
+    if (primaryProd) {
+      // Upsell Opportunities
+      if (primaryProd.category === 'phones' && primaryId !== 'P106') {
+        const up = getProductById('P106');
+        if (up && !recommendedSet.has('P106') && !cartProductIds.has('P106')) {
+          upsell.push({
+            productId: 'P106',
+            sourceProductId: primaryId,
+            label: 'Worth the Upgrade',
+            reason: 'Upgrade to flagship 200MP Quad Zoom & titanium frame for professional-grade photography and sustained performance.',
+            benefits: [
+              '200MP Quad Optical Zoom Camera',
+              'Snapdragon 8 Gen 3 with 5,000 mAh all-day battery',
+              'Grade 5 Titanium frame with S-Pen stylus included',
+            ],
+          });
+        }
+      } else if ((primaryProd.category === 'footwear' || primaryProd.category === 'apparel') && primaryId === 'P133') {
+        const up = getProductById('P134');
+        if (up && !recommendedSet.has('P134') && !cartProductIds.has('P134')) {
+          upsell.push({
+            productId: 'P134',
+            sourceProductId: 'P133',
+            label: 'Worth the Upgrade',
+            reason: 'Step up to max-cushion ZoomX foam for maximum joint protection and effortless long-distance recovery runs.',
+            benefits: [
+              'Full-length Nike ZoomX maximum cushioning',
+              'Wider platform midsole for enhanced lateral stability',
+              'Engineered Flyknit upper for adaptive breathability',
+            ],
+          });
+        }
+      } else if (primaryProd.category === 'headphones' && primaryId !== 'P117') {
+        const up = getProductById('P117');
+        if (up && !recommendedSet.has('P117') && !cartProductIds.has('P117')) {
+          upsell.push({
+            productId: 'P117',
+            sourceProductId: primaryId,
+            label: 'Worth the Upgrade',
+            reason: 'Upgrade to industry-benchmark Auto NC Optimizer dual-processor Active Noise Cancellation.',
+            benefits: [
+              'Industry-leading 8-microphone ANC with dual V1/QN1 processors',
+              '30-hour battery life with 3-minute quick charging',
+              'Hi-Res Audio Wireless with LDAC support',
+            ],
+          });
+        }
+      }
+
+      const upsellSet = new Set<string>(upsell.map((u) => u.productId));
+
+      // Cross-Sell Opportunities
+      if (primaryProd.category === 'phones') {
+        const earbud = getProductById('P137');
+        if (earbud && !recommendedSet.has('P137') && !upsellSet.has('P137') && !cartProductIds.has('P137')) {
+          crossSell.push({
+            productId: 'P137',
+            sourceProductId: primaryId,
+            label: 'Pairs Well With',
+            reason: 'Complete your mobile setup with pocketable true wireless earbuds featuring ENx call noise isolation.',
+            benefits: [
+              'Low latency gaming & video sync',
+              'IPX4 splash and sweat resistance for daily commuting',
+            ],
+          });
+        }
+        const watch = getProductById('P119');
+        if (watch && !recommendedSet.has('P119') && !upsellSet.has('P119') && !cartProductIds.has('P119')) {
+          crossSell.push({
+            productId: 'P119',
+            sourceProductId: primaryId,
+            label: 'Complete Your Setup',
+            reason: 'Track real-time fitness metrics and get notifications on your wrist synced to your smartphone.',
+            benefits: [
+              'Body composition BIA sensor & sleep coaching',
+              'Sapphire crystal display with Wear OS seamless sync',
+            ],
+          });
+        }
+      } else if (primaryProd.category === 'footwear' || primaryProd.category === 'apparel') {
+        const watch = getProductById('P107');
+        if (watch && !recommendedSet.has('P107') && !upsellSet.has('P107') && !cartProductIds.has('P107')) {
+          crossSell.push({
+            productId: 'P107',
+            sourceProductId: primaryId,
+            label: 'Essential Workout Add-on',
+            reason: 'Track pace, heart rate zones, and GPS running routes during your training sessions.',
+            benefits: [
+              'Precision GPS route & pace tracking',
+              'Cardio heart rate zones and elevation metrics',
+            ],
+          });
+        }
+      } else if (primaryProd.category === 'headphones') {
+        const watch = getProductById('P119');
+        if (watch && !recommendedSet.has('P119') && !upsellSet.has('P119') && !cartProductIds.has('P119')) {
+          crossSell.push({
+            productId: 'P119',
+            sourceProductId: primaryId,
+            label: 'Pairs Well With',
+            reason: 'Control offline music and volume directly from your wrist while running or working out.',
+            benefits: [
+              'Standalone Spotify & YouTube Music offline playback',
+              'Hands-free Bluetooth audio controls',
+            ],
+          });
+        }
+      }
+    }
+  }
+
+  // Phase 7 Actions
+  const actions: AIAction[] = [];
+  if (comparison) {
+    actions.push({ type: 'SHOW_COMPARISON', productIds: comparison.productIds });
+  } else {
+    actions.push({ type: 'SHOW_PRODUCTS', productIds: recommendedIds });
+  }
+  if (upsell.length > 0) {
+    actions.push({ type: 'SHOW_UPSELL', productIds: upsell.map((u) => u.productId) });
+  }
+  if (crossSell.length > 0) {
+    actions.push({ type: 'SHOW_CROSS_SELL', productIds: crossSell.map((c) => c.productId) });
+  }
+
   const primaryMatch = matches[0];
   const primaryProduct = getProductById(primaryMatch.productId);
-  const message = `Based on your request, I matched **${primaryProduct?.name || 'verified products'}** from our canonical catalog. Here is a breakdown of why these options fit your stated requirements:`;
+  const message = isComparisonQuery && comparison
+    ? `Here is a side-by-side comparison of **${comparison.productIds.map((id) => getProductById(id)?.name).join('** and **')}** directly from our verified catalog:`
+    : `Based on your request, I matched **${primaryProduct?.name || 'verified products'}** from our canonical catalog. Here is a breakdown of why these options fit your stated requirements:`;
 
   return {
     message,
     extractedIntent: intent,
     recommendedProductIds: recommendedIds,
+    recommendations: structuredRecs,
+    comparison,
+    upsell: upsell.length > 0 ? upsell : undefined,
+    crossSell: crossSell.length > 0 ? crossSell : undefined,
+    actions,
     matches,
     recommendationReasons: reasons,
-    suggestedPrompts: [
-      'Compare these recommendations',
-      'What are the charging specs?',
-      'Show more budget-friendly alternatives',
-      'Look for matching accessories',
-    ],
+    matchFactors,
+    suggestedPrompts: comparison
+      ? [
+          'Add first item to bag',
+          'Add second item to bag',
+          'Which one has faster delivery?',
+          'Continue browsing catalog',
+        ]
+      : [
+          'Compare these options',
+          'What are the charging specs?',
+          'Show more budget-friendly alternatives',
+          'Look for matching accessories',
+        ],
   };
 }

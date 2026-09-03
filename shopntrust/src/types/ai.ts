@@ -73,6 +73,100 @@ export interface AgentContextPayload {
 }
 
 /**
+ * Structured recommendation item provided by n8n or catalog reasoning.
+ */
+export interface StructuredRecommendation {
+  /** Canonical product ID (P101–P154) */
+  productId: string;
+
+  /** Concise customer-facing explanation of why this product matches */
+  reason?: string;
+
+  /** Specific match factors / bullets derived from query & session */
+  matchPoints?: string[];
+
+  /** Qualitative match assessment */
+  matchLabel?: MatchLabel;
+}
+
+/**
+ * Structured comparison metadata for inline product comparison.
+ */
+export interface AIComparisonData {
+  /** Whether comparison mode is active/enabled */
+  enabled: boolean;
+
+  /** Canonical product IDs to compare */
+  productIds: string[];
+
+  /** Optional comparison title (e.g. "Flagship Camera Comparison") */
+  title?: string;
+
+  /** Optional summary highlight from AI reasoning */
+  summary?: string;
+}
+
+/**
+ * Structured upsell recommendation (better / premium alternative).
+ */
+export interface UpsellRecommendation {
+  /** Canonical product ID of the upgrade (P101–P154) */
+  productId: string;
+
+  /** Canonical product ID of the product being upgraded (if applicable) */
+  sourceProductId?: string;
+
+  /** Customer-facing reason why this upgrade is worth considering */
+  reason?: string;
+
+  /** Concrete improvement bullets / benefits */
+  benefits?: string[];
+
+  /** Display badge label (e.g. "Worth the Upgrade", "Premium Alternative") */
+  label?: string;
+}
+
+/**
+ * Structured cross-sell recommendation (complementary product / accessory).
+ */
+export interface CrossSellRecommendation {
+  /** Canonical product ID of the complementary item (P101–P154) */
+  productId: string;
+
+  /** Canonical product ID of the item it pairs with */
+  sourceProductId?: string;
+
+  /** Customer-facing reason why this add-on complements the setup */
+  reason?: string;
+
+  /** Complementary utility bullets */
+  benefits?: string[];
+
+  /** Display badge label (e.g. "Pairs Well With", "Complete Your Setup") */
+  label?: string;
+}
+
+/** Supported structured agent action types */
+export type AIActionType =
+  | 'SHOW_PRODUCTS'
+  | 'SHOW_COMPARISON'
+  | 'SHOW_UPSELL'
+  | 'SHOW_CROSS_SELL'
+  | 'ADD_TO_BAG'
+  | 'REMOVE_FROM_BAG'
+  | 'UPDATE_QUANTITY'
+  | 'OPEN_CART'
+  | 'OPEN_CHECKOUT';
+
+/** Structured action returned by agent */
+export interface AIAction {
+  type: AIActionType;
+  productIds?: string[];
+  quantity?: number;
+  metadata?: Record<string, unknown>;
+}
+
+/**
  * A single message in the AI conversation.
  */
 export interface AIMessage {
@@ -94,8 +188,23 @@ export interface AIMessage {
   /** Product IDs recommended in this message (assistant only) */
   recommendedProductIds?: string[];
 
+  /** Structured recommendation items with reason & match points (assistant only) */
+  recommendations?: StructuredRecommendation[];
+
   /** Detailed match data per product (assistant only) */
   matches?: AgentProductMatch[];
+
+  /** Structured inline comparison data (assistant only) */
+  comparison?: AIComparisonData;
+
+  /** Structured upsell upgrade items (assistant only - Phase 7) */
+  upsell?: UpsellRecommendation[];
+
+  /** Structured complementary cross-sell items (assistant only - Phase 7) */
+  crossSell?: CrossSellRecommendation[];
+
+  /** Structured actions dispatched by the agent (assistant only) */
+  actions?: AIAction[];
 
   /** Recommendation reasons per product (keyed by product_id) */
   recommendationReasons?: Record<string, string>;
@@ -146,6 +255,21 @@ export interface NormalizedAIResponse {
 
   /** Product IDs recommended by the agent */
   recommendedProductIds: string[];
+
+  /** Structured recommendation items with reasons & match points */
+  recommendations?: StructuredRecommendation[];
+
+  /** Structured comparison data */
+  comparison?: AIComparisonData;
+
+  /** Structured upsell recommendations (Phase 7) */
+  upsell?: UpsellRecommendation[];
+
+  /** Structured cross-sell recommendations (Phase 7) */
+  crossSell?: CrossSellRecommendation[];
+
+  /** Structured agent actions */
+  actions?: AIAction[];
 
   /** Detailed match data */
   matches?: AgentProductMatch[];

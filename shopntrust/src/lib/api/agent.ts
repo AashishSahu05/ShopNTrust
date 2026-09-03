@@ -18,6 +18,11 @@ import type {
   AgentContextPayload,
   AgentProductMatch,
   AgentExtractedIntent,
+  StructuredRecommendation,
+  AIComparisonData,
+  UpsellRecommendation,
+  CrossSellRecommendation,
+  AIAction,
 } from '@/types';
 
 /**
@@ -278,7 +283,30 @@ export function normalizeAgentResponse(
   const intent = extractIntentFromQuery(query);
   const recommendedProductIds = Array.from(extractedIds).slice(0, 3);
   const matches: AgentProductMatch[] = [];
+  const structuredRecs: StructuredRecommendation[] = [];
   const reasons: Record<string, string> = {};
+  const matchFactors: Record<string, string[]> = {};
+
+  // Parse structured recommendations if raw contains it
+  if (Array.isArray(raw.recommendations)) {
+    for (const item of raw.recommendations) {
+      if (item && typeof item === 'object') {
+        const r = item as Record<string, unknown>;
+        const pId = String(r.product_id || r.productId || '').toUpperCase().trim();
+        if (pId && getProductById(pId)) {
+          if (!recommendedProductIds.includes(pId) && recommendedProductIds.length < 3) {
+            recommendedProductIds.push(pId);
+          }
+          const rawPts = Array.isArray(r.match_points) ? r.match_points : Array.isArray(r.matchPoints) ? r.matchPoints : undefined;
+          structuredRecs.push({
+            productId: pId,
+            reason: typeof r.reason === 'string' ? r.reason : undefined,
+            matchPoints: rawPts ? (rawPts as unknown[]).map(String) : undefined,
+          });
+        }
+      }
+    }
+  }
 
   // Build verified matches from canonical catalog
   for (let i = 0; i < recommendedProductIds.length; i++) {
@@ -287,13 +315,18 @@ export function normalizeAgentResponse(
     if (!product) continue;
 
     const matchLabel = i === 0 ? 'Strong Match' : i === 1 ? 'Good Match' : 'Alternative Option';
-    const reasoning: string[] = [
+    const existingRec = structuredRecs.find((sr) => sr.productId === pId);
+
+    const reasoning: string[] = existingRec?.matchPoints || [
       `Verified canonical catalog item under ${product.categoryDisplay || product.category}`,
       `Authentic direct retail price: ${formatPrice(product.price)}`,
     ];
 
     if (product.brand) reasoning.push(`Official ${product.brand} product with genuine manufacturer warranty`);
     if (intent.budget && product.price <= intent.budget) reasoning.push(`Price fits within stated budget of ${formatPrice(intent.budget)}`);
+    if (product.rating && product.rating >= 4.0) reasoning.push(`Rated ${product.rating.toFixed(1)}/5 stars by verified buyers`);
+
+    const recReason = existingRec?.reason || `Matched based on verified specifications from the canonical catalog.`;
 
     matches.push({
       productId: product.product_id,
@@ -302,7 +335,17 @@ export function normalizeAgentResponse(
       keyAttributes: [product.brand, product.categoryDisplay || product.category, formatPrice(product.price)],
     });
 
-    reasons[product.product_id] = `Matched based on verified specifications from the canonical catalog.`;
+    if (!existingRec) {
+      structuredRecs.push({
+        productId: product.product_id,
+        reason: recReason,
+        matchPoints: reasoning,
+        matchLabel,
+      });
+    }
+
+    reasons[product.product_id] = recReason;
+    matchFactors[product.product_id] = reasoning;
   }
 
   // If no IDs were found in n8n text, fall back to keyword catalog matcher
@@ -316,29 +359,157 @@ export function normalizeAgentResponse(
 
     for (const p of matched) {
       recommendedProductIds.push(p.product_id);
+      const reasoning = [
+        `Verified official item under ${p.categoryDisplay || p.category}`,
+        `Price: ${formatPrice(p.price)}`,
+      ];
       matches.push({
         productId: p.product_id,
         matchLabel: 'Good Match',
-        reasoning: [
-          `Verified official item under ${p.categoryDisplay || p.category}`,
-          `Price: ${formatPrice(p.price)}`,
-        ],
+        reasoning,
         keyAttributes: [p.brand, formatPrice(p.price)],
       });
+      structuredRecs.push({
+        productId: p.product_id,
+        reason: `Matched based on your search for ${p.name}.`,
+        matchPoints: reasoning,
+        matchLabel: 'Good Match',
+      });
+      reasons[p.product_id] = `Matched based on your search for ${p.name}.`;
+      matchFactors[p.product_id] = reasoning;
+    }
+  }
+
+  // Comparison detection
+  let comparison: AIComparisonData | undefined = undefined;
+  if (raw.comparison && typeof raw.comparison === 'object') {
+    const comp = raw.comparison as Record<string, unknown>;
+    const rawIds = Array.isArray(comp.product_ids) ? comp.product_ids : Array.isArray(comp.productIds) ? comp.productIds : [];
+    const compIds = (rawIds as unknown[]).map(String).map((id: string) => id.toUpperCase());
+    const validIds = compIds.filter((id: string) => !!getProductById(id));
+    if (validIds.length >= 2) {
+      comparison = {
+        enabled: comp.enabled !== false,
+        productIds: validIds,
+        title: typeof comp.title === 'string' ? comp.title : 'Product Comparison',
+        summary: typeof comp.summary === 'string' ? comp.summary : undefined,
+      };
+    }
+  } else if ((lower.includes('compare') || lower.includes('vs') || lower.includes('which is better')) && recommendedProductIds.length >= 2) {
+    comparison = {
+      enabled: true,
+      productIds: recommendedProductIds.slice(0, 2),
+      title: 'Product Comparison',
+      summary: `Comparing ${recommendedProductIds.slice(0, 2).map((id) => getProductById(id)?.name).join(' vs ')} based on verified catalog specifications.`,
+    };
+  }
+
+  // Phase 7: Upsell extraction
+  const rawUpsells = Array.isArray(raw.upsell) ? raw.upsell : Array.isArray(raw.upsells) ? raw.upsells : undefined;
+  const upsell: UpsellRecommendation[] = [];
+  if (rawUpsells) {
+    for (const item of rawUpsells as unknown[]) {
+      if (item && typeof item === 'object') {
+        const u = item as Record<string, unknown>;
+        const pId = String(u.product_id || u.productId || '').toUpperCase().trim();
+        if (pId && getProductById(pId) && !recommendedProductIds.includes(pId)) {
+          upsell.push({
+            productId: pId,
+            sourceProductId: u.source_product_id || u.sourceProductId ? String(u.source_product_id || u.sourceProductId).toUpperCase().trim() : undefined,
+            reason: typeof u.reason === 'string' ? u.reason : undefined,
+            benefits: Array.isArray(u.benefits) ? (u.benefits as unknown[]).map(String) : undefined,
+            label: typeof u.label === 'string' ? u.label : 'Worth the Upgrade',
+          });
+        }
+      }
+    }
+  }
+
+  // Phase 7: Cross-sell extraction
+  const rawCrossSells = Array.isArray(raw.cross_sell) ? raw.cross_sell : Array.isArray(raw.crossSell) ? raw.crossSell : Array.isArray(raw.crossSells) ? raw.crossSells : undefined;
+  const crossSell: CrossSellRecommendation[] = [];
+  if (rawCrossSells) {
+    for (const item of rawCrossSells as unknown[]) {
+      if (item && typeof item === 'object') {
+        const c = item as Record<string, unknown>;
+        const pId = String(c.product_id || c.productId || '').toUpperCase().trim();
+        const upsellIds = upsell.map((u) => u.productId);
+        if (pId && getProductById(pId) && !recommendedProductIds.includes(pId) && !upsellIds.includes(pId)) {
+          crossSell.push({
+            productId: pId,
+            sourceProductId: c.source_product_id || c.sourceProductId ? String(c.source_product_id || c.sourceProductId).toUpperCase().trim() : undefined,
+            reason: typeof c.reason === 'string' ? c.reason : undefined,
+            benefits: Array.isArray(c.benefits) ? (c.benefits as unknown[]).map(String) : undefined,
+            label: typeof c.label === 'string' ? c.label : 'Pairs Well With',
+          });
+        }
+      }
+    }
+  }
+
+  // Phase 7: Action creation
+  const actions: AIAction[] = [];
+  if (comparison) {
+    actions.push({ type: 'SHOW_COMPARISON', productIds: comparison.productIds });
+  } else {
+    actions.push({ type: 'SHOW_PRODUCTS', productIds: recommendedProductIds });
+  }
+  if (upsell.length > 0) {
+    actions.push({ type: 'SHOW_UPSELL', productIds: upsell.map((u) => u.productId) });
+  }
+  if (crossSell.length > 0) {
+    actions.push({ type: 'SHOW_CROSS_SELL', productIds: crossSell.map((c) => c.productId) });
+  }
+
+  // Sanitize customer-facing message text to strip raw JSON, localhost URLs, and artifacts
+  let cleanMessage = (rawText || '').trim();
+  cleanMessage = cleanMessage.replace(/```(?:json)?\s*\{[\s\S]*?\}\s*```/gi, '');
+  cleanMessage = cleanMessage.replace(/```(?:json)?\s*\[[\s\S]*?\]\s*```/gi, '');
+  cleanMessage = cleanMessage.replace(/\{[\s\r\n]*"(?:recommendations|actions|comparison|upsell|cross_sell|crossSell)"[\s\S]*?\}(?:\s*,?\s*\}*)*/gi, '');
+  cleanMessage = cleanMessage.replace(/https?:\/\/(?:localhost(?::\d+)?|127\.0\.0\.1(?::\d+)?)\/product\/([a-zA-Z0-9_-]+)/gi, '/product/$1');
+  cleanMessage = cleanMessage.replace(/https?:\/\/(?:localhost(?::\d+)?|127\.0\.0\.1(?::\d+)?)\S*/gi, '');
+  cleanMessage = cleanMessage.replace(/\bsvg\b/gi, '').replace(/\[svg\]/gi, '');
+  cleanMessage = cleanMessage.trim();
+
+  if (!cleanMessage || cleanMessage.startsWith('{') || cleanMessage.startsWith('[') || cleanMessage.includes('"recommendations":')) {
+    if (structuredRecs.length > 0) {
+      const parts: string[] = [
+        `We have ${structuredRecs.length > 1 ? `${structuredRecs.length} great options` : 'a great option'} currently available in our catalog:`,
+      ];
+      const bullets: string[] = [];
+      for (const rec of structuredRecs) {
+        const p = getProductById(rec.productId);
+        const name = p?.name || rec.productId;
+        const reason = rec.reason || rec.matchPoints?.[0] || 'Verified canonical catalog item.';
+        bullets.push(`• **${name}** (${rec.productId}): ${reason}`);
+      }
+      parts.push(bullets.join('\n\n'));
+      parts.push(`Let me know if you would like to explore or compare any of these!`);
+      cleanMessage = parts.join('\n\n');
+    } else {
+      cleanMessage = 'I found these verified options in our catalog that match your request:';
     }
   }
 
   return {
-    message: rawText,
+    message: cleanMessage,
     extractedIntent: intent,
     recommendedProductIds,
+    recommendations: structuredRecs,
+    comparison,
+    upsell: upsell.length > 0 ? upsell : undefined,
+    crossSell: crossSell.length > 0 ? crossSell : undefined,
+    actions,
     matches,
     recommendationReasons: reasons,
-    suggestedPrompts: [
-      'Compare these options',
-      'What are the charging specs?',
-      'I want to buy this',
-      'Show budget alternatives',
-    ],
+    matchFactors,
+    suggestedPrompts: comparison
+      ? ['Add first item to bag', 'Add second item to bag', 'Show more options', 'Continue browsing']
+      : [
+          'Compare these options',
+          'What are the charging specs?',
+          'I want to buy this',
+          'Show budget alternatives',
+        ],
   };
 }
