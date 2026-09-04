@@ -96,18 +96,73 @@ graph TD
 
 ---
 
+## 📂 Project Structure
+
+```text
+ShopNTrust/
+├── shopntrust/
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── (storefront)/        # Storefront pages (Home, Shop, Product Details)
+│   │   │   ├── ai-shop/             # Conversational AI Shopping Interface
+│   │   │   ├── cart/                # Shopping Bag with real-time price totals
+│   │   │   ├── checkout/            # Express Checkout with Razorpay integration
+│   │   │   ├── payment/             # Success & Failure reconciliation handlers
+│   │   │   ├── orders/              # Customer Order History & Tracking
+│   │   │   ├── merchant/            # Merchant Dashboard & Campaign Studio
+│   │   │   └── api/                 # Secure Backend API Route Handlers
+│   │   │       ├── agent/           # Proxy to n8n AI Shopping Agent
+│   │   │       ├── campaigns/       # AI Campaign generation & activation
+│   │   │       ├── orders/          # Order creation, fetching, and updates
+│   │   │       └── payment/         # Payment link creation, webhook & status check
+│   │   ├── components/              # Modular UI Components (Navbar, Cards, Modals)
+│   │   ├── lib/                     # Core Business Logic (Catalog, Auth, Supabase)
+│   │   ├── store/                   # React Context Providers (Cart, Auth, Campaigns)
+│   │   └── types/                   # Strongly-typed TypeScript interfaces
+│   ├── supabase/                    # SQL Database Schemas, RLS Policies & Migrations
+│   ├── scripts/                     # Asset mapping, catalog parsers & integrity auditors
+│   ├── public/                      # Static assets, logos, and high-res product images
+│   └── package.json                 # Project dependencies and npm scripts
+└── README.md                        # Project documentation
+```
+
+---
+
 ## 🚦 Getting Started
 
 ### 1. Prerequisites
 - **Node.js** `v20.x` or higher
 - **npm** or **yarn** / **pnpm**
+- **Supabase Account** & **Razorpay Test Account**
 
-### 2. Install Dependencies
+### 2. Clone the Repository
+```bash
+git clone https://github.com/AashishSahu05/ShopNTrust.git
+cd ShopNTrust/shopntrust
+```
+
+### 3. Install Dependencies
 ```bash
 npm install
 ```
 
-### 3. Run the Local Development Server
+### 4. Configure Environment Variables
+Create a `.env.local` file in the `shopntrust/` directory:
+
+```env
+# n8n Automation Endpoints
+NEXT_PUBLIC_N8N_AGENT_WEBHOOK_URL=https://shopntrust.app.n8n.cloud/webhook/...
+NEXT_PUBLIC_N8N_PAYMENT_WEBHOOK_URL=https://shopntrust.app.n8n.cloud/webhook/...
+NEXT_PUBLIC_N8N_PAYMENT_STATUS_CHECK_URL=https://shopntrust.app.n8n.cloud/webhook/708c49a9-8acd-4cbf-9bdd-81dcf61830f8
+NEXT_PUBLIC_N8N_CAMPAIGN_WEBHOOK_URL=https://shopntrust.app.n8n.cloud/webhook/...
+
+# Supabase Configuration
+NEXT_PUBLIC_SUPABASE_URL=https://<your-project>.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+```
+
+### 5. Run the Local Development Server
 ```bash
 npm run dev
 ```
@@ -116,6 +171,24 @@ Open **[http://localhost:3000](http://localhost:3000)** in your browser.
 
 ---
 
+## 🧪 Testing & Verification
+
+### Build & Typecheck
+```bash
+npm run build
+```
+
+### Key URLs for Evaluation
+- **Homepage:** `http://localhost:3000`
+- **Shop Catalog:** `http://localhost:3000/shop`
+- **AI Shopping Assistant:** `http://localhost:3000/ai-shop`
+- **Merchant Studio:** `http://localhost:3000/merchant`
+- **Order History:** `http://localhost:3000/orders`
+
+---
+
 ## 🏆 Razorpay Buildathon Submission
 
 Built with ❤️ for the **Razorpay Buildathon** by **[Aashish Sahu](https://github.com/AashishSahu05)**.
+
+*Empowering next-generation commerce with autonomous AI agents and seamless payments.*
