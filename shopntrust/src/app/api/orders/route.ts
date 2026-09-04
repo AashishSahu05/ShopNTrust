@@ -141,6 +141,7 @@ export async function GET(request: Request) {
       customerAuth.customerId,
       customerAuth.email
     );
+
     return NextResponse.json({ success: true, orders });
   } catch (error) {
     console.error('Error fetching orders:', error);

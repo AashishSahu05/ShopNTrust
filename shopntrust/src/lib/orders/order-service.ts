@@ -316,12 +316,10 @@ export async function createOrder(input: CreateOrderInput): Promise<Order> {
  * Retrieve an order by its ID
  */
 export async function getOrderById(orderId: string): Promise<Order | null> {
-  // Check local store
   const localOrders = readLocalOrders();
   const foundLocal = localOrders.find((o) => o.orderId === orderId);
-  if (foundLocal) return foundLocal;
 
-  // Check Supabase
+  // Check Supabase first for authoritative real-time webhook updates
   try {
     const { data: dbOrder, error } = await supabaseAdmin
       .from('orders')
@@ -329,53 +327,67 @@ export async function getOrderById(orderId: string): Promise<Order | null> {
       .eq('id', orderId)
       .single();
 
-    if (error || !dbOrder) return null;
+    if (!error && dbOrder) {
+      const { data: dbItems } = await supabaseAdmin
+        .from('order_items')
+        .select('*')
+        .eq('order_id', orderId);
 
-    const { data: dbItems } = await supabaseAdmin
-      .from('order_items')
-      .select('*')
-      .eq('order_id', orderId);
+      const items: CartItem[] =
+        dbItems && dbItems.length > 0
+          ? dbItems.map((di) => hydrateCartItem(di, dbOrder.currency))
+          : foundLocal?.items || [];
 
-    const items: CartItem[] = (dbItems || []).map((di) =>
-      hydrateCartItem(di, dbOrder.currency)
-    );
+      const syncedOrder: Order = {
+        orderId: dbOrder.id,
+        status: dbOrder.status === 'completed' ? 'order_confirmed' : dbOrder.status,
+        paymentStatus: dbOrder.payment_status,
+        items,
+        total: Number(dbOrder.total_amount),
+        currency: dbOrder.currency,
+        customerInfo: {
+          name: dbOrder.customer_name || foundLocal?.customerInfo?.name || '',
+          email: dbOrder.customer_email || foundLocal?.customerInfo?.email || '',
+          phone: foundLocal?.customerInfo?.phone || '',
+          address: dbOrder.delivery_address || foundLocal?.customerInfo?.address || '',
+          city: foundLocal?.customerInfo?.city || '',
+          state: foundLocal?.customerInfo?.state || '',
+          pincode: foundLocal?.customerInfo?.pincode || '',
+          country: 'India',
+        },
+        isAiAssisted: dbOrder.is_ai_assisted ?? foundLocal?.isAiAssisted ?? false,
+        attributionType: dbOrder.attribution_type || foundLocal?.attributionType || 'manual',
+        aiSessionId: dbOrder.ai_session_id || foundLocal?.aiSessionId,
+        userId: dbOrder.user_id || foundLocal?.userId,
+        paymentMethod: dbOrder.payment_method || foundLocal?.paymentMethod || 'razorpay',
+        razorpayOrderId: dbOrder.razorpay_order_id || foundLocal?.razorpayOrderId,
+        razorpayPaymentId: dbOrder.razorpay_payment_id || foundLocal?.razorpayPaymentId,
+        campaignId: dbOrder.campaign_id || foundLocal?.campaignId,
+        createdAt: new Date(dbOrder.created_at).getTime(),
+        updatedAt: new Date(dbOrder.updated_at).getTime(),
+      };
 
-    return {
-      orderId: dbOrder.id,
-      status: dbOrder.status === 'completed' ? 'order_confirmed' : dbOrder.status,
-      paymentStatus: dbOrder.payment_status,
-      items,
-      total: Number(dbOrder.total_amount),
-      currency: dbOrder.currency,
-      customerInfo: {
-        name: dbOrder.customer_name,
-        email: dbOrder.customer_email,
-        phone: '',
-        address: dbOrder.delivery_address || '',
-        city: '',
-        state: '',
-        pincode: '',
-        country: 'India',
-      },
-      isAiAssisted: dbOrder.is_ai_assisted,
-      attributionType: dbOrder.attribution_type,
-      aiSessionId: dbOrder.ai_session_id,
-      userId: dbOrder.user_id,
-      paymentMethod: dbOrder.payment_method,
-      razorpayOrderId: dbOrder.razorpay_order_id,
-      razorpayPaymentId: dbOrder.razorpay_payment_id,
-      campaignId: dbOrder.campaign_id || undefined,
-      createdAt: new Date(dbOrder.created_at).getTime(),
-      updatedAt: new Date(dbOrder.updated_at).getTime(),
-    };
+      // Keep local store in sync with authoritative Supabase update
+      if (foundLocal) {
+        const idx = localOrders.findIndex((o) => o.orderId === orderId);
+        if (idx > -1) {
+          localOrders[idx] = syncedOrder;
+          writeLocalOrders(localOrders);
+        }
+      }
+
+      return syncedOrder;
+    }
   } catch {
-    return null;
+    // Fall through to local fallback
   }
+
+  // Local fallback
+  return foundLocal || null;
 }
 
 /**
- * Retrieve all orders, optionally filtered by date range.
- * Merges Supabase and local storage seamlessly.
+ * Retrieve all orders with optional time filtering
  */
 export async function getOrders(filter?: {
   dateRange?: AnalyticsDateRange;
@@ -396,40 +408,39 @@ export async function getOrders(filter?: {
 
     if (!error && Array.isArray(dbOrders)) {
       for (const dbOrder of dbOrders) {
-        if (!mergedMap.has(dbOrder.id)) {
-          const items: CartItem[] = (dbOrder.order_items || []).map((di: DbOrderItem) =>
-            hydrateCartItem(di, dbOrder.currency)
-          );
+        const existingLocal = mergedMap.get(dbOrder.id);
+        const items: CartItem[] = (dbOrder.order_items && dbOrder.order_items.length > 0)
+          ? dbOrder.order_items.map((di: DbOrderItem) => hydrateCartItem(di, dbOrder.currency))
+          : existingLocal?.items || [];
 
-          mergedMap.set(dbOrder.id, {
-            orderId: dbOrder.id,
-            status: dbOrder.status === 'completed' ? 'order_confirmed' : dbOrder.status,
-            paymentStatus: dbOrder.payment_status,
-            items,
-            total: Number(dbOrder.total_amount),
-            currency: dbOrder.currency,
-            customerInfo: {
-              name: dbOrder.customer_name,
-              email: dbOrder.customer_email,
-              phone: '',
-              address: dbOrder.delivery_address || '',
-              city: '',
-              state: '',
-              pincode: '',
-              country: 'India',
-            },
-            isAiAssisted: dbOrder.is_ai_assisted,
-            attributionType: dbOrder.attribution_type,
-            aiSessionId: dbOrder.ai_session_id,
-            userId: dbOrder.user_id,
-            paymentMethod: dbOrder.payment_method,
-            razorpayOrderId: dbOrder.razorpay_order_id,
-            razorpayPaymentId: dbOrder.razorpay_payment_id,
-            campaignId: dbOrder.campaign_id || undefined,
-            createdAt: new Date(dbOrder.created_at).getTime(),
-            updatedAt: new Date(dbOrder.updated_at).getTime(),
-          });
-        }
+        mergedMap.set(dbOrder.id, {
+          orderId: dbOrder.id,
+          status: dbOrder.status === 'completed' ? 'order_confirmed' : dbOrder.status,
+          paymentStatus: dbOrder.payment_status,
+          items,
+          total: Number(dbOrder.total_amount),
+          currency: dbOrder.currency,
+          customerInfo: {
+            name: dbOrder.customer_name || existingLocal?.customerInfo?.name || '',
+            email: dbOrder.customer_email || existingLocal?.customerInfo?.email || '',
+            phone: existingLocal?.customerInfo?.phone || '',
+            address: dbOrder.delivery_address || existingLocal?.customerInfo?.address || '',
+            city: existingLocal?.customerInfo?.city || '',
+            state: existingLocal?.customerInfo?.state || '',
+            pincode: existingLocal?.customerInfo?.pincode || '',
+            country: 'India',
+          },
+          isAiAssisted: dbOrder.is_ai_assisted ?? existingLocal?.isAiAssisted ?? false,
+          attributionType: dbOrder.attribution_type || existingLocal?.attributionType || 'manual',
+          aiSessionId: dbOrder.ai_session_id || existingLocal?.aiSessionId,
+          userId: dbOrder.user_id || existingLocal?.userId,
+          paymentMethod: dbOrder.payment_method || existingLocal?.paymentMethod || 'razorpay',
+          razorpayOrderId: dbOrder.razorpay_order_id || existingLocal?.razorpayOrderId,
+          razorpayPaymentId: dbOrder.razorpay_payment_id || existingLocal?.razorpayPaymentId,
+          campaignId: dbOrder.campaign_id || existingLocal?.campaignId,
+          createdAt: new Date(dbOrder.created_at).getTime(),
+          updatedAt: new Date(dbOrder.updated_at).getTime(),
+        });
       }
     }
   } catch {

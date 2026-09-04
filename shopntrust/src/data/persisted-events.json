@@ -528,5 +528,456 @@
       "itemCount": 1
     },
     "createdAt": "2026-09-04T10:57:09.570Z"
+  },
+  {
+    "id": "evt_1788530852534_v5gx",
+    "sessionId": "snt-active-session",
+    "eventType": "AI_SESSION_STARTED",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {},
+    "createdAt": "2026-09-04T14:07:32.534Z"
+  },
+  {
+    "id": "evt_1788540907758_k84h",
+    "sessionId": "snt-active-session",
+    "eventType": "AI_UPSELL_SHOWN",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "productIds": [
+        "P134"
+      ]
+    },
+    "createdAt": "2026-09-04T16:55:07.758Z"
+  },
+  {
+    "id": "evt_1788540907743_tbe0",
+    "sessionId": "snt-active-session",
+    "eventType": "AI_RECOMMENDATION_SHOWN",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "productIds": [
+        "P133"
+      ]
+    },
+    "createdAt": "2026-09-04T16:55:07.743Z"
+  },
+  {
+    "id": "evt_1788540907729_7msj",
+    "sessionId": "snt-active-session",
+    "eventType": "AI_SESSION_STARTED",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {},
+    "createdAt": "2026-09-04T16:55:07.729Z"
+  },
+  {
+    "id": "evt_1788540907775_pdbl",
+    "sessionId": "snt-active-session",
+    "eventType": "AI_CROSS_SELL_SHOWN",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "productIds": [
+        "P116"
+      ]
+    },
+    "createdAt": "2026-09-04T16:55:07.775Z"
+  },
+  {
+    "id": "evt_1788541011815_8v4z",
+    "sessionId": "snt-session-1788541000134",
+    "eventType": "AI_SESSION_STARTED",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {},
+    "createdAt": "2026-09-04T16:56:51.815Z"
+  },
+  {
+    "id": "evt_1788541011829_4cbo",
+    "sessionId": "snt-session-1788541000134",
+    "eventType": "AI_RECOMMENDATION_SHOWN",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "productIds": [
+        "P133"
+      ]
+    },
+    "createdAt": "2026-09-04T16:56:51.829Z"
+  },
+  {
+    "id": "evt_1788541011844_ucfj",
+    "sessionId": "snt-session-1788541000134",
+    "eventType": "AI_UPSELL_SHOWN",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "productIds": [
+        "P134"
+      ]
+    },
+    "createdAt": "2026-09-04T16:56:51.844Z"
+  },
+  {
+    "id": "evt_1788541011858_zz7t",
+    "sessionId": "snt-session-1788541000134",
+    "eventType": "AI_CROSS_SELL_SHOWN",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "productIds": [
+        "P116"
+      ]
+    },
+    "createdAt": "2026-09-04T16:56:51.857Z"
+  },
+  {
+    "id": "evt_1788544196581_zjiv",
+    "sessionId": "snt-active-session",
+    "eventType": "AI_CROSS_SELL_SHOWN",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "productIds": [
+        "P116"
+      ]
+    },
+    "createdAt": "2026-09-04T17:49:56.581Z"
+  },
+  {
+    "id": "evt_1788544196596_xlgl",
+    "sessionId": "snt-active-session",
+    "eventType": "AI_RECOMMENDATION_SHOWN",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "productIds": [
+        "P133"
+      ]
+    },
+    "createdAt": "2026-09-04T17:49:56.596Z"
+  },
+  {
+    "id": "evt_1788544196606_buh6",
+    "sessionId": "snt-active-session",
+    "eventType": "AI_UPSELL_SHOWN",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "productIds": [
+        "P134"
+      ]
+    },
+    "createdAt": "2026-09-04T17:49:56.606Z"
+  },
+  {
+    "id": "evt_1788544196617_h6if",
+    "sessionId": "snt-active-session",
+    "eventType": "AI_SESSION_STARTED",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {},
+    "createdAt": "2026-09-04T17:49:56.617Z"
+  },
+  {
+    "id": "evt_1788544347046_ip4s",
+    "sessionId": "snt-session-1788544220135",
+    "eventType": "AI_SESSION_STARTED",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {},
+    "createdAt": "2026-09-04T17:52:27.046Z"
+  },
+  {
+    "id": "evt_1788544347078_u520",
+    "sessionId": "snt-session-1788544220135",
+    "eventType": "AI_CROSS_SELL_SHOWN",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "productIds": [
+        "P113"
+      ]
+    },
+    "createdAt": "2026-09-04T17:52:27.078Z"
+  },
+  {
+    "id": "evt_1788544347064_qkxa",
+    "sessionId": "snt-session-1788544220135",
+    "eventType": "AI_RECOMMENDATION_SHOWN",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "productIds": [
+        "P117",
+        "P137"
+      ]
+    },
+    "createdAt": "2026-09-04T17:52:27.064Z"
+  },
+  {
+    "id": "evt_1788544962538_3n9q",
+    "sessionId": "snt-session-1788544220135",
+    "eventType": "AI_RECOMMENDATION_SHOWN",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "productIds": [
+        "P133",
+        "P134"
+      ]
+    },
+    "createdAt": "2026-09-04T18:02:42.538Z"
+  },
+  {
+    "id": "evt_1788544962556_4nlk",
+    "sessionId": "snt-session-1788544220135",
+    "eventType": "AI_CROSS_SELL_SHOWN",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "productIds": [
+        "P116"
+      ]
+    },
+    "createdAt": "2026-09-04T18:02:42.556Z"
+  },
+  {
+    "id": "evt_1788545235085_hpel",
+    "sessionId": "snt-session-1788544968996",
+    "eventType": "AI_SESSION_STARTED",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {},
+    "createdAt": "2026-09-04T18:07:15.085Z"
+  },
+  {
+    "id": "evt_1788545235103_wcor",
+    "sessionId": "snt-session-1788544968996",
+    "eventType": "AI_RECOMMENDATION_SHOWN",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "productIds": [
+        "P117",
+        "P137"
+      ]
+    },
+    "createdAt": "2026-09-04T18:07:15.103Z"
+  },
+  {
+    "id": "evt_1788545235121_024j",
+    "sessionId": "snt-session-1788544968996",
+    "eventType": "AI_CROSS_SELL_SHOWN",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "productIds": [
+        "P113"
+      ]
+    },
+    "createdAt": "2026-09-04T18:07:15.121Z"
+  },
+  {
+    "id": "evt_1788545332402_snco",
+    "sessionId": "snt-session-1788544968996",
+    "eventType": "AI_RECOMMENDATION_SHOWN",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "productIds": [
+        "P134",
+        "P133"
+      ]
+    },
+    "createdAt": "2026-09-04T18:08:52.402Z"
+  },
+  {
+    "id": "evt_1788545332384_tly6",
+    "sessionId": "snt-session-1788544968996",
+    "eventType": "AI_CROSS_SELL_SHOWN",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "productIds": [
+        "P116"
+      ]
+    },
+    "createdAt": "2026-09-04T18:08:52.384Z"
+  },
+  {
+    "id": "evt_1788545500894_b20m",
+    "sessionId": "snt-session-1788545338494",
+    "eventType": "AI_CROSS_SELL_SHOWN",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "productIds": [
+        "P113"
+      ]
+    },
+    "createdAt": "2026-09-04T18:11:40.894Z"
+  },
+  {
+    "id": "evt_1788545500869_odwi",
+    "sessionId": "snt-session-1788545338494",
+    "eventType": "AI_RECOMMENDATION_SHOWN",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "productIds": [
+        "P117",
+        "P137"
+      ]
+    },
+    "createdAt": "2026-09-04T18:11:40.869Z"
+  },
+  {
+    "id": "evt_1788545500852_bs4u",
+    "sessionId": "snt-session-1788545338494",
+    "eventType": "AI_SESSION_STARTED",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {},
+    "createdAt": "2026-09-04T18:11:40.852Z"
+  },
+  {
+    "id": "evt_1788545543141_t13j",
+    "sessionId": "snt-session-1788545510364",
+    "eventType": "AI_RECOMMENDATION_SHOWN",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "productIds": [
+        "P133",
+        "P134"
+      ]
+    },
+    "createdAt": "2026-09-04T18:12:23.141Z"
+  },
+  {
+    "id": "evt_1788545543118_jbbo",
+    "sessionId": "snt-session-1788545510364",
+    "eventType": "AI_SESSION_STARTED",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {},
+    "createdAt": "2026-09-04T18:12:23.118Z"
+  },
+  {
+    "id": "evt_1788545543158_d9ev",
+    "sessionId": "snt-session-1788545510364",
+    "eventType": "AI_CROSS_SELL_SHOWN",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "productIds": [
+        "P116"
+      ]
+    },
+    "createdAt": "2026-09-04T18:12:23.158Z"
+  },
+  {
+    "id": "evt_1788545823918_rq17",
+    "sessionId": "snt-session-1788545510364",
+    "eventType": "AI_PRODUCT_ADDED",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": "P133",
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "price": 19295,
+      "name": "Nike Pegasus Premium"
+    },
+    "createdAt": "2026-09-04T18:17:03.918Z"
+  },
+  {
+    "id": "evt_1788545864678_obt7",
+    "sessionId": "snt-session-1788545510364",
+    "eventType": "AI_CHECKOUT_OPENED",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "itemCount": 1,
+      "subtotal": 19295
+    },
+    "createdAt": "2026-09-04T18:17:44.678Z"
+  },
+  {
+    "id": "evt_1788545955067_ny67",
+    "sessionId": "snt-active-session",
+    "eventType": "AI_CHECKOUT_OPENED",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "itemCount": 1,
+      "subtotal": 19295
+    },
+    "createdAt": "2026-09-04T18:19:15.067Z"
   }
 ]

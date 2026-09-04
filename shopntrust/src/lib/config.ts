@@ -26,6 +26,21 @@ export const n8nConfig = {
     process.env.NEXT_PUBLIC_N8N_PAYMENT_WEBHOOK_URL ||
     'https://shopntrust.app.n8n.cloud/webhook-test/New_Order',
 
+  /** Payment Capture / Failure Webhook URL (Razorpay -> n8n) */
+  paymentCaptureWebhookUrl:
+    process.env.NEXT_PUBLIC_N8N_PAYMENT_CAPTURE_WEBHOOK_URL ||
+    'https://shopntrust.app.n8n.cloud/webhook/f4bf1feb-7ea9-44e2-83a3-b42e15a121b6',
+
+  /** Payment Status Check Webhook URL (ShopNTrust -> n8n) */
+  paymentStatusCheckUrl:
+    process.env.NEXT_PUBLIC_N8N_PAYMENT_STATUS_CHECK_URL ||
+    'https://shopntrust.app.n8n.cloud/webhook/708c49a9-8acd-4cbf-9bdd-81dcf61830f8',
+
+  /** Payment Status Check Webhook Test URL (ShopNTrust -> n8n test node) */
+  paymentStatusCheckTestUrl:
+    process.env.NEXT_PUBLIC_N8N_PAYMENT_STATUS_CHECK_TEST_URL ||
+    'https://shopntrust.app.n8n.cloud/webhook-test/708c49a9-8acd-4cbf-9bdd-81dcf61830f8',
+
   /** AI Campaign Orchestrator webhook URL */
   campaignOrchestratorWebhookUrl:
     process.env.NEXT_PUBLIC_N8N_CAMPAIGN_WEBHOOK_URL ||

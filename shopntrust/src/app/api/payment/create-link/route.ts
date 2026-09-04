@@ -17,7 +17,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { n8nConfig } from '@/lib/config';
 import { getProductById } from '@/lib/catalog';
-import { createOrder, getOrderById } from '@/lib/orders/order-service';
+import { createOrder, getOrderById, updateOrderStatus } from '@/lib/orders/order-service';
 import type {
   CartItem,
   CustomerInfo,
@@ -176,7 +176,11 @@ export async function POST(req: NextRequest) {
       });
     }
 
-    // 4. Construct payload for n8n Payment Workflow webhook
+    // 4. Construct payload for n8n Payment Workflow webhook with product details in notes
+    const productNames = items.map((i) => i.product.name).join(', ').slice(0, 250);
+    const productIds = items.map((i) => i.product.product_id).join(', ').slice(0, 250);
+    const totalQuantity = items.reduce((sum, i) => sum + i.quantity, 0);
+
     const cleanWebhookPayload = {
       amount: total,
       currency: currency || 'INR',
@@ -185,8 +189,17 @@ export async function POST(req: NextRequest) {
         email: customerInfo.email,
         contact: customerInfo.phone || '+919876543210',
       },
+      items: items.map((i) => ({
+        product_id: i.product.product_id,
+        name: i.product.name,
+        quantity: i.quantity,
+        price: i.product.price,
+      })),
       notes: {
         'Order ID ': orderId,
+        'Product Name': productNames,
+        'Product ID': productIds,
+        'Quantity': String(totalQuantity),
         ai_session_id: aiSessionId || '',
         attribution_type: pendingOrder.attributionType || 'manual',
         is_ai_assisted: String(pendingOrder.isAiAssisted),
@@ -236,11 +249,61 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    // 6. Return typed response to frontend
+    // 6. Return typed response to frontend and schedule 1-minute automated status check
     if (parsed.success && isValidPaymentUrl(parsed.payment_link)) {
+      const targetOrderId = parsed.order_id || orderId;
+
+      // Automatically query n8n production status webhook after 5 minutes (300,000 ms)
+      const performStatusCheck = async () => {
+        try {
+          const order = await getOrderById(targetOrderId);
+          if (order && order.paymentStatus === 'pending') {
+            const statusPayload = {
+              order_id: targetOrderId,
+              customer_name: customerInfo.name,
+              customer_phone: customerInfo.phone || '+919876543210',
+              customer: {
+                name: customerInfo.name,
+                email: customerInfo.email,
+                contact: customerInfo.phone || '+919876543210',
+              },
+              notes: {
+                'Order ID ': targetOrderId,
+                'Customer Name': customerInfo.name,
+                'Customer Phone Number': customerInfo.phone || '+919876543210',
+              },
+            };
+
+            const res = await fetch(n8nConfig.paymentStatusCheckUrl, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(statusPayload),
+            });
+
+            if (res.ok) {
+              const text = await res.text();
+              const lower = text.toLowerCase();
+              if (
+                lower.includes('success') ||
+                lower.includes('paid') ||
+                lower.includes('capture') ||
+                lower.includes('confirm')
+              ) {
+                await updateOrderStatus(targetOrderId, 'order_confirmed', 'successful');
+              }
+            }
+          }
+        } catch (err) {
+          console.error('Scheduled 5-min status check error:', err);
+        }
+      };
+
+      // Exactly 5 minutes (300,000 ms)
+      setTimeout(performStatusCheck, 300000);
+
       return NextResponse.json({
         success: true,
-        order_id: parsed.order_id || orderId,
+        order_id: targetOrderId,
         payment_link: parsed.payment_link,
       });
     }

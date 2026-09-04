@@ -1,5 +1,1650 @@
 [
   {
+    "orderId": "ORD-1788545868889-C6NO",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P133",
+          "name": "Nike Pegasus Premium",
+          "brand": "Nike",
+          "category": "footwear",
+          "categoryDisplay": "Athletic Footwear",
+          "subCategory": "Running Shoes",
+          "productType": "Men's Road Running Shoes",
+          "description": "Maximum energy return, reduced joint fatigue on hard surfaces, all-day comfort, highly breathable",
+          "price": 19295,
+          "currency": "INR",
+          "image": "/images/products/P133.jpg",
+          "images": [
+            "/images/products/P133.jpg"
+          ],
+          "rating": 4.2,
+          "reviewCount": 769,
+          "stockStatus": "in_stock",
+          "stockQuantity": 19,
+          "deliveryEstimate": "5 days",
+          "deliveryDays": 5,
+          "shippingCharge": "₹0",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Nike",
+            "Category": "Athletic Footwear",
+            "Sub-Category": "Running Shoes",
+            "Product Type": "Men's Road Running Shoes"
+          },
+          "rawSpecs": "Variants: Black/Red, Light Bone/Teal, Multiple UK Size options (UK 6 to UK 12)\n\nSpecifications: Full-length visible sculpted Air Zoom unit, dual-foam midsole (ReactX + ZoomX compound), engineered circular knit upper, waffle-inspired rubber outsole",
+          "featuresList": [
+            "Contoured visible Air cushioning, high-traction rubber outsole, padded heel collar, secure midfoot lockdown system"
+          ],
+          "benefits": [
+            "Maximum energy return, reduced joint fatigue on hard surfaces, all-day comfort, highly breathable"
+          ],
+          "useCases": [
+            "Daily road running, high-mileage marathon training, tempo runs, athleisure styling"
+          ],
+          "targetCustomer": [
+            "Serious runners, athletes, daily fitness enthusiasts, sneaker collectors seeking premium tech"
+          ],
+          "occasion": [
+            "Morning workouts, marathon prep, outdoor road runs, gym sessions, casual streetwear"
+          ],
+          "crossSellIds": [
+            "P135",
+            "P136",
+            "P137",
+            "P138"
+          ],
+          "featured": true,
+          "trending": false,
+          "tags": [
+            "footwear",
+            "nike",
+            "running shoes",
+            "men's road running shoes"
+          ]
+        },
+        "quantity": 1,
+        "addedVia": "ai_primary",
+        "addedAt": 1788545823881
+      }
+    ],
+    "total": 19295,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aarav Singh",
+      "email": "aashishsahu05@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_recommendation",
+    "aiSessionId": "snt-session-1788545510364",
+    "userId": "74bf9a84-a139-4d61-b967-2cbbe53ad9c3",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788545876124,
+    "updatedAt": 1788546198149
+  },
+  {
+    "orderId": "ORD-1788538465804-LEPV",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P117",
+          "name": "Apple AirPods Pro (2nd Gen, USB-C)",
+          "brand": "Apple",
+          "category": "headphones",
+          "categoryDisplay": "Electronics & Audio",
+          "subCategory": "Personal Audio & Wearables",
+          "productType": "True Wireless Stereo (TWS) In-Ear Noise-Cancelling Earbuds",
+          "description": "Eliminates distracting ambient noise, automatic voice/volume adjustment during chats, sweat/dust resistance (IP54 rating for both buds and case), effortless multi-device switching across Apple devices",
+          "price": 18990,
+          "mrp": 24900,
+          "currency": "INR",
+          "image": "/images/products/P117.jpg",
+          "images": [
+            "/images/products/P117.jpg"
+          ],
+          "rating": 5,
+          "reviewCount": 844,
+          "stockStatus": "in_stock",
+          "stockQuantity": 25,
+          "deliveryEstimate": "4 days",
+          "deliveryDays": 4,
+          "shippingCharge": "₹0",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Apple",
+            "Category": "Electronics & Audio",
+            "Sub-Category": "Personal Audio & Wearables",
+            "Product Type": "True Wireless Stereo (TWS) In-Ear Noise-Cancelling Earbuds"
+          },
+          "rawSpecs": "Specifications        \n• Dimensions (each earbud): 30.9 × 21.8 × 24.0 mm; Weight: 5.3 g\n\n\n• Dimensions (case): 45.2 × 60.6 × 21.7 mm; Weight: 50.8 g\n\n\n• Ingress Protection: IP54 (dust, sweat, and water resistant)Variants\tSingle standard variant: White (4 silicone ear tip sizes included: XS, S, M, L)\nRAM / Storage\tEmbedded memory for firmware only (not user-accessible / standard RAM/ROM metrics do not apply)\nDisplay\tNone (status LED on MagSafe case for battery/charging indications)\nProcessor\tApple H2 headphone chip (in earbuds) + Apple U1 chip (in MagSafe charging case for Precision Finding)\nBattery Life\t\n• Earbuds alone: Up to 6 hours listening (up to 5.5 hours with Spatial Audio; up to 4.5 hours talk time)\n\n\n• With MagSafe Case: Up to 30 hours total listening time (up to 24 hours talk time)\n\nCharging\t\n• USB Type-C wired charging\n\n\n• MagSafe wireless charging, Apple Watch magnetic puck charging, and Qi wireless charging\n\n\n• Fast charge: 5 minutes in case provides ~1 hour listening/talk time\n\nCameras\tNone\nOperating System\tFirmware updates via connected iOS/iPadOS/macOS devices\nConnectivity\tBluetooth 5.3, Ultra Wideband (U1 chip in case), 20-bit/48kHz Lossless Audio support with Apple Vision Pro",
+          "featuresList": [
+            "Pro-level Active Noise Cancellation (up to 2x more noise reduction)",
+            "Adaptive Audio, Transparency mode & Conversation Awareness",
+            "Personalised Spatial Audio with dynamic head tracking",
+            "Touch control on stems (swipe for volume, press for playback/modes)",
+            "Built-in case speaker for Find My alerts and lanyard loop",
+            "Hearing Test and Loud Sound Reduction features"
+          ],
+          "benefits": [
+            "Eliminates distracting ambient noise, automatic voice/volume adjustment during chats, sweat/dust resistance (IP54 rating for both buds and case), effortless multi-device switching across Apple devices"
+          ],
+          "targetCustomer": [
+            "Daily commuters, remote workers, fitness enthusiasts, frequent travelers, and Apple ecosystem users seeking premium ANC and hands-free convenience"
+          ],
+          "occasion": [
+            "Air travel, daily transit/commute, virtual meetings and calls, gym and outdoor workouts, study sessions, immersive media viewing"
+          ],
+          "featured": true,
+          "trending": false,
+          "tags": [
+            "headphones",
+            "apple",
+            "personal audio & wearables",
+            "true wireless stereo (tws) in-ear noise-cancelling earbuds"
+          ]
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "addedAt": 1788537902970
+      }
+    ],
+    "total": 18990,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "aiSessionId": "snt-active-session",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788538466252,
+    "updatedAt": 1788539181914
+  },
+  {
+    "orderId": "ORD-1788538137497-FAVO",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P117",
+          "name": "Apple AirPods Pro (2nd Gen, USB-C)",
+          "brand": "Apple",
+          "category": "headphones",
+          "categoryDisplay": "Electronics & Audio",
+          "subCategory": "Personal Audio & Wearables",
+          "productType": "True Wireless Stereo (TWS) In-Ear Noise-Cancelling Earbuds",
+          "description": "Eliminates distracting ambient noise, automatic voice/volume adjustment during chats, sweat/dust resistance (IP54 rating for both buds and case), effortless multi-device switching across Apple devices",
+          "price": 18990,
+          "mrp": 24900,
+          "currency": "INR",
+          "image": "/images/products/P117.jpg",
+          "images": [
+            "/images/products/P117.jpg"
+          ],
+          "rating": 5,
+          "reviewCount": 844,
+          "stockStatus": "in_stock",
+          "stockQuantity": 25,
+          "deliveryEstimate": "4 days",
+          "deliveryDays": 4,
+          "shippingCharge": "₹0",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Apple",
+            "Category": "Electronics & Audio",
+            "Sub-Category": "Personal Audio & Wearables",
+            "Product Type": "True Wireless Stereo (TWS) In-Ear Noise-Cancelling Earbuds"
+          },
+          "rawSpecs": "Specifications        \n• Dimensions (each earbud): 30.9 × 21.8 × 24.0 mm; Weight: 5.3 g\n\n\n• Dimensions (case): 45.2 × 60.6 × 21.7 mm; Weight: 50.8 g\n\n\n• Ingress Protection: IP54 (dust, sweat, and water resistant)Variants\tSingle standard variant: White (4 silicone ear tip sizes included: XS, S, M, L)\nRAM / Storage\tEmbedded memory for firmware only (not user-accessible / standard RAM/ROM metrics do not apply)\nDisplay\tNone (status LED on MagSafe case for battery/charging indications)\nProcessor\tApple H2 headphone chip (in earbuds) + Apple U1 chip (in MagSafe charging case for Precision Finding)\nBattery Life\t\n• Earbuds alone: Up to 6 hours listening (up to 5.5 hours with Spatial Audio; up to 4.5 hours talk time)\n\n\n• With MagSafe Case: Up to 30 hours total listening time (up to 24 hours talk time)\n\nCharging\t\n• USB Type-C wired charging\n\n\n• MagSafe wireless charging, Apple Watch magnetic puck charging, and Qi wireless charging\n\n\n• Fast charge: 5 minutes in case provides ~1 hour listening/talk time\n\nCameras\tNone\nOperating System\tFirmware updates via connected iOS/iPadOS/macOS devices\nConnectivity\tBluetooth 5.3, Ultra Wideband (U1 chip in case), 20-bit/48kHz Lossless Audio support with Apple Vision Pro",
+          "featuresList": [
+            "Pro-level Active Noise Cancellation (up to 2x more noise reduction)",
+            "Adaptive Audio, Transparency mode & Conversation Awareness",
+            "Personalised Spatial Audio with dynamic head tracking",
+            "Touch control on stems (swipe for volume, press for playback/modes)",
+            "Built-in case speaker for Find My alerts and lanyard loop",
+            "Hearing Test and Loud Sound Reduction features"
+          ],
+          "benefits": [
+            "Eliminates distracting ambient noise, automatic voice/volume adjustment during chats, sweat/dust resistance (IP54 rating for both buds and case), effortless multi-device switching across Apple devices"
+          ],
+          "targetCustomer": [
+            "Daily commuters, remote workers, fitness enthusiasts, frequent travelers, and Apple ecosystem users seeking premium ANC and hands-free convenience"
+          ],
+          "occasion": [
+            "Air travel, daily transit/commute, virtual meetings and calls, gym and outdoor workouts, study sessions, immersive media viewing"
+          ],
+          "featured": true,
+          "trending": false,
+          "tags": [
+            "headphones",
+            "apple",
+            "personal audio & wearables",
+            "true wireless stereo (tws) in-ear noise-cancelling earbuds"
+          ]
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "addedAt": 1788537902970
+      }
+    ],
+    "total": 18990,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "aiSessionId": "snt-active-session",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788538138238,
+    "updatedAt": 1788539182449
+  },
+  {
+    "orderId": "ORD-1788537907044-B861",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P117",
+          "name": "Apple AirPods Pro (2nd Gen, USB-C)",
+          "brand": "Apple",
+          "category": "headphones",
+          "categoryDisplay": "Electronics & Audio",
+          "subCategory": "Personal Audio & Wearables",
+          "productType": "True Wireless Stereo (TWS) In-Ear Noise-Cancelling Earbuds",
+          "description": "Eliminates distracting ambient noise, automatic voice/volume adjustment during chats, sweat/dust resistance (IP54 rating for both buds and case), effortless multi-device switching across Apple devices",
+          "price": 18990,
+          "mrp": 24900,
+          "currency": "INR",
+          "image": "/images/products/P117.jpg",
+          "images": [
+            "/images/products/P117.jpg"
+          ],
+          "rating": 5,
+          "reviewCount": 844,
+          "stockStatus": "in_stock",
+          "stockQuantity": 25,
+          "deliveryEstimate": "4 days",
+          "deliveryDays": 4,
+          "shippingCharge": "₹0",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Apple",
+            "Category": "Electronics & Audio",
+            "Sub-Category": "Personal Audio & Wearables",
+            "Product Type": "True Wireless Stereo (TWS) In-Ear Noise-Cancelling Earbuds"
+          },
+          "rawSpecs": "Specifications        \n• Dimensions (each earbud): 30.9 × 21.8 × 24.0 mm; Weight: 5.3 g\n\n\n• Dimensions (case): 45.2 × 60.6 × 21.7 mm; Weight: 50.8 g\n\n\n• Ingress Protection: IP54 (dust, sweat, and water resistant)Variants\tSingle standard variant: White (4 silicone ear tip sizes included: XS, S, M, L)\nRAM / Storage\tEmbedded memory for firmware only (not user-accessible / standard RAM/ROM metrics do not apply)\nDisplay\tNone (status LED on MagSafe case for battery/charging indications)\nProcessor\tApple H2 headphone chip (in earbuds) + Apple U1 chip (in MagSafe charging case for Precision Finding)\nBattery Life\t\n• Earbuds alone: Up to 6 hours listening (up to 5.5 hours with Spatial Audio; up to 4.5 hours talk time)\n\n\n• With MagSafe Case: Up to 30 hours total listening time (up to 24 hours talk time)\n\nCharging\t\n• USB Type-C wired charging\n\n\n• MagSafe wireless charging, Apple Watch magnetic puck charging, and Qi wireless charging\n\n\n• Fast charge: 5 minutes in case provides ~1 hour listening/talk time\n\nCameras\tNone\nOperating System\tFirmware updates via connected iOS/iPadOS/macOS devices\nConnectivity\tBluetooth 5.3, Ultra Wideband (U1 chip in case), 20-bit/48kHz Lossless Audio support with Apple Vision Pro",
+          "featuresList": [
+            "Pro-level Active Noise Cancellation (up to 2x more noise reduction)",
+            "Adaptive Audio, Transparency mode & Conversation Awareness",
+            "Personalised Spatial Audio with dynamic head tracking",
+            "Touch control on stems (swipe for volume, press for playback/modes)",
+            "Built-in case speaker for Find My alerts and lanyard loop",
+            "Hearing Test and Loud Sound Reduction features"
+          ],
+          "benefits": [
+            "Eliminates distracting ambient noise, automatic voice/volume adjustment during chats, sweat/dust resistance (IP54 rating for both buds and case), effortless multi-device switching across Apple devices"
+          ],
+          "targetCustomer": [
+            "Daily commuters, remote workers, fitness enthusiasts, frequent travelers, and Apple ecosystem users seeking premium ANC and hands-free convenience"
+          ],
+          "occasion": [
+            "Air travel, daily transit/commute, virtual meetings and calls, gym and outdoor workouts, study sessions, immersive media viewing"
+          ],
+          "featured": true,
+          "trending": false,
+          "tags": [
+            "headphones",
+            "apple",
+            "personal audio & wearables",
+            "true wireless stereo (tws) in-ear noise-cancelling earbuds"
+          ]
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "addedAt": 1788537902970
+      }
+    ],
+    "total": 18990,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "aiSessionId": "snt-active-session",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788537908083,
+    "updatedAt": 1788537908083
+  },
+  {
+    "orderId": "ORD-1788536112818-RZ0T",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P147",
+          "name": "Optimum Nutrition (ON) Gold Standard 100% Whey Protein Powder",
+          "brand": "Optimum Nutrition (ON)",
+          "category": "nutrition",
+          "categoryDisplay": "Health & Fitness Supplements / Sports Nutrition",
+          "subCategory": "Whey Protein Powders",
+          "productType": "Protein Powder",
+          "description": "A globally benchmarked whey protein blend powered primarily by Whey Protein Isolate, delivering 24g of high-quality protein per serving to support muscle recovery and lean muscle growth.",
+          "price": 5079,
+          "currency": "INR",
+          "image": "/images/products/P147.jpg",
+          "images": [
+            "/images/products/P147.jpg"
+          ],
+          "rating": 4.2,
+          "reviewCount": 748,
+          "stockStatus": "in_stock",
+          "stockQuantity": 18,
+          "deliveryEstimate": "7 days",
+          "deliveryDays": 7,
+          "shippingCharge": "₹99",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Optimum Nutrition (ON)",
+            "Category": "Health & Fitness Supplements / Sports Nutrition",
+            "Sub-Category": "Whey Protein Powders",
+            "Product Type": "Protein Powder"
+          },
+          "rawSpecs": "",
+          "featuresList": [
+            "24 g of blended protein per serving (Whey Isolate, Concentrate, and Peptides).",
+            "5.5 g of naturally occurring BCAAs (Leucine, Isoleucine, Valine).",
+            "4 g of naturally occurring Glutamine and Glutamic Acid.",
+            "Instantized powder for easy mixing with a spoon or shaker.",
+            "Informed-Choice certified and banned-substance tested."
+          ],
+          "benefits": [
+            "Accelerates post-workout muscle repair and recovery.",
+            "Helps maintain and build lean muscle mass.",
+            "Easy on digestion with low carbohydrate and fat content.",
+            "Bridges daily dietary protein gaps conveniently."
+          ],
+          "useCases": [
+            "Post-exercise recovery shake, morning protein boost, smoothie base, or high-protein baking ingredient."
+          ],
+          "targetCustomer": [
+            "Gym-goers, endurance athletes, bodybuilders, fitness beginners, and active individuals needing high-quality dietary protein."
+          ],
+          "occasion": [
+            "Immediate post-workout window (30–60 minutes post-training), first thing in the morning, or between meals."
+          ],
+          "crossSellIds": [
+            "P148",
+            "P149",
+            "P150"
+          ],
+          "upsellIds": [
+            "P151"
+          ],
+          "featured": true,
+          "trending": false,
+          "tags": [
+            "nutrition",
+            "optimum nutrition (on)",
+            "whey protein powders",
+            "protein powder"
+          ]
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "addedAt": 1788520456376
+      }
+    ],
+    "total": 5079,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "aiSessionId": "snt-active-session",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788536113398,
+    "updatedAt": 1788536339466
+  },
+  {
+    "orderId": "ORD-1788535409802-ZG8X",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P147",
+          "name": "Optimum Nutrition (ON) Gold Standard 100% Whey Protein Powder",
+          "brand": "Optimum Nutrition (ON)",
+          "category": "nutrition",
+          "categoryDisplay": "Health & Fitness Supplements / Sports Nutrition",
+          "subCategory": "Whey Protein Powders",
+          "productType": "Protein Powder",
+          "description": "A globally benchmarked whey protein blend powered primarily by Whey Protein Isolate, delivering 24g of high-quality protein per serving to support muscle recovery and lean muscle growth.",
+          "price": 5079,
+          "currency": "INR",
+          "image": "/images/products/P147.jpg",
+          "images": [
+            "/images/products/P147.jpg"
+          ],
+          "rating": 4.2,
+          "reviewCount": 748,
+          "stockStatus": "in_stock",
+          "stockQuantity": 18,
+          "deliveryEstimate": "7 days",
+          "deliveryDays": 7,
+          "shippingCharge": "₹99",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Optimum Nutrition (ON)",
+            "Category": "Health & Fitness Supplements / Sports Nutrition",
+            "Sub-Category": "Whey Protein Powders",
+            "Product Type": "Protein Powder"
+          },
+          "rawSpecs": "",
+          "featuresList": [
+            "24 g of blended protein per serving (Whey Isolate, Concentrate, and Peptides).",
+            "5.5 g of naturally occurring BCAAs (Leucine, Isoleucine, Valine).",
+            "4 g of naturally occurring Glutamine and Glutamic Acid.",
+            "Instantized powder for easy mixing with a spoon or shaker.",
+            "Informed-Choice certified and banned-substance tested."
+          ],
+          "benefits": [
+            "Accelerates post-workout muscle repair and recovery.",
+            "Helps maintain and build lean muscle mass.",
+            "Easy on digestion with low carbohydrate and fat content.",
+            "Bridges daily dietary protein gaps conveniently."
+          ],
+          "useCases": [
+            "Post-exercise recovery shake, morning protein boost, smoothie base, or high-protein baking ingredient."
+          ],
+          "targetCustomer": [
+            "Gym-goers, endurance athletes, bodybuilders, fitness beginners, and active individuals needing high-quality dietary protein."
+          ],
+          "occasion": [
+            "Immediate post-workout window (30–60 minutes post-training), first thing in the morning, or between meals."
+          ],
+          "crossSellIds": [
+            "P148",
+            "P149",
+            "P150"
+          ],
+          "upsellIds": [
+            "P151"
+          ],
+          "featured": true,
+          "trending": false,
+          "tags": [
+            "nutrition",
+            "optimum nutrition (on)",
+            "whey protein powders",
+            "protein powder"
+          ]
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "addedAt": 1788520456376
+      }
+    ],
+    "total": 5079,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "aiSessionId": "snt-active-session",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788535410538,
+    "updatedAt": 1788536378866
+  },
+  {
+    "orderId": "ORD-1788535397800-95A4",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P147",
+          "name": "Optimum Nutrition (ON) Gold Standard 100% Whey Protein Powder",
+          "brand": "Optimum Nutrition (ON)",
+          "category": "nutrition",
+          "categoryDisplay": "Health & Fitness Supplements / Sports Nutrition",
+          "subCategory": "Whey Protein Powders",
+          "productType": "Protein Powder",
+          "description": "A globally benchmarked whey protein blend powered primarily by Whey Protein Isolate, delivering 24g of high-quality protein per serving to support muscle recovery and lean muscle growth.",
+          "price": 5079,
+          "currency": "INR",
+          "image": "/images/products/P147.jpg",
+          "images": [
+            "/images/products/P147.jpg"
+          ],
+          "rating": 4.2,
+          "reviewCount": 748,
+          "stockStatus": "in_stock",
+          "stockQuantity": 18,
+          "deliveryEstimate": "7 days",
+          "deliveryDays": 7,
+          "shippingCharge": "₹99",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Optimum Nutrition (ON)",
+            "Category": "Health & Fitness Supplements / Sports Nutrition",
+            "Sub-Category": "Whey Protein Powders",
+            "Product Type": "Protein Powder"
+          },
+          "rawSpecs": "",
+          "featuresList": [
+            "24 g of blended protein per serving (Whey Isolate, Concentrate, and Peptides).",
+            "5.5 g of naturally occurring BCAAs (Leucine, Isoleucine, Valine).",
+            "4 g of naturally occurring Glutamine and Glutamic Acid.",
+            "Instantized powder for easy mixing with a spoon or shaker.",
+            "Informed-Choice certified and banned-substance tested."
+          ],
+          "benefits": [
+            "Accelerates post-workout muscle repair and recovery.",
+            "Helps maintain and build lean muscle mass.",
+            "Easy on digestion with low carbohydrate and fat content.",
+            "Bridges daily dietary protein gaps conveniently."
+          ],
+          "useCases": [
+            "Post-exercise recovery shake, morning protein boost, smoothie base, or high-protein baking ingredient."
+          ],
+          "targetCustomer": [
+            "Gym-goers, endurance athletes, bodybuilders, fitness beginners, and active individuals needing high-quality dietary protein."
+          ],
+          "occasion": [
+            "Immediate post-workout window (30–60 minutes post-training), first thing in the morning, or between meals."
+          ],
+          "crossSellIds": [
+            "P148",
+            "P149",
+            "P150"
+          ],
+          "upsellIds": [
+            "P151"
+          ],
+          "featured": true,
+          "trending": false,
+          "tags": [
+            "nutrition",
+            "optimum nutrition (on)",
+            "whey protein powders",
+            "protein powder"
+          ]
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "addedAt": 1788520456376
+      }
+    ],
+    "total": 5079,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "aiSessionId": "snt-active-session",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788535399394,
+    "updatedAt": 1788535399394
+  },
+  {
+    "orderId": "ORD-1788534445655-7F81",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P147",
+          "name": "Optimum Nutrition (ON) Gold Standard 100% Whey Protein Powder",
+          "brand": "Optimum Nutrition (ON)",
+          "category": "nutrition",
+          "categoryDisplay": "Health & Fitness Supplements / Sports Nutrition",
+          "subCategory": "Whey Protein Powders",
+          "productType": "Protein Powder",
+          "description": "A globally benchmarked whey protein blend powered primarily by Whey Protein Isolate, delivering 24g of high-quality protein per serving to support muscle recovery and lean muscle growth.",
+          "price": 5079,
+          "currency": "INR",
+          "image": "/images/products/P147.jpg",
+          "images": [
+            "/images/products/P147.jpg"
+          ],
+          "rating": 4.2,
+          "reviewCount": 748,
+          "stockStatus": "in_stock",
+          "stockQuantity": 18,
+          "deliveryEstimate": "7 days",
+          "deliveryDays": 7,
+          "shippingCharge": "₹99",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Optimum Nutrition (ON)",
+            "Category": "Health & Fitness Supplements / Sports Nutrition",
+            "Sub-Category": "Whey Protein Powders",
+            "Product Type": "Protein Powder"
+          },
+          "rawSpecs": "",
+          "featuresList": [
+            "24 g of blended protein per serving (Whey Isolate, Concentrate, and Peptides).",
+            "5.5 g of naturally occurring BCAAs (Leucine, Isoleucine, Valine).",
+            "4 g of naturally occurring Glutamine and Glutamic Acid.",
+            "Instantized powder for easy mixing with a spoon or shaker.",
+            "Informed-Choice certified and banned-substance tested."
+          ],
+          "benefits": [
+            "Accelerates post-workout muscle repair and recovery.",
+            "Helps maintain and build lean muscle mass.",
+            "Easy on digestion with low carbohydrate and fat content.",
+            "Bridges daily dietary protein gaps conveniently."
+          ],
+          "useCases": [
+            "Post-exercise recovery shake, morning protein boost, smoothie base, or high-protein baking ingredient."
+          ],
+          "targetCustomer": [
+            "Gym-goers, endurance athletes, bodybuilders, fitness beginners, and active individuals needing high-quality dietary protein."
+          ],
+          "occasion": [
+            "Immediate post-workout window (30–60 minutes post-training), first thing in the morning, or between meals."
+          ],
+          "crossSellIds": [
+            "P148",
+            "P149",
+            "P150"
+          ],
+          "upsellIds": [
+            "P151"
+          ],
+          "featured": true,
+          "trending": false,
+          "tags": [
+            "nutrition",
+            "optimum nutrition (on)",
+            "whey protein powders",
+            "protein powder"
+          ]
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "addedAt": 1788520456376
+      }
+    ],
+    "total": 5079,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "aiSessionId": "snt-active-session",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788534447495,
+    "updatedAt": 1788536377622
+  },
+  {
+    "orderId": "ORD-1788534170475-1PZX",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P147",
+          "name": "Optimum Nutrition (ON) Gold Standard 100% Whey Protein Powder",
+          "brand": "Optimum Nutrition (ON)",
+          "category": "nutrition",
+          "categoryDisplay": "Health & Fitness Supplements / Sports Nutrition",
+          "subCategory": "Whey Protein Powders",
+          "productType": "Protein Powder",
+          "description": "A globally benchmarked whey protein blend powered primarily by Whey Protein Isolate, delivering 24g of high-quality protein per serving to support muscle recovery and lean muscle growth.",
+          "price": 5079,
+          "currency": "INR",
+          "image": "/images/products/P147.jpg",
+          "images": [
+            "/images/products/P147.jpg"
+          ],
+          "rating": 4.2,
+          "reviewCount": 748,
+          "stockStatus": "in_stock",
+          "stockQuantity": 18,
+          "deliveryEstimate": "7 days",
+          "deliveryDays": 7,
+          "shippingCharge": "₹99",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Optimum Nutrition (ON)",
+            "Category": "Health & Fitness Supplements / Sports Nutrition",
+            "Sub-Category": "Whey Protein Powders",
+            "Product Type": "Protein Powder"
+          },
+          "rawSpecs": "",
+          "featuresList": [
+            "24 g of blended protein per serving (Whey Isolate, Concentrate, and Peptides).",
+            "5.5 g of naturally occurring BCAAs (Leucine, Isoleucine, Valine).",
+            "4 g of naturally occurring Glutamine and Glutamic Acid.",
+            "Instantized powder for easy mixing with a spoon or shaker.",
+            "Informed-Choice certified and banned-substance tested."
+          ],
+          "benefits": [
+            "Accelerates post-workout muscle repair and recovery.",
+            "Helps maintain and build lean muscle mass.",
+            "Easy on digestion with low carbohydrate and fat content.",
+            "Bridges daily dietary protein gaps conveniently."
+          ],
+          "useCases": [
+            "Post-exercise recovery shake, morning protein boost, smoothie base, or high-protein baking ingredient."
+          ],
+          "targetCustomer": [
+            "Gym-goers, endurance athletes, bodybuilders, fitness beginners, and active individuals needing high-quality dietary protein."
+          ],
+          "occasion": [
+            "Immediate post-workout window (30–60 minutes post-training), first thing in the morning, or between meals."
+          ],
+          "crossSellIds": [
+            "P148",
+            "P149",
+            "P150"
+          ],
+          "upsellIds": [
+            "P151"
+          ],
+          "featured": true,
+          "trending": false,
+          "tags": [
+            "nutrition",
+            "optimum nutrition (on)",
+            "whey protein powders",
+            "protein powder"
+          ]
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "addedAt": 1788520456376
+      }
+    ],
+    "total": 5079,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "aiSessionId": "snt-active-session",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788534171378,
+    "updatedAt": 1788534171378
+  },
+  {
+    "orderId": "ORD-1788533941472-07M2",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P147",
+          "name": "Optimum Nutrition (ON) Gold Standard 100% Whey Protein Powder",
+          "brand": "Optimum Nutrition (ON)",
+          "category": "nutrition",
+          "categoryDisplay": "Health & Fitness Supplements / Sports Nutrition",
+          "subCategory": "Whey Protein Powders",
+          "productType": "Protein Powder",
+          "description": "A globally benchmarked whey protein blend powered primarily by Whey Protein Isolate, delivering 24g of high-quality protein per serving to support muscle recovery and lean muscle growth.",
+          "price": 5079,
+          "currency": "INR",
+          "image": "/images/products/P147.jpg",
+          "images": [
+            "/images/products/P147.jpg"
+          ],
+          "rating": 4.2,
+          "reviewCount": 748,
+          "stockStatus": "in_stock",
+          "stockQuantity": 18,
+          "deliveryEstimate": "7 days",
+          "deliveryDays": 7,
+          "shippingCharge": "₹99",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Optimum Nutrition (ON)",
+            "Category": "Health & Fitness Supplements / Sports Nutrition",
+            "Sub-Category": "Whey Protein Powders",
+            "Product Type": "Protein Powder"
+          },
+          "rawSpecs": "",
+          "featuresList": [
+            "24 g of blended protein per serving (Whey Isolate, Concentrate, and Peptides).",
+            "5.5 g of naturally occurring BCAAs (Leucine, Isoleucine, Valine).",
+            "4 g of naturally occurring Glutamine and Glutamic Acid.",
+            "Instantized powder for easy mixing with a spoon or shaker.",
+            "Informed-Choice certified and banned-substance tested."
+          ],
+          "benefits": [
+            "Accelerates post-workout muscle repair and recovery.",
+            "Helps maintain and build lean muscle mass.",
+            "Easy on digestion with low carbohydrate and fat content.",
+            "Bridges daily dietary protein gaps conveniently."
+          ],
+          "useCases": [
+            "Post-exercise recovery shake, morning protein boost, smoothie base, or high-protein baking ingredient."
+          ],
+          "targetCustomer": [
+            "Gym-goers, endurance athletes, bodybuilders, fitness beginners, and active individuals needing high-quality dietary protein."
+          ],
+          "occasion": [
+            "Immediate post-workout window (30–60 minutes post-training), first thing in the morning, or between meals."
+          ],
+          "crossSellIds": [
+            "P148",
+            "P149",
+            "P150"
+          ],
+          "upsellIds": [
+            "P151"
+          ],
+          "featured": true,
+          "trending": false,
+          "tags": [
+            "nutrition",
+            "optimum nutrition (on)",
+            "whey protein powders",
+            "protein powder"
+          ]
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "addedAt": 1788520456376
+      }
+    ],
+    "total": 5079,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "aiSessionId": "snt-active-session",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788533943218,
+    "updatedAt": 1788533943218
+  },
+  {
+    "orderId": "ORD-1788533779149-1WGN",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P147",
+          "name": "Optimum Nutrition (ON) Gold Standard 100% Whey Protein Powder",
+          "brand": "Optimum Nutrition (ON)",
+          "category": "nutrition",
+          "categoryDisplay": "Health & Fitness Supplements / Sports Nutrition",
+          "subCategory": "Whey Protein Powders",
+          "productType": "Protein Powder",
+          "description": "A globally benchmarked whey protein blend powered primarily by Whey Protein Isolate, delivering 24g of high-quality protein per serving to support muscle recovery and lean muscle growth.",
+          "price": 5079,
+          "currency": "INR",
+          "image": "/images/products/P147.jpg",
+          "images": [
+            "/images/products/P147.jpg"
+          ],
+          "rating": 4.2,
+          "reviewCount": 748,
+          "stockStatus": "in_stock",
+          "stockQuantity": 18,
+          "deliveryEstimate": "7 days",
+          "deliveryDays": 7,
+          "shippingCharge": "₹99",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Optimum Nutrition (ON)",
+            "Category": "Health & Fitness Supplements / Sports Nutrition",
+            "Sub-Category": "Whey Protein Powders",
+            "Product Type": "Protein Powder"
+          },
+          "rawSpecs": "",
+          "featuresList": [
+            "24 g of blended protein per serving (Whey Isolate, Concentrate, and Peptides).",
+            "5.5 g of naturally occurring BCAAs (Leucine, Isoleucine, Valine).",
+            "4 g of naturally occurring Glutamine and Glutamic Acid.",
+            "Instantized powder for easy mixing with a spoon or shaker.",
+            "Informed-Choice certified and banned-substance tested."
+          ],
+          "benefits": [
+            "Accelerates post-workout muscle repair and recovery.",
+            "Helps maintain and build lean muscle mass.",
+            "Easy on digestion with low carbohydrate and fat content.",
+            "Bridges daily dietary protein gaps conveniently."
+          ],
+          "useCases": [
+            "Post-exercise recovery shake, morning protein boost, smoothie base, or high-protein baking ingredient."
+          ],
+          "targetCustomer": [
+            "Gym-goers, endurance athletes, bodybuilders, fitness beginners, and active individuals needing high-quality dietary protein."
+          ],
+          "occasion": [
+            "Immediate post-workout window (30–60 minutes post-training), first thing in the morning, or between meals."
+          ],
+          "crossSellIds": [
+            "P148",
+            "P149",
+            "P150"
+          ],
+          "upsellIds": [
+            "P151"
+          ],
+          "featured": true,
+          "trending": false,
+          "tags": [
+            "nutrition",
+            "optimum nutrition (on)",
+            "whey protein powders",
+            "protein powder"
+          ]
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "addedAt": 1788520456376
+      }
+    ],
+    "total": 5079,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "aiSessionId": "snt-active-session",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788533780108,
+    "updatedAt": 1788533780108
+  },
+  {
+    "orderId": "ORD-1788533773601-9V9L",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P147",
+          "name": "Optimum Nutrition (ON) Gold Standard 100% Whey Protein Powder",
+          "brand": "Optimum Nutrition (ON)",
+          "category": "nutrition",
+          "categoryDisplay": "Health & Fitness Supplements / Sports Nutrition",
+          "subCategory": "Whey Protein Powders",
+          "productType": "Protein Powder",
+          "description": "A globally benchmarked whey protein blend powered primarily by Whey Protein Isolate, delivering 24g of high-quality protein per serving to support muscle recovery and lean muscle growth.",
+          "price": 5079,
+          "currency": "INR",
+          "image": "/images/products/P147.jpg",
+          "images": [
+            "/images/products/P147.jpg"
+          ],
+          "rating": 4.2,
+          "reviewCount": 748,
+          "stockStatus": "in_stock",
+          "stockQuantity": 18,
+          "deliveryEstimate": "7 days",
+          "deliveryDays": 7,
+          "shippingCharge": "₹99",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Optimum Nutrition (ON)",
+            "Category": "Health & Fitness Supplements / Sports Nutrition",
+            "Sub-Category": "Whey Protein Powders",
+            "Product Type": "Protein Powder"
+          },
+          "rawSpecs": "",
+          "featuresList": [
+            "24 g of blended protein per serving (Whey Isolate, Concentrate, and Peptides).",
+            "5.5 g of naturally occurring BCAAs (Leucine, Isoleucine, Valine).",
+            "4 g of naturally occurring Glutamine and Glutamic Acid.",
+            "Instantized powder for easy mixing with a spoon or shaker.",
+            "Informed-Choice certified and banned-substance tested."
+          ],
+          "benefits": [
+            "Accelerates post-workout muscle repair and recovery.",
+            "Helps maintain and build lean muscle mass.",
+            "Easy on digestion with low carbohydrate and fat content.",
+            "Bridges daily dietary protein gaps conveniently."
+          ],
+          "useCases": [
+            "Post-exercise recovery shake, morning protein boost, smoothie base, or high-protein baking ingredient."
+          ],
+          "targetCustomer": [
+            "Gym-goers, endurance athletes, bodybuilders, fitness beginners, and active individuals needing high-quality dietary protein."
+          ],
+          "occasion": [
+            "Immediate post-workout window (30–60 minutes post-training), first thing in the morning, or between meals."
+          ],
+          "crossSellIds": [
+            "P148",
+            "P149",
+            "P150"
+          ],
+          "upsellIds": [
+            "P151"
+          ],
+          "featured": true,
+          "trending": false,
+          "tags": [
+            "nutrition",
+            "optimum nutrition (on)",
+            "whey protein powders",
+            "protein powder"
+          ]
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "addedAt": 1788520456376
+      }
+    ],
+    "total": 5079,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "aiSessionId": "snt-active-session",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788533774307,
+    "updatedAt": 1788533774307
+  },
+  {
+    "orderId": "ORD-1788533714397-ZR3T",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "quantity": 2,
+        "addedVia": "manual",
+        "product": {
+          "price": 242,
+          "product_id": "P146",
+          "name": "Mamaearth Ubtan Oil-Free Face Moisturizer"
+        }
+      }
+    ],
+    "total": 484,
+    "currency": "INR",
+    "customerInfo": {
+      "email": "aashishsahu9887@gmail.com",
+      "name": "Aashish Sahu",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788533715072,
+    "updatedAt": 1788533715072
+  },
+  {
+    "orderId": "ORD-1788533642204-O55L",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "quantity": 2,
+        "addedVia": "manual",
+        "product": {
+          "price": 37999,
+          "product_id": "P101",
+          "name": "OnePlus Nord CE6"
+        }
+      }
+    ],
+    "total": 75998,
+    "currency": "INR",
+    "customerInfo": {
+      "email": "aashishsahu9887@gmail.com",
+      "name": "Aashish Sahu",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788533643834,
+    "updatedAt": 1788533643834
+  },
+  {
+    "orderId": "ORD-1788533480009-5M0Z",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P147",
+          "name": "Optimum Nutrition (ON) Gold Standard 100% Whey Protein Powder",
+          "brand": "Optimum Nutrition (ON)",
+          "category": "nutrition",
+          "categoryDisplay": "Health & Fitness Supplements / Sports Nutrition",
+          "subCategory": "Whey Protein Powders",
+          "productType": "Protein Powder",
+          "description": "A globally benchmarked whey protein blend powered primarily by Whey Protein Isolate, delivering 24g of high-quality protein per serving to support muscle recovery and lean muscle growth.",
+          "price": 5079,
+          "currency": "INR",
+          "image": "/images/products/P147.jpg",
+          "images": [
+            "/images/products/P147.jpg"
+          ],
+          "rating": 4.2,
+          "reviewCount": 748,
+          "stockStatus": "in_stock",
+          "stockQuantity": 18,
+          "deliveryEstimate": "7 days",
+          "deliveryDays": 7,
+          "shippingCharge": "₹99",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Optimum Nutrition (ON)",
+            "Category": "Health & Fitness Supplements / Sports Nutrition",
+            "Sub-Category": "Whey Protein Powders",
+            "Product Type": "Protein Powder"
+          },
+          "rawSpecs": "",
+          "featuresList": [
+            "24 g of blended protein per serving (Whey Isolate, Concentrate, and Peptides).",
+            "5.5 g of naturally occurring BCAAs (Leucine, Isoleucine, Valine).",
+            "4 g of naturally occurring Glutamine and Glutamic Acid.",
+            "Instantized powder for easy mixing with a spoon or shaker.",
+            "Informed-Choice certified and banned-substance tested."
+          ],
+          "benefits": [
+            "Accelerates post-workout muscle repair and recovery.",
+            "Helps maintain and build lean muscle mass.",
+            "Easy on digestion with low carbohydrate and fat content.",
+            "Bridges daily dietary protein gaps conveniently."
+          ],
+          "useCases": [
+            "Post-exercise recovery shake, morning protein boost, smoothie base, or high-protein baking ingredient."
+          ],
+          "targetCustomer": [
+            "Gym-goers, endurance athletes, bodybuilders, fitness beginners, and active individuals needing high-quality dietary protein."
+          ],
+          "occasion": [
+            "Immediate post-workout window (30–60 minutes post-training), first thing in the morning, or between meals."
+          ],
+          "crossSellIds": [
+            "P148",
+            "P149",
+            "P150"
+          ],
+          "upsellIds": [
+            "P151"
+          ],
+          "featured": true,
+          "trending": false,
+          "tags": [
+            "nutrition",
+            "optimum nutrition (on)",
+            "whey protein powders",
+            "protein powder"
+          ]
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "addedAt": 1788520456376
+      }
+    ],
+    "total": 5079,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "aiSessionId": "snt-active-session",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788533480644,
+    "updatedAt": 1788533480644
+  },
+  {
+    "orderId": "ORD-1788531897822-B37I",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P147",
+          "name": "Optimum Nutrition (ON) Gold Standard 100% Whey Protein Powder",
+          "brand": "Optimum Nutrition (ON)",
+          "category": "nutrition",
+          "categoryDisplay": "Health & Fitness Supplements / Sports Nutrition",
+          "subCategory": "Whey Protein Powders",
+          "productType": "Protein Powder",
+          "description": "A globally benchmarked whey protein blend powered primarily by Whey Protein Isolate, delivering 24g of high-quality protein per serving to support muscle recovery and lean muscle growth.",
+          "price": 5079,
+          "currency": "INR",
+          "image": "/images/products/P147.jpg",
+          "images": [
+            "/images/products/P147.jpg"
+          ],
+          "rating": 4.2,
+          "reviewCount": 748,
+          "stockStatus": "in_stock",
+          "stockQuantity": 18,
+          "deliveryEstimate": "7 days",
+          "deliveryDays": 7,
+          "shippingCharge": "₹99",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Optimum Nutrition (ON)",
+            "Category": "Health & Fitness Supplements / Sports Nutrition",
+            "Sub-Category": "Whey Protein Powders",
+            "Product Type": "Protein Powder"
+          },
+          "rawSpecs": "",
+          "featuresList": [
+            "24 g of blended protein per serving (Whey Isolate, Concentrate, and Peptides).",
+            "5.5 g of naturally occurring BCAAs (Leucine, Isoleucine, Valine).",
+            "4 g of naturally occurring Glutamine and Glutamic Acid.",
+            "Instantized powder for easy mixing with a spoon or shaker.",
+            "Informed-Choice certified and banned-substance tested."
+          ],
+          "benefits": [
+            "Accelerates post-workout muscle repair and recovery.",
+            "Helps maintain and build lean muscle mass.",
+            "Easy on digestion with low carbohydrate and fat content.",
+            "Bridges daily dietary protein gaps conveniently."
+          ],
+          "useCases": [
+            "Post-exercise recovery shake, morning protein boost, smoothie base, or high-protein baking ingredient."
+          ],
+          "targetCustomer": [
+            "Gym-goers, endurance athletes, bodybuilders, fitness beginners, and active individuals needing high-quality dietary protein."
+          ],
+          "occasion": [
+            "Immediate post-workout window (30–60 minutes post-training), first thing in the morning, or between meals."
+          ],
+          "crossSellIds": [
+            "P148",
+            "P149",
+            "P150"
+          ],
+          "upsellIds": [
+            "P151"
+          ],
+          "featured": true,
+          "trending": false,
+          "tags": [
+            "nutrition",
+            "optimum nutrition (on)",
+            "whey protein powders",
+            "protein powder"
+          ]
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "addedAt": 1788520456376
+      }
+    ],
+    "total": 5079,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "aiSessionId": "snt-active-session",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788531898458,
+    "updatedAt": 1788531898458
+  },
+  {
+    "orderId": "ORD-1788520570169-AY57",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P147",
+          "name": "Optimum Nutrition (ON) Gold Standard 100% Whey Protein Powder",
+          "brand": "Optimum Nutrition (ON)",
+          "category": "nutrition",
+          "categoryDisplay": "Health & Fitness Supplements / Sports Nutrition",
+          "subCategory": "Whey Protein Powders",
+          "productType": "Protein Powder",
+          "description": "A globally benchmarked whey protein blend powered primarily by Whey Protein Isolate, delivering 24g of high-quality protein per serving to support muscle recovery and lean muscle growth.",
+          "price": 5079,
+          "currency": "INR",
+          "image": "/images/products/P147.jpg",
+          "images": [
+            "/images/products/P147.jpg"
+          ],
+          "rating": 4.2,
+          "reviewCount": 748,
+          "stockStatus": "in_stock",
+          "stockQuantity": 18,
+          "deliveryEstimate": "7 days",
+          "deliveryDays": 7,
+          "shippingCharge": "₹99",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Optimum Nutrition (ON)",
+            "Category": "Health & Fitness Supplements / Sports Nutrition",
+            "Sub-Category": "Whey Protein Powders",
+            "Product Type": "Protein Powder"
+          },
+          "rawSpecs": "",
+          "featuresList": [
+            "24 g of blended protein per serving (Whey Isolate, Concentrate, and Peptides).",
+            "5.5 g of naturally occurring BCAAs (Leucine, Isoleucine, Valine).",
+            "4 g of naturally occurring Glutamine and Glutamic Acid.",
+            "Instantized powder for easy mixing with a spoon or shaker.",
+            "Informed-Choice certified and banned-substance tested."
+          ],
+          "benefits": [
+            "Accelerates post-workout muscle repair and recovery.",
+            "Helps maintain and build lean muscle mass.",
+            "Easy on digestion with low carbohydrate and fat content.",
+            "Bridges daily dietary protein gaps conveniently."
+          ],
+          "useCases": [
+            "Post-exercise recovery shake, morning protein boost, smoothie base, or high-protein baking ingredient."
+          ],
+          "targetCustomer": [
+            "Gym-goers, endurance athletes, bodybuilders, fitness beginners, and active individuals needing high-quality dietary protein."
+          ],
+          "occasion": [
+            "Immediate post-workout window (30–60 minutes post-training), first thing in the morning, or between meals."
+          ],
+          "crossSellIds": [
+            "P148",
+            "P149",
+            "P150"
+          ],
+          "upsellIds": [
+            "P151"
+          ],
+          "featured": true,
+          "trending": false,
+          "tags": [
+            "nutrition",
+            "optimum nutrition (on)",
+            "whey protein powders",
+            "protein powder"
+          ]
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "addedAt": 1788520456376
+      }
+    ],
+    "total": 5079,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "aiSessionId": "snt-active-session",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788520571112,
+    "updatedAt": 1788520571112
+  },
+  {
+    "orderId": "ORD-1788520469420-MPQP",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P147",
+          "name": "Optimum Nutrition (ON) Gold Standard 100% Whey Protein Powder",
+          "brand": "Optimum Nutrition (ON)",
+          "category": "nutrition",
+          "categoryDisplay": "Health & Fitness Supplements / Sports Nutrition",
+          "subCategory": "Whey Protein Powders",
+          "productType": "Protein Powder",
+          "description": "A globally benchmarked whey protein blend powered primarily by Whey Protein Isolate, delivering 24g of high-quality protein per serving to support muscle recovery and lean muscle growth.",
+          "price": 5079,
+          "currency": "INR",
+          "image": "/images/products/P147.jpg",
+          "images": [
+            "/images/products/P147.jpg"
+          ],
+          "rating": 4.2,
+          "reviewCount": 748,
+          "stockStatus": "in_stock",
+          "stockQuantity": 18,
+          "deliveryEstimate": "7 days",
+          "deliveryDays": 7,
+          "shippingCharge": "₹99",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Optimum Nutrition (ON)",
+            "Category": "Health & Fitness Supplements / Sports Nutrition",
+            "Sub-Category": "Whey Protein Powders",
+            "Product Type": "Protein Powder"
+          },
+          "rawSpecs": "",
+          "featuresList": [
+            "24 g of blended protein per serving (Whey Isolate, Concentrate, and Peptides).",
+            "5.5 g of naturally occurring BCAAs (Leucine, Isoleucine, Valine).",
+            "4 g of naturally occurring Glutamine and Glutamic Acid.",
+            "Instantized powder for easy mixing with a spoon or shaker.",
+            "Informed-Choice certified and banned-substance tested."
+          ],
+          "benefits": [
+            "Accelerates post-workout muscle repair and recovery.",
+            "Helps maintain and build lean muscle mass.",
+            "Easy on digestion with low carbohydrate and fat content.",
+            "Bridges daily dietary protein gaps conveniently."
+          ],
+          "useCases": [
+            "Post-exercise recovery shake, morning protein boost, smoothie base, or high-protein baking ingredient."
+          ],
+          "targetCustomer": [
+            "Gym-goers, endurance athletes, bodybuilders, fitness beginners, and active individuals needing high-quality dietary protein."
+          ],
+          "occasion": [
+            "Immediate post-workout window (30–60 minutes post-training), first thing in the morning, or between meals."
+          ],
+          "crossSellIds": [
+            "P148",
+            "P149",
+            "P150"
+          ],
+          "upsellIds": [
+            "P151"
+          ],
+          "featured": true,
+          "trending": false,
+          "tags": [
+            "nutrition",
+            "optimum nutrition (on)",
+            "whey protein powders",
+            "protein powder"
+          ]
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "addedAt": 1788520456376
+      }
+    ],
+    "total": 5079,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "aiSessionId": "snt-active-session",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788520471422,
+    "updatedAt": 1788520471422
+  },
+  {
     "orderId": "ORD-CANCEL-1788519431238",
     "status": "order_confirmed",
     "paymentStatus": "cancelled",

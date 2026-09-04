@@ -125,6 +125,39 @@ function PaymentSuccessContent() {
     }
   }, [resolvedOrderId, reconcileOrder]);
 
+  // Simple local order status checker while pending (no external webhook calls)
+  useEffect(() => {
+    if (!resolvedOrderId || !order || order.paymentStatus !== 'pending') return;
+
+    const interval = setInterval(async () => {
+      try {
+        const res = await fetch(`/api/orders?orderId=${resolvedOrderId}`, { cache: 'no-store' });
+        const data = await res.json();
+        const currentOrder = data?.success ? data.order : null;
+
+        if (currentOrder && currentOrder.paymentStatus === 'successful') {
+          clearInterval(interval);
+          setOrder(currentOrder);
+          if (!cartClearedRef.current) {
+            cartClearedRef.current = true;
+            const itemsToRemove = (currentOrder.items || []).map((i: OrderItemSummary) => ({
+              productId: i.product?.product_id || i.product_id,
+              variantId: i.selectedVariant?.variant_id || i.variant_id,
+            }));
+            clearPurchasedItems(itemsToRemove);
+            if (typeof window !== 'undefined') {
+              sessionStorage.removeItem('snt_active_order_id');
+            }
+          }
+        }
+      } catch {
+        // Silent retry
+      }
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [resolvedOrderId, order, clearPurchasedItems]);
+
   const handleConfirmPayment = async () => {
     if (!resolvedOrderId) return;
     setIsVerifying(true);
@@ -166,14 +199,20 @@ function PaymentSuccessContent() {
           <div className="flex size-16 mx-auto items-center justify-center rounded-2xl bg-amber-50 text-amber-600 border border-amber-200 mb-5 shadow-2xs">
             <Clock className="size-8 animate-pulse" />
           </div>
-          <span className="rounded-md bg-amber-50 text-amber-700 px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider border border-amber-200">
-            Payment in Progress
-          </span>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-foreground mt-3">
-            Complete Payment in Opened Tab
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <span className="rounded-md bg-amber-50 text-amber-700 px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider border border-amber-200">
+              Payment in Progress
+            </span>
+            <span className="flex items-center gap-1.5 rounded-md bg-indigo-50 text-indigo-700 px-2.5 py-0.5 text-xs font-bold border border-indigo-200">
+              <span className="size-2 rounded-full bg-indigo-600 animate-ping" />
+              Live Webhook Sync Active
+            </span>
+          </div>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-foreground mt-2">
+            Waiting for Payment Confirmation…
           </h1>
           <p className="mt-2 text-xs sm:text-sm text-muted-foreground max-w-md mx-auto leading-relaxed">
-            We opened your Razorpay payment tab. Once you have completed payment, click below to confirm your order and receive your receipt.
+            Please complete the payment on Razorpay. As soon as the payment webhook is received, your cart will automatically update and your order will confirm in real-time.
           </p>
 
           <div className="mt-6 p-4 rounded-2xl bg-secondary/50 border border-border text-xs max-w-sm mx-auto space-y-2 text-left">
@@ -188,8 +227,11 @@ function PaymentSuccessContent() {
               </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-muted-foreground">Status:</span>
-              <span className="font-bold text-amber-600">Waiting for Confirmation</span>
+              <span className="text-muted-foreground">Webhook Status:</span>
+              <span className="font-bold text-amber-600 flex items-center gap-1.5">
+                <RefreshCw className="size-3 animate-spin text-amber-600" />
+                Listening for Razorpay event…
+              </span>
             </div>
           </div>
 
@@ -200,7 +242,7 @@ function PaymentSuccessContent() {
               className="w-full sm:w-auto bg-[#5B35F5] hover:bg-[#4a26df] text-white font-bold gap-2 cursor-pointer shadow-sm px-6"
             >
               <CheckCircle2 className="size-4" />
-              <span>{isVerifying ? 'Confirming Order…' : 'I Have Paid — Confirm Order'}</span>
+              <span>{isVerifying ? 'Confirming Order…' : 'I Have Paid — Force Confirm'}</span>
             </Button>
             <Button
               variant="outline"
