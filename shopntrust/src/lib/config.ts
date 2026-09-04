@@ -26,6 +26,11 @@ export const n8nConfig = {
     process.env.NEXT_PUBLIC_N8N_PAYMENT_WEBHOOK_URL ||
     'https://shopntrust.app.n8n.cloud/webhook-test/New_Order',
 
+  /** AI Campaign Orchestrator webhook URL */
+  campaignOrchestratorWebhookUrl:
+    process.env.NEXT_PUBLIC_N8N_CAMPAIGN_WEBHOOK_URL ||
+    'https://shopntrust.app.n8n.cloud/webhook/270ad174-3123-436e-874b-194263e0a192',
+
   /** Request timeout in milliseconds */
   requestTimeoutMs: 30_000,
 } as const;

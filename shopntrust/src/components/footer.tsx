@@ -40,6 +40,11 @@ export function Footer() {
               </h4>
               <ul className="space-y-2.5">
                 <li>
+                  <Link href="/" className="text-slate-400 hover:text-white transition-colors">
+                    Storefront
+                  </Link>
+                </li>
+                <li>
                   <Link href="/shop" className="text-slate-400 hover:text-white transition-colors">
                     Explore Catalog
                   </Link>
@@ -54,14 +59,24 @@ export function Footer() {
                     Shopping Bag
                   </Link>
                 </li>
+                <li>
+                  <Link href="/help" className="text-slate-400 hover:text-white transition-colors font-medium text-indigo-300/90">
+                    Help Center
+                  </Link>
+                </li>
               </ul>
             </div>
 
             <div>
               <h4 className="font-semibold uppercase tracking-wider text-slate-200 mb-3">
-                Merchant
+                Merchant & Support
               </h4>
               <ul className="space-y-2.5">
+                <li>
+                  <Link href="/help#contact" className="text-slate-400 hover:text-white transition-colors">
+                    Contact Support
+                  </Link>
+                </li>
                 <li>
                   <Link href="/merchant" className="text-slate-400 hover:text-white transition-colors">
                     Merchant Dashboard
@@ -90,8 +105,8 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-800/80 pt-6 text-[11px] text-slate-500 sm:flex-row">
           <p>© 2026 ShopNTrust. All rights reserved.</p>
-          <p className="flex items-center gap-1">
-            Built for Razorpay Track 01 Challenge
+          <p className="flex items-center gap-1 text-slate-400 font-medium">
+            Built by Aashish Sahu
           </p>
         </div>
       </Container>

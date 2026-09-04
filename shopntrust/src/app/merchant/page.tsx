@@ -38,6 +38,7 @@ import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/store/auth-context';
 import { formatPrice } from '@/lib/format';
+import { CampaignOrchestrator, ActiveCampaigns } from '@/components/campaigns';
 import type {
   MerchantAnalytics,
   AnalyticsDateRange,
@@ -54,6 +55,7 @@ export default function MerchantDashboardPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [activeTooltip, setActiveTooltip] = useState<TimelineMetric | null>(null);
+  const [activeCampaignRefreshSignal, setActiveCampaignRefreshSignal] = useState(0);
 
   // Role Guard: Customers redirected to storefront
   useEffect(() => {
@@ -221,6 +223,16 @@ export default function MerchantDashboardPage() {
               <span>Refresh</span>
             </Button>
           </div>
+        </div>
+
+        {/* ============================================================ */}
+        {/* AI CAMPAIGN ORCHESTRATOR & ACTIVE CAMPAIGNS (PHASE 18) */}
+        {/* ============================================================ */}
+        <div className="mb-8 space-y-6">
+          <CampaignOrchestrator
+            onCampaignActivated={() => setActiveCampaignRefreshSignal((s) => s + 1)}
+          />
+          <ActiveCampaigns refreshSignal={activeCampaignRefreshSignal} />
         </div>
 
         {/* ============================================================ */}

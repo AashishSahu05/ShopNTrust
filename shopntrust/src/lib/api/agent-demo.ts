@@ -2,7 +2,7 @@
 // ShopNTrust — Phase 4 Demo Agent Service
 // ============================================================
 // Simulates an intelligent shopping agent by extracting structured intent,
-// deriving query constraints, matching against the canonical 54-product catalog,
+// deriving query constraints, matching against the canonical 66-product catalog,
 // and generating transparent reasoning bullets.
 //
 // NOTE: In Phase 5, this will be replaced by the real n8n webhook service
@@ -116,13 +116,13 @@ export async function queryDemoAgent(
   const lower = trimmed.toLowerCase();
   const intent = extractQueryIntent(trimmed);
 
-  // Check for out-of-catalog items (e.g. DSLR camera, refrigerator, car, furniture)
-  const outOfCatalogKeywords = ['dslr', 'camera body', 'refrigerator', 'fridge', 'washing machine', 'couch', 'sofa', 'car', 'tire', 'drone', 'television', 'tv'];
+  // Check for out-of-catalog items (refrigerators, furniture, vehicles)
+  const outOfCatalogKeywords = ['refrigerator', 'fridge', 'washing machine', 'couch', 'sofa', 'car', 'tire', 'drone', 'television', 'tv'];
   const isOutOfCatalog = outOfCatalogKeywords.some((k) => lower.includes(k)) && !lower.includes('phone') && !lower.includes('mobile');
 
   if (isOutOfCatalog) {
     return {
-      message: `I searched our 54-product canonical catalog, but ShopNTrust currently specializes in Smartphones, Wearables, Personal Audio, Laptops, Athletic Footwear, and Skincare. We don't have this product category in stock.`,
+      message: `I searched our 66-product canonical catalog, but ShopNTrust currently specializes in Smartphones, Audio & Earbuds, Smartwatches & Wearables, Laptops & Computers, Athletic Footwear, Skincare & Wellness, Chargers & Accessories, Sports Nutrition, Tablets, Cameras, and Gaming. We don't have this product category in stock.`,
       extractedIntent: intent,
       recommendedProductIds: [],
       matches: [],
@@ -130,7 +130,7 @@ export async function queryDemoAgent(
         'Find flagship smartphones',
         'Noise-cancelling headphones for travel',
         'Smartwatches for daily fitness',
-        'Explore all 54 catalog items',
+        'Explore all 66 catalog items',
       ],
     };
   }
@@ -140,6 +140,37 @@ export async function queryDemoAgent(
   const matches: AgentProductMatch[] = [];
   const recommendedIds: string[] = [];
   const reasons: Record<string, string> = {};
+
+  // Extract explicit canonical product IDs mentioned in query (P101-P166)
+  const queryIdMatches = trimmed.match(/P1\d{2}/gi) || [];
+  const validQueryIds: string[] = [];
+  queryIdMatches.forEach((id) => {
+    const canonicalId = id.toUpperCase();
+    if (getProductById(canonicalId) && !validQueryIds.includes(canonicalId)) {
+      validQueryIds.push(canonicalId);
+    }
+  });
+
+  // If user explicitly mentioned valid product IDs, prioritize them
+  if (validQueryIds.length > 0) {
+    for (const qId of validQueryIds) {
+      const p = getProductById(qId);
+      if (p && !recommendedIds.includes(qId)) {
+        recommendedIds.push(qId);
+        matches.push({
+          productId: qId,
+          matchLabel: 'Strong Match',
+          reasoning: [
+            `Verified canonical catalog item under ${p.categoryDisplay || p.category}`,
+            `Direct authentic price: ${formatPrice(p.price)}`,
+            p.rating ? `Rated ${p.rating.toFixed(1)}/5 by verified customers` : 'Authentic manufacturer warranty',
+          ],
+          keyAttributes: [p.brand, p.categoryDisplay || p.category, formatPrice(p.price)],
+        });
+        reasons[qId] = `Verified canonical product: ${p.name} (${p.brand}).`;
+      }
+    }
+  }
 
   // Case 1: Flagship phone with zoom / camera / battery (e.g. P106, P114, P101)
   if (intent.category === 'phones' || lower.includes('phone') || lower.includes('camera') || lower.includes('zoom')) {
@@ -331,10 +362,115 @@ export async function queryDemoAgent(
     }
   }
 
+  // Phase 16: Direct Commerce Actions Check (Open Bag, Checkout)
+  if (lower.includes('checkout') || lower.includes('proceed to checkout') || lower.includes('go to checkout')) {
+    return {
+      message: 'Navigating you to checkout. Please review your order details and delivery address to proceed.',
+      extractedIntent: intent,
+      recommendedProductIds: [],
+      actions: [{ type: 'OPEN_CHECKOUT' }],
+      matches: [],
+      suggestedPrompts: ['Complete Order', 'Review Bag', 'Continue Shopping'],
+    };
+  }
+
+  if (
+    lower.includes('open cart') ||
+    lower.includes('open bag') ||
+    lower.includes('open my bag') ||
+    lower.includes('view bag') ||
+    lower.includes('view cart') ||
+    lower.includes('show cart') ||
+    lower.includes('show bag')
+  ) {
+    return {
+      message: 'Opening your shared bag now. You can review items, adjust quantities, or proceed to checkout.',
+      extractedIntent: intent,
+      recommendedProductIds: [],
+      actions: [{ type: 'OPEN_CART' }],
+      matches: [],
+      suggestedPrompts: ['Proceed to Checkout', 'Add more items', 'Clear bag'],
+    };
+  }
+
+  // Phase 21 P0: Deterministic ADD_TO_BAG Structured Action Fallback
+  const sessionRecIds = (Array.isArray(context?.session?.recommendedProductIds)
+    ? (context.session.recommendedProductIds as unknown[])
+    : []
+  )
+    .map(String)
+    .map((s) => s.toUpperCase().trim())
+    .filter((id) => !!getProductById(id));
+
+  const isAddIntent =
+    lower.includes('add') ||
+    lower.includes('buy this') ||
+    lower.includes('buy it') ||
+    lower.includes('i want the first') ||
+    lower.includes('i want the second') ||
+    lower.includes('take option') ||
+    lower.includes('put in bag') ||
+    lower.includes('put in cart');
+
+  if (isAddIntent) {
+    let targetId: string | undefined = validQueryIds[0];
+    if (!targetId) {
+      if (/\b(?:option\s*1|first\s*option|first\s*one|1st\s*option|1st\s*one)\b/i.test(lower)) {
+        targetId = sessionRecIds[0] || recommendedIds[0];
+      } else if (/\b(?:option\s*2|second\s*option|second\s*one|2nd\s*option|2nd\s*one)\b/i.test(lower)) {
+        targetId = sessionRecIds[1] || sessionRecIds[0] || recommendedIds[0];
+      } else if (/\b(?:option\s*3|third\s*option|third\s*one|3rd\s*option|3rd\s*one)\b/i.test(lower)) {
+        targetId = sessionRecIds[2] || sessionRecIds[0] || recommendedIds[0];
+      } else {
+        targetId = sessionRecIds[0] || recommendedIds[0];
+      }
+    }
+
+    if (targetId && getProductById(targetId)) {
+      const p = getProductById(targetId)!;
+      const qtyMatch = trimmed.match(/\b(?:quantity|qty|count)\s*[:=]?\s*(\d+)\b/i) || trimmed.match(/\b(\d+)\s*(?:items?|units?|pieces?)\b/i);
+      const qty = qtyMatch ? Math.max(1, parseInt(qtyMatch[1], 10)) : 1;
+
+      return {
+        message: `Great choice! I've added **${p.name}** (${p.product_id}) to your bag.`,
+        extractedIntent: intent,
+        recommendedProductIds: [targetId],
+        recommendations: [
+          {
+            productId: targetId,
+            reason: `Directly added to your bag: ${p.name}`,
+            matchPoints: [
+              `Verified canonical catalog item under ${p.categoryDisplay || p.category}`,
+              `Direct authentic price: ${formatPrice(p.price)}`,
+              `In Stock with authentic warranty`,
+            ],
+            matchLabel: 'Strong Match',
+          },
+        ],
+        actions: [
+          {
+            type: 'ADD_TO_BAG',
+            productIds: [targetId],
+            quantity: qty,
+          },
+        ],
+        matches: [
+          {
+            productId: targetId,
+            matchLabel: 'Strong Match',
+            reasoning: [`Added to your shopping bag: ${p.name}`],
+            keyAttributes: [p.brand, p.categoryDisplay || p.category, formatPrice(p.price)],
+          },
+        ],
+        suggestedPrompts: ['Proceed to Checkout', 'View Bag', 'Continue Shopping'],
+      };
+    }
+  }
+
   // If still empty, return polite no-match
   if (recommendedIds.length === 0) {
     return {
-      message: `I couldn't find a direct match for your request in our current 54-product catalog. Try adjusting your criteria or search by popular categories.`,
+      message: `I couldn't find a direct match for your request in our current 66-product canonical catalog. Try adjusting your criteria or search by popular categories.`,
       extractedIntent: intent,
       recommendedProductIds: [],
       recommendations: [],
@@ -367,13 +503,30 @@ export async function queryDemoAgent(
   // Detect explicit comparison requests
   const isComparisonQuery =
     lower.includes('compare') ||
+    lower.includes('comparison') ||
     lower.includes('difference') ||
     lower.includes('which is better') ||
     lower.includes('vs') ||
     lower.includes('versus');
 
   let comparison = undefined;
-  if (isComparisonQuery && recommendedIds.length >= 2) {
+  if (isComparisonQuery && validQueryIds.length >= 2) {
+    const compIds = validQueryIds.slice(0, 2);
+    const p1 = getProductById(compIds[0]);
+    const p2 = getProductById(compIds[1]);
+    comparison = {
+      enabled: true,
+      productIds: compIds,
+      title: 'Side-by-Side Comparison',
+      summary: `Comparing ${p1?.name || compIds[0]} vs ${p2?.name || compIds[1]} based on verified canonical catalog specifications.`,
+    };
+    for (let i = compIds.length - 1; i >= 0; i--) {
+      const qId = compIds[i];
+      const idx = recommendedIds.indexOf(qId);
+      if (idx > -1) recommendedIds.splice(idx, 1);
+      recommendedIds.unshift(qId);
+    }
+  } else if (isComparisonQuery && recommendedIds.length >= 2) {
     const comparedProducts = recommendedIds.slice(0, 2).map((id) => getProductById(id)?.name).join(' vs ');
     comparison = {
       enabled: true,
@@ -507,11 +660,86 @@ export async function queryDemoAgent(
     }
   }
 
-  // Phase 7 Actions
+  // Phase 16: Structured AI Actions Generation
   const actions: AIAction[] = [];
+
+  // 1. Direct Commerce Actions based on user intent
+  if (lower.includes('checkout') || lower.includes('proceed to checkout') || lower.includes('go to checkout')) {
+    actions.push({ type: 'OPEN_CHECKOUT' });
+  } else if (
+    lower.includes('open cart') ||
+    lower.includes('open bag') ||
+    lower.includes('open my bag') ||
+    lower.includes('view bag') ||
+    lower.includes('view cart') ||
+    lower.includes('show cart') ||
+    lower.includes('show bag')
+  ) {
+    actions.push({ type: 'OPEN_CART' });
+  } else if (
+    (lower.includes('remove') || lower.includes('delete')) &&
+    (lower.includes('bag') || lower.includes('cart') || validQueryIds.length > 0)
+  ) {
+    const targetId = validQueryIds[0] || recommendedIds[0];
+    if (targetId) {
+      actions.push({ type: 'REMOVE_FROM_BAG', productIds: [targetId] });
+    }
+  } else if (
+    (lower.includes('quantity') || lower.includes('set') || lower.includes('change')) &&
+    /\d+/.test(lower)
+  ) {
+    const targetId = validQueryIds[0] || recommendedIds[0];
+    const qtyMatch = trimmed.match(/(?:quantity|qty|to|set)\s*(?:to|=)?\s*(\d+)/i) || trimmed.match(/(\d+)\s*(?:units|items|pieces)/i);
+    const qty = qtyMatch ? parseInt(qtyMatch[1], 10) : 1;
+    if (targetId) {
+      actions.push({ type: 'UPDATE_QUANTITY', productIds: [targetId], quantity: qty });
+    }
+  } else if (
+    lower.includes('add to bag') ||
+    lower.includes('add to cart') ||
+    lower.includes('add option') ||
+    lower.includes('add first') ||
+    lower.includes('buy this') ||
+    lower.includes('add')
+  ) {
+    const sessionRecIds = (Array.isArray(context?.session?.recommendedProductIds)
+      ? (context.session.recommendedProductIds as unknown[])
+      : []
+    )
+      .map(String)
+      .map((s) => s.toUpperCase().trim())
+      .filter((id) => !!getProductById(id));
+
+    let targetId: string | undefined = validQueryIds[0];
+    if (!targetId) {
+      if (/\b(?:option\s*1|first\s*option|first\s*one|1st\s*option|1st\s*one)\b/i.test(lower)) {
+        targetId = sessionRecIds[0] || recommendedIds[0];
+      } else if (/\b(?:option\s*2|second\s*option|second\s*one|2nd\s*option|2nd\s*one)\b/i.test(lower)) {
+        targetId = sessionRecIds[1] || recommendedIds[1] || sessionRecIds[0];
+      } else {
+        targetId = sessionRecIds[0] || recommendedIds[0];
+      }
+    }
+    if (targetId && getProductById(targetId)) {
+      actions.push({ type: 'ADD_TO_BAG', productIds: [targetId], quantity: 1 });
+      const p = getProductById(targetId);
+      if (p && !recommendedIds.includes(targetId)) {
+        recommendedIds.push(targetId);
+        matches.push({
+          productId: targetId,
+          matchLabel: 'Strong Match',
+          reasoning: [`Added to your shopping bag: ${p.name}`],
+          keyAttributes: [p.brand, p.categoryDisplay || p.category, formatPrice(p.price)],
+        });
+        reasons[targetId] = `Added to bag: ${p.name}`;
+      }
+    }
+  }
+
+  // 2. Presentation Actions
   if (comparison) {
     actions.push({ type: 'SHOW_COMPARISON', productIds: comparison.productIds });
-  } else {
+  } else if (recommendedIds.length > 0) {
     actions.push({ type: 'SHOW_PRODUCTS', productIds: recommendedIds });
   }
   if (upsell.length > 0) {
@@ -522,10 +750,19 @@ export async function queryDemoAgent(
   }
 
   const primaryMatch = matches[0];
-  const primaryProduct = getProductById(primaryMatch.productId);
-  const message = isComparisonQuery && comparison
-    ? `Here is a side-by-side comparison of **${comparison.productIds.map((id) => getProductById(id)?.name).join('** and **')}** directly from our verified catalog:`
-    : `Based on your request, I matched **${primaryProduct?.name || 'verified products'}** from our canonical catalog. Here is a breakdown of why these options fit your stated requirements:`;
+  const primaryProduct = primaryMatch ? getProductById(primaryMatch.productId) : undefined;
+  let message = '';
+  if (actions.some((a) => a.type === 'ADD_TO_BAG')) {
+    const addedAction = actions.find((a) => a.type === 'ADD_TO_BAG');
+    const p = addedAction?.productIds?.[0] ? getProductById(addedAction.productIds[0]) : null;
+    message = p ? `Added **${p.name}** (${p.product_id}) to your bag.` : `Added item to your bag.`;
+  } else if (isComparisonQuery && comparison) {
+    message = `Here is a side-by-side comparison of **${comparison.productIds.map((id) => getProductById(id)?.name).join('** and **')}** directly from our verified catalog:`;
+  } else if (primaryProduct) {
+    message = `Based on your request, I matched **${primaryProduct.name}** from our canonical catalog. Here is a breakdown of why these options fit your stated requirements:`;
+  } else {
+    message = `I searched our 66-product canonical catalog for your request.`;
+  }
 
   return {
     message,

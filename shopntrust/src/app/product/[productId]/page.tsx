@@ -28,6 +28,7 @@ import { getProductById, resolveProductIds } from '@/lib/catalog';
 import { formatPrice } from '@/lib/format';
 import { useCart } from '@/store/cart-context';
 import { useAuth } from '@/store/auth-context';
+import { useCampaigns } from '@/store/campaign-context';
 import { getProductImageUrl, getProductGallery } from '@/lib/product-images';
 import type { ProductVariant } from '@/types';
 import { cn } from '@/lib/utils';
@@ -71,6 +72,8 @@ function ProductDetailView({
   const [imageError, setImageError] = useState(false);
 
   const { addItem, isInCart } = useCart();
+  const { getCampaignForProduct } = useCampaigns();
+  const campaignInfo = getCampaignForProduct(product.product_id);
 
   const crossSellProducts = useMemo(
     () => resolveProductIds(product.crossSellIds || []),
@@ -91,7 +94,7 @@ function ProductDetailView({
   const inCart = isInCart(product.product_id, selectedVariant?.variant_id);
 
   const handleAddToCart = () => {
-    addItem(product, selectedVariant, quantity, 'manual');
+    addItem(product, selectedVariant, quantity, 'manual', campaignInfo?.campaignId);
     setAddedSuccess(true);
     setTimeout(() => setAddedSuccess(false), 2000);
   };

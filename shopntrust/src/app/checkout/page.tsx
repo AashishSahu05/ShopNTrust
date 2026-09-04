@@ -23,7 +23,6 @@ import {
   Sparkles,
   Loader2,
   AlertCircle,
-  CheckCircle2,
 } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
@@ -34,9 +33,16 @@ import { formatPrice } from '@/lib/format';
 import { getProductImageUrl } from '@/lib/product-images';
 import { getProductById } from '@/lib/catalog';
 
+interface OrderItemRef {
+  product?: { product_id?: string };
+  product_id?: string;
+  selectedVariant?: { variant_id?: string };
+  variant_id?: string;
+}
+
 export default function CheckoutPage() {
   const router = useRouter();
-  const { state, summary, clearCart } = useCart();
+  const { state, summary, clearPurchasedItems } = useCart();
   const { customerProfile, isCustomer, isMerchant, user } = useAuth();
   const { activeSessionId } = useAISession();
 
@@ -44,6 +50,39 @@ export default function CheckoutPage() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [simulateFailure, setSimulateFailure] = useState(false);
   const checkoutEventSent = useRef(false);
+
+  // Browser Back / bfcache synchronization: Check if active order was already confirmed paid
+  useEffect(() => {
+    const checkActiveOrderPaid = async () => {
+      if (typeof window === 'undefined') return;
+      const storedOrderId = sessionStorage.getItem('snt_active_order_id');
+      if (storedOrderId) {
+        try {
+          const res = await fetch(`/api/orders?orderId=${storedOrderId}`, { cache: 'no-store' });
+          const data = await res.json();
+          if (data.success && data.order?.paymentStatus === 'successful') {
+            sessionStorage.removeItem('snt_active_order_id');
+            const itemsToRemove = (data.order.items || []).map((i: OrderItemRef) => ({
+              productId: i.product?.product_id || i.product_id,
+              variantId: i.selectedVariant?.variant_id || i.variant_id,
+            }));
+            clearPurchasedItems(itemsToRemove);
+          }
+        } catch {}
+      }
+    };
+
+    checkActiveOrderPaid();
+
+    const handlePageShow = (e: PageTransitionEvent) => {
+      if (e.persisted) {
+        checkActiveOrderPaid();
+      }
+    };
+
+    window.addEventListener('pageshow', handlePageShow);
+    return () => window.removeEventListener('pageshow', handlePageShow);
+  }, [clearPurchasedItems]);
 
   // Role Guard: Merchants are isolated from checkout
   useEffect(() => {
@@ -199,8 +238,9 @@ export default function CheckoutPage() {
       // Critical Rule: Do NOT clear the Bag here. Bag clears ONLY upon confirmed payment success.
       // Safely navigate to the authoritative Razorpay Payment Link
       window.location.href = data.payment_link;
-    } catch (err: any) {
-      setErrorMessage(err.message || 'Unable to prepare payment right now. Please try again.');
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Unable to prepare payment right now. Please try again.';
+      setErrorMessage(msg);
       setIsProcessing(false);
     }
   };

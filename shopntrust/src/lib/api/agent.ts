@@ -6,7 +6,7 @@
 // FLOW:
 // User message + Context → sendAgentMessage() → n8n webhook → raw response
 //   → normalizeAgentResponse() → NormalizedAIResponse
-//   → Canonical Catalog validation (P101–P154) → UI rendering
+//   → Canonical Catalog validation (P101–P166) → UI rendering
 // ============================================================
 
 import { getProductById, getAllProducts } from '@/lib/catalog';
@@ -155,7 +155,7 @@ export async function sendAgentMessage(
 }
 
 /**
- * Normalize raw n8n agent responses, resolve canonical products (P101–P154),
+ * Normalize raw n8n agent responses, resolve canonical products (P101–P166),
  * strip raw internal intermediateSteps, and verify specs.
  */
 export function normalizeAgentResponse(
@@ -244,7 +244,7 @@ export function normalizeAgentResponse(
   // 2. Extract Canonical Product IDs mentioned in response or tool calls
   const extractedIds = new Set<string>();
 
-  // Scan rawText for P101-P154
+  // Scan rawText for P101-P166
   const idMatches = rawText.match(/P1\d{2}/gi);
   if (idMatches) {
     idMatches.forEach((id) => {

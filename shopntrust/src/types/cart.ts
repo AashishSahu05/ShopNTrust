@@ -37,6 +37,9 @@ export interface CartItem {
   /** Attribution tracking — how this item was added */
   addedVia: AddedVia;
 
+  /** Campaign attribution — set when added from active promotional campaign context */
+  campaignId?: string;
+
   /** Timestamp when added (for sorting/analytics) */
   addedAt: number;
 }

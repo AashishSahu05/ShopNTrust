@@ -40,7 +40,7 @@ export interface AgentExtractedIntent {
  * Detailed match reasoning and attributes for a recommended product.
  */
 export interface AgentProductMatch {
-  /** Canonical product ID (P101–P154) */
+  /** Canonical product ID (P101–P166) */
   productId: string;
 
   /** Qualitative match assessment */
@@ -65,6 +65,7 @@ export interface AgentContextPayload {
   session: {
     viewedProductIds: string[];
     cartProductIds: string[];
+    recommendedProductIds?: string[];
   };
   conversation: {
     query: string;
@@ -76,7 +77,7 @@ export interface AgentContextPayload {
  * Structured recommendation item provided by n8n or catalog reasoning.
  */
 export interface StructuredRecommendation {
-  /** Canonical product ID (P101–P154) */
+  /** Canonical product ID (P101–P166) */
   productId: string;
 
   /** Concise customer-facing explanation of why this product matches */
@@ -110,7 +111,7 @@ export interface AIComparisonData {
  * Structured upsell recommendation (better / premium alternative).
  */
 export interface UpsellRecommendation {
-  /** Canonical product ID of the upgrade (P101–P154) */
+  /** Canonical product ID of the upgrade (P101–P166) */
   productId: string;
 
   /** Canonical product ID of the product being upgraded (if applicable) */
@@ -130,7 +131,7 @@ export interface UpsellRecommendation {
  * Structured cross-sell recommendation (complementary product / accessory).
  */
 export interface CrossSellRecommendation {
-  /** Canonical product ID of the complementary item (P101–P154) */
+  /** Canonical product ID of the complementary item (P101–P166) */
   productId: string;
 
   /** Canonical product ID of the item it pairs with */

@@ -17,11 +17,12 @@ import {
   Layers,
   Eye,
   ShoppingBag,
-  RotateCcw,
   LogOut,
   Store,
   Check,
   Plus,
+  Package,
+  ArrowRight,
 } from 'lucide-react';
 import { useAuth } from '@/store/auth-context';
 import { useCart } from '@/store/cart-context';
@@ -45,7 +46,6 @@ export function CustomerProfileDrawer({ isOpen, onClose }: CustomerProfileDrawer
     viewedProductIds,
     updatePreferredCategories,
     clearViewedProducts,
-    switchRole,
     logout,
   } = useAuth();
 
@@ -110,6 +110,26 @@ export function CustomerProfileDrawer({ isOpen, onClose }: CustomerProfileDrawer
           <div className="overflow-y-auto space-y-5 pr-1 flex-1">
             {isCustomer && (
               <>
+                {/* My Orders Quick Access */}
+                <div className="rounded-2xl border border-border bg-card p-4 flex items-center justify-between shadow-2xs">
+                  <div className="flex items-center gap-2.5">
+                    <div className="flex size-9 items-center justify-center rounded-xl bg-indigo-50 text-[#5B35F5] border border-indigo-100">
+                      <Package className="size-4" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-foreground">My Orders</p>
+                      <p className="text-[11px] text-muted-foreground">View purchase history and receipts</p>
+                    </div>
+                  </div>
+                  <Button
+                    size="sm"
+                    className="bg-[#5B35F5] hover:bg-[#4a26df] text-white text-xs font-bold gap-1 cursor-pointer"
+                    render={<Link href="/orders" onClick={onClose} />}
+                  >
+                    <span>View</span>
+                    <ArrowRight className="size-3" />
+                  </Button>
+                </div>
                 {/* Preferred Categories Section */}
                 <div className="rounded-2xl border border-border bg-secondary/30 p-4 space-y-2.5">
                   <div className="flex items-center justify-between">
@@ -247,20 +267,7 @@ export function CustomerProfileDrawer({ isOpen, onClose }: CustomerProfileDrawer
           </div>
 
           {/* Action Buttons */}
-          <div className="mt-5 border-t border-border pt-4 flex items-center justify-between gap-3">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => {
-                switchRole(isCustomer ? 'merchant' : 'customer');
-                onClose();
-              }}
-              className="text-xs gap-1.5 cursor-pointer"
-            >
-              <RotateCcw className="size-3.5" />
-              <span>Switch to {isCustomer ? 'Merchant' : 'Customer'}</span>
-            </Button>
-
+          <div className="mt-5 border-t border-border pt-4 flex items-center justify-end">
             <Button
               variant="ghost"
               size="sm"
@@ -268,7 +275,7 @@ export function CustomerProfileDrawer({ isOpen, onClose }: CustomerProfileDrawer
                 logout();
                 onClose();
               }}
-              className="text-xs text-rose-600 hover:text-rose-700 hover:bg-rose-50 gap-1.5 cursor-pointer"
+              className="text-xs text-rose-600 hover:text-rose-700 hover:bg-rose-50 gap-1.5 cursor-pointer font-semibold"
             >
               <LogOut className="size-3.5" />
               <span>Sign Out</span>

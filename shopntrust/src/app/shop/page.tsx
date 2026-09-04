@@ -20,11 +20,13 @@ import {
   SlidersHorizontal,
   ArrowRight,
   Compass,
+  Flame,
 } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
 import { ProductCard } from '@/components/product-card';
 import { useAuth } from '@/store/auth-context';
+import { useCampaigns } from '@/store/campaign-context';
 import {
   getAllProducts,
   getAvailableCategories,
@@ -49,6 +51,17 @@ function ShopContent() {
   const urlCategory = searchParams.get('category') || 'all';
   const urlQuery = searchParams.get('q') || '';
   const urlBrand = searchParams.get('brand') || 'all';
+  const urlCampaign = searchParams.get('campaign') || '';
+
+  const { activeCampaigns } = useCampaigns();
+  const activeCampaign = useMemo(() => {
+    if (!urlCampaign) return null;
+    return (
+      activeCampaigns.find((c) => c.id === urlCampaign || urlCampaign === 'active') ||
+      activeCampaigns[0] ||
+      null
+    );
+  }, [urlCampaign, activeCampaigns]);
 
   const [searchQuery, setSearchQuery] = useState(urlQuery);
   const [selectedCategory, setSelectedCategory] = useState<string>(urlCategory);
@@ -79,18 +92,26 @@ function ShopContent() {
   const brands = useMemo(() => getAvailableBrands(), []);
 
   const filteredProducts = useMemo(() => {
-    return filterAndSortProducts({
+    let list = filterAndSortProducts({
       query: deferredQuery,
       category: selectedCategory,
       brand: selectedBrand,
       sortBy,
     });
-  }, [deferredQuery, selectedCategory, selectedBrand, sortBy]);
+
+    if (activeCampaign && Array.isArray(activeCampaign.productIds) && activeCampaign.productIds.length > 0) {
+      const allowedIds = new Set(activeCampaign.productIds.map((id) => id.toUpperCase()));
+      list = list.filter((p) => allowedIds.has(p.product_id.toUpperCase()));
+    }
+
+    return list;
+  }, [deferredQuery, selectedCategory, selectedBrand, sortBy, activeCampaign]);
 
   const hasActiveFilters =
     searchQuery.trim() !== '' ||
     selectedCategory !== 'all' ||
     selectedBrand !== 'all' ||
+    Boolean(activeCampaign) ||
     sortBy !== 'featured';
 
   const handleResetFilters = () => {
@@ -298,6 +319,12 @@ function ShopContent() {
             {selectedBrand !== 'all' && (
               <span className="rounded-md bg-secondary px-2 py-0.5 text-[11px] font-bold text-slate-700 dark:text-slate-300">
                 {selectedBrand}
+              </span>
+            )}
+            {activeCampaign && (
+              <span className="inline-flex items-center gap-1 rounded-md bg-rose-50 border border-rose-200 px-2.5 py-0.5 text-[11px] font-bold text-rose-700">
+                <Flame className="size-3 text-rose-500 fill-rose-500" />
+                <span>Campaign: {activeCampaign.name} ({activeCampaign.discountValue}% OFF)</span>
               </span>
             )}
           </div>

@@ -51,6 +51,8 @@ export interface RevenueMetrics {
   aiAssisted: number;
   /** Gross revenue from manual catalog shopping */
   manual: number;
+  /** Gross revenue attributed to active promotional campaigns */
+  campaignRevenue?: number;
   /** AI-assisted revenue as a percentage of total revenue */
   aiContributionPercent: number;
   /** Currency code */
@@ -65,6 +67,8 @@ export interface OrderMetrics {
   aiAssisted: number;
   /** Count of orders from manual shopping */
   manual: number;
+  /** Count of successfully paid orders driven by active campaigns */
+  campaignOrders?: number;
   /** Average Order Value (AOV) for AI-assisted orders */
   aiAverageOrderValue: number;
   /** Average Order Value (AOV) for manual orders */

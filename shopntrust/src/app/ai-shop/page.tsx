@@ -1445,7 +1445,7 @@ export default function AIShopPage() {
         {/* ============================================================ */}
         <aside className="lg:col-span-3 2xl:col-span-3 space-y-4 sticky top-20">
           {/* Shared Bag Card */}
-          <div className="rounded-3xl border border-slate-200/80 bg-white p-4 shadow-xs space-y-4">
+          <div id="shared-bag-sidebar" className="rounded-3xl border border-slate-200/80 bg-white p-4 shadow-xs space-y-4 transition-all duration-300">
             {/* Header */}
             <div className="flex items-center justify-between pb-2 border-b border-slate-100">
               <div className="flex items-center gap-2 text-xs font-bold text-slate-900">

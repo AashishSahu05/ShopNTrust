@@ -45,10 +45,15 @@ type CartAction =
       variant?: ProductVariant;
       quantity?: number;
       addedVia: CartItem['addedVia'];
+      campaignId?: string;
     }
   | { type: 'REMOVE_ITEM'; itemKey: string }
   | { type: 'UPDATE_QUANTITY'; itemKey: string; quantity: number }
   | { type: 'CLEAR_CART' }
+  | {
+      type: 'REMOVE_PURCHASED_ITEMS';
+      purchasedItems: { productId: string; variantId?: string }[];
+    }
   | { type: 'HYDRATE'; items: CartItem[] }
   | { type: 'RESET_CART' };
 
@@ -92,6 +97,7 @@ function cartReducer(state: CartState, action: CartAction): CartState {
                     item.quantity + qtyToAdd,
                     appConfig.maxCartQuantity
                   ),
+                  campaignId: action.campaignId || item.campaignId,
                 }
               : item
           ),
@@ -107,6 +113,7 @@ function cartReducer(state: CartState, action: CartAction): CartState {
             selectedVariant: action.variant,
             quantity: Math.min(qtyToAdd, appConfig.maxCartQuantity),
             addedVia: action.addedVia,
+            campaignId: action.campaignId,
             addedAt: Date.now(),
           },
         ],
@@ -162,6 +169,29 @@ function cartReducer(state: CartState, action: CartAction): CartState {
     case 'CLEAR_CART':
       return { ...state, items: [] };
 
+    case 'REMOVE_PURCHASED_ITEMS': {
+      const purchasedKeys = new Set(
+        action.purchasedItems.map((p) => getCartItemKey(p.productId, p.variantId))
+      );
+      const purchasedIds = new Set(
+        action.purchasedItems.map((p) => p.productId.toUpperCase().trim())
+      );
+      return {
+        ...state,
+        items: state.items.filter((item) => {
+          const key = getCartItemKey(
+            item.product.product_id,
+            item.selectedVariant?.variant_id
+          );
+          if (purchasedKeys.has(key)) return false;
+          if (!item.selectedVariant && purchasedIds.has(item.product.product_id.toUpperCase().trim())) {
+            return false;
+          }
+          return true;
+        }),
+      };
+    }
+
     case 'RESET_CART':
       return { items: [], isLoading: false };
 
@@ -184,11 +214,13 @@ interface CartContextValue {
     product: Product,
     variant?: ProductVariant,
     quantity?: number,
-    addedVia?: CartItem['addedVia']
+    addedVia?: CartItem['addedVia'],
+    campaignId?: string
   ) => void;
   removeItem: (itemKey: string) => void;
   updateQuantity: (itemKey: string, quantity: number) => void;
   clearCart: () => void;
+  clearPurchasedItems: (purchasedItems: { productId: string; variantId?: string }[]) => void;
   isInCart: (productId: string, variantId?: string) => boolean;
   getQuantity: (productId: string, variantId?: string) => number;
 }
@@ -232,6 +264,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         selectedVariant: validVariant || item.selectedVariant,
         quantity: Math.max(1, Math.min(item.quantity || 1, appConfig.maxCartQuantity)),
         addedVia: item.addedVia || 'manual',
+        campaignId: item.campaignId,
         addedAt: item.addedAt || Date.now(),
       });
     }
@@ -246,19 +279,22 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
     async function loadCart() {
       // If customer is authenticated with user ID, fetch from Supabase first
-      if (userId) {
-        try {
-          const dbCart = await getDbCustomerCart(userId);
-          if (active && dbCart && dbCart.length > 0) {
-            const validated = validateCartItems(dbCart);
-            dispatch({ type: 'HYDRATE', items: validated });
-            isHydratedRef.current = true;
-            return;
+        if (userId) {
+          try {
+            const dbCart = await getDbCustomerCart(userId);
+            if (active && Array.isArray(dbCart)) {
+              const validated = validateCartItems(dbCart);
+              dispatch({ type: 'HYDRATE', items: validated });
+              isHydratedRef.current = true;
+              try {
+                localStorage.setItem(storageKey, JSON.stringify(validated));
+              } catch {}
+              return;
+            }
+          } catch {
+            // Fallback to local storage if network fails
           }
-        } catch {
-          // Fallback to local storage if network fails
         }
-      }
 
       // Check user-scoped local storage
       try {
@@ -324,9 +360,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
       product: Product,
       variant?: ProductVariant,
       quantity = 1,
-      addedVia: CartItem['addedVia'] = 'manual'
+      addedVia: CartItem['addedVia'] = 'manual',
+      campaignId?: string
     ) => {
-      dispatch({ type: 'ADD_ITEM', product, variant, quantity, addedVia });
+      dispatch({ type: 'ADD_ITEM', product, variant, quantity, addedVia, campaignId });
     },
     []
   );
@@ -342,6 +379,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const clearCart = useCallback(() => {
     dispatch({ type: 'CLEAR_CART' });
   }, []);
+
+  const clearPurchasedItems = useCallback(
+    (purchasedItems: { productId: string; variantId?: string }[]) => {
+      dispatch({ type: 'REMOVE_PURCHASED_ITEMS', purchasedItems });
+    },
+    []
+  );
 
   const isInCart = useCallback(
     (productId: string, variantId?: string) => {
@@ -383,6 +427,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         removeItem,
         updateQuantity,
         clearCart,
+        clearPurchasedItems,
         isInCart,
         getQuantity,
       }}

@@ -5,10 +5,11 @@
 import { NextResponse } from 'next/server';
 import {
   createOrder,
-  getOrders,
   getOrderById,
+  getOrdersByCustomerId,
   updateOrderStatus,
 } from '@/lib/orders/order-service';
+import { authenticateCustomerRequest } from '@/lib/auth/customer-auth';
 import { recordCommerceEvent } from '@/lib/analytics/events-service';
 import type { CartItem, CustomerInfo, PaymentStatus } from '@/types';
 
@@ -27,6 +28,7 @@ export async function POST(request: Request) {
       razorpayPaymentId,
       aiSessionId,
       userId,
+      campaignId,
     } = body as {
       orderId?: string;
       items: CartItem[];
@@ -39,6 +41,7 @@ export async function POST(request: Request) {
       razorpayPaymentId?: string;
       aiSessionId?: string;
       userId?: string;
+      campaignId?: string;
     };
 
     if (!items || !items.length) {
@@ -67,6 +70,7 @@ export async function POST(request: Request) {
       razorpayPaymentId,
       aiSessionId,
       userId,
+      campaignId,
     });
 
     // If successfully paid and AI-assisted, record AI_PAYMENT_SUCCESS event
@@ -98,16 +102,45 @@ export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
     const orderId = searchParams.get('orderId');
+    const customerAuth = await authenticateCustomerRequest(request);
 
     if (orderId) {
       const order = await getOrderById(orderId);
       if (!order) {
         return NextResponse.json({ error: 'Order not found' }, { status: 404 });
       }
+
+      // If an authenticated customer is requesting an order, verify ownership
+      if (customerAuth.authenticated && customerAuth.customerId) {
+        const lowerAuthEmail = customerAuth.email?.trim().toLowerCase();
+        const orderEmail = order.customerInfo?.email?.trim().toLowerCase();
+        const isOwner =
+          (order.userId && order.userId === customerAuth.customerId) ||
+          (lowerAuthEmail && orderEmail && orderEmail === lowerAuthEmail);
+
+        if (!isOwner) {
+          return NextResponse.json(
+            { error: 'Unauthorized: You do not have permission to view this order.' },
+            { status: 403 }
+          );
+        }
+      }
+
       return NextResponse.json({ success: true, order });
     }
 
-    const orders = await getOrders();
+    // Listing customer orders: require customer authentication
+    if (!customerAuth.authenticated || !customerAuth.customerId) {
+      return NextResponse.json(
+        { error: 'Customer authentication required to view order history.' },
+        { status: 401 }
+      );
+    }
+
+    const orders = await getOrdersByCustomerId(
+      customerAuth.customerId,
+      customerAuth.email
+    );
     return NextResponse.json({ success: true, orders });
   } catch (error) {
     console.error('Error fetching orders:', error);

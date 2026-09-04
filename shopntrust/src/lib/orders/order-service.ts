@@ -19,9 +19,25 @@ import type {
   AttributionType,
   AnalyticsDateRange,
   Product,
+  Campaign,
 } from '@/types';
+import { getActiveCampaigns } from '@/lib/campaigns/campaign-service';
 
-function hydrateCartItem(di: any, currency: string): CartItem {
+import type { AddedVia } from '@/types';
+
+interface DbOrderItem {
+  product_id: string;
+  product_name: string;
+  unit_price: number | string;
+  quantity: number;
+  variant_id?: string;
+  variant_name?: string;
+  added_via?: string;
+  campaign_id?: string;
+  created_at?: string;
+}
+
+function hydrateCartItem(di: DbOrderItem, currency: string): CartItem {
   const canonical = getProductById(di.product_id);
   const product: Product = canonical || {
     product_id: di.product_id,
@@ -35,6 +51,13 @@ function hydrateCartItem(di: any, currency: string): CartItem {
     stockStatus: 'in_stock',
   };
 
+  const addedVia: AddedVia =
+    di.added_via === 'ai_primary' ||
+    di.added_via === 'ai_upsell' ||
+    di.added_via === 'ai_cross_sell'
+      ? di.added_via
+      : 'manual';
+
   return {
     product,
     selectedVariant: di.variant_id
@@ -46,7 +69,8 @@ function hydrateCartItem(di: any, currency: string): CartItem {
         }
       : undefined,
     quantity: di.quantity,
-    addedVia: di.added_via,
+    addedVia,
+    campaignId: di.campaign_id || undefined,
     addedAt: di.created_at ? new Date(di.created_at).getTime() : Date.now(),
   };
 }
@@ -100,6 +124,7 @@ export interface CreateOrderInput {
   razorpayPaymentId?: string;
   aiSessionId?: string;
   userId?: string;
+  campaignId?: string;
 }
 
 /**
@@ -149,14 +174,43 @@ export async function createOrder(input: CreateOrderInput): Promise<Order> {
     return existing;
   }
 
-  const { isAiAssisted, attributionType } = determineOrderAttribution(input.items);
+  // Validate campaign attribution against active campaigns
+  let activeCampaignsList: Campaign[] = [];
+  try {
+    activeCampaignsList = await getActiveCampaigns();
+  } catch {
+    // If active campaigns query fails, fallback list is empty
+  }
+
+  // Verify whether a given campaignId is currently active and legitimately covers the product
+  const isValidCampaignItem = (cId?: string, pId?: string): boolean => {
+    if (!cId || !pId) return false;
+    const foundCamp = activeCampaignsList.find((c) => c.id === cId && c.status === 'ACTIVE');
+    if (!foundCamp) return false;
+    return Boolean(foundCamp.productIds?.includes(pId));
+  };
+
+  // Sanitize item campaignIds to ensure client cannot fabricate invalid campaign attribution
+  const validatedItems: CartItem[] = input.items.map((item) => {
+    if (item.campaignId && !isValidCampaignItem(item.campaignId, item.product.product_id)) {
+      return { ...item, campaignId: undefined };
+    }
+    return item;
+  });
+
+  const orderCampaignId =
+    input.campaignId && activeCampaignsList.some((c) => c.id === input.campaignId && c.status === 'ACTIVE')
+      ? input.campaignId
+      : (validatedItems.find((i) => Boolean(i.campaignId))?.campaignId || undefined);
+
+  const { isAiAssisted, attributionType } = determineOrderAttribution(validatedItems);
   const now = Date.now();
 
   const newOrder: Order = {
     orderId,
     status: input.status || 'order_confirmed',
     paymentStatus: input.paymentStatus || 'successful',
-    items: input.items,
+    items: validatedItems,
     total: input.total,
     currency: input.currency || 'INR',
     customerInfo: input.customerInfo,
@@ -168,14 +222,14 @@ export async function createOrder(input: CreateOrderInput): Promise<Order> {
     paymentMethod: input.paymentMethod || 'razorpay',
     razorpayOrderId: input.razorpayOrderId,
     razorpayPaymentId: input.razorpayPaymentId,
+    campaignId: orderCampaignId,
     createdAt: now,
     updatedAt: now,
   };
 
   // Try Supabase first
-  let savedToSupabase = false;
   try {
-    const { error: orderError } = await supabaseAdmin.from('orders').insert({
+    const orderInsertPayload: Record<string, unknown> = {
       id: newOrder.orderId,
       user_id: newOrder.userId || null,
       customer_name: newOrder.customerInfo.name,
@@ -193,13 +247,26 @@ export async function createOrder(input: CreateOrderInput): Promise<Order> {
       delivery_address: `${newOrder.customerInfo.address}, ${newOrder.customerInfo.city}, ${newOrder.customerInfo.state} - ${newOrder.customerInfo.pincode}`,
       created_at: new Date(newOrder.createdAt).toISOString(),
       updated_at: new Date(newOrder.updatedAt).toISOString(),
-    });
+    };
+
+    if (newOrder.campaignId) {
+      orderInsertPayload.campaign_id = newOrder.campaignId;
+    }
+
+    let { error: orderError } = await supabaseAdmin.from('orders').insert(orderInsertPayload);
+
+    // If order insert failed because campaign_id column does not exist in DB yet, retry without it
+    if (orderError && orderError.message && orderError.message.includes('campaign_id')) {
+      delete orderInsertPayload.campaign_id;
+      const retry = await supabaseAdmin.from('orders').insert(orderInsertPayload);
+      orderError = retry.error;
+    }
 
     if (!orderError) {
       // Insert items
       const itemRows = newOrder.items.map((item) => {
         const unitPrice = item.selectedVariant?.price ?? item.product.price;
-        return {
+        const row: Record<string, unknown> = {
           order_id: newOrder.orderId,
           product_id: item.product.product_id,
           product_name: item.product.name,
@@ -212,13 +279,24 @@ export async function createOrder(input: CreateOrderInput): Promise<Order> {
           is_ai_attributed: item.addedVia !== 'manual',
           created_at: new Date(newOrder.createdAt).toISOString(),
         };
+        if (item.campaignId) {
+          row.campaign_id = item.campaignId;
+        }
+        return row;
       });
 
-      await supabaseAdmin.from('order_items').insert(itemRows);
-      savedToSupabase = true;
+      const { error: itemError } = await supabaseAdmin.from('order_items').insert(itemRows);
+      if (itemError && itemError.message && itemError.message.includes('campaign_id')) {
+        const cleanRows = itemRows.map((r) => {
+          const c = { ...r };
+          delete c.campaign_id;
+          return c;
+        });
+        await supabaseAdmin.from('order_items').insert(cleanRows);
+      }
     }
   } catch {
-    savedToSupabase = false;
+    // Graceful error handling
   }
 
   // Always sync to local persistent storage for resilient zero-downtime consistency
@@ -286,6 +364,7 @@ export async function getOrderById(orderId: string): Promise<Order | null> {
       paymentMethod: dbOrder.payment_method,
       razorpayOrderId: dbOrder.razorpay_order_id,
       razorpayPaymentId: dbOrder.razorpay_payment_id,
+      campaignId: dbOrder.campaign_id || undefined,
       createdAt: new Date(dbOrder.created_at).getTime(),
       updatedAt: new Date(dbOrder.updated_at).getTime(),
     };
@@ -318,7 +397,7 @@ export async function getOrders(filter?: {
     if (!error && Array.isArray(dbOrders)) {
       for (const dbOrder of dbOrders) {
         if (!mergedMap.has(dbOrder.id)) {
-          const items: CartItem[] = (dbOrder.order_items || []).map((di: any) =>
+          const items: CartItem[] = (dbOrder.order_items || []).map((di: DbOrderItem) =>
             hydrateCartItem(di, dbOrder.currency)
           );
 
@@ -346,6 +425,7 @@ export async function getOrders(filter?: {
             paymentMethod: dbOrder.payment_method,
             razorpayOrderId: dbOrder.razorpay_order_id,
             razorpayPaymentId: dbOrder.razorpay_payment_id,
+            campaignId: dbOrder.campaign_id || undefined,
             createdAt: new Date(dbOrder.created_at).getTime(),
             updatedAt: new Date(dbOrder.updated_at).getTime(),
           });
@@ -420,3 +500,47 @@ export async function updateOrderStatus(
 
   return order;
 }
+
+/**
+ * Retrieve orders for a specific authenticated customer.
+ * Strictly guarantees customer isolation.
+ */
+export async function getOrdersByCustomerId(
+  customerId: string,
+  customerEmail?: string
+): Promise<Order[]> {
+  const allOrders = await getOrders();
+  const lowerEmail = customerEmail?.trim().toLowerCase();
+  return allOrders.filter((o) => {
+    if (o.userId && o.userId === customerId) return true;
+    if (lowerEmail && o.customerInfo?.email && o.customerInfo.email.trim().toLowerCase() === lowerEmail) {
+      return true;
+    }
+    return false;
+  });
+}
+
+/**
+ * Retrieve a specific order for an authenticated customer, verifying ownership.
+ * Returns isAuthorized: false if order exists but belongs to another customer.
+ */
+export async function getCustomerOrderById(
+  orderId: string,
+  customerId: string,
+  customerEmail?: string
+): Promise<{ order: Order | null; isAuthorized: boolean }> {
+  const order = await getOrderById(orderId);
+  if (!order) return { order: null, isAuthorized: true };
+
+  const lowerEmail = customerEmail?.trim().toLowerCase();
+  const isOwner =
+    (order.userId && order.userId === customerId) ||
+    (lowerEmail && order.customerInfo?.email && order.customerInfo.email.trim().toLowerCase() === lowerEmail);
+
+  if (!isOwner) {
+    return { order: null, isAuthorized: false };
+  }
+
+  return { order, isAuthorized: true };
+}
+

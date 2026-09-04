@@ -33,12 +33,21 @@ export async function GET(request: Request) {
     let manualRevenue = 0;
     let upsellRevenue = 0;
     let crossSellRevenue = 0;
+    let campaignRevenue = 0;
+    let campaignOrders = 0;
 
     for (const order of successfulOrders) {
+      let orderHasCampaign = Boolean(order.campaignId);
+
       for (const item of order.items) {
         const unitPrice = item.selectedVariant?.price ?? item.product.price;
         const lineTotal = unitPrice * item.quantity;
         totalRevenue += lineTotal;
+
+        if (item.campaignId || order.campaignId) {
+          campaignRevenue += lineTotal;
+          orderHasCampaign = true;
+        }
 
         if (
           item.addedVia === 'ai_primary' ||
@@ -54,6 +63,10 @@ export async function GET(request: Request) {
         } else {
           manualRevenue += lineTotal;
         }
+      }
+
+      if (orderHasCampaign) {
+        campaignOrders += 1;
       }
     }
 
@@ -211,6 +224,7 @@ export async function GET(request: Request) {
         total: totalRevenue,
         aiAssisted: aiAssistedRevenue,
         manual: manualRevenue,
+        campaignRevenue,
         aiContributionPercent,
         currency: 'INR',
       },
@@ -218,6 +232,7 @@ export async function GET(request: Request) {
         total: totalOrders,
         aiAssisted: aiAssistedOrders,
         manual: manualOrders,
+        campaignOrders,
         aiAverageOrderValue,
         manualAverageOrderValue,
       },

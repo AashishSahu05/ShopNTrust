@@ -115,6 +115,8 @@ export interface Order {
   paymentMethod?: string;
   razorpayOrderId?: string;
   razorpayPaymentId?: string;
+  /** Campaign attribution tracking */
+  campaignId?: string;
 
   /** Timestamp of order creation */
   createdAt: number;

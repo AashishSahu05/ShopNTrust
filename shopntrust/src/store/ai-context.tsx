@@ -17,6 +17,7 @@ import {
   useMemo,
   type ReactNode,
 } from 'react';
+import { useRouter } from 'next/navigation';
 import type { AIMessage, AgentContextPayload, CartItem } from '@/types';
 import { useAuth } from '@/store/auth-context';
 import { useCart } from '@/store/cart-context';
@@ -52,8 +53,9 @@ interface AIContextValue {
 const AIContext = createContext<AIContextValue | undefined>(undefined);
 
 export function AISessionProvider({ children }: { children: ReactNode }) {
+  const router = useRouter();
   const { user, isCustomer, customerProfile, viewedProductIds } = useAuth();
-  const { state: cartState, addItem } = useCart();
+  const { state: cartState, addItem, removeItem, updateQuantity } = useCart();
   const cartItems = cartState.items;
 
   const userName = customerProfile?.name ? customerProfile.name.split(' ')[0] : 'Nathan';
@@ -197,13 +199,77 @@ export function AISessionProvider({ children }: { children: ReactNode }) {
 
         const agentRes = await sendAgentMessage(query, activeSessionId, contextPayload);
 
-        // Handle direct chat add to bag
-        if (query.toLowerCase().includes('add to bag') || query.toLowerCase().includes('add to cart')) {
-          const firstId = agentRes.recommendedProductIds[0];
-          if (firstId) {
-            const prod = getProductById(firstId);
-            if (prod) {
-              addItem(prod, prod.variants?.[0], 1, 'ai_primary');
+        // Phase 16: Priority 1 - Structured AI Action Dispatcher
+        // Source of truth: agentRes.actions (NOT brittle natural language matching)
+        if (Array.isArray(agentRes.actions) && agentRes.actions.length > 0) {
+          for (const action of agentRes.actions) {
+            if (!action || !action.type) continue;
+
+            switch (action.type) {
+              case 'ADD_TO_BAG': {
+                const targetIds = (action.productIds && action.productIds.length > 0)
+                  ? action.productIds
+                  : (agentRes.recommendedProductIds && agentRes.recommendedProductIds.length > 0 ? [agentRes.recommendedProductIds[0]] : []);
+                const qty = typeof action.quantity === 'number' && action.quantity > 0 ? action.quantity : 1;
+
+                for (const pId of targetIds) {
+                  const canonical = getProductById(pId);
+                  if (canonical) {
+                    addItem(canonical, canonical.variants?.[0], qty, 'ai_primary');
+                  }
+                }
+                break;
+              }
+
+              case 'REMOVE_FROM_BAG': {
+                const targetIds = action.productIds || [];
+                for (const pId of targetIds) {
+                  if (pId) {
+                    removeItem(pId);
+                  }
+                }
+                break;
+              }
+
+              case 'UPDATE_QUANTITY': {
+                const targetIds = action.productIds || [];
+                const qty = typeof action.quantity === 'number' ? action.quantity : 1;
+                if (qty > 0) {
+                  for (const pId of targetIds) {
+                    if (pId) {
+                      updateQuantity(pId, qty);
+                    }
+                  }
+                }
+                break;
+              }
+
+              case 'OPEN_CART': {
+                if (typeof window !== 'undefined') {
+                  const bagEl = document.getElementById('shared-bag-sidebar');
+                  if (bagEl) {
+                    bagEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    bagEl.classList.add('ring-2', 'ring-[#5B4DFB]', 'ring-offset-2');
+                    setTimeout(() => {
+                      bagEl.classList.remove('ring-2', 'ring-[#5B4DFB]', 'ring-offset-2');
+                    }, 2000);
+                  } else {
+                    router.push('/cart');
+                  }
+                  window.dispatchEvent(new CustomEvent('snt:open-cart'));
+                }
+                break;
+              }
+
+              case 'OPEN_CHECKOUT': {
+                // Strictly opens /checkout page without calling or initiating any payment flow
+                router.push('/checkout');
+                break;
+              }
+
+              default:
+                // Non-commerce UI display instructions (e.g. SHOW_PRODUCTS, SHOW_COMPARISON)
+                break;
             }
           }
         }
@@ -323,6 +389,9 @@ export function AISessionProvider({ children }: { children: ReactNode }) {
       cartItems,
       activeSessionId,
       addItem,
+      removeItem,
+      updateQuantity,
+      router,
       userId,
       historySessions,
       refreshHistorySessions,
@@ -332,9 +401,9 @@ export function AISessionProvider({ children }: { children: ReactNode }) {
   // Quick Compare Products Trigger
   const compareProducts = useCallback(
     async (productIds: string[]) => {
-      const validNames = productIds.map((id) => getProductById(id)?.name).filter(Boolean);
-      if (validNames.length >= 2) {
-        await sendMessage(`Compare ${validNames[0]} and ${validNames[1]}`);
+      const validIds = productIds.filter((id) => !!getProductById(id));
+      if (validIds.length >= 2) {
+        await sendMessage(`Compare ${validIds[0]} and ${validIds[1]}`);
       } else {
         await sendMessage(`Compare these recommended options`);
       }

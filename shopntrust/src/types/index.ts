@@ -11,3 +11,4 @@ export * from './ai';
 export * from './order';
 export * from './auth';
 export * from './analytics';
+export * from './campaign';

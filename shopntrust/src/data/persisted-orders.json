@@ -1,5 +1,1580 @@
 [
   {
+    "orderId": "ORD-1788517877719-WWEL",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P146",
+          "name": "Mamaearth Ubtan Oil-Free Face Moisturizer",
+          "brand": "Mamaearth",
+          "category": "skincare",
+          "categoryDisplay": "Beauty & Personal Care / Skincare",
+          "subCategory": "Skincare (Moisturizers & Day Creams)",
+          "productType": "Oil-Free Gel-Cream Moisturizer",
+          "description": "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months.",
+          "price": 242,
+          "mrp": 319,
+          "currency": "INR",
+          "image": "/images/products/P146.jpg",
+          "images": [
+            "/images/products/P146.jpg"
+          ],
+          "rating": 5,
+          "reviewCount": 537,
+          "stockStatus": "in_stock",
+          "stockQuantity": 24,
+          "deliveryEstimate": "3 days",
+          "deliveryDays": 3,
+          "shippingCharge": "₹0",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Mamaearth",
+            "Category": "Beauty & Personal Care / Skincare",
+            "Sub-Category": "Skincare (Moisturizers & Day Creams)",
+            "Product Type": "Oil-Free Gel-Cream Moisturizer"
+          },
+          "rawSpecs": "Variants: 80 g / 80 ml, 80 g (Pack of 2)",
+          "featuresList": [
+            "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months."
+          ],
+          "useCases": [
+            "Deeply moisturizes without clogging pores, restores natural glow, and helps prevent sun-induced dullness."
+          ],
+          "targetCustomer": [
+            "Men and women (aged 18+) looking for non-sticky daily hydration and skin brightening"
+          ],
+          "occasion": [
+            "Daily morning/night hydration routine and base layer under sunscreen or makeup."
+          ],
+          "featured": false,
+          "trending": false,
+          "tags": [
+            "skincare",
+            "mamaearth",
+            "skincare (moisturizers & day creams)",
+            "oil-free gel-cream moisturizer"
+          ]
+        },
+        "quantity": 2,
+        "addedVia": "manual",
+        "addedAt": 1788448252281
+      }
+    ],
+    "total": 484,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "aiSessionId": "snt-active-session",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788517881121,
+    "updatedAt": 1788517881121
+  },
+  {
+    "orderId": "ORD-CANCEL-1788517817917",
+    "status": "order_confirmed",
+    "paymentStatus": "cancelled",
+    "items": [
+      {
+        "product": {
+          "product_id": "P103",
+          "name": "Earbuds",
+          "price": 1999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 1999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Alpha Customer",
+      "email": "alpha@shopntrust.in"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "userId": "test-customer-alpha",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788517819327,
+    "updatedAt": 1788517819327
+  },
+  {
+    "orderId": "ORD-FAIL-1788517816162",
+    "status": "order_confirmed",
+    "paymentStatus": "failed",
+    "items": [
+      {
+        "product": {
+          "product_id": "P102",
+          "name": "Smartwatch",
+          "price": 2999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 2999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Alpha Customer",
+      "email": "alpha@shopntrust.in"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "userId": "test-customer-alpha",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788517817267,
+    "updatedAt": 1788517817267
+  },
+  {
+    "orderId": "ORD-AI-1788517814918",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P106",
+          "name": "Samsung Galaxy S24 Ultra",
+          "price": 129999
+        },
+        "quantity": 1,
+        "addedVia": "ai_primary"
+      }
+    ],
+    "total": 129999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Alpha Customer",
+      "email": "alpha@shopntrust.in"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_recommendation",
+    "aiSessionId": "test-ai-session-99",
+    "userId": "test-customer-alpha",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788517815574,
+    "updatedAt": 1788517815574
+  },
+  {
+    "orderId": "ORD-MANUAL-1788517813214",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "OnePlus Nord CE4",
+          "price": 24999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 24999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Alpha Customer",
+      "email": "alpha@shopntrust.in"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "userId": "test-customer-alpha",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788517813988,
+    "updatedAt": 1788517820218,
+    "razorpayPaymentId": "pay_duplicate_check"
+  },
+  {
+    "orderId": "ord_failed_1788517519742",
+    "status": "order_confirmed",
+    "paymentStatus": "failed",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Campaign Item",
+          "price": 50000
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea"
+      }
+    ],
+    "total": 50000,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Failed Payment User",
+      "email": "failed@test.com",
+      "phone": "+919876543210",
+      "address": "789 Failed Rd",
+      "city": "Delhi",
+      "state": "Delhi",
+      "pincode": "110001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea",
+    "createdAt": 1788517520371,
+    "updatedAt": 1788517520371
+  },
+  {
+    "orderId": "ord_fake_1788517517815",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Standard Product",
+          "price": 19999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 19999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Spoof Test",
+      "email": "spoof@test.com",
+      "phone": "+919876543210",
+      "address": "456 Test Ave",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788517518454,
+    "updatedAt": 1788517518454
+  },
+  {
+    "orderId": "ord_test_p21_1788517512005",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Campaign Test Product",
+          "price": 49990
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea"
+      }
+    ],
+    "total": 49990,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Attribution Test User",
+      "email": "attribution@shopntrust.com",
+      "phone": "+919876543210",
+      "address": "123 Test Lane",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea",
+    "createdAt": 1788517512891,
+    "updatedAt": 1788517512891
+  },
+  {
+    "orderId": "ORD-CANCEL-1788517428538",
+    "status": "order_confirmed",
+    "paymentStatus": "cancelled",
+    "items": [
+      {
+        "product": {
+          "product_id": "P103",
+          "name": "Earbuds",
+          "price": 1999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 1999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Alpha Customer",
+      "email": "alpha@shopntrust.in"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "userId": "test-customer-alpha",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788517429184,
+    "updatedAt": 1788517429184
+  },
+  {
+    "orderId": "ORD-FAIL-1788517427755",
+    "status": "order_confirmed",
+    "paymentStatus": "failed",
+    "items": [
+      {
+        "product": {
+          "product_id": "P102",
+          "name": "Smartwatch",
+          "price": 2999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 2999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Alpha Customer",
+      "email": "alpha@shopntrust.in"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "userId": "test-customer-alpha",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788517428213,
+    "updatedAt": 1788517428213
+  },
+  {
+    "orderId": "ORD-AI-1788517426141",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P106",
+          "name": "Samsung Galaxy S24 Ultra",
+          "price": 129999
+        },
+        "quantity": 1,
+        "addedVia": "ai_primary"
+      }
+    ],
+    "total": 129999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Alpha Customer",
+      "email": "alpha@shopntrust.in"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_recommendation",
+    "aiSessionId": "test-ai-session-99",
+    "userId": "test-customer-alpha",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788517426783,
+    "updatedAt": 1788517426783
+  },
+  {
+    "orderId": "ORD-MANUAL-1788517420608",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "OnePlus Nord CE4",
+          "price": 24999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 24999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Alpha Customer",
+      "email": "alpha@shopntrust.in"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "userId": "test-customer-alpha",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788517424803,
+    "updatedAt": 1788517430300,
+    "razorpayPaymentId": "pay_duplicate_check"
+  },
+  {
+    "orderId": "ORD-CANCEL-1788516856924",
+    "status": "order_confirmed",
+    "paymentStatus": "cancelled",
+    "items": [
+      {
+        "product": {
+          "product_id": "P103",
+          "name": "Earbuds",
+          "price": 1999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 1999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Alpha Customer",
+      "email": "alpha@shopntrust.in"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "userId": "test-customer-alpha",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788516857450,
+    "updatedAt": 1788516857450
+  },
+  {
+    "orderId": "ORD-FAIL-1788516856086",
+    "status": "order_confirmed",
+    "paymentStatus": "failed",
+    "items": [
+      {
+        "product": {
+          "product_id": "P102",
+          "name": "Smartwatch",
+          "price": 2999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 2999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Alpha Customer",
+      "email": "alpha@shopntrust.in"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "userId": "test-customer-alpha",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788516856699,
+    "updatedAt": 1788516856699
+  },
+  {
+    "orderId": "ORD-AI-1788516854997",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P106",
+          "name": "Samsung Galaxy S24 Ultra",
+          "price": 129999
+        },
+        "quantity": 1,
+        "addedVia": "ai_primary"
+      }
+    ],
+    "total": 129999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Alpha Customer",
+      "email": "alpha@shopntrust.in"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_recommendation",
+    "aiSessionId": "test-ai-session-99",
+    "userId": "test-customer-alpha",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788516855509,
+    "updatedAt": 1788516855509
+  },
+  {
+    "orderId": "ORD-MANUAL-1788516851969",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "OnePlus Nord CE4",
+          "price": 24999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 24999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Alpha Customer",
+      "email": "alpha@shopntrust.in"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "userId": "test-customer-alpha",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788516854145,
+    "updatedAt": 1788516858310,
+    "razorpayPaymentId": "pay_duplicate_check"
+  },
+  {
+    "orderId": "ord_failed_1788516826682",
+    "status": "order_confirmed",
+    "paymentStatus": "failed",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Campaign Item",
+          "price": 50000
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea"
+      }
+    ],
+    "total": 50000,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Failed Payment User",
+      "email": "failed@test.com",
+      "phone": "+919876543210",
+      "address": "789 Failed Rd",
+      "city": "Delhi",
+      "state": "Delhi",
+      "pincode": "110001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea",
+    "createdAt": 1788516827629,
+    "updatedAt": 1788516827629
+  },
+  {
+    "orderId": "ord_fake_1788516824206",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Standard Product",
+          "price": 19999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 19999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Spoof Test",
+      "email": "spoof@test.com",
+      "phone": "+919876543210",
+      "address": "456 Test Ave",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788516825316,
+    "updatedAt": 1788516825316
+  },
+  {
+    "orderId": "ord_test_p21_1788516817431",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Campaign Test Product",
+          "price": 49990
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea"
+      }
+    ],
+    "total": 49990,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Attribution Test User",
+      "email": "attribution@shopntrust.com",
+      "phone": "+919876543210",
+      "address": "123 Test Lane",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea",
+    "createdAt": 1788516818619,
+    "updatedAt": 1788516818619
+  },
+  {
+    "orderId": "ord_failed_1788516652731",
+    "status": "order_confirmed",
+    "paymentStatus": "failed",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Campaign Item",
+          "price": 50000
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea"
+      }
+    ],
+    "total": 50000,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Failed Payment User",
+      "email": "failed@test.com",
+      "phone": "+919876543210",
+      "address": "789 Failed Rd",
+      "city": "Delhi",
+      "state": "Delhi",
+      "pincode": "110001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea",
+    "createdAt": 1788516653195,
+    "updatedAt": 1788516653195
+  },
+  {
+    "orderId": "ord_fake_1788516651508",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Standard Product",
+          "price": 19999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 19999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Spoof Test",
+      "email": "spoof@test.com",
+      "phone": "+919876543210",
+      "address": "456 Test Ave",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788516651945,
+    "updatedAt": 1788516651945
+  },
+  {
+    "orderId": "ord_test_p21_1788516647263",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Campaign Test Product",
+          "price": 49990
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea"
+      }
+    ],
+    "total": 49990,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Attribution Test User",
+      "email": "attribution@shopntrust.com",
+      "phone": "+919876543210",
+      "address": "123 Test Lane",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea",
+    "createdAt": 1788516648978,
+    "updatedAt": 1788516648978
+  },
+  {
+    "orderId": "ord_failed_1788516391615",
+    "status": "order_confirmed",
+    "paymentStatus": "failed",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Campaign Item",
+          "price": 50000
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea"
+      }
+    ],
+    "total": 50000,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Failed Payment User",
+      "email": "failed@test.com",
+      "phone": "+919876543210",
+      "address": "789 Failed Rd",
+      "city": "Delhi",
+      "state": "Delhi",
+      "pincode": "110001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea",
+    "createdAt": 1788516392298,
+    "updatedAt": 1788516392298
+  },
+  {
+    "orderId": "ord_fake_1788516389806",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Standard Product",
+          "price": 19999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 19999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Spoof Test",
+      "email": "spoof@test.com",
+      "phone": "+919876543210",
+      "address": "456 Test Ave",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788516390696,
+    "updatedAt": 1788516390696
+  },
+  {
+    "orderId": "ord_test_p21_1788516383543",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Campaign Test Product",
+          "price": 49990
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea"
+      }
+    ],
+    "total": 49990,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Attribution Test User",
+      "email": "attribution@shopntrust.com",
+      "phone": "+919876543210",
+      "address": "123 Test Lane",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea",
+    "createdAt": 1788516384614,
+    "updatedAt": 1788516384614
+  },
+  {
+    "orderId": "ORD-CANCEL-1788516162903",
+    "status": "order_confirmed",
+    "paymentStatus": "cancelled",
+    "items": [
+      {
+        "product": {
+          "product_id": "P103",
+          "name": "Earbuds",
+          "price": 1999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 1999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Alpha Customer",
+      "email": "alpha@shopntrust.in"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "userId": "test-customer-alpha",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788516163643,
+    "updatedAt": 1788516163643
+  },
+  {
+    "orderId": "ORD-FAIL-1788516161192",
+    "status": "order_confirmed",
+    "paymentStatus": "failed",
+    "items": [
+      {
+        "product": {
+          "product_id": "P102",
+          "name": "Smartwatch",
+          "price": 2999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 2999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Alpha Customer",
+      "email": "alpha@shopntrust.in"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "userId": "test-customer-alpha",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788516162375,
+    "updatedAt": 1788516162375
+  },
+  {
+    "orderId": "ORD-AI-1788516159819",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P106",
+          "name": "Samsung Galaxy S24 Ultra",
+          "price": 129999
+        },
+        "quantity": 1,
+        "addedVia": "ai_primary"
+      }
+    ],
+    "total": 129999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Alpha Customer",
+      "email": "alpha@shopntrust.in"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_recommendation",
+    "aiSessionId": "test-ai-session-99",
+    "userId": "test-customer-alpha",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788516160367,
+    "updatedAt": 1788516160367
+  },
+  {
+    "orderId": "ORD-MANUAL-1788516154526",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "OnePlus Nord CE4",
+          "price": 24999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 24999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Alpha Customer",
+      "email": "alpha@shopntrust.in"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "userId": "test-customer-alpha",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788516158218,
+    "updatedAt": 1788516164473,
+    "razorpayPaymentId": "pay_duplicate_check"
+  },
+  {
+    "orderId": "ord_failed_1788515076123",
+    "status": "order_confirmed",
+    "paymentStatus": "failed",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Campaign Item",
+          "price": 50000
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea"
+      }
+    ],
+    "total": 50000,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Failed Payment User",
+      "email": "failed@test.com",
+      "phone": "+919876543210",
+      "address": "789 Failed Rd",
+      "city": "Delhi",
+      "state": "Delhi",
+      "pincode": "110001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea",
+    "createdAt": 1788515079011,
+    "updatedAt": 1788515079011
+  },
+  {
+    "orderId": "ord_fake_1788515072565",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Standard Product",
+          "price": 19999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 19999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Spoof Test",
+      "email": "spoof@test.com",
+      "phone": "+919876543210",
+      "address": "456 Test Ave",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788515074957,
+    "updatedAt": 1788515074957
+  },
+  {
+    "orderId": "ord_test_p21_1788515068824",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Campaign Test Product",
+          "price": 49990
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea"
+      }
+    ],
+    "total": 49990,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Attribution Test User",
+      "email": "attribution@shopntrust.com",
+      "phone": "+919876543210",
+      "address": "123 Test Lane",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea",
+    "createdAt": 1788515069970,
+    "updatedAt": 1788515069970
+  },
+  {
+    "orderId": "ord_failed_1788514851659",
+    "status": "order_confirmed",
+    "paymentStatus": "failed",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Campaign Item",
+          "price": 50000
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea"
+      }
+    ],
+    "total": 50000,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Failed Payment User",
+      "email": "failed@test.com",
+      "phone": "+919876543210",
+      "address": "789 Failed Rd",
+      "city": "Delhi",
+      "state": "Delhi",
+      "pincode": "110001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea",
+    "createdAt": 1788514852514,
+    "updatedAt": 1788514852514
+  },
+  {
+    "orderId": "ord_fake_1788514850049",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Standard Product",
+          "price": 19999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 19999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Spoof Test",
+      "email": "spoof@test.com",
+      "phone": "+919876543210",
+      "address": "456 Test Ave",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788514850837,
+    "updatedAt": 1788514850837
+  },
+  {
+    "orderId": "ord_test_p21_1788514846583",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Campaign Test Product",
+          "price": 49990
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea"
+      }
+    ],
+    "total": 49990,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Attribution Test User",
+      "email": "attribution@shopntrust.com",
+      "phone": "+919876543210",
+      "address": "123 Test Lane",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea",
+    "createdAt": 1788514847165,
+    "updatedAt": 1788514847165
+  },
+  {
+    "orderId": "ord_failed_1788514707011",
+    "status": "order_confirmed",
+    "paymentStatus": "failed",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Campaign Item",
+          "price": 50000
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea"
+      }
+    ],
+    "total": 50000,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Failed Payment User",
+      "email": "failed@test.com",
+      "phone": "+919876543210",
+      "address": "789 Failed Rd",
+      "city": "Delhi",
+      "state": "Delhi",
+      "pincode": "110001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea",
+    "createdAt": 1788514707475,
+    "updatedAt": 1788514707475
+  },
+  {
+    "orderId": "ord_fake_1788514705835",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Standard Product",
+          "price": 19999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 19999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Spoof Test",
+      "email": "spoof@test.com",
+      "phone": "+919876543210",
+      "address": "456 Test Ave",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788514706349,
+    "updatedAt": 1788514706349
+  },
+  {
+    "orderId": "ord_test_p21_1788514702998",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Campaign Test Product",
+          "price": 49990
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea"
+      }
+    ],
+    "total": 49990,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Attribution Test User",
+      "email": "attribution@shopntrust.com",
+      "phone": "+919876543210",
+      "address": "123 Test Lane",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea",
+    "createdAt": 1788514703696,
+    "updatedAt": 1788514703696
+  },
+  {
+    "orderId": "ord_failed_1788514516042",
+    "status": "order_confirmed",
+    "paymentStatus": "failed",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Campaign Item",
+          "price": 50000
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea"
+      }
+    ],
+    "total": 50000,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Failed Payment User",
+      "email": "failed@test.com",
+      "phone": "+919876543210",
+      "address": "789 Failed Rd",
+      "city": "Delhi",
+      "state": "Delhi",
+      "pincode": "110001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea",
+    "createdAt": 1788514516680,
+    "updatedAt": 1788514516680
+  },
+  {
+    "orderId": "ord_fake_1788514512519",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Standard Product",
+          "price": 19999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 19999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Spoof Test",
+      "email": "spoof@test.com",
+      "phone": "+919876543210",
+      "address": "456 Test Ave",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788514515230,
+    "updatedAt": 1788514515230
+  },
+  {
+    "orderId": "ord_test_p21_1788514509331",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Campaign Test Product",
+          "price": 49990
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea"
+      }
+    ],
+    "total": 49990,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Attribution Test User",
+      "email": "attribution@shopntrust.com",
+      "phone": "+919876543210",
+      "address": "123 Test Lane",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea",
+    "createdAt": 1788514510271,
+    "updatedAt": 1788514510271
+  },
+  {
+    "orderId": "ORD-1788513801404-H8PU",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P146",
+          "name": "Mamaearth Ubtan Oil-Free Face Moisturizer",
+          "brand": "Mamaearth",
+          "category": "skincare",
+          "categoryDisplay": "Beauty & Personal Care / Skincare",
+          "subCategory": "Skincare (Moisturizers & Day Creams)",
+          "productType": "Oil-Free Gel-Cream Moisturizer",
+          "description": "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months.",
+          "price": 242,
+          "mrp": 319,
+          "currency": "INR",
+          "image": "/images/products/P146.jpg",
+          "images": [
+            "/images/products/P146.jpg"
+          ],
+          "rating": 5,
+          "reviewCount": 537,
+          "stockStatus": "in_stock",
+          "stockQuantity": 24,
+          "deliveryEstimate": "3 days",
+          "deliveryDays": 3,
+          "shippingCharge": "₹0",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Mamaearth",
+            "Category": "Beauty & Personal Care / Skincare",
+            "Sub-Category": "Skincare (Moisturizers & Day Creams)",
+            "Product Type": "Oil-Free Gel-Cream Moisturizer"
+          },
+          "rawSpecs": "Variants: 80 g / 80 ml, 80 g (Pack of 2)",
+          "featuresList": [
+            "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months."
+          ],
+          "useCases": [
+            "Deeply moisturizes without clogging pores, restores natural glow, and helps prevent sun-induced dullness."
+          ],
+          "targetCustomer": [
+            "Men and women (aged 18+) looking for non-sticky daily hydration and skin brightening"
+          ],
+          "occasion": [
+            "Daily morning/night hydration routine and base layer under sunscreen or makeup."
+          ],
+          "featured": false,
+          "trending": false,
+          "tags": [
+            "skincare",
+            "mamaearth",
+            "skincare (moisturizers & day creams)",
+            "oil-free gel-cream moisturizer"
+          ]
+        },
+        "quantity": 2,
+        "addedVia": "manual",
+        "addedAt": 1788448252281
+      }
+    ],
+    "total": 484,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "aiSessionId": "snt-active-session",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788513802202,
+    "updatedAt": 1788513802202
+  },
+  {
+    "orderId": "ord_snt_1788513710990_Y923",
+    "status": "order_confirmed",
+    "paymentStatus": "failed",
+    "items": [
+      {
+        "product": {
+          "product_id": "P146",
+          "name": "Mamaearth Ubtan Oil-Free Face Moisturizer",
+          "brand": "Mamaearth",
+          "category": "skincare",
+          "categoryDisplay": "Beauty & Personal Care / Skincare",
+          "subCategory": "Skincare (Moisturizers & Day Creams)",
+          "productType": "Oil-Free Gel-Cream Moisturizer",
+          "description": "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months.",
+          "price": 242,
+          "mrp": 319,
+          "currency": "INR",
+          "image": "/images/products/P146.jpg",
+          "images": [
+            "/images/products/P146.jpg"
+          ],
+          "rating": 5,
+          "reviewCount": 537,
+          "stockStatus": "in_stock",
+          "stockQuantity": 24,
+          "deliveryEstimate": "3 days",
+          "deliveryDays": 3,
+          "shippingCharge": "₹0",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Mamaearth",
+            "Category": "Beauty & Personal Care / Skincare",
+            "Sub-Category": "Skincare (Moisturizers & Day Creams)",
+            "Product Type": "Oil-Free Gel-Cream Moisturizer"
+          },
+          "rawSpecs": "Variants: 80 g / 80 ml, 80 g (Pack of 2)",
+          "featuresList": [
+            "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months."
+          ],
+          "useCases": [
+            "Deeply moisturizes without clogging pores, restores natural glow, and helps prevent sun-induced dullness."
+          ],
+          "targetCustomer": [
+            "Men and women (aged 18+) looking for non-sticky daily hydration and skin brightening"
+          ],
+          "occasion": [
+            "Daily morning/night hydration routine and base layer under sunscreen or makeup."
+          ],
+          "featured": false,
+          "trending": false,
+          "tags": [
+            "skincare",
+            "mamaearth",
+            "skincare (moisturizers & day creams)",
+            "oil-free gel-cream moisturizer"
+          ]
+        },
+        "quantity": 2,
+        "addedVia": "manual",
+        "addedAt": 1788448252281
+      }
+    ],
+    "total": 484,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "aiSessionId": "snt-active-session",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788513711771,
+    "updatedAt": 1788513711771
+  },
+  {
     "orderId": "ORD-1788466268258-9B81",
     "status": "checkout",
     "paymentStatus": "pending",

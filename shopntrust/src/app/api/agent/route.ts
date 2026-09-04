@@ -80,6 +80,12 @@ function sanitizeCustomerFacingMessage(
 
   text = cleanLines.join('\n').trim();
 
+  // Sanitize any stale "54-product" or "54 products" text to canonical "66-product"
+  text = text.replace(/\b54-product\b/gi, '66-product')
+             .replace(/\b54 product\b/gi, '66 product')
+             .replace(/\b54 products\b/gi, '66 products')
+             .replace(/\b54 catalog items\b/gi, '66 catalog items');
+
   // 6. If the message was purely a raw JSON object (or empty after stripping JSON),
   // construct a clean, human-readable conversational message preserving all product details.
   if (!text || text.startsWith('{') || text.startsWith('[') || text.includes('"recommendations":')) {
@@ -114,6 +120,24 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Message is required' }, { status: 400 });
     }
 
+    // Phase 16: Priority 2 - Direct Product ID Extraction from User Query
+    const queryIdMatches = trimmed.match(/P1\d{2}/gi) || [];
+    const validQueryIds: string[] = Array.from(new Set<string>(
+      queryIdMatches
+        .map((id: string) => id.toUpperCase())
+        .filter((id: string) => !!getProductById(id))
+    ));
+
+    const lowerQuery = trimmed.toLowerCase();
+    const isComparisonQuery =
+      lowerQuery.includes('compare') ||
+      lowerQuery.includes('comparison') ||
+      lowerQuery.includes('difference') ||
+      lowerQuery.includes('which is better') ||
+      lowerQuery.includes('vs') ||
+      lowerQuery.includes('versus') ||
+      lowerQuery.includes('compare these');
+
     // Attempt Server-Side fetch to real n8n Webhook directly
     let n8nRawText = '';
     let n8nStructuredRecommendations: StructuredRecommendation[] = [];
@@ -137,7 +161,12 @@ export async function POST(req: NextRequest) {
             message: trimmed,
             chatInput: trimmed,
             sessionId: sessionId || 'ai-shop-session',
-            context,
+            context: {
+              ...context,
+              catalogScope: '66 canonical products (P101–P166)',
+              detectedProductIds: validQueryIds,
+              isComparison: isComparisonQuery && validQueryIds.length >= 2,
+            },
           }),
           signal: controller.signal,
         });
@@ -274,16 +303,78 @@ export async function POST(req: NextRequest) {
                 }
               }
 
-              // Approach B: Parse structured actions if provided by n8n
+              // Approach B & Phase 16: Parse structured actions if provided by n8n
               if (Array.isArray(raw.actions)) {
                 for (const act of raw.actions) {
                   if (act && typeof act === 'object' && typeof (act as Record<string, unknown>).type === 'string') {
                     const a = act as Record<string, unknown>;
                     const actArray = Array.isArray(a.product_ids) ? a.product_ids : Array.isArray(a.productIds) ? a.productIds : undefined;
+                    const singleId = a.product_id || a.productId;
+                    let pIds: string[] | undefined = actArray
+                      ? (actArray as unknown[]).map(String).map((id: string) => id.toUpperCase().trim()).filter((id) => !!getProductById(id))
+                      : singleId
+                      ? [String(singleId).toUpperCase().trim()].filter((id) => !!getProductById(id))
+                      : undefined;
+
+                    // Phase 21 P0: Strict Product Resolution Priority for ADD_TO_BAG
+                    if (a.type === 'ADD_TO_BAG') {
+                      const sessionRecIds = (Array.isArray(context?.session?.recommendedProductIds)
+                        ? (context.session.recommendedProductIds as unknown[])
+                        : []
+                      )
+                        .map(String)
+                        .map((s) => s.toUpperCase().trim())
+                        .filter((id) => !!getProductById(id));
+
+                      // Priority 1: If query explicitly contains a valid canonical product ID such as P106
+                      if (validQueryIds.length > 0) {
+                        pIds = [validQueryIds[0]];
+                      }
+                      // Priority 2: If query refers to an option, resolve against session recommendations
+                      else if (sessionRecIds.length > 0) {
+                        let optId: string | undefined;
+                        if (/\b(?:option\s*1|first\s*option|first\s*one|1st\s*option|1st\s*one)\b/i.test(lowerQuery)) {
+                          optId = sessionRecIds[0];
+                        } else if (/\b(?:option\s*2|second\s*option|second\s*one|2nd\s*option|2nd\s*one)\b/i.test(lowerQuery)) {
+                          optId = sessionRecIds[1] || sessionRecIds[0];
+                        } else if (/\b(?:option\s*3|third\s*option|third\s*one|3rd\s*option|3rd\s*one)\b/i.test(lowerQuery)) {
+                          optId = sessionRecIds[2] || sessionRecIds[0];
+                        } else {
+                          const optMatch = lowerQuery.match(/\boption\s*(\d+)\b/i);
+                          if (optMatch) {
+                            const idx = parseInt(optMatch[1], 10) - 1;
+                            if (idx >= 0 && idx < sessionRecIds.length) {
+                              optId = sessionRecIds[idx];
+                            }
+                          }
+                        }
+                        if (optId) {
+                          pIds = [optId];
+                        }
+                      }
+
+                      // Never generate ADD_TO_BAG without a verified canonical product ID
+                      if (!pIds || pIds.length === 0 || !getProductById(pIds[0])) {
+                        continue;
+                      }
+                    }
+
+                    // If action requires productIds (REMOVE_FROM_BAG, UPDATE_QUANTITY) but none were provided in the action object:
+                    if ((!pIds || pIds.length === 0) && (a.type === 'REMOVE_FROM_BAG' || a.type === 'UPDATE_QUANTITY')) {
+                      if (validQueryIds.length > 0) {
+                        pIds = validQueryIds;
+                      } else if (Array.isArray(raw.recommendedProductIds) && raw.recommendedProductIds.length > 0) {
+                        pIds = (raw.recommendedProductIds as unknown[]).map(String).map((s: string) => s.toUpperCase().trim()).filter((id: string) => !!getProductById(id)).slice(0, 1);
+                      }
+                    }
+
+                    const qtyMatch = trimmed.match(/\b(?:quantity|qty|count)\s*[:=]?\s*(\d+)\b/i) || trimmed.match(/\b(\d+)\s*(?:items?|units?|pieces?)\b/i);
+                    const qty = typeof a.quantity === 'number' ? a.quantity : a.type === 'ADD_TO_BAG' ? (qtyMatch ? Math.max(1, parseInt(qtyMatch[1], 10)) : 1) : undefined;
+
                     n8nActions.push({
                       type: a.type as AIAction['type'],
-                      productIds: actArray ? (actArray as unknown[]).map(String).map((id: string) => id.toUpperCase()) : undefined,
-                      quantity: typeof a.quantity === 'number' ? a.quantity : undefined,
+                      productIds: pIds,
+                      quantity: qty,
                     });
                   }
                 }
@@ -296,7 +387,7 @@ export async function POST(req: NextRequest) {
             }
           }
 
-          // 1. Parse canonical product IDs (P101-P154) from output text or intermediate steps
+          // 1. Parse canonical product IDs (P101-P166) from output text or intermediate steps
           const combinedSearch = n8nRawText + ' ' + JSON.stringify(raw.intermediateSteps || '');
           const idMatches = combinedSearch.match(/P1\d{2}/gi);
           if (idMatches) {
@@ -306,6 +397,97 @@ export async function POST(req: NextRequest) {
                 extractedIds.add(canonicalId);
               }
             });
+          }
+
+          // Phase 16: Priority 2 - If query is direct comparison with >= 2 valid IDs, ensure they are in extractedIds
+          if (isComparisonQuery && validQueryIds.length >= 2) {
+            validQueryIds.forEach((id) => extractedIds.add(id));
+            const isNegativeResponse = /couldn't find|could not find|not found|no direct match|don't have/i.test(n8nRawText);
+            if (isNegativeResponse || !n8nRawText.trim()) {
+              const p1 = getProductById(validQueryIds[0]);
+              const p2 = getProductById(validQueryIds[1]);
+              n8nRawText = `Here is the side-by-side comparison of **${p1?.name || validQueryIds[0]}** (${validQueryIds[0]}) and **${p2?.name || validQueryIds[1]}** (${validQueryIds[1]}) from our canonical 66-product catalog:`;
+            }
+          }
+
+          // Direct commerce intent fallback for n8nActions if n8n returned no actions
+          if (n8nActions.length === 0) {
+            if (lowerQuery.includes('checkout')) {
+              n8nActions.push({ type: 'OPEN_CHECKOUT' });
+            } else if (lowerQuery.includes('open') && (lowerQuery.includes('bag') || lowerQuery.includes('cart'))) {
+              n8nActions.push({ type: 'OPEN_CART' });
+            } else if (lowerQuery.includes('remove') && validQueryIds.length > 0) {
+              n8nActions.push({ type: 'REMOVE_FROM_BAG', productIds: validQueryIds });
+            } else if ((lowerQuery.includes('quantity') || lowerQuery.includes('qty') || lowerQuery.includes('set')) && validQueryIds.length > 0) {
+              const qtyMatch = trimmed.match(/\b(?:quantity|qty|to|set)\s*[:=]?\s*(\d+)\b/i) || trimmed.match(/\b(\d+)\s*(?:items?|units?|pieces?)\b/i);
+              const qty = qtyMatch ? parseInt(qtyMatch[1], 10) : 1;
+              n8nActions.push({ type: 'UPDATE_QUANTITY', productIds: validQueryIds, quantity: Math.max(1, qty) });
+            } else if (
+              lowerQuery.includes('add') ||
+              lowerQuery.includes('buy this') ||
+              lowerQuery.includes('buy it') ||
+              lowerQuery.includes('i want the first') ||
+              lowerQuery.includes('i want the second') ||
+              lowerQuery.includes('take option') ||
+              lowerQuery.includes('put in bag') ||
+              lowerQuery.includes('put in cart')
+            ) {
+              // Deterministic ADD_TO_BAG fallback
+              const qtyMatch = trimmed.match(/\b(?:quantity|qty|count)\s*[:=]?\s*(\d+)\b/i) || trimmed.match(/\b(\d+)\s*(?:items?|units?|pieces?)\b/i);
+              const qty = qtyMatch ? Math.max(1, parseInt(qtyMatch[1], 10)) : 1;
+
+              const sessionRecIds = (Array.isArray(context?.session?.recommendedProductIds)
+                ? (context.session.recommendedProductIds as unknown[])
+                : []
+              )
+                .map(String)
+                .map((s) => s.toUpperCase().trim())
+                .filter((id) => !!getProductById(id));
+
+              let resolvedTargetId: string | undefined = undefined;
+
+              // Priority 1: Explicit canonical product ID in query (e.g. "Add P106")
+              if (validQueryIds.length > 0) {
+                resolvedTargetId = validQueryIds[0];
+              }
+              // Priority 2: Option reference ("option 1", "first option", "option 2", etc.)
+              else if (/\b(?:option\s*1|first\s*option|first\s*one|1st\s*option|1st\s*one)\b/i.test(lowerQuery)) {
+                resolvedTargetId = sessionRecIds[0];
+              } else if (/\b(?:option\s*2|second\s*option|second\s*one|2nd\s*option|2nd\s*one)\b/i.test(lowerQuery)) {
+                resolvedTargetId = sessionRecIds[1] || sessionRecIds[0];
+              } else if (/\b(?:option\s*3|third\s*option|third\s*one|3rd\s*option|3rd\s*one)\b/i.test(lowerQuery)) {
+                resolvedTargetId = sessionRecIds[2] || sessionRecIds[0];
+              } else {
+                const optMatch = lowerQuery.match(/\boption\s*(\d+)\b/i);
+                if (optMatch) {
+                  const idx = parseInt(optMatch[1], 10) - 1;
+                  if (idx >= 0 && idx < sessionRecIds.length) {
+                    resolvedTargetId = sessionRecIds[idx];
+                  }
+                }
+              }
+
+              // Priority 3: General add intent ("Add to bag", "Buy this") without option number
+              if (!resolvedTargetId) {
+                if (sessionRecIds.length > 0) {
+                  resolvedTargetId = sessionRecIds[0];
+                } else if (Array.isArray(raw.recommendedProductIds) && raw.recommendedProductIds.length > 0) {
+                  const rawFirst = String(raw.recommendedProductIds[0]).toUpperCase().trim();
+                  if (getProductById(rawFirst)) resolvedTargetId = rawFirst;
+                } else if (extractedIds.size > 0) {
+                  resolvedTargetId = Array.from(extractedIds)[0];
+                }
+              }
+
+              // Priority 4: If valid product resolved, emit ADD_TO_BAG; never invent a product ID
+              if (resolvedTargetId && getProductById(resolvedTargetId)) {
+                n8nActions.push({
+                  type: 'ADD_TO_BAG',
+                  productIds: [resolvedTargetId],
+                  quantity: qty,
+                });
+              }
+            }
           }
 
           // 2. Scan output text for canonical catalog product names
@@ -328,14 +510,18 @@ export async function POST(req: NextRequest) {
 
     // If n8n returned valid text, build normalized Phase 6 & Phase 7 response
     if (n8nRawText && n8nRawText !== 'Workflow was started') {
-      const recommendedProductIds = Array.from(extractedIds).slice(0, 3);
+      let recommendedProductIds: string[];
+      if (isComparisonQuery && validQueryIds.length >= 2) {
+        recommendedProductIds = Array.from(new Set<string>([...validQueryIds, ...Array.from(extractedIds)])).slice(0, 3);
+      } else {
+        recommendedProductIds = Array.from(extractedIds).slice(0, 3);
+      }
       const matches: AgentProductMatch[] = [];
       const structuredRecommendations: StructuredRecommendation[] = [];
       const reasons: Record<string, string> = {};
       const matchFactors: Record<string, string[]> = {};
 
       // Detect user intent & budget constraints
-      const lowerQuery = trimmed.toLowerCase();
       const budgetMatch = trimmed.match(/(?:under|below|budget|within|less than|<=?)\s*(?:₹|rs\.?|inr)?\s*([\d,]+)/i);
       const statedBudget = budgetMatch ? parseInt(budgetMatch[1].replace(/,/g, ''), 10) : undefined;
 
@@ -384,21 +570,19 @@ export async function POST(req: NextRequest) {
       }
 
       // Check if user specifically requested a comparison
-      const isComparisonQuery =
-        lowerQuery.includes('compare') ||
-        lowerQuery.includes('difference') ||
-        lowerQuery.includes('which is better') ||
-        lowerQuery.includes('vs') ||
-        lowerQuery.includes('versus');
-
       let comparison = n8nComparison;
-      if (!comparison && isComparisonQuery && recommendedProductIds.length >= 2) {
-        comparison = {
-          enabled: true,
-          productIds: recommendedProductIds.slice(0, 2),
-          title: 'Side-by-Side Comparison',
-          summary: `Comparing ${recommendedProductIds.slice(0, 2).map((id) => getProductById(id)?.name).join(' vs ')} based on canonical catalog specifications.`,
-        };
+      if (!comparison && isComparisonQuery) {
+        const compareIds = validQueryIds.length >= 2 ? validQueryIds.slice(0, 2) : (recommendedProductIds.length >= 2 ? recommendedProductIds.slice(0, 2) : []);
+        if (compareIds.length >= 2) {
+          const p1 = getProductById(compareIds[0]);
+          const p2 = getProductById(compareIds[1]);
+          comparison = {
+            enabled: true,
+            productIds: compareIds,
+            title: `${p1?.brand || ''} vs ${p2?.brand || ''} Comparison`,
+            summary: `Direct comparison between ${p1?.name || compareIds[0]} (${formatPrice(p1?.price || 0)}) and ${p2?.name || compareIds[1]} (${formatPrice(p2?.price || 0)}) based on verified canonical catalog specifications.`,
+          };
+        }
       }
 
       // Phase 7: Contextual Upsell & Cross-Sell Generation with Duplicate Prevention

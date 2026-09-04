@@ -11,11 +11,12 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Star, ShoppingBag, Check, ArrowRight, Trash2, Minus, Plus, Zap } from 'lucide-react';
+import { Star, ShoppingBag, Check, ArrowRight, Trash2, Minus, Plus, Zap, Flame } from 'lucide-react';
 import type { Product, AddedVia } from '@/types';
 import { formatPrice } from '@/lib/format';
 import { Button } from '@/components/ui/button';
 import { useCart, getCartItemKey } from '@/store/cart-context';
+import { useCampaigns } from '@/store/campaign-context';
 import { getProductImageUrl } from '@/lib/product-images';
 import { cn } from '@/lib/utils';
 
@@ -25,6 +26,7 @@ interface ProductCardProps {
   className?: string;
   showQuickAdd?: boolean;
   addedVia?: AddedVia;
+  campaignDiscount?: number;
 }
 
 export function ProductCard({
@@ -32,10 +34,15 @@ export function ProductCard({
   className,
   showQuickAdd = true,
   addedVia = 'manual',
+  campaignDiscount,
 }: ProductCardProps) {
   const { addItem, isInCart, getQuantity, updateQuantity } = useCart();
+  const { getCampaignForProduct } = useCampaigns();
   const [addedAnimation, setAddedAnimation] = useState(false);
   const [imageError, setImageError] = useState(false);
+
+  const campaignInfo = getCampaignForProduct(product.product_id);
+  const activeCampaignDiscount = campaignDiscount ?? campaignInfo?.discountPercent;
 
   const imageUrl = getProductImageUrl(product.product_id);
   const inCart = isInCart(product.product_id);
@@ -62,7 +69,7 @@ export function ProductCard({
         ? product.variants[0]
         : undefined;
 
-    addItem(product, defaultVariant, 1, addedVia);
+    addItem(product, defaultVariant, 1, addedVia, campaignInfo?.campaignId);
     setAddedAnimation(true);
     setTimeout(() => setAddedAnimation(false), 1500);
   };
@@ -106,7 +113,12 @@ export function ProductCard({
             <span className="inline-flex items-center rounded-md bg-white/95 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-slate-800 shadow-2xs border border-slate-200/80 backdrop-blur-xs">
               {product.brand || product.categoryDisplay || product.category}
             </span>
-            {discountPercent && discountPercent > 0 ? (
+            {activeCampaignDiscount && activeCampaignDiscount > 0 ? (
+              <span className="inline-flex items-center gap-1 rounded-md bg-gradient-to-r from-rose-600 to-red-600 px-2 py-0.5 text-[10px] font-extrabold text-white shadow-xs border border-rose-500/80 animate-pulse">
+                <Flame className="size-2.5 text-white fill-white" />
+                <span>{activeCampaignDiscount}% OFF</span>
+              </span>
+            ) : discountPercent && discountPercent > 0 ? (
               <span className="inline-flex items-center rounded-md bg-rose-50 px-2 py-0.5 text-[10px] font-bold text-rose-600 border border-rose-200/70 shadow-2xs">
                 {discountPercent}% OFF
               </span>

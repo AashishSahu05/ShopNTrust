@@ -298,5 +298,205 @@
       "itemCount": 1
     },
     "createdAt": "2026-09-03T20:11:09.884Z"
+  },
+  {
+    "id": "evt_1788499536696_ij0t",
+    "sessionId": "test",
+    "eventType": "PAGE_VIEW",
+    "userId": null,
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {},
+    "createdAt": "2026-09-04T05:25:36.696Z"
+  },
+  {
+    "id": "evt_1788499735215_iet4",
+    "sessionId": "snt-active-session",
+    "eventType": "AI_SESSION_STARTED",
+    "userId": null,
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {},
+    "createdAt": "2026-09-04T05:28:55.215Z"
+  },
+  {
+    "id": "evt_1788499763292_qq80",
+    "sessionId": "snt-active-session",
+    "eventType": "AI_RECOMMENDATION_SHOWN",
+    "userId": null,
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "productIds": [
+        "P133",
+        "P134"
+      ]
+    },
+    "createdAt": "2026-09-04T05:29:23.292Z"
+  },
+  {
+    "id": "evt_1788499763315_pa8k",
+    "sessionId": "snt-active-session",
+    "eventType": "AI_CROSS_SELL_SHOWN",
+    "userId": null,
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "productIds": [
+        "P116"
+      ]
+    },
+    "createdAt": "2026-09-04T05:29:23.315Z"
+  },
+  {
+    "id": "evt_1788501205943_ulzc",
+    "sessionId": "snt-active-session",
+    "eventType": "AI_SESSION_STARTED",
+    "userId": null,
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {},
+    "createdAt": "2026-09-04T05:53:25.943Z"
+  },
+  {
+    "id": "evt_1788501205913_itxo",
+    "sessionId": "snt-active-session",
+    "eventType": "AI_CROSS_SELL_SHOWN",
+    "userId": null,
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "productIds": [
+        "P116"
+      ]
+    },
+    "createdAt": "2026-09-04T05:53:25.913Z"
+  },
+  {
+    "id": "evt_1788501205927_05q9",
+    "sessionId": "snt-active-session",
+    "eventType": "AI_RECOMMENDATION_SHOWN",
+    "userId": null,
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "productIds": [
+        "P133",
+        "P134"
+      ]
+    },
+    "createdAt": "2026-09-04T05:53:25.927Z"
+  },
+  {
+    "id": "evt_1788501233979_v9f5",
+    "sessionId": "snt-active-session",
+    "eventType": "AI_RECOMMENDATION_SHOWN",
+    "userId": null,
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "productIds": [
+        "P133"
+      ]
+    },
+    "createdAt": "2026-09-04T05:53:53.979Z"
+  },
+  {
+    "id": "evt_1788501234021_w5qc",
+    "sessionId": "snt-active-session",
+    "eventType": "AI_CROSS_SELL_SHOWN",
+    "userId": null,
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "productIds": [
+        "P116"
+      ]
+    },
+    "createdAt": "2026-09-04T05:53:54.021Z"
+  },
+  {
+    "id": "evt_1788501233999_jsxz",
+    "sessionId": "snt-active-session",
+    "eventType": "AI_UPSELL_SHOWN",
+    "userId": null,
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": null,
+    "metadata": {
+      "productIds": [
+        "P134"
+      ]
+    },
+    "createdAt": "2026-09-04T05:53:53.999Z"
+  },
+  {
+    "id": "evt_1788516160621_4lns",
+    "sessionId": "test-ai-session-99",
+    "eventType": "AI_PAYMENT_SUCCESS",
+    "userId": "test-customer-alpha",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": "ORD-AI-1788516159819",
+    "metadata": {
+      "totalAmount": 129999,
+      "attributionType": "ai_recommendation",
+      "itemCount": 1
+    },
+    "createdAt": "2026-09-04T10:02:40.621Z"
+  },
+  {
+    "id": "evt_1788516855736_es9g",
+    "sessionId": "test-ai-session-99",
+    "eventType": "AI_PAYMENT_SUCCESS",
+    "userId": "test-customer-alpha",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": "ORD-AI-1788516854997",
+    "metadata": {
+      "totalAmount": 129999,
+      "attributionType": "ai_recommendation",
+      "itemCount": 1
+    },
+    "createdAt": "2026-09-04T10:14:15.736Z"
+  },
+  {
+    "id": "evt_1788517427012_gy8x",
+    "sessionId": "test-ai-session-99",
+    "eventType": "AI_PAYMENT_SUCCESS",
+    "userId": "test-customer-alpha",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": "ORD-AI-1788517426141",
+    "metadata": {
+      "totalAmount": 129999,
+      "attributionType": "ai_recommendation",
+      "itemCount": 1
+    },
+    "createdAt": "2026-09-04T10:23:47.012Z"
+  },
+  {
+    "id": "evt_1788517815853_ha6q",
+    "sessionId": "test-ai-session-99",
+    "eventType": "AI_PAYMENT_SUCCESS",
+    "userId": "test-customer-alpha",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": "ORD-AI-1788517814918",
+    "metadata": {
+      "totalAmount": 129999,
+      "attributionType": "ai_recommendation",
+      "itemCount": 1
+    },
+    "createdAt": "2026-09-04T10:30:15.853Z"
   }
 ]

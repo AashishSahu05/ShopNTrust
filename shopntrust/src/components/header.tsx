@@ -24,6 +24,8 @@ import {
   User,
   ChevronDown,
   LogOut,
+  HelpCircle,
+  Package,
 } from 'lucide-react';
 import { useCart } from '@/store/cart-context';
 import { useAuth } from '@/store/auth-context';
@@ -68,6 +70,12 @@ export function Header() {
       icon: ShoppingBag,
       isAI: false,
     },
+    {
+      label: 'Help',
+      href: '/help',
+      icon: HelpCircle,
+      isAI: false,
+    },
   ];
 
   // Merchant navigation items
@@ -90,15 +98,15 @@ export function Header() {
             className="flex items-center gap-2.5 transition-transform hover:scale-[1.01] active:scale-[0.99]"
           >
             <div className={cn(
-              'flex size-8 items-center justify-center rounded-xl text-white shadow-sm transition-shadow',
+              'flex size-8.5 items-center justify-center rounded-full text-white shadow-sm transition-shadow',
               isMerchant
                 ? 'bg-slate-900 shadow-slate-900/20'
-                : 'bg-gradient-to-br from-indigo-600 to-indigo-700 shadow-indigo-600/25 ring-1 ring-indigo-500/30'
+                : 'bg-gradient-to-br from-[#7C3AED] to-[#5B35F5] shadow-[#5B35F5]/25 ring-1 ring-[#5B35F5]/30'
             )}>
               {isMerchant ? <Store className="size-4" /> : <Sparkles className="size-4" />}
             </div>
             <span className="text-lg font-extrabold tracking-tight text-foreground">
-              Shop<span className="text-snt-accent font-black">N</span>Trust
+              Shop<span className="text-[#5B35F5] font-black">N</span>Trust
               {isMerchant && (
                 <span className="ml-2 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200/80 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider">
                   Merchant
@@ -109,7 +117,7 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav
-            className="hidden items-center gap-1.5 md:flex"
+            className="hidden items-center gap-2 md:flex"
             aria-label="Main navigation"
           >
             {/* Customer / Guest Nav */}
@@ -126,17 +134,14 @@ export function Header() {
                       className={cn(
                         'flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all duration-200',
                         isActive
-                          ? 'bg-gradient-to-r from-indigo-600 to-indigo-700 text-white shadow-sm shadow-indigo-600/20 ring-1 ring-indigo-500/30'
-                          : 'bg-indigo-50/80 text-indigo-700 hover:bg-indigo-100/80 border border-indigo-200/60'
+                          ? 'bg-[#F0EDFF] text-[#5B35F5] border border-[#E0D7FE] font-bold shadow-2xs'
+                          : 'text-slate-700 hover:text-slate-950 hover:bg-slate-100/60'
                       )}
                     >
-                      <Sparkles className={cn("size-3.5", isActive ? "text-white" : "text-indigo-600")} />
+                      <Sparkles className="size-3.5 text-[#5B35F5]" />
                       <span>AI Shopping</span>
-                      <span className={cn(
-                        "ml-1 rounded-full px-1.5 py-0.2 text-[9px] font-bold uppercase tracking-wider",
-                        isActive ? "bg-white/20 text-white" : "bg-indigo-200/70 text-indigo-800"
-                      )}>
-                        Beta
+                      <span className="ml-1 rounded-full bg-[#EDE9FE] px-2 py-0.5 text-[9px] font-black uppercase tracking-wider text-[#6D28D9]">
+                        BETA
                       </span>
                     </Link>
                   );
@@ -147,13 +152,13 @@ export function Header() {
                     key={item.href}
                     href={item.href}
                     className={cn(
-                      'relative flex items-center gap-1.5 rounded-xl px-3.5 py-1.5 text-xs font-semibold transition-all duration-150',
+                      'relative flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all duration-150',
                       isActive
-                        ? 'text-slate-900 font-bold bg-slate-100/90 shadow-2xs'
-                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/50'
+                        ? 'bg-[#F0EDFF] text-[#5B35F5] border border-[#E0D7FE] font-bold shadow-2xs'
+                        : 'text-slate-700 hover:text-slate-950 hover:bg-slate-100/50'
                     )}
                   >
-                    <Icon className="size-3.5 opacity-70" />
+                    <Icon className={cn("size-3.5", isActive ? "text-[#5B35F5]" : "opacity-70 text-slate-500")} />
                     <span>{item.label}</span>
                   </Link>
                 );
@@ -225,9 +230,9 @@ export function Header() {
             {isGuest && (
               <button
                 onClick={openAuthModal}
-                className="hidden sm:flex items-center gap-1.5 rounded-xl border border-slate-200/80 bg-white hover:bg-slate-50 px-3.5 py-1.5 text-xs font-bold text-foreground transition-all cursor-pointer shadow-2xs"
+                className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-slate-800 hover:text-[#5B35F5] transition-all cursor-pointer"
               >
-                <User className="size-3.5 text-muted-foreground" />
+                <User className="size-3.5 text-slate-600" />
                 <span>Sign In / Account</span>
               </button>
             )}
@@ -237,14 +242,14 @@ export function Header() {
               <Link
                 href="/cart"
                 className={cn(
-                  'relative flex items-center gap-2 rounded-xl border border-slate-200/80 bg-white px-3.5 py-1.5 text-xs font-bold text-foreground transition-all hover:border-indigo-400/60 shadow-2xs hover:shadow-xs',
-                  pathname === '/cart' && 'border-snt-accent ring-1 ring-snt-accent/60 bg-indigo-50/40'
+                  'relative flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-slate-800 hover:text-[#5B35F5] transition-all',
+                  pathname === '/cart' && 'text-[#5B35F5]'
                 )}
                 aria-label={`Shopping bag with ${summary.totalQuantity} items`}
               >
-                <ShoppingBag className="size-3.5 text-foreground" />
-                <span className="hidden sm:inline font-semibold">Bag</span>
-                <span className="flex size-5 items-center justify-center rounded-full bg-gradient-to-r from-indigo-600 to-indigo-700 text-[10px] font-extrabold text-white shadow-xs">
+                <ShoppingBag className="size-4 text-slate-700" />
+                <span className="font-semibold">Bag</span>
+                <span className="flex size-5 items-center justify-center rounded-full bg-[#5B35F5] text-[10px] font-black text-white shadow-xs">
                   {summary.totalQuantity}
                 </span>
               </Link>
@@ -275,20 +280,33 @@ export function Header() {
                 {/* Mobile Identity Button */}
                 <div className="border-b border-border pb-3 mb-2">
                   {isCustomer && customerProfile && (
-                    <button
-                      onClick={() => {
-                        setMobileOpen(false);
-                        setProfileDrawerOpen(true);
-                      }}
-                      className="flex items-center justify-between w-full rounded-xl bg-indigo-50/80 border border-indigo-200/80 p-3 text-xs font-bold text-foreground"
-                    >
-                      <div className="flex items-center gap-2">
-                        <User className="size-4 text-snt-accent" />
-                        <span>{customerProfile.name}</span>
-                        <span className="text-[10px] text-snt-accent">({customerProfile.preferredCategories.length} prefs)</span>
-                      </div>
-                      <span className="text-[10px] text-snt-accent uppercase font-bold">Profile →</span>
-                    </button>
+                    <>
+                      <button
+                        onClick={() => {
+                          setMobileOpen(false);
+                          setProfileDrawerOpen(true);
+                        }}
+                        className="flex items-center justify-between w-full rounded-xl bg-indigo-50/80 border border-indigo-200/80 p-3 text-xs font-bold text-foreground"
+                      >
+                        <div className="flex items-center gap-2">
+                          <User className="size-4 text-snt-accent" />
+                          <span>{customerProfile.name}</span>
+                          <span className="text-[10px] text-snt-accent">({customerProfile.preferredCategories.length} prefs)</span>
+                        </div>
+                        <span className="text-[10px] text-snt-accent uppercase font-bold">Profile →</span>
+                      </button>
+                      <Link
+                        href="/orders"
+                        onClick={() => setMobileOpen(false)}
+                        className="mt-2 flex items-center justify-between w-full rounded-xl bg-slate-50 border border-slate-200 p-2.5 text-xs font-bold text-foreground hover:bg-slate-100"
+                      >
+                        <div className="flex items-center gap-2">
+                          <Package className="size-4 text-[#5B35F5]" />
+                          <span>My Orders</span>
+                        </div>
+                        <span className="text-[10px] text-muted-foreground font-semibold">History →</span>
+                      </Link>
+                    </>
                   )}
 
                   {isMerchant && merchantProfile && (
