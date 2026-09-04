@@ -1,5 +1,123 @@
 [
   {
+    "orderId": "ORD-CANCEL-1788518358039",
+    "status": "order_confirmed",
+    "paymentStatus": "cancelled",
+    "items": [
+      {
+        "product": {
+          "product_id": "P103",
+          "name": "Earbuds",
+          "price": 1999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 1999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Alpha Customer",
+      "email": "alpha@shopntrust.in"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "userId": "test-customer-alpha",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788518358990,
+    "updatedAt": 1788518358990
+  },
+  {
+    "orderId": "ORD-FAIL-1788518357188",
+    "status": "order_confirmed",
+    "paymentStatus": "failed",
+    "items": [
+      {
+        "product": {
+          "product_id": "P102",
+          "name": "Smartwatch",
+          "price": 2999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 2999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Alpha Customer",
+      "email": "alpha@shopntrust.in"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "userId": "test-customer-alpha",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788518357783,
+    "updatedAt": 1788518357783
+  },
+  {
+    "orderId": "ORD-AI-1788518355843",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P106",
+          "name": "Samsung Galaxy S24 Ultra",
+          "price": 129999
+        },
+        "quantity": 1,
+        "addedVia": "ai_primary"
+      }
+    ],
+    "total": 129999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Alpha Customer",
+      "email": "alpha@shopntrust.in"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_recommendation",
+    "aiSessionId": "test-ai-session-99",
+    "userId": "test-customer-alpha",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788518356535,
+    "updatedAt": 1788518356535
+  },
+  {
+    "orderId": "ORD-MANUAL-1788518349267",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "OnePlus Nord CE4",
+          "price": 24999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 24999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Alpha Customer",
+      "email": "alpha@shopntrust.in"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "userId": "test-customer-alpha",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788518351505,
+    "updatedAt": 1788518361559,
+    "razorpayPaymentId": "pay_duplicate_check"
+  },
+  {
     "orderId": "ORD-1788517877719-WWEL",
     "status": "checkout",
     "paymentStatus": "pending",

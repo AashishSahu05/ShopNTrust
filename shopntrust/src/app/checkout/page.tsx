@@ -235,9 +235,12 @@ export default function CheckoutPage() {
         sessionStorage.setItem('snt_active_order_id', data.order_id);
       }
 
-      // Critical Rule: Do NOT clear the Bag here. Bag clears ONLY upon confirmed payment success.
-      // Safely navigate to the authoritative Razorpay Payment Link
-      window.location.href = data.payment_link;
+      // Open the Razorpay payment link in a new tab
+      if (typeof window !== 'undefined') {
+        window.open(data.payment_link, '_blank');
+        // Transition the current tab to order confirmation / verification page
+        router.push(`/payment/success?orderId=${encodeURIComponent(data.order_id)}`);
+      }
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : 'Unable to prepare payment right now. Please try again.';
       setErrorMessage(msg);

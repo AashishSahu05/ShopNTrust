@@ -124,6 +124,26 @@ function PaymentSuccessContent() {
     }
   }, [resolvedOrderId, reconcileOrder]);
 
+  const handleConfirmPayment = async () => {
+    if (!resolvedOrderId) return;
+    setIsVerifying(true);
+    try {
+      await fetch('/api/orders', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          orderId: resolvedOrderId,
+          paymentStatus: 'successful',
+        }),
+      });
+      await reconcileOrder(resolvedOrderId);
+    } catch (err) {
+      console.error('Failed to confirm payment:', err);
+    } finally {
+      setIsVerifying(false);
+    }
+  };
+
   if (isLoading) {
     return (
       <div className="py-24 bg-background min-h-[70vh] flex items-center justify-center">
@@ -146,13 +166,13 @@ function PaymentSuccessContent() {
             <Clock className="size-8 animate-pulse" />
           </div>
           <span className="rounded-md bg-amber-50 text-amber-700 px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider border border-amber-200">
-            Payment Pending
+            Payment in Progress
           </span>
           <h1 className="text-2xl sm:text-3xl font-extrabold text-foreground mt-3">
-            Your payment is being verified
+            Complete Payment in Opened Tab
           </h1>
           <p className="mt-2 text-xs sm:text-sm text-muted-foreground max-w-md mx-auto leading-relaxed">
-            We have received your transaction request and are waiting for confirmation from Razorpay.
+            We opened your Razorpay payment tab. Once you have completed payment, click below to confirm your order and receive your receipt.
           </p>
 
           <div className="mt-6 p-4 rounded-2xl bg-secondary/50 border border-border text-xs max-w-sm mx-auto space-y-2 text-left">
@@ -168,20 +188,29 @@ function PaymentSuccessContent() {
             </div>
             <div className="flex justify-between">
               <span className="text-muted-foreground">Status:</span>
-              <span className="font-bold text-amber-600">Pending Verification</span>
+              <span className="font-bold text-amber-600">Waiting for Confirmation</span>
             </div>
           </div>
 
-          <div className="mt-8 flex justify-center gap-3">
+          <div className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-3">
             <Button
+              onClick={handleConfirmPayment}
+              disabled={isVerifying}
+              className="w-full sm:w-auto bg-[#5B35F5] hover:bg-[#4a26df] text-white font-bold gap-2 cursor-pointer shadow-sm px-6"
+            >
+              <CheckCircle2 className="size-4" />
+              <span>{isVerifying ? 'Confirming Order…' : 'I Have Paid — Confirm Order'}</span>
+            </Button>
+            <Button
+              variant="outline"
               onClick={() => resolvedOrderId && reconcileOrder(resolvedOrderId)}
               disabled={isVerifying}
-              className="gap-2 cursor-pointer"
+              className="w-full sm:w-auto gap-2 cursor-pointer text-xs"
             >
-              <RefreshCw className={`size-4 ${isVerifying ? 'animate-spin' : ''}`} />
+              <RefreshCw className={`size-3.5 ${isVerifying ? 'animate-spin' : ''}`} />
               <span>Refresh Status</span>
             </Button>
-            <Button variant="outline" render={<Link href="/cart" />}>
+            <Button variant="ghost" className="w-full sm:w-auto text-xs" render={<Link href="/cart" />}>
               Return to Bag
             </Button>
           </div>
