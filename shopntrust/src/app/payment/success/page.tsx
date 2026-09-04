@@ -19,6 +19,7 @@ import {
   Sparkles,
   RefreshCw,
   Package,
+  ArrowLeft,
 } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
@@ -210,8 +211,9 @@ function PaymentSuccessContent() {
               <RefreshCw className={`size-3.5 ${isVerifying ? 'animate-spin' : ''}`} />
               <span>Refresh Status</span>
             </Button>
-            <Button variant="ghost" className="w-full sm:w-auto text-xs" render={<Link href="/cart" />}>
-              Return to Bag
+            <Button variant="ghost" className="w-full sm:w-auto text-xs gap-1.5" render={<Link href="/" />}>
+              <ArrowLeft className="size-3.5" />
+              <span>Back to Website</span>
             </Button>
           </div>
         </Container>
@@ -354,6 +356,15 @@ function PaymentSuccessContent() {
           >
             <ShoppingBag className="size-4 text-slate-600" />
             <span>Continue Shopping</span>
+          </Button>
+          <Button
+            variant="ghost"
+            size="lg"
+            className="w-full sm:w-auto text-xs font-semibold px-4 cursor-pointer gap-1.5"
+            render={<Link href="/" />}
+          >
+            <ArrowLeft className="size-3.5" />
+            <span>Back to Website</span>
           </Button>
         </div>
       </Container>

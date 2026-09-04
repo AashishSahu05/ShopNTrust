@@ -5,6 +5,7 @@
 // safe retry options, and zero premature cart clearing.
 // ============================================================
 
+/* eslint-disable react-hooks/set-state-in-effect */
 'use client';
 
 import { Suspense, useEffect, useState } from 'react';
@@ -77,18 +78,27 @@ function PaymentFailedContent() {
           </div>
         )}
 
-        <div className="mt-8 flex justify-center gap-3">
+        <div className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-3">
           <Button
             size="lg"
-            className="bg-snt-accent hover:bg-snt-accent-hover text-white font-bold px-6 shadow-sm cursor-pointer gap-2"
+            className="w-full sm:w-auto bg-snt-accent hover:bg-snt-accent-hover text-white font-bold px-6 shadow-sm cursor-pointer gap-2"
             render={<Link href="/checkout" />}
           >
             <RefreshCw className="size-4" />
             <span>Retry Checkout</span>
           </Button>
-          <Button variant="outline" size="lg" render={<Link href="/cart" />}>
+          <Button variant="outline" size="lg" className="w-full sm:w-auto font-bold px-5 cursor-pointer" render={<Link href="/cart" />}>
             <ShoppingBag className="size-4 mr-1.5" />
             <span>Back to Bag</span>
+          </Button>
+          <Button
+            variant="ghost"
+            size="lg"
+            className="w-full sm:w-auto text-xs font-semibold px-4 cursor-pointer gap-1.5"
+            render={<Link href="/" />}
+          >
+            <ArrowLeft className="size-3.5" />
+            <span>Back to Website</span>
           </Button>
         </div>
       </Container>

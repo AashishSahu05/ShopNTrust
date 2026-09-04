@@ -1,5 +1,208 @@
 [
   {
+    "orderId": "ORD-CANCEL-1788519431238",
+    "status": "order_confirmed",
+    "paymentStatus": "cancelled",
+    "items": [
+      {
+        "product": {
+          "product_id": "P103",
+          "name": "Earbuds",
+          "price": 1999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 1999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Alpha Customer",
+      "email": "alpha@shopntrust.in"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "userId": "test-customer-alpha",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788519431821,
+    "updatedAt": 1788519431821
+  },
+  {
+    "orderId": "ORD-FAIL-1788519429933",
+    "status": "order_confirmed",
+    "paymentStatus": "failed",
+    "items": [
+      {
+        "product": {
+          "product_id": "P102",
+          "name": "Smartwatch",
+          "price": 2999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 2999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Alpha Customer",
+      "email": "alpha@shopntrust.in"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "userId": "test-customer-alpha",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788519430973,
+    "updatedAt": 1788519430973
+  },
+  {
+    "orderId": "ORD-AI-1788519428262",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P106",
+          "name": "Samsung Galaxy S24 Ultra",
+          "price": 129999
+        },
+        "quantity": 1,
+        "addedVia": "ai_primary"
+      }
+    ],
+    "total": 129999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Alpha Customer",
+      "email": "alpha@shopntrust.in"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_recommendation",
+    "aiSessionId": "test-ai-session-99",
+    "userId": "test-customer-alpha",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788519429214,
+    "updatedAt": 1788519429214
+  },
+  {
+    "orderId": "ORD-MANUAL-1788519425111",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "OnePlus Nord CE4",
+          "price": 24999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 24999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Alpha Customer",
+      "email": "alpha@shopntrust.in"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "userId": "test-customer-alpha",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788519427342,
+    "updatedAt": 1788519433085,
+    "razorpayPaymentId": "pay_duplicate_check"
+  },
+  {
+    "orderId": "ORD-1788519169686-EJOB",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P146",
+          "name": "Mamaearth Ubtan Oil-Free Face Moisturizer",
+          "brand": "Mamaearth",
+          "category": "skincare",
+          "categoryDisplay": "Beauty & Personal Care / Skincare",
+          "subCategory": "Skincare (Moisturizers & Day Creams)",
+          "productType": "Oil-Free Gel-Cream Moisturizer",
+          "description": "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months.",
+          "price": 242,
+          "mrp": 319,
+          "currency": "INR",
+          "image": "/images/products/P146.jpg",
+          "images": [
+            "/images/products/P146.jpg"
+          ],
+          "rating": 5,
+          "reviewCount": 537,
+          "stockStatus": "in_stock",
+          "stockQuantity": 24,
+          "deliveryEstimate": "3 days",
+          "deliveryDays": 3,
+          "shippingCharge": "₹0",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "Mamaearth",
+            "Category": "Beauty & Personal Care / Skincare",
+            "Sub-Category": "Skincare (Moisturizers & Day Creams)",
+            "Product Type": "Oil-Free Gel-Cream Moisturizer"
+          },
+          "rawSpecs": "Variants: 80 g / 80 ml, 80 g (Pack of 2)",
+          "featuresList": [
+            "Quick-absorbing texture, Made Safe Certified, free of parabens and silicones, shelf life of 24–30 months."
+          ],
+          "useCases": [
+            "Deeply moisturizes without clogging pores, restores natural glow, and helps prevent sun-induced dullness."
+          ],
+          "targetCustomer": [
+            "Men and women (aged 18+) looking for non-sticky daily hydration and skin brightening"
+          ],
+          "occasion": [
+            "Daily morning/night hydration routine and base layer under sunscreen or makeup."
+          ],
+          "featured": false,
+          "trending": false,
+          "tags": [
+            "skincare",
+            "mamaearth",
+            "skincare (moisturizers & day creams)",
+            "oil-free gel-cream moisturizer"
+          ]
+        },
+        "quantity": 2,
+        "addedVia": "manual",
+        "addedAt": 1788448252281
+      }
+    ],
+    "total": 484,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "aiSessionId": "snt-active-session",
+    "userId": "a2627e66-9539-4b9c-8532-6f412c0acbaa",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788519170689,
+    "updatedAt": 1788519193639
+  },
+  {
     "orderId": "ORD-CANCEL-1788518358039",
     "status": "order_confirmed",
     "paymentStatus": "cancelled",

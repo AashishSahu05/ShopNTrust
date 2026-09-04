@@ -513,5 +513,20 @@
       "itemCount": 1
     },
     "createdAt": "2026-09-04T10:39:16.852Z"
+  },
+  {
+    "id": "evt_1788519429570_yfs1",
+    "sessionId": "test-ai-session-99",
+    "eventType": "AI_PAYMENT_SUCCESS",
+    "userId": "test-customer-alpha",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": "ORD-AI-1788519428262",
+    "metadata": {
+      "totalAmount": 129999,
+      "attributionType": "ai_recommendation",
+      "itemCount": 1
+    },
+    "createdAt": "2026-09-04T10:57:09.570Z"
   }
 ]
