@@ -129,6 +129,13 @@ function writeLocalOrders(orders: Order[]): void {
   }
 }
 
+function toDbOrderStatus(status: string): 'payment_pending' | 'completed' | 'cancelled' | 'failed' {
+  if (status === 'order_confirmed' || status === 'completed' || status === 'paid') return 'completed';
+  if (status === 'cancelled') return 'cancelled';
+  if (status === 'failed' || status === 'payment_failed') return 'failed';
+  return 'payment_pending';
+}
+
 export interface CreateOrderInput {
   orderId?: string;
   items: CartItem[];
@@ -254,7 +261,7 @@ export async function createOrder(input: CreateOrderInput): Promise<Order> {
       customer_email: newOrder.customerInfo.email,
       total_amount: newOrder.total,
       currency: newOrder.currency,
-      status: newOrder.status === 'order_confirmed' ? 'completed' : newOrder.status,
+      status: toDbOrderStatus(newOrder.status),
       payment_status: newOrder.paymentStatus,
       payment_method: newOrder.paymentMethod,
       razorpay_order_id: newOrder.razorpayOrderId || null,
@@ -517,7 +524,7 @@ export async function updateOrderStatus(
     await supabaseAdmin
       .from('orders')
       .update({
-        status: status === 'order_confirmed' ? 'completed' : status,
+        status: toDbOrderStatus(status),
         payment_status: paymentStatus,
         razorpay_payment_id: razorpayPaymentId || null,
         updated_at: new Date(now).toISOString(),
