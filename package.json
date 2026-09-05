@@ -1,0 +1,11 @@
+{
+  "name": "shopntrust-root",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix shopntrust run dev",
+    "build": "npm --prefix shopntrust run build",
+    "start": "npm --prefix shopntrust run start",
+    "lint": "npm --prefix shopntrust run lint"
+  }
+}
