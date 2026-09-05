@@ -319,10 +319,12 @@ export async function POST(req: NextRequest) {
     });
   } catch (err) {
     console.error('Payment create-link error:', err);
+    const errorMessage = err instanceof Error ? err.message : String(err);
     return NextResponse.json(
       {
         success: false,
         error: 'Unable to prepare payment right now. Please try again.',
+        details: errorMessage,
       },
       { status: 500 }
     );
