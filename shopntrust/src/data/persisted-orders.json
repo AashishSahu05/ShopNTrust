@@ -1,5 +1,37 @@
 [
   {
+    "orderId": "ORD-1788632806424-V7NW",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P103",
+          "name": "Apple AirPods Pro (2nd Gen, USB-C)",
+          "price": 18990,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "Accessories"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 18990,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "code526@gmail.com",
+      "phone": "+91 98765 43210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788632807971,
+    "updatedAt": 1788632807971
+  },
+  {
     "orderId": "ORD-1788632362938-ZM9Q",
     "status": "checkout",
     "paymentStatus": "pending",
