@@ -21,28 +21,46 @@ const supabaseAdmin = createClient(supabaseConfig.url, serviceRoleKey, {
 const DATA_DIR = path.join(process.cwd(), 'src', 'data');
 const EVENTS_FILE = path.join(DATA_DIR, 'persisted-events.json');
 
+// In-memory cache for serverless environments (e.g. Vercel) where filesystem is read-only
+let inMemoryEventsCache: AICommerceEvent[] | null = null;
+
 function ensureDataDir() {
-  if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR, { recursive: true });
+  try {
+    if (!fs.existsSync(DATA_DIR)) {
+      fs.mkdirSync(DATA_DIR, { recursive: true });
+    }
+  } catch {
+    // Read-only filesystem on serverless (e.g. Vercel)
   }
 }
 
 function readLocalEvents(): AICommerceEvent[] {
-  ensureDataDir();
-  if (!fs.existsSync(EVENTS_FILE)) {
-    return [];
+  if (inMemoryEventsCache !== null) {
+    return inMemoryEventsCache;
   }
   try {
+    ensureDataDir();
+    if (!fs.existsSync(EVENTS_FILE)) {
+      inMemoryEventsCache = [];
+      return [];
+    }
     const raw = fs.readFileSync(EVENTS_FILE, 'utf-8');
-    return JSON.parse(raw);
+    inMemoryEventsCache = JSON.parse(raw);
+    return inMemoryEventsCache || [];
   } catch {
+    inMemoryEventsCache = [];
     return [];
   }
 }
 
 function writeLocalEvents(events: AICommerceEvent[]): void {
-  ensureDataDir();
-  fs.writeFileSync(EVENTS_FILE, JSON.stringify(events, null, 2), 'utf-8');
+  inMemoryEventsCache = events;
+  try {
+    ensureDataDir();
+    fs.writeFileSync(EVENTS_FILE, JSON.stringify(events, null, 2), 'utf-8');
+  } catch {
+    // Silently ignore EROFS in serverless runtime since Supabase handles persistent database storage
+  }
 }
 
 // In-memory debounce cache to prevent duplicate events on React re-renders

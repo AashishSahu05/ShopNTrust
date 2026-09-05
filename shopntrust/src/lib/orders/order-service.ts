@@ -87,28 +87,46 @@ const supabaseAdmin = createClient(supabaseConfig.url, serviceRoleKey, {
 const DATA_DIR = path.join(process.cwd(), 'src', 'data');
 const ORDERS_FILE = path.join(DATA_DIR, 'persisted-orders.json');
 
+// In-memory cache for serverless environments (e.g. Vercel) where filesystem is read-only
+let inMemoryOrdersCache: Order[] | null = null;
+
 function ensureDataDir() {
-  if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR, { recursive: true });
+  try {
+    if (!fs.existsSync(DATA_DIR)) {
+      fs.mkdirSync(DATA_DIR, { recursive: true });
+    }
+  } catch {
+    // Read-only filesystem on serverless (e.g. Vercel)
   }
 }
 
 function readLocalOrders(): Order[] {
-  ensureDataDir();
-  if (!fs.existsSync(ORDERS_FILE)) {
-    return [];
+  if (inMemoryOrdersCache !== null) {
+    return inMemoryOrdersCache;
   }
   try {
+    ensureDataDir();
+    if (!fs.existsSync(ORDERS_FILE)) {
+      inMemoryOrdersCache = [];
+      return [];
+    }
     const raw = fs.readFileSync(ORDERS_FILE, 'utf-8');
-    return JSON.parse(raw);
+    inMemoryOrdersCache = JSON.parse(raw);
+    return inMemoryOrdersCache || [];
   } catch {
+    inMemoryOrdersCache = [];
     return [];
   }
 }
 
 function writeLocalOrders(orders: Order[]): void {
-  ensureDataDir();
-  fs.writeFileSync(ORDERS_FILE, JSON.stringify(orders, null, 2), 'utf-8');
+  inMemoryOrdersCache = orders;
+  try {
+    ensureDataDir();
+    fs.writeFileSync(ORDERS_FILE, JSON.stringify(orders, null, 2), 'utf-8');
+  } catch {
+    // Silently ignore EROFS in serverless runtime since Supabase handles persistent database storage
+  }
 }
 
 export interface CreateOrderInput {

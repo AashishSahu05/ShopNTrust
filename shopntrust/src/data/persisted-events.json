@@ -979,5 +979,51 @@
       "subtotal": 19295
     },
     "createdAt": "2026-09-04T18:19:15.067Z"
+  },
+  {
+    "id": "evt_1788631096041_282r",
+    "sessionId": "sess_ai_test_13",
+    "eventType": "AI_PAYMENT_SUCCESS",
+    "userId": null,
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": "ORD-P9-AI-13",
+    "metadata": {
+      "totalAmount": 129999,
+      "attributionType": "ai_recommendation",
+      "itemCount": 1
+    },
+    "createdAt": "2026-09-05T17:58:16.041Z"
+  },
+  {
+    "id": "evt_1788631176906_hjso",
+    "sessionId": "test-ai-session-99",
+    "eventType": "AI_PAYMENT_SUCCESS",
+    "userId": "test-customer-alpha",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": "ORD-AI-1788631176158",
+    "metadata": {
+      "totalAmount": 129999,
+      "attributionType": "ai_recommendation",
+      "itemCount": 1
+    },
+    "createdAt": "2026-09-05T17:59:36.905Z"
+  },
+  {
+    "id": "evt_1788631543341_b17d",
+    "sessionId": "audit_session_1788631541841",
+    "eventType": "AI_PAYMENT_SUCCESS",
+    "userId": "audit-user-123",
+    "productId": null,
+    "sourceProductId": null,
+    "orderId": "ORD-AUDIT-1788631541841",
+    "metadata": {
+      "totalAmount": 136800,
+      "attributionType": "ai_mixed",
+      "itemCount": 2,
+      "source": "n8n_razorpay_webhook"
+    },
+    "createdAt": "2026-09-05T18:05:43.341Z"
   }
 ]

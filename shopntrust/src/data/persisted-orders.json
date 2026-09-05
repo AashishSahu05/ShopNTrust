@@ -1,5 +1,862 @@
 [
   {
+    "orderId": "ORD-1788632362938-ZM9Q",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P103",
+          "name": "Apple AirPods Pro (2nd Gen, USB-C)",
+          "price": 18990,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "Accessories"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 18990,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+91 98765 43210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788632363842,
+    "updatedAt": 1788632363842
+  },
+  {
+    "orderId": "ORD-1788632214318-NAIW",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P103",
+          "name": "Apple AirPods Pro (2nd Gen, USB-C)",
+          "price": 18990,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "Accessories"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 18990,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788632215145,
+    "updatedAt": 1788632215145
+  },
+  {
+    "orderId": "ORD-FAIL-1788631558544",
+    "status": "checkout",
+    "paymentStatus": "failed",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "OnePlus Nord CE6",
+          "brand": "OnePlus",
+          "category": "phones",
+          "categoryDisplay": "Electronics",
+          "subCategory": "Android SmartPhones",
+          "productType": "Mobile Phones",
+          "description": "2.5+ days of battery life",
+          "price": 37999,
+          "mrp": 40999,
+          "currency": "INR",
+          "image": "/images/products/P101.jpg",
+          "images": [
+            "/images/products/P101.jpg"
+          ],
+          "rating": 4.7,
+          "reviewCount": 621,
+          "stockStatus": "in_stock",
+          "stockQuantity": 16,
+          "deliveryEstimate": "4 days",
+          "deliveryDays": 4,
+          "shippingCharge": "₹0",
+          "returnable": true,
+          "returnWindowDays": 7,
+          "specifications": {
+            "Brand": "OnePlus",
+            "Category": "Electronics",
+            "Sub-Category": "Android SmartPhones",
+            "Product Type": "Mobile Phones"
+          },
+          "rawSpecs": "",
+          "featuresList": [
+            "IP66 / IP68 / IP69 / IP69K dust & water resistance",
+            "MIL-STD-810H durability",
+            "3200Hz instantaneous touch response",
+            "Dual Stereo Speakers with 300% Super Audio Mode",
+            "X-axis haptic motor",
+            "IR Blaster",
+            "In-display fingerprint sensor",
+            "Dual AI suite (OnePlus & Google)"
+          ],
+          "benefits": [
+            "2.5+ days of battery life",
+            "Power bank capability for other devices",
+            "Extreme drop and liquid ingress protection",
+            "Long-term smooth performance"
+          ],
+          "useCases": [
+            "Gaming",
+            "Photography",
+            "Videography",
+            "Content creation",
+            "Daily use",
+            "Multitasking",
+            "Productivity",
+            "Entertainment"
+          ],
+          "targetCustomer": [
+            "General",
+            "Gaming",
+            "Photography",
+            "Videography"
+          ],
+          "occasion": [
+            "Everyday high-performance computing",
+            "Long-haul travel without charger access",
+            "Extended outdoor adventures",
+            "Intense gaming sessions"
+          ],
+          "variants": [
+            {
+              "variant_id": "8gb-128gb",
+              "name": "8 GB + 128 GB",
+              "type": "ram_storage",
+              "price": 37999,
+              "attributes": {
+                "ram": "8 GB",
+                "storage": "128 GB"
+              }
+            },
+            {
+              "variant_id": "8gb-256gb",
+              "name": "8 GB + 256 GB",
+              "type": "ram_storage",
+              "price": 41999,
+              "attributes": {
+                "ram": "8 GB",
+                "storage": "256 GB"
+              }
+            }
+          ],
+          "crossSellIds": [
+            "P102",
+            "P103",
+            "P104",
+            "P105"
+          ],
+          "featured": true,
+          "trending": true,
+          "tags": [
+            "phones",
+            "oneplus",
+            "android smartphones",
+            "mobile phones"
+          ]
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "addedAt": 1788631559736
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Test User",
+      "email": "test@shopntrust.dev",
+      "phone": "",
+      "address": "undefined, undefined, undefined - undefined",
+      "city": "",
+      "state": "",
+      "pincode": "",
+      "country": "India"
+    },
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788631559736,
+    "updatedAt": 1788631561103
+  },
+  {
+    "orderId": "ORD-AUDIT-1788631541841",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "Smartphones"
+        },
+        "quantity": 1,
+        "addedVia": "ai_primary"
+      },
+      {
+        "product": {
+          "product_id": "P106",
+          "name": "Apple 20W USB-C Power Adapter",
+          "price": 1900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "Accessories"
+        },
+        "quantity": 1,
+        "addedVia": "ai_cross_sell"
+      }
+    ],
+    "total": 136800,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashish@shopntrust.dev",
+      "phone": "+919876543210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_mixed",
+    "aiSessionId": "audit_session_1788631541841",
+    "userId": "audit-user-123",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788631542289,
+    "updatedAt": 1788631544467,
+    "razorpayPaymentId": "pay_audit_1788631542806"
+  },
+  {
+    "orderId": "ORD-AUDIT-1788631527052",
+    "status": "order_confirmed",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "Smartphones"
+        },
+        "quantity": 1,
+        "addedVia": "ai_primary"
+      },
+      {
+        "product": {
+          "product_id": "P106",
+          "name": "Apple 20W USB-C Power Adapter",
+          "price": 1900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "Accessories"
+        },
+        "quantity": 1,
+        "addedVia": "ai_cross_sell"
+      }
+    ],
+    "total": 136800,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashish@shopntrust.dev",
+      "phone": "+919876543210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_mixed",
+    "aiSessionId": "audit_session_1788631527052",
+    "userId": "audit-user-123",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788631527982,
+    "updatedAt": 1788631527982
+  },
+  {
+    "orderId": "ORD-1788631497053-SEJZ",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "Smartphones"
+        },
+        "quantity": 1,
+        "addedVia": "ai_primary"
+      },
+      {
+        "product": {
+          "product_id": "P106",
+          "name": "Apple 20W USB-C Power Adapter",
+          "price": 1900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "Accessories"
+        },
+        "quantity": 1,
+        "addedVia": "ai_cross_sell"
+      }
+    ],
+    "total": 136800,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashish@shopntrust.dev",
+      "phone": "+919876543210",
+      "address": "Plot 42, Tech Park Avenue",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_mixed",
+    "aiSessionId": "audit_session_1788631497046",
+    "userId": "audit-user-123",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788631498175,
+    "updatedAt": 1788631498175
+  },
+  {
+    "orderId": "ORD-CANCEL-1788631178663",
+    "status": "order_confirmed",
+    "paymentStatus": "cancelled",
+    "items": [
+      {
+        "product": {
+          "product_id": "P103",
+          "name": "Earbuds",
+          "price": 1999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 1999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Alpha Customer",
+      "email": "alpha@shopntrust.in"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "userId": "test-customer-alpha",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788631179102,
+    "updatedAt": 1788631179102
+  },
+  {
+    "orderId": "ORD-FAIL-1788631177943",
+    "status": "order_confirmed",
+    "paymentStatus": "failed",
+    "items": [
+      {
+        "product": {
+          "product_id": "P102",
+          "name": "Smartwatch",
+          "price": 2999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 2999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Alpha Customer",
+      "email": "alpha@shopntrust.in"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "userId": "test-customer-alpha",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788631178428,
+    "updatedAt": 1788631178428
+  },
+  {
+    "orderId": "ORD-AI-1788631176158",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P106",
+          "name": "Samsung Galaxy S24 Ultra",
+          "price": 129999
+        },
+        "quantity": 1,
+        "addedVia": "ai_primary"
+      }
+    ],
+    "total": 129999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Alpha Customer",
+      "email": "alpha@shopntrust.in"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_recommendation",
+    "aiSessionId": "test-ai-session-99",
+    "userId": "test-customer-alpha",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788631176633,
+    "updatedAt": 1788631176633
+  },
+  {
+    "orderId": "ORD-MANUAL-1788631174202",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "OnePlus Nord CE4",
+          "price": 24999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 24999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Alpha Customer",
+      "email": "alpha@shopntrust.in"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "userId": "test-customer-alpha",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788631175067,
+    "updatedAt": 1788631180621,
+    "razorpayPaymentId": "pay_duplicate_check"
+  },
+  {
+    "orderId": "ord_failed_1788631153177",
+    "status": "order_confirmed",
+    "paymentStatus": "failed",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Campaign Item",
+          "price": 50000
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea"
+      }
+    ],
+    "total": 50000,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Failed Payment User",
+      "email": "failed@test.com",
+      "phone": "+919876543210",
+      "address": "789 Failed Rd",
+      "city": "Delhi",
+      "state": "Delhi",
+      "pincode": "110001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea",
+    "createdAt": 1788631154011,
+    "updatedAt": 1788631154011
+  },
+  {
+    "orderId": "ord_fake_1788631151739",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Standard Product",
+          "price": 19999
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 19999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Spoof Test",
+      "email": "spoof@test.com",
+      "phone": "+919876543210",
+      "address": "456 Test Ave",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788631152219,
+    "updatedAt": 1788631152219
+  },
+  {
+    "orderId": "ord_test_p21_1788631149571",
+    "status": "order_confirmed",
+    "paymentStatus": "successful",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Campaign Test Product",
+          "price": 49990
+        },
+        "quantity": 1,
+        "addedVia": "manual",
+        "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea"
+      }
+    ],
+    "total": 49990,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Attribution Test User",
+      "email": "attribution@shopntrust.com",
+      "phone": "+919876543210",
+      "address": "123 Test Lane",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "campaignId": "6cbc43e9-313b-47ae-b8a6-e05b9af4a1ea",
+    "createdAt": 1788631150024,
+    "updatedAt": 1788631150024
+  },
+  {
+    "orderId": "ORD-1788631093707-KE95",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788631094300,
+    "updatedAt": 1788631094300
+  },
+  {
+    "orderId": "ORD-1788631093014-AIAE",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788631093459,
+    "updatedAt": 1788631093459
+  },
+  {
+    "orderId": "ORD-1788631082222-0YLE",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788631088310,
+    "updatedAt": 1788631088310
+  },
+  {
+    "orderId": "ORD-1788631082203-Z6RA",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish",
+      "email": "aashish@test.com"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788631085261,
+    "updatedAt": 1788631085261
+  },
+  {
+    "orderId": "ORD-1788631078816-YMED",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P117",
+          "name": "Apple Watch Ultra 2",
+          "price": 89900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "wearables",
+          "description": "Companion",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_cross_sell"
+      }
+    ],
+    "total": 89900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_cross_sell",
+    "aiSessionId": "sess_ai_phase9_03",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788631079906,
+    "updatedAt": 1788631079906
+  },
+  {
+    "orderId": "ORD-1788631075902-XOZI",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P102",
+          "name": "Apple iPhone 16 Pro",
+          "price": 119900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Upgrade Tier",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_upsell"
+      }
+    ],
+    "total": 119900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_upsell",
+    "aiSessionId": "sess_ai_phase9_02",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788631076520,
+    "updatedAt": 1788631076520
+  },
+  {
+    "orderId": "ORD-1788631070174-GWVM",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P103",
+          "name": "Samsung Galaxy S24 Ultra",
+          "price": 129999,
+          "currency": "INR",
+          "brand": "Samsung",
+          "category": "phones",
+          "description": "AI Flagship",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "ai_primary"
+      }
+    ],
+    "total": 129999,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": true,
+    "attributionType": "ai_recommendation",
+    "aiSessionId": "sess_ai_phase9_01",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788631071669,
+    "updatedAt": 1788631071669
+  },
+  {
+    "orderId": "ORD-1788631062890-Y5Z8",
+    "status": "checkout",
+    "paymentStatus": "pending",
+    "items": [
+      {
+        "product": {
+          "product_id": "P101",
+          "name": "Apple iPhone 16 Pro Max",
+          "price": 134900,
+          "currency": "INR",
+          "brand": "Apple",
+          "category": "phones",
+          "description": "Flagship phone",
+          "image": "",
+          "stockStatus": "in_stock"
+        },
+        "quantity": 1,
+        "addedVia": "manual"
+      }
+    ],
+    "total": 134900,
+    "currency": "INR",
+    "customerInfo": {
+      "name": "Aashish Sahu",
+      "email": "aashishsahu9887@gmail.com",
+      "phone": "+919876543210"
+    },
+    "deliveryEstimate": "3-5 Business Days",
+    "isAiAssisted": false,
+    "attributionType": "manual",
+    "paymentMethod": "razorpay",
+    "createdAt": 1788631063362,
+    "updatedAt": 1788631063362
+  },
+  {
     "orderId": "ORD-1788545868889-C6NO",
     "status": "order_confirmed",
     "paymentStatus": "successful",

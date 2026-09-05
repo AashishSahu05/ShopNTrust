@@ -181,13 +181,17 @@ export async function POST(req: NextRequest) {
     const productIds = items.map((i) => i.product.product_id).join(', ').slice(0, 250);
     const totalQuantity = items.reduce((sum, i) => sum + i.quantity, 0);
 
+    const cleanContact = customerInfo.phone
+      ? customerInfo.phone.replace(/[^0-9+]/g, '')
+      : '+919876543210';
+
     const cleanWebhookPayload = {
       amount: total,
       currency: currency || 'INR',
       customer: {
         name: customerInfo.name,
         email: customerInfo.email,
-        contact: customerInfo.phone || '+919876543210',
+        contact: cleanContact,
       },
       items: items.map((i) => ({
         product_id: i.product.product_id,
@@ -206,9 +210,9 @@ export async function POST(req: NextRequest) {
       },
     };
 
-    // 5. Execute call to n8n webhook (try test URL first as requested, fallback to production URL if test node is inactive)
-    const primaryUrl = 'https://shopntrust.app.n8n.cloud/webhook-test/New_Order';
-    const fallbackUrl = 'https://shopntrust.app.n8n.cloud/webhook/New_Order';
+    // 5. Execute call to authoritative n8n Payment webhook (try active production endpoint first, fallback to test endpoint)
+    const prodUrl = 'https://shopntrust.app.n8n.cloud/webhook/New_Order';
+    const testUrl = 'https://shopntrust.app.n8n.cloud/webhook-test/New_Order';
 
     let parsed: PaymentWorkflowResponse = {
       success: false,
@@ -217,7 +221,7 @@ export async function POST(req: NextRequest) {
 
     const callWebhook = async (url: string) => {
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
+      const timeoutId = setTimeout(() => controller.abort(), 12000); // 12s timeout
       try {
         const res = await fetch(url, {
           method: 'POST',
@@ -237,15 +241,15 @@ export async function POST(req: NextRequest) {
       }
     };
 
-    // Try primary webhook-test endpoint first
-    const primaryResult = await callWebhook(primaryUrl);
-    if (primaryResult && primaryResult.success && isValidPaymentUrl(primaryResult.payment_link)) {
-      parsed = primaryResult;
+    // Try authoritative production webhook first for instant response
+    const prodResult = await callWebhook(prodUrl);
+    if (prodResult && prodResult.success && isValidPaymentUrl(prodResult.payment_link)) {
+      parsed = prodResult;
     } else {
-      // If test endpoint is inactive in n8n canvas, seamlessly fall back to production endpoint
-      const fallbackResult = await callWebhook(fallbackUrl);
-      if (fallbackResult && fallbackResult.success && isValidPaymentUrl(fallbackResult.payment_link)) {
-        parsed = fallbackResult;
+      // If production is not ready, try test webhook if developer is running test canvas
+      const testResult = await callWebhook(testUrl);
+      if (testResult && testResult.success && isValidPaymentUrl(testResult.payment_link)) {
+        parsed = testResult;
       }
     }
 
